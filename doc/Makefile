@@ -1,4 +1,5 @@
-latexfile = annotated_bibliography
+bibliographyfile = annotated_bibliography
+thesisfile = thesis
 
 figures =
 
@@ -8,28 +9,46 @@ TEX = pdflatex
 
 VPATH = Figs
 
-$(latexfile).pdf : $(figures) $(latexfile).tex $(latexfile).bbl
-	while ($(TEX) $(latexfile) ; \
-	grep -q "Rerun to get cross" $(latexfile).log ) do true ; \
+all: thesis bibliography
+
+thesis: $(thesisfile).pdf
+
+bibliography: $(bibliographyfile).pdf
+
+$(bibliographyfile).pdf : $(bibliographyfile).tex $(bibliographyfile).bbl
+	while ($(TEX) $(bibliographyfile) ; \
+	grep -q "Rerun to get cross" $(bibliographyfile).log ) do true ; \
+	done
+
+$(thesisfile).pdf : $(figures) $(thesisfile).tex
+	while ($(TEX) $(thesisfile) ; \
+	grep -q "Rerun to get cross" $(thesisfile).log ) do true ; \
 	done
 
 # keep .eps files in the same directory as the .fig files
 # %.eps : %.fig
 #	fig2dev -L eps $< > $(dir $< )$@
 
-pdf : $(latexfile).pdf
+pdf : $(thesisfile).pdf
 
-$(latexfile).bbl : $(latexfile).tex $(referencefile).bib
+# because we're insane, we're using bibtex for the bibliography, and
+$(bibliographyfile).bbl : $(bibliographyfile).tex $(referencefile).bib
 	if [ -a ../../BibTeX/Polarization.bib ] ; \
 	then \
 	  rm Polarization.bib ; \
 	  cp ../../BibTeX/Polarization.bib . ; \
 	fi;
-	pdflatex $(latexfile)
-	bibtex $(latexfile)
+	pdflatex $(bibliographyfile)
+	bibtex $(bibliographyfile)
 
-$(latexfile).tar.gz : $(figures) $(latexfile).tex $(referencefile).bib
-	tar -czvf $(latexfile).tar.gz $^
+$(bibliographyfile).tar.gz : $(figures) $(bibliographyfile).tex $(referencefile).bib
+	tar -czvf $(bibliographyfile).tar.gz $^
 
-clean:
-	rm -f $(latexfile).log $(latexfile).aux $(latexfile).bbl $(latexfile).blg $(latexfile).aux
+mostlyclean:
+	rm -f $(bibliographyfile).log $(bibliographyfile).aux $(bibliographyfile).bbl $(bibliographyfile).blg $(bibliographyfile).aux
+	rm -f $(thesisfile).log $(thesisfile).aux $(thesisfile).bcf $(thesisfile).blg $(thesisfile).aux $(thesisfile).run.xml $(thesisfile).toc $(thesisfile).lot
+	rm -f chapter_*.aux chapter_*.blg title.aux appendix_*.aux abstract.aux
+
+clean: mostlyclean
+	rm -f $(bibliographyfile).pdf $(thesisfile).pdf
+
