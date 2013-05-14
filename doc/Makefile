@@ -31,12 +31,12 @@ $(thesisfile).pdf : $(figures) $(thesisfile).tex
 
 pdf : $(thesisfile).pdf
 
-# because we're insane, we're using bibtex for the bibliography, and
+# because we're insane, we're using bibtex for the bibliography
 $(bibliographyfile).bbl : $(bibliographyfile).tex $(referencefile).bib
 	if [ -a ../../BibTeX/Polarization.bib ] ; \
 	then \
 	  rm Polarization.bib ; \
-	  cp ../../BibTeX/Polarization.bib . ; \
+	  sed -E '1d;2d;3d;s/^[ 	]+$$/\\par/' ../../BibTeX/Polarization.bib > Polarization.bib ; \
 	fi;
 	pdflatex $(bibliographyfile)
 	bibtex $(bibliographyfile)
