@@ -11,6 +11,9 @@ VPATH = Figs
 
 all: thesis bibliography
 
+wc: 
+	echo `cat chapter*tex | detex | wc -w` words.
+
 thesis: $(thesisfile).pdf
 
 bibliography: $(bibliographyfile).pdf

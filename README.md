@@ -1,7 +1,20 @@
 Polarization
 ============
 
-Analysis of workforce and skill polarization in Australia.
+An analysis of workforce and skill polarization in Australia.
+
+Obtaining and Building
+----------------------
+
+If you're mad enough, the LaTeX thesis documents and analyses can be rebuilt from scratch. You'll need a reasonable *NIX environment with R 3.0, build tools and a decent TeX distribution.
+
+Simply execute:
+
+    git clone https://github.com/kuperov/polarization.git
+    cd polarization
+    make all
+
+If all goes well, the final thesis.pdf file can be found in the doc/ directory.
 
 Data sources
 ------------
