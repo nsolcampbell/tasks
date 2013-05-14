@@ -12,6 +12,21 @@
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{Polarization.bib}
 
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\hypersetup{  
+  pdfinfo={  
+    Title={My Title},  
+    Subject={My Subject},  
+    NewKey={Foobar},  
+    % ...  
+  }  
+}
+\ExecuteBibliographyOptions{doi=false}
+\newbibmacro{string+doi}[1]{%
+  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+
 \numberwithin{equation}{chapter}
 
 \begin{document}

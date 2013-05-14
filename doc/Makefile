@@ -34,7 +34,11 @@ $(thesisfile).pdf : $(figures) $(thesisfile).tex
 
 pdf : $(thesisfile).pdf
 
-# because we're insane, we're using bibtex for the bibliography
+# Because we're insane, we're using bibtex for the bibliography
+# and biblatex for the thesis itself. Just easier.
+# We're also exporting directly from the reference manager.
+# This is hard-coded for my environment, so let it use the bib
+# file in SCM.
 $(bibliographyfile).bbl : $(bibliographyfile).tex $(referencefile).bib
 	if [ -a ../../BibTeX/Polarization.bib ] ; \
 	then \
@@ -49,7 +53,7 @@ $(bibliographyfile).tar.gz : $(figures) $(bibliographyfile).tex $(referencefile)
 
 mostlyclean:
 	rm -f $(bibliographyfile).log $(bibliographyfile).aux $(bibliographyfile).bbl $(bibliographyfile).blg $(bibliographyfile).aux
-	rm -f $(thesisfile).log $(thesisfile).aux $(thesisfile).bcf $(thesisfile).blg $(thesisfile).aux $(thesisfile).run.xml $(thesisfile).toc $(thesisfile).lot
+	rm -f $(thesisfile).log $(thesisfile).aux $(thesisfile).bcf $(thesisfile).blg $(thesisfile).aux $(thesisfile).run.xml $(thesisfile).toc $(thesisfile).lot $(thesisfile).out
 	rm -f chapter_*.aux chapter_*.blg title.aux appendix_*.aux abstract.aux
 
 clean: mostlyclean
