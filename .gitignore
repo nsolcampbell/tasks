@@ -10,3 +10,4 @@
 **/*.lof
 **/*.run.xml
 **/*.out
+.Rproj.user
