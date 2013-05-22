@@ -1,7 +1,10 @@
 Polarization
 ============
 
-An analysis of workforce and skill polarization in Australia.
+An analysis of workforce and skill polarization in Australia. If you're just after the outputs, they're available as:
+
+ * [In-progress thesis](https://github.com/kuperov/polarization/blob/master/doc/thesis.pdf?raw=true)
+ * [In-progress annotated bibliography](https://github.com/kuperov/polarization/blob/master/doc/annotated_bibliography.pdf?raw=true)
 
 Obtaining and Building
 ----------------------
