@@ -1,10 +1,13 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper,11pt]{report}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{setspace}
+\onehalfspacing
 
 \usepackage[american]{babel}
 \usepackage{csquotes}
@@ -13,13 +16,11 @@
 \addbibresource{Polarization.bib}
 
 \usepackage[colorlinks,allcolors=blue]{hyperref}
-\hypersetup{  
-  pdfinfo={  
-    Title={My Title},  
-    Subject={My Subject},  
-    NewKey={Foobar},  
-    % ...  
-  }  
+\hypersetup{%
+    pdftitle={The Luddite Hypothesis [working title]},%
+    pdfauthor={Alex Cooper},%
+    pdfsubject={An analysis of determinants of inequality in Australia.},%
+    pdfkeywords={labor, polarization, routinization, SBTC, inequality},%
 }
 \ExecuteBibliographyOptions{doi=false}
 \newbibmacro{string+doi}[1]{%
