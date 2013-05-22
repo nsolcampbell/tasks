@@ -20,12 +20,12 @@ bib: $(bibliographyfile).pdf
 
 $(bibliographyfile).pdf : $(bibliographyfile).tex $(bibliographyfile).bbl
 	while ($(TEX) $(bibliographyfile) ; \
-	grep -q "Rerun to get cross" $(bibliographyfile).log ) do true ; \
+	grep -Eq "Please rerun LaTeX|Rerun to get cross-references" $(bibliographyfile).log ) do true ; \
 	done
 
-$(thesisfile).pdf : $(figures) $(thesisfile).tex $(thesisfile).bbl
+$(thesisfile).pdf : $(figures) $(thesisfile).tex $(thesisfile).bbl $(bibliographyfile).bbl
 	while ($(TEX) $(thesisfile) ; \
-	grep -q "Rerun to get cross" $(thesisfile).log ) do true ; \
+	grep -Eq "Please rerun LaTeX|Rerun to get cross-references" $(thesisfile).log ) do true ; \
 	done
 
 $(thesisfile).bbl:
@@ -46,11 +46,19 @@ pdf : $(thesisfile).pdf
 $(bibliographyfile).bbl : $(bibliographyfile).tex $(referencefile).bib
 	if [ -a ../../BibTeX/Polarization.bib ] ; \
 	then \
-	  rm Polarization.bib ; \
+	  rm -f Polarization.bib ; \
 	  sed -E '1d;2d;3d;s/^[ 	]*$$/\\par/' ../../BibTeX/Polarization.bib > Polarization.bib ; \
 	fi;
 	pdflatex $(bibliographyfile)
 	bibtex $(bibliographyfile)
+
+# no deps: so always try to copy bib file, if available.
+$(referencefile).bib :
+	if [ -a ../../BibTeX/$(referencefile).bib ] ; \
+	then \
+	  rm -f $(referencefile).bib ; \
+	  sed -E '1d;2d;3d;s/^[         ]*$$/\\par/' ../../BibTeX/$(referencefile).bib > $(referencefile).bib ; \
+	fi;
 
 $(bibliographyfile).tar.gz : $(figures) $(bibliographyfile).tex $(referencefile).bib
 	tar -czvf $(bibliographyfile).tar.gz $^
