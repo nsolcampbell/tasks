@@ -1,0 +1,24 @@
+Title
+========================================================
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **MD** toolbar button for help on Markdown).
+
+```{r}
+library(ggplot2)
+
+pl <- ggplot(psn_sub, aes(IWSTPP/52/hours, color=OCCCP,group=OCCCP)) + geom_density() + scale_x_log10() + xlab("Average hourly earnings (log scale)") + theme_bw() 
+pl
+
+pl +  facet_grid(OCCCP~.)
+
+box <- ggplot(psn_sub, aes(y=IWSTPP/52/hours, color=OCCCP,x=OCCCP)) + geom_boxplot() + ylab("Average hourly earnings (log scale)") + scale_y_log10() + coord_flip() + theme_bw() + theme(legend.position="none") 
+box
+```
+
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+
