@@ -1,5 +1,5 @@
 select * 
-	INTO OUTFILE '/tmp/know_skill_abil.csv'
+	INTO OUTFILE '/tmp/model.csv'
 	FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 	ESCAPED BY '\\'
 	LINES TERMINATED BY '\n'
@@ -8,7 +8,6 @@ from
 	occupation.onetsoc_code,
 	occupation.title,
 	model.element_name, 
-	model.description as element_desc,
 	skill.data_value, scale.minimum, scale.maximum, scale.scale_name,
 	skill.n, skill.lower_ci_bound, skill.upper_ci_bound
 	from onet.skills as skill
@@ -26,7 +25,6 @@ select 'Knowledge' as Dimension,
 	occupation.onetsoc_code,
 	occupation.title,
 	model.element_name, 
-	model.description as element_desc,
 	know.data_value, scale.minimum, scale.maximum, scale.scale_name,
 	know.n, know.lower_ci_bound, know.upper_ci_bound
 	from onet.knowledge as know
@@ -44,7 +42,6 @@ select 'Abilities' as Dimension,
 	occupation.onetsoc_code,
 	occupation.title,
 	model.element_name, 
-	model.description as element_desc,
 	abil.data_value, scale.minimum, scale.maximum, scale.scale_name,
 	abil.n, abil.lower_ci_bound, abil.upper_ci_bound
 	from onet.abilities as abil
@@ -57,4 +54,21 @@ select 'Abilities' as Dimension,
 			inner join
 		 onet.occupation_data occupation
 			on occupation.onetsoc_code = abil.onetsoc_code
+union all
+select 'Work Activity' as Dimension,
+	occupation.onetsoc_code,
+	occupation.title,
+	model.element_name, 
+	act.data_value, scale.minimum, scale.maximum, scale.scale_name,
+	act.n, act.lower_ci_bound, act.upper_ci_bound
+	from onet.work_activities as act
+			inner join 
+		 onet.content_model_reference as model
+			on act.element_id = model.element_id
+			inner join
+		 onet.scales_reference scale
+			on act.scale_id = scale.scale_id
+			inner join
+		 onet.occupation_data occupation
+			on occupation.onetsoc_code = act.onetsoc_code
 ) as know_skill_abil;
