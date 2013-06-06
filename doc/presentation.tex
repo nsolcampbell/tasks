@@ -14,6 +14,8 @@
 % the bottom of slides%
 \setbeamertemplate{navigation symbols}{} 
 
+%\renewcommand*{\bibfont}{\tiny }
+
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -25,6 +27,8 @@
 \usepackage[style=apa,natbib=true,backend=biber]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{Polarization.bib}
+% smaller references
+\renewcommand*{\bibfont}{\scriptsize}
 
 \usepackage{hyperref}
 \ExecuteBibliographyOptions{doi=false}
@@ -40,12 +44,16 @@
 
 \title[Polarization and Tasks]{Tasks and Work Force Polarization}
 \author{Alex Cooper}
-\institute[Macquarie University]
-{ Honors Candidate \\ Macquarie University \\
-\medskip
-{\emph{alexander.cooper@students.mq.edu.au}}
-}
+%\institute[Macquarie University]
+%{ Honors Candidate \\ Macquarie University \\
+%\medskip
+%{\emph{alexander.cooper@students.mq.edu.au}}
+%}
 \date{7 June 2013}
+
+
+\setlength{\itemsep}{\fill}
+
 \begin{document}
 %
 \begin{frame}
@@ -56,7 +64,7 @@
 \subsection{}
 
 \begin{frame}[t]{United States}
-\frametitle{Wage inequality has risen since 1960s}
+\frametitle{U.S. wage inequality has risen since the 1960s}
 \begin{center}
   \includegraphics[width=\textwidth]{slides/katz_kearney_2008_log_e_chg.pdf}
   \\
@@ -77,8 +85,8 @@
 \end{itemize}
 \item Empirically successful. e.g.
   \begin{itemize}
-  \item \cite{Katz1992}
-  \item \cite{CardLemieux2001}
+  \item \citet{Katz1992}
+  \item \citet{Card2001}
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -140,13 +148,21 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
 \end{frame}
 
 \begin{frame}
+  \frametitle{Income growth, Australia, 1981-82 to 2007-08}
+  \begin{center}
+  \includegraphics[width=0.9\textwidth]{slides/figure_wage_deciles.pdf} \\
+  Average annual percentage change in real equivalent income unit income, working age (Whiteford, 2012)
+  \end{center}
+\end{frame}
+
+\begin{frame}
   \frametitle{This Project}
   \begin{enumerate}
   \item  Has employment in Australia polarized in terms of routine and non-routine tasks as it has overseas?
     \begin{itemize}
     \item If not, why is Australia special?
     \end{itemize}
-  \item Does ICT capital investment explain this trend?
+  \item Does ICT capital investment or off-shoring explain this trend?
   \end{enumerate}
 \end{frame}
 
@@ -155,8 +171,14 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
   \begin{enumerate}
   \item O*NET: Occupational task database
     \begin{itemize}
-    \item Developed by US Department of Commerce
-    \item Detailed break-down of activities, skills and abilities by occupation
+    \item Developed by US Department of Labor
+    \item Detailed break-down of work activities by occupation
+    \end{itemize}
+  \item David Autor's work type data categories
+    \begin{itemize}
+    \item Mapping to O*NET tasks
+    \item ``Routine'' and ``Non-routine''
+    \item ``Off-shorable''
     \end{itemize}
   \item Australian Bureau of Statistics
     \begin{itemize}
@@ -166,6 +188,36 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
     \item National accounts: ICT and Machinery investment, capital stock
     \end{itemize}
   \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Imputing Worker Activities from O*NET}
+Assume we have $N$ Australian occupations and $M$ industries.
+In the O*NET dataset, we have $K$ occupations, and $L$ activities.
+  \begin{enumerate}
+  \item Employment by occupations and industry, is 
+    $\underset{M\times N}{\bf \Omega}$.
+  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
+    z_{n,k} = \left\{ 
+      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
+      0 & \text{otherwise.}\end{array}\right.
+    \]
+  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
+  \item Then employment of worker activities is:
+    $$ \underset{M\times L}{\bf Q} = {\bf \Omega\; Z\; \Psi} $$
+  \item ${\bf Q}$ can be further weighted for routine, non-routine and off-shorable labor.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Identification Challenge}
+  \begin{itemize}
+  \item Employment is an outcome of supply and demand.
+  \item But supply and demand curves are unobservable.
+  \item However, wage quantiles {\em are} observable. 
+%    As demand for a task falls, workers with lower comparative advantage switch tasks.
+  \item \citet{Firpo2011} exploit quantile regression to analyze changes in labor demand.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -190,7 +242,7 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
 \begin{table}[htbp]
 \begin{tabular}{|p{2cm}|p{1.65cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
 \hline
-{Job Title} & {Get Data} & {Analyze Data} & {\small Think Creatively} & {Handle Moving Objects} \\ \hline
+{Job Title} & {Gather Data} & {Analyze Data} & {\small Think Creatively} & {Handle Moving Objects} \\ \hline
 {CEOs} & 5.03 & 4.82 & 5.1 & 1.1  \\ \hline
 {Economists} & 5.88 & 6.58 & 5.38 & 0.54 \\ \hline
 {Dancers} & 3.88 & 1.96 & 4.37 & 2.63 \\ \hline
@@ -204,6 +256,14 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
 \caption{O*NET Work Activity Example (Levels, Scale 0--7)}
 \label{onetex}
 \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{O*NET Data Example}
+  \begin{center}
+  \includegraphics[width=\textwidth]{slides/example_cluster.pdf} \\
+  Hierarchical cluster analysis by work activity Eucledian distance.
+  \end{center}
 \end{frame}
 
 \end{document} 
