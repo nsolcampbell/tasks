@@ -72,15 +72,37 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Skill-Based Technical Change (SBTC)}
+\frametitle{The `Canonical Model:' Skill-Based Technical Change}
 \begin{itemize}
 \item Model features:
 \begin{itemize}
-\item Two skills, high ($H$) and low ($L$).
+\item Two kinds of labor, high-skill ($H$) and low-skill ($L$).
 \item $H$ and $L$ are different, and imperfect productive substitutes.
 \item Technology \emph{factor-augmenting}: raises productivity/wages.
 \item Wages set on the demand curve
 \end{itemize}
+\vspace{5mm}
+\item Production function representation:
+\begin{equation*}
+  \label{eq:cobbdoug}
+  F(L,H) = \left[\left(A_LL\right)^{\frac{\sigma - 1}{\sigma}}
+            + \left(A_HH\right)^{\frac{\sigma - 1}{\sigma}}
+          \right]^\frac{\sigma}{(\sigma-1)}
+\end{equation*}
+\vspace{5mm}
+\item If $\sigma>1$, ($H$, $L$ substitutes), SBTC implies rise in $A_H/A_L$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The `Canonical Model:' Skill-Based Technical Change}
+\begin{itemize}
+\item Predicts
+  \begin{itemize}
+  \item Increasing inequality, driven by skill demand.
+  \item Rising college/education premium.
+  \item Monotone wage growth in skills.
+  \end{itemize}
 \vspace{1cm}
 \item Empirically successful, e.g.
   \begin{itemize}
@@ -90,29 +112,17 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{The `Canonical Model' of Skill-Based Technical Change}
-\begin{itemize}
-\item Production function representation:
-\begin{equation*}
-  \label{eq:cobbdoug}
-  F(L,H) = \left[\left(A_LL\right)^{\frac{\sigma - 1}{\sigma}}
-            + \left(A_HH\right)^{\frac{\sigma - 1}{\sigma}}
-          \right]^\frac{\sigma}{(\sigma-1)}
-\end{equation*}
-\item If $\sigma>1$, ($H$, $L$ gross substitutes), SBTC implies rise in $A_H/A_L$.
-\vspace{1cm}
-\item Predicts
-  \begin{itemize}
-  \item Increasing inequality, driven by skill demand.
-  \item Rising college/education premium.
-  \item Monotone wage growth in skills.
-  \end{itemize}
-\end{itemize}
+\begin{frame}[t]{International Evidence}
+\frametitle{International evidence of non-monotone wage growth}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{slides/international_nonmonotone.pdf}
+\\
+Wage growth by occupational wage tercile, 16 European countries \citep{Acemoglu2011}.
+\end{center}
 \end{frame}
 
 \begin{frame}[t]{United States}
-\frametitle{Non-monotone increases in wage by skill percentile (USA)}
+\frametitle{Non-monotone employment growth (USA)}
 \begin{center}
 \includegraphics[width=\textwidth]{slides/emp_occ_skill_percentile.pdf}
 \\
@@ -128,10 +138,10 @@ Smoothed changes in employment by occupational skill percentile, 1979-2007
 \vspace{1cm}
 
 \begin{itemize}
-\item Neoclassical approach: factors produce output:
-\[ K,L \rightarrow Y. \]
+\item `Canonical' approach: factors produce output:
+\[ K,L \overset{F(\cdot)}{\longrightarrow} Y. \]
 \item ALM: factors produce tasks, which produce output:
-\[ K, L \rightarrow \text{tasks} \rightarrow Y. \]
+\[ K, L \longrightarrow \text{tasks} \longrightarrow Y. \]
 \end{itemize}
 \end{frame}
 
@@ -139,10 +149,16 @@ Smoothed changes in employment by occupational skill percentile, 1979-2007
 \frametitle{The Task Approach}
 \begin{itemize}
 \item Jobs have different \emph{task content}, so technology can be factor-augmenting or a substitute.
-\item Two kinds of labor: routine ($L_R$), and non-routine ($L_N$). Capital is perfectly substitutable for non-routine tasks:
-$$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
-\item Workers are endowed with a fixed set of skills, inelastically supply 1 unit of labor.
-\item `Ricardian' model: assignment of workers to tasks is endogenous (as in \cite{Roy1951}).
+\item Real cost of computing capital and machinery dramatically falling.
+\item Capital can substitute for only certain `routine' tasks.
+\item Model:
+  \begin{itemize}
+  \item Two kinds of tasks: routine ($L_R$), and non-routine ($L_N$). Capital $C$ and $L_R$ perfectly substitutable:
+    $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
+  \item Workers are endowed with a fixed `skills'
+  \item Workers choose tasks they will supply endogenously
+  \end{itemize}
+\item Predictions: non-routine employment and wage growth exceeds that of routine employment
 \end{itemize}
 \end{frame}
 
@@ -195,6 +211,25 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
     \item Census of Population and Housing
     \item National accounts: ICT and Machinery investment, capital stock
     \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Imputing Worker Activities from O*NET}
+ABS data: $N$ Australian occupations and $M$ industries.\\
+O*NET: $K$ occupations, $L$ activities.
+  \begin{enumerate}
+  \item Employment by occupations and industry, is 
+    $\underset{M\times N}{{\bf \Omega}_t}$.
+  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
+    z_{n,k} = \left\{ 
+      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
+      0 & \text{otherwise.}\end{array}\right.
+    \]
+  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
+  \item Then employment of worker activities is:
+    $$ \underset{M\times L}{{\bf Q}_t} = {\bf \Omega\; Z\; \Psi} $$
+  \item ${{\bf Q}_t}$ can be further weighted for routine, non-routine and off-shorable labor.
   \end{enumerate}
 \end{frame}
 
@@ -254,28 +289,8 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
   \frametitle{O*NET Data Example: PCA}
   \begin{center}
   \includegraphics[width=0.8\textwidth]{slides/pca_example.pdf} \\
-  Groups identified with k-means cluster analysis (k=3).
+  Groups identified with k-means cluster analysis (k=2).
   \end{center}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Imputing Worker Activities from O*NET}
-Assume we have $N$ Australian occupations and $M$ industries.
-In the O*NET dataset, we have $K$ occupations, and $L$ activities.
-  \begin{enumerate}
-  \item Employment by occupations and industry, is 
-    $\underset{M\times N}{{\bf \Omega}_t}$.
-  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
-    z_{n,k} = \left\{ 
-      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
-      0 & \text{otherwise.}\end{array}\right.
-    \]
-  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
-  \item Then employment of worker activities is:
-    $$ \underset{M\times L}{{\bf Q}_t} = {\bf \Omega\; Z\; \Psi} $$
-  \item ${{\bf Q}_t}$ can be further weighted for routine, non-routine and off-shorable labor.
-  \end{enumerate}
 \end{frame}
 
 \begin{frame}

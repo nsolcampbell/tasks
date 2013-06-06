@@ -12,10 +12,11 @@ deciles$Percentile <- as.factor(deciles$Percentile)
 pdf("../doc/slides/figure_wage_deciles.pdf", height=8, width=12)
 ggplot(deciles, aes(y=Change*100, x=Percentile, group=Period)) + 
   geom_bar(stat="identity") +
-  facet_wrap(~Period) +
 #  ggtitle("Wage Changes by Decile") +
-  ylab("Percentage change") +
-  xlab("Decile") +
+  ylab("percentage change") +
+  xlab("real equivalized income decile") +
   theme_bw(base_size=32) +
-  theme(strip.background = theme_rect(fill = 'white'))
+  theme(strip.background = theme_rect(fill = 'white')) +
+#  facet_grid(Period~.)
+  facet_wrap(~Period)
 dev.off()
