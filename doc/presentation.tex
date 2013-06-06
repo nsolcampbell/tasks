@@ -14,8 +14,6 @@
 % the bottom of slides%
 \setbeamertemplate{navigation symbols}{} 
 
-%\renewcommand*{\bibfont}{\tiny }
-
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -79,11 +77,11 @@
 \item Model features:
 \begin{itemize}
 \item Two skills, high ($H$) and low ($L$).
-\item $H$ and $L$ are different, and imperfect productive substitutes: $\sigma>0$.
-\item Technology \emph{factor-augmenting}: always raises productivity/wages.
+\item $H$ and $L$ are different, and imperfect productive substitutes.
+\item Technology \emph{factor-augmenting}: raises productivity/wages.
 \item Wages set on the demand curve
 \end{itemize}
-\item Empirically successful. e.g.
+\item Empirically successful, e.g.
   \begin{itemize}
   \item \citet{Katz1992}
   \item \citet{Card2001}
@@ -101,11 +99,7 @@
             + \left(A_HH\right)^{\frac{\sigma - 1}{\sigma}}
           \right]^\frac{\sigma}{(\sigma-1)}
 \end{equation}
-\item Empirical implications depend on $\sigma$. SBTC implies
-  \begin{itemize}
-  \item Rise in $A_H/A_L$ if $H$ and $L$ are gross substitutes ($\sigma > 1$)
-  \item Fall in $A_H/A_L$ if $H$ and $L$ are gross complements ($\sigma > 1$)
-  \end{itemize}
+\item If $\sigma>1$, ($H$, $L$ gross substitutes), SBTC implies rise in $A_H/A_L$.
 \item Predicts
   \begin{itemize}
   \item Increasing inequality, driven by skill demand.
@@ -129,7 +123,18 @@ Smoothed changes in employment by occupational skill percentile, 1979-2007
 \begin{frame}[fragile] % Notice the [fragile] option %
 \frametitle{\cite{Levy2003}}
 ``The skill content of recent technological change: An empirical exploration.'' \emph{The Quarterly Journal of Economics}, 118(4), 1279--1333.
+\vspace{1cm}
 
+\begin{itemize}
+\item Neoclassical approach: factors produce output:
+\[ K,L \rightarrow Y. \]
+\item ALM: factors produce tasks, which produce output:
+\[ K, L \rightarrow \text{tasks} \rightarrow Y. \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Task Approach}
 \begin{itemize}
 \item Jobs have different \emph{task content}, so technology can be factor-augmenting or a substitute.
 \item Two kinds of labor: routine ($L_R$), and non-routine ($L_N$). Capital is perfectly substitutable for non-routine tasks:
@@ -156,13 +161,14 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
 \end{frame}
 
 \begin{frame}
-  \frametitle{This Project}
+  \frametitle{This Project: Questions}
   \begin{enumerate}
   \item  Has employment in Australia polarized in terms of routine and non-routine tasks as it has overseas?
     \begin{itemize}
     \item If not, why is Australia special?
     \end{itemize}
-  \item Does ICT capital investment or off-shoring explain this trend?
+    \vspace{1cm}
+  \item Does ICT capital investment explain this trend?
   \end{enumerate}
 \end{frame}
 
@@ -172,15 +178,15 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
   \item O*NET: Occupational task database
     \begin{itemize}
     \item Developed by US Department of Labor
-    \item Detailed break-down of work activities by occupation
+    \item Details work activities by occupation
     \end{itemize}
+    \vspace{10pt}
   \item David Autor's work type data categories
     \begin{itemize}
-    \item Mapping to O*NET tasks
-    \item ``Routine'' and ``Non-routine''
-    \item ``Off-shorable''
+    \item Routine/non-routine and `off-shoreable'
     \end{itemize}
-  \item Australian Bureau of Statistics
+    \vspace{10pt}
+  \item Australian Bureau of Statistics: Employment, Wages, Capital Investment
     \begin{itemize}
     \item Labor Force Survey (LFS)
     \item Survey of Income and Housing
@@ -191,38 +197,14 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
 \end{frame}
 
 \begin{frame}
-  \frametitle{Imputing Worker Activities from O*NET}
-Assume we have $N$ Australian occupations and $M$ industries.
-In the O*NET dataset, we have $K$ occupations, and $L$ activities.
-  \begin{enumerate}
-  \item Employment by occupations and industry, is 
-    $\underset{M\times N}{\bf \Omega}$.
-  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
-    z_{n,k} = \left\{ 
-      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
-      0 & \text{otherwise.}\end{array}\right.
-    \]
-  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
-  \item Then employment of worker activities is:
-    $$ \underset{M\times L}{\bf Q} = {\bf \Omega\; Z\; \Psi} $$
-  \item ${\bf Q}$ can be further weighted for routine, non-routine and off-shorable labor.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Identification Challenge}
-  \begin{itemize}
-  \item Employment is an outcome of supply and demand.
-  \item But supply and demand curves are unobservable.
-  \item However, wage quantiles {\em are} observable. 
-%    As demand for a task falls, workers with lower comparative advantage switch tasks.
-  \item \citet{Firpo2011} exploit quantile regression to analyze changes in labor demand.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \begin{center}
-    Questions?    
+    Questions
+    \vspace{1cm}
+
+    and
+    \vspace{1cm}
+
+    I'd love your feedback.
   \end{center}
 \end{frame}
 
@@ -235,6 +217,36 @@ In the O*NET dataset, we have $K$ occupations, and $L$ activities.
   \begin{center}
     Spare Slides
   \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Imputing Worker Activities from O*NET}
+Assume we have $N$ Australian occupations and $M$ industries.
+In the O*NET dataset, we have $K$ occupations, and $L$ activities.
+  \begin{enumerate}
+  \item Employment by occupations and industry, is 
+    $\underset{M\times N}{{\bf \Omega}_t}$.
+  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
+    z_{n,k} = \left\{ 
+      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
+      0 & \text{otherwise.}\end{array}\right.
+    \]
+  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
+  \item Then employment of worker activities is:
+    $$ \underset{M\times L}{{\bf Q}_t} = {\bf \Omega\; Z\; \Psi} $$
+  \item ${{\bf Q}_t}$ can be further weighted for routine, non-routine and off-shorable labor.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Identification Challenge}
+  \begin{itemize}
+  \item Employment is an outcome of supply and demand.
+  \item But supply and demand curves are unobservable.
+  \item However, wage quantiles {\em are} observable. 
+%    As demand for a task falls, workers with lower comparative advantage switch tasks.
+  \item \citet{Firpo2011} exploit quantile regression to analyze changes in labor demand.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -259,10 +271,18 @@ In the O*NET dataset, we have $K$ occupations, and $L$ activities.
 \end{frame}
 
 \begin{frame}
-  \frametitle{O*NET Data Example}
+  \frametitle{O*NET Data Example: Dendrogram}
   \begin{center}
   \includegraphics[width=\textwidth]{slides/example_cluster.pdf} \\
-  Hierarchical cluster analysis by work activity Eucledian distance.
+  Hierarchical cluster analysis, work activity (Eucledian distance)
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{O*NET Data Example: PCA}
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{slides/pca_example.pdf} \\
+  Groups identified with k-means cluster analysis (k=3).
   \end{center}
 \end{frame}
 

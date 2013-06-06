@@ -8,7 +8,7 @@ Documents
 
 If you're just after the output documents, they're available as PDFs:
 
- * [In-progress thesis](https://github.com/kuperov/polarization/blob/master/doc/thesis.pdf?raw=true)
+ * [In-progress paper](https://github.com/kuperov/polarization/blob/master/doc/thesis.pdf?raw=true)
  * [In-progress annotated bibliography](https://github.com/kuperov/polarization/blob/master/doc/annotated_bibliography.pdf?raw=true)
  * [Announcement slides](https://github.com/kuperov/polarization/blob/master/doc/presentation.pdf?raw=true)
 
