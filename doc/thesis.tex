@@ -1,0 +1,52 @@
+\documentclass[a4paper,11pt]{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{Polarization.bib}
+
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\hypersetup{%
+    pdftitle={The Luddite Hypothesis [working title]},%
+    pdfauthor={Alex Cooper},%
+    pdfsubject={An analysis of determinants of inequality in Australia.},%
+    pdfkeywords={labor, polarization, routinization, SBTC, inequality},%
+}
+\ExecuteBibliographyOptions{doi=false}
+\newbibmacro{string+doi}[1]{%
+  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+
+\numberwithin{equation}{chapter}
+
+\begin{document}
+\include{title}
+\include{abstract}
+
+\include{chapter_01}
+\include{chapter_02}
+\include{chapter_03}
+\include{chapter_04}
+\include{chapter_05}
+
+\appendix
+\include{appendix_A}
+
+\printbibliography
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

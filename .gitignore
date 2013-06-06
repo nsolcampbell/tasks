@@ -4,3 +4,10 @@
 **/*.bbl
 **/*.log
 **/*.blg
+**/*.bcf
+**/*.toc
+**/*.lot
+**/*.lof
+**/*.run.xml
+**/*.out
+.Rproj.user
