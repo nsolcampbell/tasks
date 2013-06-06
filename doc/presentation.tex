@@ -81,6 +81,7 @@
 \item Technology \emph{factor-augmenting}: raises productivity/wages.
 \item Wages set on the demand curve
 \end{itemize}
+\vspace{1cm}
 \item Empirically successful, e.g.
   \begin{itemize}
   \item \citet{Katz1992}
@@ -93,13 +94,14 @@
 \frametitle{The `Canonical Model' of Skill-Based Technical Change}
 \begin{itemize}
 \item Production function representation:
-\begin{equation}
+\begin{equation*}
   \label{eq:cobbdoug}
   F(L,H) = \left[\left(A_LL\right)^{\frac{\sigma - 1}{\sigma}}
             + \left(A_HH\right)^{\frac{\sigma - 1}{\sigma}}
           \right]^\frac{\sigma}{(\sigma-1)}
-\end{equation}
+\end{equation*}
 \item If $\sigma>1$, ($H$, $L$ gross substitutes), SBTC implies rise in $A_H/A_L$.
+\vspace{1cm}
 \item Predicts
   \begin{itemize}
   \item Increasing inequality, driven by skill demand.
@@ -220,36 +222,6 @@ $$ F(R,N) = (L_R + C)^{1-\beta}L_N^{\beta},\quad\beta\in(0,1)$$
 \end{frame}
 
 \begin{frame}
-  \frametitle{Imputing Worker Activities from O*NET}
-Assume we have $N$ Australian occupations and $M$ industries.
-In the O*NET dataset, we have $K$ occupations, and $L$ activities.
-  \begin{enumerate}
-  \item Employment by occupations and industry, is 
-    $\underset{M\times N}{{\bf \Omega}_t}$.
-  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
-    z_{n,k} = \left\{ 
-      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
-      0 & \text{otherwise.}\end{array}\right.
-    \]
-  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
-  \item Then employment of worker activities is:
-    $$ \underset{M\times L}{{\bf Q}_t} = {\bf \Omega\; Z\; \Psi} $$
-  \item ${{\bf Q}_t}$ can be further weighted for routine, non-routine and off-shorable labor.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Identification Challenge}
-  \begin{itemize}
-  \item Employment is an outcome of supply and demand.
-  \item But supply and demand curves are unobservable.
-  \item However, wage quantiles {\em are} observable. 
-%    As demand for a task falls, workers with lower comparative advantage switch tasks.
-  \item \citet{Firpo2011} exploit quantile regression to analyze changes in labor demand.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
 \frametitle{O*NET Data Example}
 \begin{table}[htbp]
 \begin{tabular}{|p{2cm}|p{1.65cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
@@ -284,6 +256,37 @@ In the O*NET dataset, we have $K$ occupations, and $L$ activities.
   \includegraphics[width=0.8\textwidth]{slides/pca_example.pdf} \\
   Groups identified with k-means cluster analysis (k=3).
   \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Imputing Worker Activities from O*NET}
+Assume we have $N$ Australian occupations and $M$ industries.
+In the O*NET dataset, we have $K$ occupations, and $L$ activities.
+  \begin{enumerate}
+  \item Employment by occupations and industry, is 
+    $\underset{M\times N}{{\bf \Omega}_t}$.
+  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
+    z_{n,k} = \left\{ 
+      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
+      0 & \text{otherwise.}\end{array}\right.
+    \]
+  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
+  \item Then employment of worker activities is:
+    $$ \underset{M\times L}{{\bf Q}_t} = {\bf \Omega\; Z\; \Psi} $$
+  \item ${{\bf Q}_t}$ can be further weighted for routine, non-routine and off-shorable labor.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Identification Challenge}
+  \begin{itemize}
+  \item Employment is an outcome of supply and demand.
+  \item But supply and demand curves are unobservable.
+  \item However, wage quantiles {\em are} observable. 
+%    As demand for a task falls, workers with lower comparative advantage switch tasks.
+  \item \citet{Firpo2011} exploit quantile regression to analyze changes in labor demand.
+  \end{itemize}
 \end{frame}
 
 \end{document} 
