@@ -1,4 +1,4 @@
-select 
+select 'Skills' as Dimension,
 	occupation.*,
 	model.element_name, model.description,
 	skill.data_value, scale.minimum, scale.maximum, scale.scale_name,
