@@ -1,0 +1,33 @@
+Principal Component Analysis: O*NET skill, activities & abilities
+=================================================================
+
+Performs a simple PCA on O*NET raw data, for each table, by level and importance.
+
+The analysis is a bit of a mess. Need to limit the number of variables shown, and I can't (really) discern a pattern in the clusters.
+
+```{r, fig.height=8, fig.width=12, message=FALSE}
+library(ggbiplot) #library(devtools); install_github("ggbiplot", "vqv")
+library(ggplot2)
+
+for (table in c("work_activity","skill","ability")) {
+	for (measure in c("importance","level")) {
+		skill <- read.csv(paste("../data/onet/tables/",table,"_", measure, ".csv", sep=""))
+		rownames(skill) <- skill[,2]
+		skill <- skill[,c(-1,-2)]
+		skill.pca <- prcomp(skill, scale. = TRUE, center=T)
+		kmeans <- kmeans(skill, centers=5)
+
+		g <- ggbiplot(skill.pca, obs.scale=1, var.scale=1, alpha=0.5,
+				 	  groups = as.factor(kmeans$cluster))
+		g <- g + scale_color_discrete(name = '')
+		g <- g + theme(legend.direction = 'horizontal', 
+		              legend.position = 'top') +
+		              ggtitle(paste("PCA:", table, measure))
+		print(g)
+	}
+}
+```
+
+```{r}
+heatmap(as.matrix(skill[sample(1:nrow(skill), 100),]))
+```
