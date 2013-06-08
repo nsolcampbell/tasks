@@ -10,7 +10,7 @@ Documents
 
 If you're just after the output documents, they're available as PDFs:
 
- * [In-progress working paper](https://github.com/adrcooper/tasks/blob/master/doc/thesis.pdf?raw=true)
+ * [In-progress working paper](https://github.com/adrcooper/tasks/blob/master/doc/paper.pdf?raw=true)
  * [In-progress annotated bibliography](https://github.com/adrcooper/tasks/blob/master/doc/annotated_bibliography.pdf?raw=true)
  * [Announcement slides](https://github.com/adrcooper/tasks/blob/master/doc/presentation.pdf?raw=true)
 
@@ -25,7 +25,7 @@ Simply execute:
     cd tasks
     make all
 
-If all goes well, the final thesis.pdf file can be found in the doc/ directory.
+If all goes well, the final paper.pdf file can be found in the doc/ directory.
 
 Data sources
 ------------
