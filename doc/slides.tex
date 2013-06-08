@@ -1,17 +1,7 @@
 \documentclass[red]{beamer}
 
 \usetheme{default}
-%\usetheme{CambridgeUS}
-%\usetheme{Frankfurt}
 
-% Uncomment the following line if you want %
-% page numbers and using Warsaw theme%
-%\setbeamertemplate{footline}[page number]
-%\setbeamercovered{transparent}
-%\setbeamercovered{invisible}
-
-% To remove the navigation symbols from 
-% the bottom of slides%
 \setbeamertemplate{navigation symbols}{} 
 
 \usepackage{amsfonts}
@@ -35,20 +25,12 @@
 \DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
 \DeclareFieldFormat[article]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
 
-%\usepackage{bm}         % For typesetting bold math (not \mathbold)
-
 %\logo{\includegraphics[height=0.6cm]{yourlogo.eps}}
 %
 
 \title[Polarization and Tasks]{Tasks and Work Force Polarization}
 \author{Alex Cooper}
-%\institute[Macquarie University]
-%{ Honors Candidate \\ Macquarie University \\
-%\medskip
-%{\emph{alexander.cooper@students.mq.edu.au}}
-%}
 \date{7 June 2013}
-
 
 \setlength{\itemsep}{\fill}
 
@@ -64,7 +46,7 @@
 \begin{frame}[t]{United States}
 \frametitle{U.S. wage inequality has risen since the 1960s}
 \begin{center}
-  \includegraphics[width=\textwidth]{slides/katz_kearney_2008_log_e_chg.pdf}
+  \includegraphics[width=\textwidth]{slides_fig/katz_kearney_2008_log_e_chg.pdf}
   \\
   Change in Log Real Weekly Wage by Percentile, Full-Time Workers, 1963-2005
   \citep{Autor2008}
@@ -115,7 +97,7 @@
 \begin{frame}[t]{International Evidence}
 \frametitle{International evidence of non-monotone wage growth}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{slides/international_nonmonotone.pdf}
+\includegraphics[width=0.9\textwidth]{slides_fig/international_nonmonotone.pdf}
 \\
 Wage growth by occupational wage tercile, 16 European countries \citep{Acemoglu2011}
 \end{center}
@@ -124,7 +106,7 @@ Wage growth by occupational wage tercile, 16 European countries \citep{Acemoglu2
 \begin{frame}[t]{United States}
 \frametitle{Non-monotone employment growth (USA)}
 \begin{center}
-\includegraphics[width=\textwidth]{slides/emp_occ_skill_percentile.pdf}
+\includegraphics[width=\textwidth]{slides_fig/emp_occ_skill_percentile.pdf}
 \\
 Smoothed changes in employment by occupational skill percentile, 1979-2007
 \citep{Acemoglu2011}
@@ -165,7 +147,7 @@ Smoothed changes in employment by occupational skill percentile, 1979-2007
 \begin{frame}
   \frametitle{Job Polarization: United States}
   \begin{center}
-  \includegraphics[width=0.9\textwidth]{slides/level_by_occ.pdf} \\
+  \includegraphics[width=0.9\textwidth]{slides_fig/level_by_occ.pdf} \\
   Percentage change in employment level, by occupation group, USA, 1979-2009 \citep{Acemoglu2011}
   \end{center}
 \end{frame}
@@ -173,7 +155,7 @@ Smoothed changes in employment by occupational skill percentile, 1979-2007
 \begin{frame}
   \frametitle{Income growth, Australia, 1981-82 to 2007-08}
   \begin{center}
-  \includegraphics[width=0.9\textwidth]{slides/figure_wage_deciles.pdf} \\
+  \includegraphics[width=0.9\textwidth]{slides_fig/figure_wage_deciles.pdf} \\
   Average annual percentage change in real equivalent income, working age (Whiteford, 2012)
   \end{center}
 \end{frame}
@@ -280,7 +262,7 @@ O*NET: $K$ occupations, $L$ activities.
 \begin{frame}
   \frametitle{O*NET Data Example: Dendrogram}
   \begin{center}
-  \includegraphics[width=\textwidth]{slides/example_cluster.pdf} \\
+  \includegraphics[width=\textwidth]{slides_fig/example_cluster.pdf} \\
   Hierarchical cluster analysis, work activity (Euclidean distance)
   \end{center}
 \end{frame}
@@ -288,7 +270,7 @@ O*NET: $K$ occupations, $L$ activities.
 \begin{frame}
   \frametitle{O*NET Data Example: PCA}
   \begin{center}
-  \includegraphics[width=0.8\textwidth]{slides/pca_example.pdf} \\
+  \includegraphics[width=0.8\textwidth]{slides_fig/pca_example.pdf} \\
   Groups identified with k-means cluster analysis (k=2).
   \end{center}
 \end{frame}

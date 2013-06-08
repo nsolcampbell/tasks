@@ -226,7 +226,7 @@ FUNCTION {format.authors}
 FUNCTION {format.annotate}
 { annote empty$
         { "" }
-        { " \begin{quotation}\noindent "
+        { " \begin{quotation}\noindent\color{blue} "
           annote
           * " \end{quotation} " *
         }

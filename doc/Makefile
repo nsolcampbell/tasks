@@ -1,5 +1,6 @@
 bibliographyfile = annotated_bibliography
-thesisfile = thesis
+paperfile = paper
+slidesfile = slides
 
 figures =
 
@@ -9,37 +10,48 @@ TEX = pdflatex
 
 VPATH = Figs
 
-all: thesis bib
+all: paper bib slides
 
 wc: 
 	echo `cat chapter*tex | detex | wc -w` words.
 
-thesis: $(thesisfile).pdf
+paper: $(paperfile).pdf
 
 bib: $(bibliographyfile).pdf
+
+slides: $(slidesfile).pdf
 
 $(bibliographyfile).pdf : $(bibliographyfile).tex $(bibliographyfile).bbl
 	while ($(TEX) $(bibliographyfile) ; \
 	grep -Eq "Please rerun LaTeX|Rerun to get cross-references" $(bibliographyfile).log ) do true ; \
 	done
 
-$(thesisfile).pdf : $(figures) $(thesisfile).tex $(thesisfile).bbl $(bibliographyfile).bbl
-	while ($(TEX) $(thesisfile) ; \
-	grep -Eq "Please rerun LaTeX|Rerun to get cross-references" $(thesisfile).log ) do true ; \
+$(paperfile).pdf : $(figures) $(paperfile).tex $(paperfile).bbl $(bibliographyfile).bbl
+	while ($(TEX) $(paperfile) ; \
+	grep -Eq "Please rerun LaTeX|Rerun to get cross-references" $(paperfile).log ) do true ; \
 	done
 
-$(thesisfile).bbl:
-	pdflatex $(thesisfile)
-	biber $(thesisfile)
+$(slidesfile).pdf : $(figures) $(slidesfile).tex $(slidesfile).bbl $(bibliographyfile).bbl
+	while ($(TEX) $(slidesfile) ; \
+	grep -Eq "Please rerun LaTeX|Rerun to get cross-references" $(slidesfile).log ) do true ; \
+	done
+
+$(paperfile).bbl:
+	pdflatex $(paperfile)
+	biber $(paperfile)
+
+$(slidesfile).bbl:
+	pdflatex $(slidesfile)
+	biber $(slidesfile)
 
 # keep .eps files in the same directory as the .fig files
 # %.eps : %.fig
 #	fig2dev -L eps $< > $(dir $< )$@
 
-pdf : $(thesisfile).pdf
+pdf : $(paperfile).pdf
 
 # Because we're insane, we're using bibtex for the bibliography
-# and biblatex for the thesis itself. Just easier.
+# and biblatex for the paper itself. Just easier.
 # We're also exporting directly from the reference manager.
 # This is hard-coded for my environment, so let it use the bib
 # file in SCM.
@@ -64,11 +76,16 @@ $(bibliographyfile).tar.gz : $(figures) $(bibliographyfile).tex $(referencefile)
 	tar -czvf $(bibliographyfile).tar.gz $^
 
 mostlyclean:
-	rm -f $(bibliographyfile).log $(bibliographyfile).aux $(bibliographyfile).bbl $(bibliographyfile).blg $(bibliographyfile).aux
-	rm -f $(thesisfile).log $(thesisfile).aux $(thesisfile).bcf $(thesisfile).blg $(thesisfile).aux $(thesisfile).run.xml \
-		$(thesisfile).toc $(thesisfile).lot $(thesisfile).out $(thesisfile).bbl
+	rm -f $(bibliographyfile).log $(bibliographyfile).aux $(bibliographyfile).bbl \
+	      $(bibliographyfile).blg $(bibliographyfile).aux
+	rm -f $(paperfile).log $(paperfile).aux $(paperfile).bcf $(paperfile).blg \
+	      $(paperfile).aux $(paperfile).run.xml $(paperfile).toc $(paperfile).lot \
+	      $(paperfile).out $(paperfile).bbl
 	rm -f chapter_*.aux chapter_*.blg title.aux appendix_*.aux abstract.aux
+	rm -f $(slidesfile).log $(slidesfile).aux $(slidesfile).bcf $(slidesfile).blg \
+	      $(slidesfile).aux $(slidesfile).run.xml $(slidesfile).toc $(slidesfile).lot \
+	      $(slidesfile).out $(slidesfile).bbl $(slidesfile).nav $(slidesfile).snm \
+	      $(slidesfile).vrb $(slidesfile).lot 
 
 clean: mostlyclean
-	rm -f $(bibliographyfile).pdf $(thesisfile).pdf
-
+	rm -f $(bibliographyfile).pdf $(paperfile).pdf $(slidesfile).pdf
