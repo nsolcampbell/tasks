@@ -11,3 +11,6 @@
 **/*.run.xml
 **/*.out
 .Rproj.user
+**/*nav
+**/*snm
+**/*vrb
