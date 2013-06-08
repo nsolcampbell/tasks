@@ -1,6 +1,7 @@
 # Hierarchical clustering of worker activities
+# Example for presentation slides
 
-ability <- read.delim(paste("../doc/wa_lvl_example.csv"))
+ability <- read.delim(paste("../data/examples/wa_lvl_example.csv"))
 rownames(ability) <- ability[,"Title"]
 ability <- ability[,c(-1)]
 
@@ -8,7 +9,7 @@ set.seed(1)
 distxy <- dist(ability)
 hClustering <- hclust(distxy, "average")
 
-pdf("../doc/slides/example_cluster.pdf", height=2.8, width=4.2)
+pdf("../doc/slides_fig/example_cluster.pdf", height=2.8, width=4.2)
 	par(mar=c(0,0,0,0))
 	plot(as.dendrogram(hClustering, hang=0.1, cex=2), horiz=T, 
 #		main="Example O*NET occupations clustered by Work Activity", 
@@ -24,7 +25,7 @@ heatmap(as.matrix(ability), cexRow=1, cexCol=1, margins=c(10,10))
 
 library(ggbiplot)
 
-pdf("../doc/slides/pca_example.pdf", height=6, width=12, paper="a4r")
+pdf("../doc/slides_fig/pca_example.pdf", height=6, width=12, paper="a4r")
 par(mar=c(0,0,0,0))
 skill.pca <- prcomp(ability, scale. = TRUE)
 kmeans <- kmeans(ability, centers=2)
