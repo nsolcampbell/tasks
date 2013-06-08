@@ -10,7 +10,11 @@
 **/*.lof
 **/*.run.xml
 **/*.out
-.Rproj.user
 **/*nav
 **/*snm
 **/*vrb
+.Rproj.user
+.Rhistory
+**/.DS_Store
+.DS_Store
+data/curf
