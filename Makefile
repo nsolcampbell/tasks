@@ -16,3 +16,6 @@ explore:
 
 clean:
 	$(MAKE) -C $(DOC_DIR) clean
+
+mungedata:
+	for f in `ls munge/*R`; do R -q -f $$f; done
