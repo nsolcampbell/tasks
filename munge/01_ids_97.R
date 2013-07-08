@@ -1,5 +1,4 @@
 library(foreign)
-library(plyr)
 
 psn97 <- data.frame(read.spss("data/curf/ids_1997/IDS97PSN.SAV"))
 
