@@ -17,4 +17,9 @@
 .Rhistory
 **/.DS_Store
 .DS_Store
+# ensure we don't accidentally store CURF data
 data/curf
+data/ids_82.rda
+data/ids_86.rda
+data/ids_97.rda
+.RData
