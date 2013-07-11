@@ -53,4 +53,6 @@ supp <- read.csv("data/curf/ids_86_comb/IDS86SUP/Ids86sup.dat",
 # is there a way to index this merge?!
 # subs_merged <- merge(ids_86, supp)
 
+table(subs$HIGHEST_EDUC_QUAL_CUR_PSN)
+
 save(ids_82=subs, file='data/ids_86.rda')
