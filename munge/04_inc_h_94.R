@@ -54,6 +54,14 @@ new_educ <- list("Postgraduate","Bachelor","Associate Degree","None")
 sub$Educ <- recodeVar(as.character(sub$HQUALCP), src=old_educ, tgt=new_educ)
 sub$Educ <- factor(sub$Educ, ordered=TRUE, levels=new_educ)
 
+old_educ <- list(c("Higher degree", "Postgraduate diploma", "Bachelor degree"), 
+								 c("Undergraduate diploma", "Associate diploma", 
+								 	"Skilled vocational qualifications", "Basic vocational qualifications"),
+								 c("Still at school","No qualifications"))
+new_educ <- list("Bachelor or Higher","Associate Degree","None")
+sub$Educ3 <- recodeVar(as.character(sub$HQUALCP), src=old_educ, tgt=new_educ)
+sub$Educ3 <- factor(sub$Educ3, ordered=TRUE, levels=new_educ)
+
 # TODO: derive potential experience series
 
 sub$ScaledWeight <- sub$WTPSN / as.numeric(sum(sub$WTPSN))
@@ -64,4 +72,5 @@ for (ed in levels(sub$Educ)) {
 	sub[this_level,"EducWeight"] <- sub[this_level,"WTPSN"] / sum(sub[this_level,"WTPSN"])
 }
 
-save(inc_h_94=sub, file='data/inc_h_94.rda')
+inc_h_94 <- sub
+save(inc_h_94, file='data/inc_h_94.rda')

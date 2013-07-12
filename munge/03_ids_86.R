@@ -53,6 +53,21 @@ supp <- read.csv("data/curf/ids_86_comb/IDS86SUP/Ids86sup.dat",
 # is there a way to index this merge?!
 # subs_merged <- merge(ids_86, supp)
 
-table(subs$HIGHEST_EDUC_QUAL_CUR_PSN)
+old_educ <- list(
+							c("Bachelor degree or higher"),
+							c("Trade certificate", "Other certificate or diploma",
+								"Other qualification"), 
+							c("Not applicable", "Still at school", "Never went to school",
+							 	"No qualifications since school, did not complete highest yea", 
+							 	"Completed highest year secondary", 
+							 	"Obtained secondary qualifications since leaving school")
+)
+new_educ <- list("Bachelor or Higher","Associate Degree","None")
+subs$Educ3 <- recodeVar(as.character(subs$HIGHEST_EDUC_QUAL_CUR_PSN), src=old_educ, tgt=new_educ)
+subs$Educ3 <- factor(subs$Educ3, ordered=TRUE, levels=new_educ)
 
-save(ids_82=subs, file='data/ids_86.rda')
+# remove those who earned < 1000 last FY
+subs <- subs[subs$INC_EMP_GR_WS_EXCL_JE_PRD_PSN > 1000,]
+
+ids_86 <- subs
+save(ids_86, file='data/ids_86.rda')
