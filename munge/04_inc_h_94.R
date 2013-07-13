@@ -62,6 +62,9 @@ new_educ <- list("Bachelor or Higher","Associate Degree","None")
 sub$Educ3 <- recodeVar(as.character(sub$HQUALCP), src=old_educ, tgt=new_educ)
 sub$Educ3 <- factor(sub$Educ3, ordered=TRUE, levels=new_educ)
 
+sub$SEXP <- recodeVar(as.character(sub$SEXP), 
+										  src=list("Males","Females"), tgt=list("Male","Female"))
+
 # TODO: derive potential experience series
 
 sub$ScaledWeight <- sub$WTPSN / as.numeric(sum(sub$WTPSN))

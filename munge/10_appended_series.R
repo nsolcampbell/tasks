@@ -1,11 +1,9 @@
-
 load('data/ids_82.rda')
 load('data/ids_86.rda')
 load('data/inc_h_94.rda')
+load('data/ids_95.rda')
+load('data/ids_96.rda')
 load('data/ids_97.rda')
-
-levels(ids_82$HighestQual)
-names(ids_82)
 
 col_n <- c("Sex","CurrentIncome","PFYIncome","Educ","Educ3","Weight")
 
@@ -23,12 +21,21 @@ s94 <- inc_h_94[,c("SEXP", "IEARNCP", "IEARNPP", "Educ", "Educ3", "WTPSN")]
 names(s94) <- col_n
 s94$Year <- rep("1994", nrow(s94))
 
+s95 <- ids_95[,c("SEXP", "IEARNCP", "IEARNPP", "Educ", "Educ3", "WTPSN")]
+names(s95) <- col_n
+s95$Year <- rep("1995", nrow(s95))
+
+s96 <- ids_96[,c("SEXP", "IEARNCP", "IEARNPP", "Educ", "Educ3", "WTPSN")]
+names(s96) <- col_n
+s96$Year <- rep("1996", nrow(s96))
+
 s97 <- ids_97[,c("SEXP", "IEARNCP", "IEARNPP", "Educ", "Educ3", "WTPSN")]
 names(s97) <- col_n
 s97$Year <- rep("1997", nrow(s97))
 
-ihs <- rbind(s82, s86, s94, s97)
-ihs$Year <- factor(ihs$Year, ordered=TRUE, levels=c("1982","1986","1994", "1997"))
+ihs <- rbind(s82, s86, s94, s95, s96, s97)
+year_list <- c(1982,1986,1994,1995,1996,1997)
+ihs$Year <- factor(ihs$Year, ordered=TRUE, levels=as.character(year_list))
 
 # get rid of <1000 prev yr earners
 ihs <- ihs[ihs$PFYIncome >= 1000,]
@@ -45,11 +52,10 @@ CPI <- read.csv("~/Documents/School/polarization/data/6401.0/640101.csv", dec=",
 								stringsAsFactors=FALSE)
 cpi <- ts(as.numeric(CPI$A2325846C), start=c(1948,3), frequency=4)
 cpi_now <- tail(cpi,1)
-curf_years <- c(1982, 1986, 1994, 1997) # ie fiscal years
-centered_factors <- cpi_now / centered_cpi(cpi, curf_years)
-for (yr_i in seq_along(curf_years)) {
+centered_factors <- cpi_now / centered_cpi(cpi, year_list)
+for (yr_i in seq_along(year_list)) {
 	# need this because R handles factors horribly
-	subsample <- which(ihs$Year == as.character(curf_years[yr_i]))
+	subsample <- which(ihs$Year == as.character(year_list[yr_i]))
 	ihs[subsample,"PFYRealIncome"] <- ihs[subsample,"PFYIncome"] * centered_factors[yr_i]
 	ihs[subsample,"RealCurrentIncome"] <- ihs[subsample,"CurrentIncome"] * centered_factors[yr_i]
 }

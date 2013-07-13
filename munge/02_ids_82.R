@@ -1,5 +1,6 @@
 library(foreign)
 library(plyr)
+library(doBy)
 source('lib/curfmunge.R')
 
 ids_82 <- data.frame(read.spss("data/curf/ids_82/IDS82.sav"))
