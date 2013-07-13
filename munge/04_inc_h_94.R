@@ -38,12 +38,10 @@ inc_earners <- inc_h_94$PSRCCP %in% c("Wages and salaries",
 # include only full-time workers
 ft <- inc_h_94$LFSTBCP == "Employed full-time"
 
-keeprows = ft & inc_earners
+keeprows = which(ft & inc_earners)
 
-sub <- inc_h_94[keeprows,c(keepcols,repcols)]
-
-# eliminate < 1,000 per year earners as noise
-sub <- sub[sub$IEARNPP >= 1000,]
+#sub <- inc_h_94[keeprows,c(keepcols,repcols)]
+sub <- inc_h_94
 
 old_educ <- list(c("Higher degree", "Postgraduate diploma"), 
 								 c("Bachelor degree"), 

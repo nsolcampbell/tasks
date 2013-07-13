@@ -7,7 +7,7 @@ load('data/ids_97.rda')
 
 col_n <- c("Sex","CurrentIncome","PFYIncome","Educ","Educ3","Weight")
 
-s82 <- ids_82[,c("Sex","IncomeWages","IncomeWages8182","Educ","Educ3","Weight")]
+s82 <- ids_82[,c("Sex","IncomeWages","IncomeWages8182","Educ","Educ3","PERS_WT")]
 names(s82) <- col_n
 s82$Year <- rep("1982", nrow(s82))
 
@@ -38,7 +38,7 @@ year_list <- c(1982,1986,1994,1995,1996,1997)
 ihs$Year <- factor(ihs$Year, ordered=TRUE, levels=as.character(year_list))
 
 # get rid of <1000 prev yr earners
-ihs <- ihs[ihs$PFYIncome >= 1000,]
+ihs <- ihs[which(ihs$PFYIncome >= 1000),]
 
 ##' Return mean of 2nd and 3rd fiscal quarters of given (calendar) year
 centered_cpi <- function(cpi_series, years) {
