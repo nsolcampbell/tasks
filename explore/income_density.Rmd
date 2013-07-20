@@ -1,0 +1,29 @@
+Education Level and Income Distribution
+=======================================
+
+```{r}
+library(ggplot2)
+library(scales)
+load('../data/curf/combined.rda')
+```
+
+```{r fig.width=10, fig.height=6, cache=FALSE}
+threeyrs <- combined[which(combined$Year %in% c("1982","1995","2008")),]
+ggplot(threeyrs,aes(x=PFYRInc,color=EducA,fill=EducA,group=EducA)) + 
+	geom_density(bw="SJ",alpha=0.2) + 
+	scale_x_log10(labels = comma) +
+	facet_grid(Sex ~ Year) +
+	ggtitle("Annual real earned income by education and sex") +
+	theme_bw(15)
+```
+Weighted density by coarse education level. Gaussian Kernel. 
+
+```{r fig.width=10, fig.height=6, cache=FALSE}
+ggplot(ihs,aes(x=PFYRInc,color=Sex,fill=Sex,group=Sex)) + 
+	geom_density(bw="SJ",alpha=0.2) + 
+	scale_x_log10(labels = comma) +
+	facet_wrap( ~ Year) +
+	ggtitle("Annual earned income by sex") +
+	theme_bw(15)
+```
+Gaussian Kernel. 

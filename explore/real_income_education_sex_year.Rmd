@@ -1,5 +1,6 @@
 Australian Real Income by Education and Sex over Time
 =====================================================
+The latest version of this exploratory analysis is available at [http://bit.ly/13rq35y](http://bit.ly/13rq35y). R source code for generating these plots is shown below, but note that confidentialized unit record files CURFs must be obtained from the ABS to completely reproduce the analysis. Full source code (excluding source data) is available on [GitHub](https://github.com/adrcooper/tasks).
 
 The data used here are the ABS Surveys of Income and Housing (formerly, Income Distribution Survey), catalogue numbers 6543.0, 6541.0, 6503.0.
 
@@ -21,8 +22,7 @@ source('../lib/footnote.R')
 source('../lib/plot_theme.R')
 load('../data/curf/fyftws.rda')
 
-
-plot_data <- fyftws
+plot_data <- fyftws # full-year, full-time, wages & salaries subset of data
 
 vline.data <- ddply(plot_data,~EducA + Sex + Year,summarise,
                     mean=mean(PFYRInc),sd=sd(PFYRInc),
