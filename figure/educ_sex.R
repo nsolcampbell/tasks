@@ -2,15 +2,9 @@ library(ggplot2)
 library(scales)
 library(plyr)
 library(isotone) # for weighted median
-load('data/curf/combined.rda')
+load('data/curf/fyftws.rda')
 
-years <- combined$Year %in% c("1982","1995","2008")
-fy <- combined$FullYear == 'Full Year'
-ft <- combined$CFullTime == 'Full-time'
-ws <- combined$PFYSource == 'Wages and Salaries'
-wk_age <- combined$PExp %in% c("0-24","25-39")
-
-plot_data <- combined[which(years & fy & ft & wk_age),]
+plot_data <- subset(fyftws, Age4 == '15-34')
 
 vline.data <- ddply(plot_data,~EducA + Sex + Year,summarise,
                     mean=mean(PFYRInc),sd=sd(PFYRInc),
@@ -33,7 +27,7 @@ for (s in levels(plot_data$Sex)) {
 }
 
 subs <- plot_data[,c("Sex","Year","EducA","Weight","PFYRInc","SexYearEducWeight")]
-subs$Year <- factor(subs$Year, levels=c(1982,1995,2008), ordered=T)
+subs$Year <- factor(subs$Year, levels=c("1982","1995","2008","2010"), ordered=T)
 
 # NB: we'll see warnings below, which we'll suppress, because we 
 # are trimming the edges of the distribution, and so the area
