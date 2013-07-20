@@ -1,7 +1,5 @@
 Australian Real Income by Education and Sex over Time
 =====================================================
-Exploratory Analysis
---------------------
 
 The data used here are the ABS Surveys of Income and Housing (formerly, Income Distribution Survey), catalogue numbers 6543.0, 6541.0, 6503.0.
 
@@ -75,7 +73,7 @@ p <- ggplot(subs,aes(x=PFYRInc+1,color=EducA,fill=EducA,weight=SexYearEducWeight
 # NB: we suppress warnings since trimming the edges of the distribution means the area
 # under the curves are no longer precisely equal to 1.
 suppressWarnings(print(p))
-makeFootnote("Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
 ```
 <small>Earnings from wages and salaries, including tips and bonuses, in the previous fiscal year. Only respondents who reported working full-time for at least 49 weeks out of the previous financial year, and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
 
@@ -111,10 +109,10 @@ print(xtable(prsqs), type="html")
 ```{r, dependson='partial_rsq', fig.height=6, fig.width=8}
 ggplot(prsqs_long, aes(y=PRsq, x=Year, colour=variable)) + geom_line() +
     geom_point() +
-    ggtitle("Explanatory power of Education and Sex in Mean Log Real Earnings") +
+    ggtitle("Explanatory Power of Education, Sex in Log Real Earnings") +
     ylab(expression("Partial R"^2)) +
     scale_y_continuous(limits=c(0,0.16))
-makeFootnote("Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
 ```
 
 4. Decline in the skill premium
@@ -129,14 +127,14 @@ ed_prop <- ddply(plot_data,~EducA + Sex + Year, summarise,
                     wbottom=weighted.fractile(PFYRInc, SexYearWeight, 0.1),
                     wmedian=weighted.median(PFYRInc, Weight),
                     wsum=sum(SexYearWeight))
-ggplot(ed_prop, aes(x=EducA, y=wsum, fill=Year, colour=Year)) + 
+ggplot(ed_prop, aes(x=Year, y=wsum, fill=EducA, colour=EducA)) + 
        geom_bar(position="dodge", stat="identity", alpha=0.2) +
        scale_y_continuous(labels = percent) +
        facet_grid(Sex~.) +
        ggtitle("Education Levels by Year (Australia)") +
        ylab("Weighted percentage of respondents") +
        xlab("Education Level")
-makeFootnote("Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
 ```
 <small>Proportions computed using person-level survey weights. Only respondents who reported working full-time for at least 49 weeks out of the previous financial year, and whose principal source of income are wages and salaries, are shown.</small>
 
