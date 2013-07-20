@@ -6,12 +6,13 @@ load('data/curf/1997.rda')
 load('data/curf/1998.rda')
 load('data/curf/2001.rda')
 load('data/curf/2008.rda')
+load('data/curf/2010.rda')
 
 source("lib/curfmunge.R")
 
 combined <- rbind(subset_1982, subset_1986,
               subset_1995, subset_1996, subset_1997, subset_1998,
-              subset_2001, subset_2008)
+              subset_2001, subset_2008, subset_2010)
 year_list <- sort(unique(combined$Year))
 combined$Year <- factor(combined$Year, ordered=TRUE, levels=as.character(year_list))
 
@@ -45,11 +46,10 @@ for (i in seq_along(year_list)) {
         combined[which(cinc_subsample),"CInc"] * centered_factors[i]
 }
 
-# this stuff should be shunted over to the relevant figure code
-# # come up with education weights
-# for (ed in levels(sub$Educ)) {
-# 	this_level <- which(sub$Educ == ed)
-# 	sub[this_level,"EducWeight"] <- sub[this_level,"WTPSN"] / sum(sub[this_level,"WTPSN"])
-# }
+combined$Age4 <- factor(combined$Age4, levels=age_levels, ordered=T)
 
+combined$EducA <- factor(combined$EducA, levels=EducA_levels, ordered=T)
+combined$EducB <- factor(combined$EducB, levels=EducB_levels, ordered=T)
+combined$Year  <- factor(combined$Year,  levels=year_list,    ordered=T)
+combined$Sex   <- factor(combined$Sex,   levels=c("Male","Female"), ordered=F)
 save(combined, file='data/curf/combined.rda')

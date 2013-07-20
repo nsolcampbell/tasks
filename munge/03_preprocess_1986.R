@@ -74,16 +74,15 @@ subs$EducB <- recodeVar(as.character(subs$HIGHEST_EDUC_QUAL_CUR_PSN), src=old_ed
 subs$EducB <- factor(subs$EducB, ordered=TRUE, levels=new_educ)
 
 # recode into experience groups
-subs$PotExp <- recodeVar(as.character(subs$AGE_CUR_PSN),
+subs$Age4 <- recodeVar(as.character(subs$AGE_CUR_PSN),
                          list(c("Aged 15 years", "Aged 16 to 17 years", "Aged 18 to 20 years", 
-                             "Aged 21 to 24 years", "Aged 25 to 29 years", "Aged 30 to 34 years", 
-                             "Aged 35 to 39 years"), 
-                            c("Aged 40 to 44 years", "Aged 45 to 49 years", 
-                             "Aged 50 to 54 years", "Aged 55 to 59 years", "Aged 60 to 64 years"), 
-                            c("Aged 65 to 69 years", "Aged 70 to 74 years", "Aged 75 years or more")
-                             ),
-                             list("0-24", "25-39", "40 +"))
-subs$PotExp <- factor(subs$PotExp, ordered=T, levels=c("0-24", "25-39", "40 +"))
+                                "Aged 21 to 24 years", "Aged 25 to 29 years", "Aged 30 to 34 years"), 
+                              c("Aged 35 to 39 years", "Aged 40 to 44 years", "Aged 45 to 49 years", 
+                                "Aged 50 to 54 years"), 
+                              c("Aged 55 to 59 years", "Aged 60 to 64 years", "Aged 65 to 69 years", "Aged 70 to 74 years"),
+                              c("Aged 75 years or more"),
+                              c("Not Applicable")),
+                             age_level_list)
 
 subs$CFullTime <- recodeVar(as.character(subs$LFSTAT_ALL_BRIEF_CUR_PSN),
                              list(c("Employed full-time"), 
@@ -129,7 +128,7 @@ subs$PFYPrincipalSource <- recodePrincipalSource(subs$PRINCIPAL_SOURCE_INC_PRD_P
 
 subs$Year <- 1986
 
-subset_1986 <- subs[,c("Year", "SEX_NA_PSN", "PotExp",
+subset_1986 <- subs[,c("Year", "SEX_NA_PSN", "Age4",
                          "INC_USUAL_WAGE_SALARY_CUR_PSN", "INC_TOT_GR_WS_EXCL_JE_PRD_PSN",
                          "MAIN_INDUSTRY_CUR_PSN", "MAIN_INDUSTRY_CUR_PSN", "MAIN_INDUSTRY_PRD_PSN", "MAIN_INDUSTRY_PRD_PSN",
                          "MAIN_OCCUPATION_CUR_PSN", "MAIN_OCCUPATION_CUR_PSN", "MAIN_OCCUPATION_PRD_PSN", "MAIN_OCCUPATION_PRD_PSN",

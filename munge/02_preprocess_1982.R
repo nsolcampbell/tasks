@@ -52,32 +52,31 @@ subs <- join(x=subs, y=weights,
              by=c("IDENT_PSN", "FAMNO_PSN", "IUNO_PSN", "PERSON_NUMBER"))
 
 # EducA
-old_educ <- list(c("Higher qualification"),
-                 c("Bachelor degree/post.grad.diploma"),
-                 c("Trade qualification", "Certificate/diploma"),
-                 c("Adult education/hobby course", "Other","Still at school",
-                        "Secondary school course", "Never went to school", 
-                        "No qualifications since school"))
-new_educ <- list("Postgraduate","Bachelor","Associate Degree","None")
-subs$EducA <- recodeVar(as.character(subs$HighestQual), src=old_educ, tgt=new_educ)
-subs$EducA <- factor(subs$EducA, ordered=TRUE, levels=new_educ)
+subs$EducA <- recodeVar(as.character(subs$HighestQual), 
+                        list(c("Adult education/hobby course", "Other","Still at school",
+                               "Secondary school course", "Never went to school", 
+                               "No qualifications since school"),
+                             c("Trade qualification", "Certificate/diploma"),
+                             c("Bachelor degree/post.grad.diploma"),
+                             c("Higher qualification")),
+                        as.list(EducA_levels))
 
 # EducB
-old_educ <- list(c("Higher qualification","Bachelor degree/post.grad.diploma"),
-                 c("Trade qualification", "Certificate/diploma"),
-                 c("Adult education/hobby course", "Other","Still at school",
-                        "Secondary school course", "Never went to school", 
-                        "No qualifications since school"))
-new_educ <- list("Bachelor or Higher","Associate Degree","None")
-subs$EducB <- recodeVar(as.character(subs$HighestQual), src=old_educ, tgt=new_educ)
-subs$EducB <- factor(subs$EducB, ordered=TRUE, levels=new_educ)
+subs$EducB <- recodeVar(as.character(subs$HighestQual), 
+                        list(c("Adult education/hobby course", "Other","Still at school",
+                               "Secondary school course", "Never went to school", 
+                               "No qualifications since school"),
+                             c("Trade qualification", "Certificate/diploma"),
+                             c("Higher qualification","Bachelor degree/post.grad.diploma")),
+                        as.list(EducB_levels))
 
-# recode into experience groups
-age_groups   <- list(c("15", "16", "17", "18", "19", "20 - 24", "25 - 29", "30 - 34", "35 - 39"),
-                     c("40 - 44", "45 - 49", "50 - 54", "55 - 59", "60 - 64"),
-                     c("65 - 69", "70 - 74", "75 - 79", "80 - 84", "85 +"))
-pot_exp      <- list("0-24", "25-39", "40 +") # 40+ will be filtered out later
-subs$PotExp <- recodeVar(as.character(subs$Age), age_groups, pot_exp)
+subs$Age4 <- recodeVar(as.character(subs$Age), 
+                         list(c("15", "16", "17", "18", "19", "20 - 24", "25 - 29", "30 - 34"), 
+                              c("35 - 39", "40 - 44", "45 - 49", "50 - 54"), 
+                              c("55 - 59", "60 - 64", "65 - 69", "70 - 74"), 
+                              c("75 - 79", "80 - 84", "85 +"),
+                              c("Not Applicable")), 
+                         age_level_list)
 
 # note this mapping makes sense because we're only interested 
 # in currently employed workers
@@ -126,7 +125,7 @@ subs$PFYSource <-
 
 subs$Year <- 1982
 
-subset_1982 <- subs[,c("Year", "Sex", "PotExp", 
+subset_1982 <- subs[,c("Year", "Sex", "Age4", 
                     "IncomeWages", "IncomeWages8182",
                     "IndEmployer", "IndEmployer", "Industry8182", "Industry8182",
                     "CurrentOccup", "CurrentOccup", "Occup8182", "Occup8182",

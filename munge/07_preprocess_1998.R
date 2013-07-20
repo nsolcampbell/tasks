@@ -42,7 +42,7 @@ subs$PFYPrincipalSource <- recodePrincipalSource(subs$PSRCPP)
 subs$EducA <- recodeEducA(subs$HQUALCP)
 subs$EducB <- recodeEducB(subs$HQUALCP)
 
-subs$PExp <- recodePExp(subs$AGECP)
+subs$Age4 <- recodeAge4(subs$AGECP)
 
 subs$CFullTime <- recodeFullTime(status)
 
@@ -56,7 +56,7 @@ subs$PFYOccupB <- NA
 
 subs$Year <- 1998
 
-subset_1998 <- subs[,c("Year", "SEXP", "PExp",
+subset_1998 <- subs[,c("Year", "SEXP", "Age4",
                        "IEARNCP","IEARNPP",
                        "INDCP", "INDCP", "PFYIndA", "PFYIndB",
                        "OCCCP", "OCCCP", "PFYOccupA", "PFYOccupB",

@@ -46,7 +46,7 @@ subs$EducB <- recodeEducB(subs$HQUALCP)
 
 subs$Sex <- recodeVar(as.character(subs$SEXP), src=list("Males","Females"), tgt=list("Male","Female"))
 
-subs$PExp <- recodePExp(subs$AGECP)
+subs$Age4 <- recodeAge4(subs$AGECP)
 
 subs$CFullTime <- recodeFullTime(subs$LFSTBCP)
 
@@ -81,7 +81,7 @@ subs$PFYIndB <- NA
 subs$PFYOccupA <- NA
 subs$PFYOccupB <- NA
 
-subset_1995 <- subs[,c("Year", "Sex", "PExp",
+subset_1995 <- subs[,c("Year", "Sex", "Age4",
                       "IEARNCP","IEARNPP",
                       "INDCP", "INDCP", "PFYIndA", "PFYIndB",
                       "OCCCP", "OCCCP", "PFYOccupA", "PFYOccupB",
