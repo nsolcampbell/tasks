@@ -1,3 +1,5 @@
+library(doBy)
+
 load('data/curf/1982.rda')
 load('data/curf/1986.rda')
 load('data/curf/1995.rda')
@@ -54,4 +56,33 @@ combined$EducA <- factor(combined$EducA, levels=EducA_levels, ordered=T)
 combined$EducB <- factor(combined$EducB, levels=EducB_levels, ordered=T)
 combined$Year  <- factor(combined$Year,  levels=year_list,    ordered=T)
 combined$Sex   <- factor(combined$Sex,   levels=c("Male","Female"), ordered=F)
+
+combined$Asco <- NA
+has_asco <- with(combined, Year >= 1997 & Year <= 2006)
+combined$Asco[has_asco] <- recodeVar(as.character(combined$COccupB[has_asco]),
+                            list(c("Advanced clerical and service workers", "Advanced Clerical and Service Workers"), 
+                                 c("Associate professionals", "Associate Professionals"), 
+                                 c("Elementary clerical, sales and service workers", "Elementary Clerical, Sales and Service Workers"), 
+                                 "Inadequately described",
+                                 c("Intermediate clerical, sales and service workers", "Intermediate Clerical, Sales and Service Workers"), 
+                                 c("Intermediate production and transport workers", "Intermediate Production and Transport Workers"), 
+                                 c("Labourers and related workers", "Labourers and Related Workers"), 
+                                 c("Managers and Administrators", "Managers and administrators"),
+                                 "Not applicable", 
+                                 "Professionals", 
+                                 c("Tradespersons and related workers", "Tradespersons and Related Workers")
+                            ),
+                             list("Advanced clerical and service workers", 
+                                  "Associate professionals",
+                                  "Elementary clerical, sales and service workers",
+                                  "Inadequately described",
+                                  "Intermediate clerical, sales and service workers",
+                                  "Intermediate production and transport workers", 
+                                  "Labourers and related workers",
+                                  "Managers and Administrators", 
+                                  "Not applicable", 
+                                  "Professionals", 
+                                  "Tradespersons and related workers")
+                             )
+
 save(combined, file='data/curf/combined.rda')

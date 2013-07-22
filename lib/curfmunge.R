@@ -79,11 +79,12 @@ recodeAge4 <- function(age) {
               age_level_list)
 }
 
+lf_status <- c("Full-time", "Part-time", "Other")
 recodeFullTime <- function(status) {
     recodeVar(as.character(subs$LFSTBCP),
               list(c("Employed full-time"), 
                    c("Employed part-time"), 
                    c("Unemployed", "Not in the labour force")),
-              list("Full-time", "Part-time", "Other"))
+              as.list(lf_status))
 }
 
