@@ -39,6 +39,15 @@ subs <- curf[,c("ID",
 
 subs$Weight <- subs$WTPSN / 10000.0
 
+recodePrincipalSource <- function(src) {
+    recodeVar(as.character(src),
+              list(c("Wage and salary"),
+                   c("Own unincorporated business"),
+                   c("Government cash pensions and allowances", 
+                     "Superannuation", "Property investments", 
+                     "Other sources", "Not applicable")),
+              as.list(income_sources))
+}
 subs$CPrincipalSource <- recodePrincipalSource(subs$PSRCCP)
 subs$PFYPrincipalSource <- recodePrincipalSource(subs$PSRCPP)
 

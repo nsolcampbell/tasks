@@ -41,7 +41,7 @@ recodePrincipalSource <- function(src) {
                    "Own unincorporated business income",
                    c("Government pensions and allowances", "Superannuation", "Property investments", 
                      "Other sources", "Not applicable")),
-              list("Wages and Salaries", "NLLC", "Other")
+               as.list(income_sources)
               )
 }
 subs$CPrincipalSource <- recodePrincipalSource(subs$PSRCCP)

@@ -11,7 +11,7 @@ curfsubset <- function(dataset, ...) {
 }
 
 # Columns the CURF munge files should export
-standard_column_list <- c("Year", "Sex", "Age4",
+standard_column_list <- c("ID", "Year", "Sex", "Age4",
                           "CInc","PFYInc",
                           "CIndA","CIndB","PFYIndA","PFYIndB",
                           "COccupA","COccupB","PFYOccupA","PFYOccupB",
@@ -20,15 +20,17 @@ standard_column_list <- c("Year", "Sex", "Age4",
                           "CSource","PFYSource",
                           "Weight")
 
+income_sources <- c("Wages and Salaries", "Unincorporated Entity", "Other")
+
 ##' Recode a 1990s principal source
 recodePrincipalSource <- function(src) {
     recodeVar(as.character(src),
               list(c("Wages and salaries"),
                    c("Own unincorporated business income"),
-                   c("Government pension and allowances", 
+                   c("Government pension and allowances", "Government pensions and allowances",
                      "Superannuation", "Property investments", 
                      "Other sources", "Not applicable")),
-              list("Wages and Salaries", "NLLC", "Other"))
+              as.list(income_sources))
 }
 
 EducA_levels <- c("No Post-Secondary","Associate/Trade","Bachelor", "Postgraduate")
@@ -48,14 +50,12 @@ recodeEducA <- function(educ) {
 EducB_levels <- c("No Post-Secondary","Associate/Trade","Bachelor or Higher")
 ##' Recode a 1990s dataset to the EducA coding
 recodeEducB <- function(educ) {
-    res <- recodeVar(as.character(educ), 
-                     list(c("Still at school","No qualifications"),
-                          c("Undergraduate diploma", "Associate diploma", 
-                            "Skilled vocational qualifications", "Basic vocational qualifications"),
-                          c("Higher degree", "Postgraduate diploma", "Bachelor degree")), 
-                     as.list(EducB_levels))
-    factor(res, ordered=TRUE, 
-           levels=EducB_levels)
+    recodeVar(as.character(educ), 
+                 list(c("Still at school","No qualifications"),
+                      c("Undergraduate diploma", "Associate diploma", 
+                        "Skilled vocational qualifications", "Basic vocational qualifications"),
+                      c("Higher degree", "Postgraduate diploma", "Bachelor degree")), 
+                 as.list(EducB_levels))
 }
 
 # Standard list of age levels
@@ -86,3 +86,4 @@ recodeFullTime <- function(status) {
                    c("Unemployed", "Not in the labour force")),
               list("Full-time", "Part-time", "Other"))
 }
+

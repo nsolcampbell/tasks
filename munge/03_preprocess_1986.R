@@ -119,10 +119,10 @@ recodePrincipalSource <- function(variable) {
                              c("NLLC business or trust"),
                              c("Not applicable (respondent is stillat school or studying ful", 
                                 "Government pensions and benefits", 
+                                "Government pensions and benefitss",
                                 "Superannuation", "Interest, dividends, rent", "Other sources", 
                                 "No regular income", "Not able to calculate as at least one component was not stat")),
-                    list("Earned", "LLC or Trust", "Other"))
-	factor(r, ordered=T, levels=c("Earned", "LLC or Trust", "Other"))
+                    as.list(income_sources))
 }
 subs$CPrincipalSource   <- recodePrincipalSource(subs$PRINCIPAL_SOURCE_INC_CUR_PSN)
 subs$PFYPrincipalSource <- recodePrincipalSource(subs$PRINCIPAL_SOURCE_INC_PRD_PSN)

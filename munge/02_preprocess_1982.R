@@ -117,7 +117,7 @@ subs$CSource <-
                    c("Government cash benefits", "Superannuation", 
                      "Interest,dividends,bonds,rent", "Other sources", 
                      "Nil income")),
-              list("Wages and Salaries", "Business or NLLC", "Other"))
+              as.list(income_sources))
 
 subs$PFYSource <- 
     recodeVar(as.character(subs$PrincipalSource),
@@ -126,7 +126,7 @@ subs$PFYSource <-
                    c("Government cash benefits", "Superannuation", 
                      "Interest,dividends,bonds,rent", "Other sources", 
                      "Nil income")),
-              list("Wages and Salaries", "Business or NLLC", "Other"))
+              as.list(income_sources))
 
 subs$Year <- 1982
 
