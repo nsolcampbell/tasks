@@ -20,39 +20,7 @@ library(xtable)
 library(reshape2)
 source('../lib/footnote.R')
 source('../lib/plot_theme.R')
-load('../data/curf/fyftws.rda')
-
-plot_data <- fyftws # full-year, full-time, wages & salaries subset of data
-
-vline.data <- ddply(plot_data,~EducA + Sex + Year,summarise,
-                    mean=mean(PFYRInc),sd=sd(PFYRInc),
-                    median=weighted.median(PFYRInc, Weight))
-
-# normalize weights by education/sex/year and sex/year
-plot_data$SexYearEducWeight <- NA
-plot_data$SexYearWeight <- NA
-for (s in levels(plot_data$Sex)) {
-    sex <- plot_data$Sex == s
-    for (y in levels(plot_data$Year)) {
-        year <- plot_data$Year == y
-        # sy_subs gives indexes for (sex,year) cell
-        sy_subs <- which(sex & year)
-        
-        for (e in levels(plot_data$EducA)) {
-            educ <- plot_data$EducA == e
-            # sye_subs gives indexes for (year,sex,educ) cell
-            sye_subs <- which(sex & year & educ)
-            
-            plot_data$SexYearEducWeight[sye_subs] <- 
-                plot_data$Weight[sye_subs] / sum(plot_data$Weight[sye_subs])
-            plot_data$SexYearWeight[sy_subs] <- 
-                plot_data$Weight[sy_subs] / sum(plot_data$Weight[sy_subs])
-        }
-    }
-}
-
-subs <- plot_data[,c("Sex","Year","EducA","Weight","PFYRInc","SexYearEducWeight")]
-subs$Year <- factor(subs$Year, levels=c("1982","1995","2008","2010"), ordered=T)
+load('../data/curf/ftwswaw.rda')
 ```
 
 Comparison by Education Level
@@ -60,13 +28,39 @@ Comparison by Education Level
 
 Note the real decline in median incomes of individuals with postgraduate education, particularly for males.
 
-```{r, dependson='load_data', fig.height=6, fig.width=8}
-p <- ggplot(subs,aes(x=PFYRInc+1,color=EducA,fill=EducA,weight=SexYearEducWeight)) + 
+```{r, dependson='load_data', fig.height=10, fig.width=8}
+ed_a <- which(!is.na(ftwswaw$EducA)) # rows where EducA is available
+medians.EducA <- ddply(ftwswaw[ed_a,],~EducA + Sex + Year,summarise,
+                    mean=mean(CRInc),sd=sd(CRInc),
+                    median=weighted.median(CRInc, Weight))
+p <- ggplot(ftwswaw[ed_a,],
+            aes(x=CRInc+1,color=EducA,fill=EducA,weight=SexYearEducAWeight)) + 
         geom_density(bw="SJ",alpha=0.2) + 
         geom_vline(aes(xintercept=median,group=EducA,color=EducA),
-                   vline.data, linetype='solid', alpha=0.5) +
-        scale_x_log10(labels = comma, limits=c(20e3,200e3), 
-                      breaks=c(25e3,50e3,100e3,200e3)) +
+                   medians.EducA, linetype='solid', alpha=0.5) +
+        scale_x_log10(labels = comma, limits=c(500,3300),  
+                       breaks=c(500,1e3,2e3)) +
+        facet_grid(Year ~ Sex) +
+        ggtitle("Annual real earned income distribution by education and sex (Australia)") +
+        xlab("Previous Financial Year Real Income (log scale, 2013 dollars)")
+# NB: we suppress warnings since trimming the edges of the distribution means the area
+# under the curves are no longer precisely equal to 1.
+suppressWarnings(print(p))
+makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+```
+<small>Earnings from wages and salaries, including tips and bonuses, in the previous fiscal year. Only respondents who reported working full-time for at least 49 weeks out of the previous financial year, and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
+
+```{r, dependson='load_data', fig.height=10, fig.width=8}
+medians.EducB <- ddply(ftwswaw,~EducB + Sex + Year,summarise,
+                    mean=mean(CRInc),sd=sd(CRInc),
+                    median=weighted.median(CRInc, Weight))
+p <- ggplot(ftwswaw,
+            aes(x=CRInc+1,color=EducB,fill=EducB,weight=SexYearEducBWeight)) + 
+        geom_density(bw="SJ",alpha=0.2) + 
+        geom_vline(aes(xintercept=median,group=EducB,color=EducB),
+                   medians.EducB, linetype='solid', alpha=0.5) +
+        scale_x_log10(labels = comma, limits=c(500,3300),  
+                       breaks=c(500,1e3,2e3)) +
         facet_grid(Year ~ Sex) +
         ggtitle("Annual real earned income distribution by education and sex (Australia)") +
         xlab("Previous Financial Year Real Income (log scale, 2013 dollars)")
@@ -78,6 +72,7 @@ makeFootnote("Full-time, full-year workers with wages & salaries as primary inco
 <small>Earnings from wages and salaries, including tips and bonuses, in the previous fiscal year. Only respondents who reported working full-time for at least 49 weeks out of the previous financial year, and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
 
 A number of regularities are evident in the data above:
+
 1. Education is declining as a predictor of real income earned (overlap of distributions is increasing),
 2. For all education levels, income distribution is widening considerably (the tails are fatter).
 3. The earnings differential between men and women appears to be closing, albeit slowly, and in particular highly-educated women appear to have overtaken men by a large margin.
@@ -87,33 +82,39 @@ Let's explore each of these trends one by one.
 
 1. Education level declining as a predictor of income earned.
 -------------------------------------------------------------
-Let's look at the predictive power of education and sex on real income earned, as partial $R^2$, computed on education, each year.
+Let's look at the predictive power of education and sex on real income earned, as partial $R^2$, computed on education, each year. 
 
 ```{r 'partial_rsq', dependson='load_data', cache=FALSE}
-prsqs <- data.frame(row.names=unique(plot_data$Year))
-prsqs$Sex <- NA; prsqs$EducA <- NA
-for (yr in levels(plot_data$Year)) {
-    subs <- subset(plot_data, Year == yr)
+prsqsB <- data.frame(row.names=unique(ftwswaw$Year))
+prsqsB$Sex <- NA; prsqsB$EducB <- NA; 
+for (yr in levels(ftwswaw$Year)) {
+    subs <- subset(ftwswaw, Year == yr)
     if (nrow(subs) > 0) {
-        fit <- lm(log(PFYRInc) ~ Sex + EducA, data=subs)
+        fit <- lm(log(CRInc+1) ~ Sex + EducB, data=subs)
         ss <- lm.sumSquares(fit)
-        prsqs[yr,] <- ss[c("EducA","Sex"),"dR-sqr"]
+        prsqsB[yr,] <- ss[c("EducB","Sex"),"dR-sqr"]
     }
 }
-prsqs$Year <- as.numeric(rownames(prsqs))
-prsqs_long <- melt(prsqs, id.vars="Year", value.name='PRsq')
+prsqsB$Year <- as.numeric(rownames(prsqsB))
+prsqsB_long <- melt(prsqsB, id.vars="Year", value.name='PRsq')
 ```
 ```{r, dependson='partial_rsq', results='asis'}
-print(xtable(prsqs), type="html")
+print(xtable(prsqsB), type="html")
 ``` 
 ```{r, dependson='partial_rsq', fig.height=6, fig.width=8}
-ggplot(prsqs_long, aes(y=PRsq, x=Year, colour=variable)) + geom_line() +
+p <- ggplot(prsqsB_long, aes(y=PRsq, x=Year, colour=variable)) + geom_line() +
     geom_point() +
-    ggtitle("Explanatory Power of Education, Sex in Log Real Earnings") +
+    ggtitle("Explanatory Power of Education B, Sex in Log Real Earnings") +
     ylab(expression("Partial R"^2)) +
     scale_y_continuous(limits=c(0,0.16))
-makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+print(p)
+makeFootnote("Full-time, working-age, where wages & salaries is primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
 ```
+
+2. Widening of the income distribution
+--------------------------------------
+One way to measure the 
+
 
 4. Decline in the skill premium
 -------------------------------
@@ -121,7 +122,7 @@ The most interesting puzzle for me is the last observation, the decline of the s
 
 If income is determined, in part, by supply and demand, one place to look might be the relative levels of supply of workers with a postgraduate education. The chart below plots the proportion of skilled workers by year/sex:
 ```{r, dependson='load_data', fig.height=6, fig.width=8}
-ed_prop <- ddply(plot_data,~EducA + Sex + Year, summarise,
+ed_prop <- ddply(ftwswaw[ed_a,],~EducA + Sex + Year, summarise,
                     wmean=weighted.median(PFYRInc, SexYearWeight),
                     wtop=weighted.fractile(PFYRInc, SexYearWeight, 0.9),
                     wbottom=weighted.fractile(PFYRInc, SexYearWeight, 0.1),
