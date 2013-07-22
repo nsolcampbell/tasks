@@ -36,6 +36,11 @@ subs <- curfsubset(curf,
 subs$IncomeWages[subs$IncomeWages==9999] <- NA
 subs$IncomeWages8182[subs$IncomeWages8182==99999] <- NA
 
+# unique identifier for survey module
+subs$ID <- with(subs, 
+                paste(IDENT_PSN, FAMNO_PSN, IUNO_PSN, as.numeric(PERSON_NUMBER), 
+                      sep="."))
+
 # convert identifiers to character, from levels
 for (col in c("IDENT_PSN","FAMNO_PSN","IUNO_PSN")) {
         subs[,col] <- as.character(subs[,col])
@@ -125,7 +130,7 @@ subs$PFYSource <-
 
 subs$Year <- 1982
 
-subset_1982 <- subs[,c("Year", "Sex", "Age4", 
+subset_1982 <- subs[,c("ID", "Year", "Sex", "Age4", 
                     "IncomeWages", "IncomeWages8182",
                     "IndEmployer", "IndEmployer", "Industry8182", "Industry8182",
                     "CurrentOccup", "CurrentOccup", "Occup8182", "Occup8182",

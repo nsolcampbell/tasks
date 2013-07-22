@@ -43,19 +43,23 @@ subs <- curfsubset(curf,
                                                              # employee)(incl leave load,tips,comms,bons)
     PPP0253="WEIGHT_PERSONS_NA_PSN"          # Weight for persons (needs division by 10,000)
     )
-subs$Weight <- subs$WEIGHT_PERSONS_NA_PSN / 1000.0
+subs$Weight <- subs$WEIGHT_PERSONS_NA_PSN / 10000.0
+subs$ID <- with(subs, paste(HOUSEHOLD_IDENT_NA_UNIT, 
+                                 as.numeric(FAMILY_NUMBER_NA_PSN), 
+                                 as.numeric(INCOME_UNIT_NUMBER_NA_PSN), 
+                                 as.numeric(PERSNR), sep="."))
 
-# Supplement contains hours worked; needs to be linked via family and person number
-# NOTE: don't need this at this stage, since we're using full-year data for now
+# # Supplement contains hours worked; needs to be linked via family and person number
+# # NOTE: don't need this at this stage, since we're using full-year data for now
 # supp <- read.csv("data/curf/1986/IDS86SUP/Ids86sup.dat", 
-# 									col.names=c("IDENTNP", # HOUSEHOLD_IDENT_NA_PSN
-# 															"IDNP",    # RECORD_ID_NA_PSN
-# 															"FAMNONP", # FAMILY_NUMBER_NA_PSN
-# 															"IUNO",    # INCOME_UNIT_NUMBER_NA_PSN
-# 															"PERSNONP",# PERSON_NUMBER_IN_INCOME_UNIT
-# 															"HRSWKMCP",# HOURS WORKED IN MAIN CURRENT JOB
-# 															"HRSWK2CP" # HOURS WORKED IN CURRENT 2ND JOB
-# 									))
+#                 col.names=c("IDENTNP", # HOUSEHOLD_IDENT_NA_PSN
+#                             "IDNP",    # RECORD_ID_NA_PSN
+#                             "FAMNONP", # FAMILY_NUMBER_NA_PSN
+#                             "IUNO",    # INCOME_UNIT_NUMBER_NA_PSN
+#                             "PERSNONP",# PERSON_NUMBER_IN_INCOME_UNIT
+#                             "HRSWKMCP",# HOURS WORKED IN MAIN CURRENT JOB
+#                             "HRSWK2CP" # HOURS WORKED IN CURRENT 2ND JOB
+#                 ))
 # subs_merged <- merge(ids_86, supp)
 
 # We can't do EducA because higher degrees are missing from this survey
@@ -128,7 +132,7 @@ subs$PFYPrincipalSource <- recodePrincipalSource(subs$PRINCIPAL_SOURCE_INC_PRD_P
 
 subs$Year <- 1986
 
-subset_1986 <- subs[,c("Year", "SEX_NA_PSN", "Age4",
+subset_1986 <- subs[,c("ID", "Year", "SEX_NA_PSN", "Age4",
                          "INC_USUAL_WAGE_SALARY_CUR_PSN", "INC_TOT_GR_WS_EXCL_JE_PRD_PSN",
                          "MAIN_INDUSTRY_CUR_PSN", "MAIN_INDUSTRY_CUR_PSN", "MAIN_INDUSTRY_PRD_PSN", "MAIN_INDUSTRY_PRD_PSN",
                          "MAIN_OCCUPATION_CUR_PSN", "MAIN_OCCUPATION_CUR_PSN", "MAIN_OCCUPATION_PRD_PSN", "MAIN_OCCUPATION_PRD_PSN",

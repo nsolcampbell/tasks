@@ -7,7 +7,11 @@ curf <- data.frame(read.spss('data/curf/1995/IDS94PSN.SAV'))
 # Note fields are described in "65410_1994-95 (Reissue).pdf", with
 # person record notes starting on p.41
 
-keepcols <- c("SEXP", 
+curf$ID <- with(curf, paste(ABSHID, as.numeric(FAMNO), 
+                                 as.numeric(ABSIID), as.numeric(ABSPID), 
+                                 sep="."))
+subs <- curf[,c("ID",
+            "SEXP", 
             "AGECP", 
             "LFSTFCP", # Labor force status, main job
             "LFST2CP", # Labor force status, second job
@@ -33,8 +37,7 @@ keepcols <- c("SEXP",
             paste("FTPTD7M",1:7,sep=""), # PT/FT status in month minus n
             "WTPSN",   # Person weight
             paste("REPWT",1:30,sep="") # replication weights
-)
-subs <- curf[,keepcols]
+)]
 
 subs$Weight <- subs$WTPSN / 10000.0
 
@@ -81,7 +84,7 @@ subs$PFYIndB <- NA
 subs$PFYOccupA <- NA
 subs$PFYOccupB <- NA
 
-subset_1995 <- subs[,c("Year", "Sex", "Age4",
+subset_1995 <- subs[,c("ID", "Year", "Sex", "Age4",
                       "IEARNCP","IEARNPP",
                       "INDCP", "INDCP", "PFYIndA", "PFYIndB",
                       "OCCCP", "OCCCP", "PFYOccupA", "PFYOccupB",

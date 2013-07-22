@@ -2,7 +2,7 @@ library(foreign)
 library(doBy)
 source('lib/curfmunge.R')
 
-suppressWarnings(curf <- data.frame(read.spss('data/curf/2003/IDS02PER.SAV')))
+suppressWarnings(curf <- data.frame(read.spss('data/curf/2006/sih05bp.sav')))
 
 # Note fields are described in "65410_1994-95 (Reissue).pdf", with
 # person record notes starting on p.41
@@ -29,11 +29,8 @@ subs <- curf[,c("ID",
               "IWSTPP",  # Total previous financial year income from wages and salaries
               "PSRCCP",  # Principal source of current weekly income
               "PSRCPP",  # Principal source of previous financial year income
-              "WTPSN",   # Person weight
-              sprintf("REPWT%02d",1:30)
+              sprintf("WPS%04d",101:160) # Person weight
 )]
-
-subs$Weight <- subs$WTPSN / 1.0e4
 
 recodePrincipalSource <- function(src) {
     recodeVar(as.character(src),
