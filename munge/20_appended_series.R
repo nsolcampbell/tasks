@@ -50,8 +50,7 @@ for (i in seq_along(year_list)) {
 
 combined$Age4 <- factor(combined$Age4, levels=age_levels, ordered=T)
 
-eda <- which(!is.na(combined$EducA))
-combined$EducA[eda] <- factor(combined$EducA[eda], levels=EducA_levels, ordered=T)
+combined$EducA <- factor(combined$EducA, levels=EducA_levels, ordered=T)
 combined$EducB <- factor(combined$EducB, levels=EducB_levels, ordered=T)
 combined$Year  <- factor(combined$Year,  levels=year_list,    ordered=T)
 combined$Sex   <- factor(combined$Sex,   levels=c("Male","Female"), ordered=F)

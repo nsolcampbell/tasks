@@ -42,8 +42,12 @@ subs$Weight <- subs$WTPSN / 10000.0
 subs$CPrincipalSource <- recodePrincipalSource(subs$PSRCCP)
 subs$PFYPrincipalSource <- recodePrincipalSource(subs$PSRCPP)
 
-subs$EducA <- recodeEducA(subs$HQUALCP)
-subs$EducB <- recodeEducB(subs$HQUALCP)
+subs$EducA <- rep(NA, nrow(subs))
+subs$EducB <- recodeVar(as.character(subs$HQUALCP), 
+                        list(c("Still at school", "No qualifications"),
+                             "Other post school qualifications",
+                             "Higher/bachelor degree, postgraduate diploma"), 
+                        as.list(EducB_levels))
 
 subs$Age4 <- recodeAge4(subs$AGECP)
 
