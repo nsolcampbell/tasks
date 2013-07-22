@@ -49,10 +49,10 @@ subs$PFYPrincipalSource <- recodePrincipalSource(subs$PSRCPP)
 
 subs$EducA <- rep(NA, nrow(subs))
 subs$EducB <- recodeVar(as.character(subs$HQUALBC), 
-                        list("Higher/bachelor degree, postgraduate diploma",
+                        list(c("Not applicable", "Still at school",
+                               "No qualifications"),
                              "Other post school qualifications",
-                             c("Not applicable", "Still at school",
-                               "No qualifications")),
+                             "Higher/bachelor degree, postgraduate diploma"),
                         as.list(EducB_levels))
 
 subs$Age4 <- recodeVar(as.character(subs$AGEBC),
@@ -71,10 +71,10 @@ subs$Age4 <- recodeVar(as.character(subs$AGEBC),
 
 subs$CFullTime <-     
     recodeVar(as.character(subs$LFSTBCP),
-                list(c("Employed Full-time"), 
-                     c("Employed Part-time"), 
-                     c("Not applicable")),
-                list("Full-time", "Part-time", "Other"))
+                list(c("Employed full-time"), 
+                     c("Employed part-time"), 
+                     c("Not in the labour force", "Unemployed")),
+                as.list(lf_status))
 
 subs$Year <- 2003
 

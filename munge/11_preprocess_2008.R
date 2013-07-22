@@ -44,21 +44,23 @@ subs$PFYPrincipalSource <- recodeSource(subs$PSRC4PP)
 
 subs$EducA <- 
     recodeVar(as.character(subs$HQUALBC),
-              list(c("Postgraduate Degree, Graduate Diploma/Graduate Certificate"), 
-                   c("Bachelor Degree"),
+              list(c("No non-school qualification", 
+                     "Level not determined"),
                    c("Advanced Diploma/Diploma", "Certificate III/IV", 
                      "Certificate I/II", "Certificate not further defined"), 
-                   c("No non-school qualification", 
-                     "Level not determined")),
+                   c("Bachelor Degree"),
+                   c("Postgraduate Degree, Graduate Diploma/Graduate Certificate")
+                   ),
               as.list(EducA_levels))
 
 subs$EducB <- 
     recodeVar(as.character(subs$HQUALBC),
-              list(c("Postgraduate Degree, Graduate Diploma/Graduate Certificate", "Bachelor Degree"),
+              list(c("No non-school qualification", 
+                     "Level not determined"),
                    c("Advanced Diploma/Diploma", "Certificate III/IV", 
                      "Certificate I/II", "Certificate not further defined"), 
-                   c("No non-school qualification", 
-                     "Level not determined")),
+                   c("Postgraduate Degree, Graduate Diploma/Graduate Certificate", "Bachelor Degree")
+                   ),
               as.list(EducB_levels))
 
 subs$Age4 <- recodeVar(as.character(subs$AGEBC),

@@ -47,7 +47,12 @@ subs$EducB <- recodeEducB(subs$HQUALCP)
 
 subs$Age4 <- recodeAge4(subs$AGECP)
 
-subs$CFullTime <- recodeFullTime(status)
+subs$CFullTime <- 
+    recodeVar(as.character(curf$LFSTBCP),
+              list("Employed full time", 
+                   "Employed part time", 
+                   c("Unemployed", "Not in the labour force")),
+              as.list(lf_status))
 
 # ahem: TODO
 subs$PFYFullTime <- NA
