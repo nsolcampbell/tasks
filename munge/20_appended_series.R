@@ -58,8 +58,8 @@ combined$Year  <- factor(combined$Year,  levels=year_list,    ordered=T)
 combined$Sex   <- factor(combined$Sex,   levels=c("Male","Female"), ordered=F)
 
 combined$Asco <- NA
-has_asco <- with(combined, Year >= 1997 & Year <= 2006)
-combined$Asco[has_asco] <- recodeVar(as.character(combined$COccupB[has_asco]),
+has_asco_ii <- with(combined, Year >= 1997 & Year <= 2006)
+combined$AscoII[has_asco_ii] <- recodeVar(as.character(combined$COccupB[has_asco_ii]),
                             list(c("Advanced clerical and service workers", "Advanced Clerical and Service Workers"), 
                                  c("Associate professionals", "Associate Professionals"), 
                                  c("Elementary clerical, sales and service workers", "Elementary Clerical, Sales and Service Workers"), 
@@ -84,5 +84,9 @@ combined$Asco[has_asco] <- recodeVar(as.character(combined$COccupB[has_asco]),
                                   "Professionals", 
                                   "Tradespersons and related workers")
                              )
+
+has_asco_i <- with(combined, Year >= 1986 & Year <= 1995)
+combined$Asco <- NA
+combined$Asco[has_asco_i] <- combined$COccupB[has_asco_i]
 
 save(combined, file='data/curf/combined.rda')
