@@ -33,7 +33,7 @@ subs <- curf[,c("ID",
               sprintf("REPWT%02d",1:30)
 )]
 
-subs$Weight <- subs$WTPSN / 1.0e4
+subs$Weight <- subs$WTPSN 
 
 recodePrincipalSource <- function(src) {
     recodeVar(as.character(src),

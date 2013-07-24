@@ -27,7 +27,7 @@ subs <- curf[,c("ID",
               sprintf("WPS%04d",101:160) # replication weights
 )]
 
-subs$Weight <- subs$SIHPSWT / 10000.0
+subs$Weight <- subs$SIHPSWT 
 
 recodeSource <- function(src) {
     recodeVar(as.character(src),
