@@ -1,0 +1,74 @@
+Space-Time Research										
+"Employed Persons (ST E13_Aug96_ANZSCO06) by Occupation Major Group, State, Age, Sex - from August 1996 Copyright © Commonwealth of Australia 2013  "										
+Table 1										
+"Employed ft, pt, total and Sex by Month by ANZSCO06 major group"										
+										
+			Managers	Professionals	Technicians and Trades Workers	Community and Personal Service Workers	Clerical and Administrative Workers	Sales Workers	Machinery Operators And Drivers	Labourers
+Employed Full Time ('000)	Females	August Quarter 1996	217	471	111	177	677	204	51	151
+Employed Full Time ('000)	Females	November Quarter 1996	216	487	108	180	664	205	50	164
+Employed Full Time ('000)	Females	February Quarter 1997	220	478	115	177	663	197	51	165
+Employed Full Time ('000)	Females	May Quarter 1997	221	488	118	186	642	192	49	154
+Employed Full Time ('000)	Females	August Quarter 1997	213	499	113	176	635	184	49	154
+Employed Full Time ('000)	Females	November Quarter 1997	221	491	106	193	667	200	54	150
+Employed Full Time ('000)	Females	February Quarter 1998	215	489	121	189	675	200	53	145
+Employed Full Time ('000)	Females	May Quarter 1998	214	507	110	196	654	199	50	149
+Employed Full Time ('000)	Females	August Quarter 1998	211	511	113	192	664	195	52	162
+Employed Full Time ('000)	Females	November Quarter 1998	220	526	104	200	651	197	52	162
+Employed Full Time ('000)	Females	February Quarter 1999	220	533	108	190	662	206	50	157
+Employed Full Time ('000)	Females	May Quarter 1999	223	523	115	190	667	194	46	148
+Employed Full Time ('000)	Females	August Quarter 1999	226	525	104	181	666	196	46	158
+Employed Full Time ('000)	Females	November Quarter 1999	242	547	122	202	672	185	45	156
+Employed Full Time ('000)	Females	February Quarter 2000	238	554	118	196	681	190	47	158
+Employed Full Time ('000)	Females	May Quarter 2000	232	570	112	181	706	186	52	154
+Employed Full Time ('000)	Females	August Quarter 2000	251	571	105	188	711	192	45	161
+Employed Full Time ('000)	Females	November Quarter 2000	259	574	112	197	714	200	45	159
+Employed Full Time ('000)	Females	February Quarter 2001	266	591	108	209	713	196	42	152
+Employed Full Time ('000)	Females	May Quarter 2001	265	578	112	214	687	197	41	148
+Employed Full Time ('000)	Females	August Quarter 2001	269	559	111	210	674	193	35	148
+Employed Full Time ('000)	Females	November Quarter 2001	283	563	114	215	669	203	39	148
+Employed Full Time ('000)	Females	February Quarter 2002	275	578	118	201	683	182	42	156
+Employed Full Time ('000)	Females	May Quarter 2002	270	596	113	201	648	192	40	150
+Employed Full Time ('000)	Females	August Quarter 2002	273	601	112	211	659	192	42	148
+Employed Full Time ('000)	Females	November Quarter 2002	272	592	115	220	676	205	43	148
+Employed Full Time ('000)	Females	February Quarter 2003	292	611	127	213	686	202	40	154
+Employed Full Time ('000)	Females	May Quarter 2003	276	599	111	211	674	210	43	159
+Employed Full Time ('000)	Females	August Quarter 2003	267	596	114	211	683	197	42	151
+Employed Full Time ('000)	Females	November Quarter 2003	287	619	120	218	681	203	43	145
+Employed Full Time ('000)	Females	February Quarter 2004	288	634	114	220	688	195	44	143
+Employed Full Time ('000)	Females	May Quarter 2004	282	648	114	208	679	191	46	147
+Employed Full Time ('000)	Females	August Quarter 2004	299	632	109	229	671	187	41	163
+Employed Full Time ('000)	Females	November Quarter 2004	325	626	111	245	682	215	40	168
+Employed Full Time ('000)	Females	February Quarter 2005	345	635	135	238	689	221	37	160
+Employed Full Time ('000)	Females	May Quarter 2005	314	657	135	224	687	209	45	146
+Employed Full Time ('000)	Females	August Quarter 2005	322	640	128	233	692	204	39	155
+Employed Full Time ('000)	Females	November Quarter 2005	328	640	126	252	688	228	42	160
+Employed Full Time ('000)	Females	February Quarter 2006	332	688	126	248	702	219	41	161
+Employed Full Time ('000)	Females	May Quarter 2006	326	682	130	246	704	211	40	157
+Employed Full Time ('000)	Females	August Quarter 2006	339	672	131	237	735	211	38	166
+Employed Full Time ('000)	Females	November Quarter 2006	359	706	143	246	731	211	43	160
+Employed Full Time ('000)	Females	February Quarter 2007	345	723	138	264	738	210	46	166
+Employed Full Time ('000)	Females	May Quarter 2007	343	734	140	269	735	213	45	152
+Employed Full Time ('000)	Females	August Quarter 2007	352	724	139	270	730	203	48	151
+Employed Full Time ('000)	Females	November Quarter 2007	373	744	144	277	735	226	44	154
+Employed Full Time ('000)	Females	February Quarter 2008	373	786	149	264	746	224	43	160
+Employed Full Time ('000)	Females	May Quarter 2008	377	766	136	266	749	208	49	153
+Employed Full Time ('000)	Females	August Quarter 2008	380	772	132	263	756	199	49	155
+Employed Full Time ('000)	Females	November Quarter 2008	372	776	142	279	736	214	52	165
+Employed Full Time ('000)	Females	February Quarter 2009	364	781	147	291	760	214	40	157
+Employed Full Time ('000)	Females	May Quarter 2009	383	771	144	276	751	215	38	164
+Employed Full Time ('000)	Females	August Quarter 2009	363	803	119	264	708	202	41	150
+Employed Full Time ('000)	Females	November Quarter 2009	409	805	114	270	715	224	34	160
+Employed Full Time ('000)	Females	February Quarter 2010	376	814	131	283	719	204	38	143
+Employed Full Time ('000)	Females	May Quarter 2010	391	824	127	274	723	210	41	144
+Employed Full Time ('000)	Females	August Quarter 2010	373	836	127	295	704	226	46	129
+Employed Full Time ('000)	Females	November Quarter 2010	368	835	129	311	737	236	49	150
+Employed Full Time ('000)	Females	February Quarter 2011	386	850	136	286	713	228	50	159
+Employed Full Time ('000)	Females	May Quarter 2011	387	852	118	267	756	203	51	143
+Employed Full Time ('000)	Females	August Quarter 2011	412	825	122	290	739	208	45	139
+Employed Full Time ('000)	Females	November Quarter 2011	408	846	133	299	739	223	43	136
+Employed Full Time ('000)	Females	February Quarter 2012	397	862	136	298	758	214	46	135
+Employed Full Time ('000)	Females	May Quarter 2012	403	878	133	282	769	197	42	154
+Employed Full Time ('000)	Females	August Quarter 2012	372	866	136	277	754	207	39	152
+Employed Full Time ('000)	Females	November Quarter 2012	390	874	130	286	753	236	51	157
+Employed Full Time ('000)	Females	February Quarter 2013	386	868	141	316	763	216	44	151
+Employed Full Time ('000)	Females	May Quarter 2013	404	881	146	308	719	231	52	133

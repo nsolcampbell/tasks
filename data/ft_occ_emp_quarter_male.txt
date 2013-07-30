@@ -1,0 +1,74 @@
+Space-Time Research										
+"Employed Persons (ST E13_Aug96_ANZSCO06) by Occupation Major Group, State, Age, Sex - from August 1996 Copyright © Commonwealth of Australia 2013  "										
+Table 1										
+"Employed ft, pt, total and Sex by Month by ANZSCO06 major group"										
+										
+			Managers	Professionals	Technicians and Trades Workers	Community and Personal Service Workers	Clerical and Administrative Workers	Sales Workers	Machinery Operators And Drivers	Labourers
+Employed Full Time ('000)	Males	August Quarter 1996	682	678	1103	160	290	249	507	498
+Employed Full Time ('000)	Males	November Quarter 1996	670	712	1102	161	294	240	516	505
+Employed Full Time ('000)	Males	February Quarter 1997	675	695	1122	166	295	244	502	504
+Employed Full Time ('000)	Males	May Quarter 1997	686	691	1113	158	290	238	487	514
+Employed Full Time ('000)	Males	August Quarter 1997	669	703	1087	162	290	243	482	509
+Employed Full Time ('000)	Males	November Quarter 1997	684	726	1099	169	307	247	493	509
+Employed Full Time ('000)	Males	February Quarter 1998	659	742	1132	170	302	253	489	512
+Employed Full Time ('000)	Males	May Quarter 1998	675	735	1124	164	300	255	485	509
+Employed Full Time ('000)	Males	August Quarter 1998	680	739	1106	158	296	241	493	515
+Employed Full Time ('000)	Males	November Quarter 1998	692	767	1105	161	295	246	523	491
+Employed Full Time ('000)	Males	February Quarter 1999	690	789	1088	174	309	253	501	504
+Employed Full Time ('000)	Males	May Quarter 1999	686	773	1111	165	299	251	494	491
+Employed Full Time ('000)	Males	August Quarter 1999	711	748	1120	167	294	262	490	500
+Employed Full Time ('000)	Males	November Quarter 1999	716	764	1139	165	301	257	496	503
+Employed Full Time ('000)	Males	February Quarter 2000	723	774	1135	170	310	255	488	516
+Employed Full Time ('000)	Males	May Quarter 2000	699	788	1147	168	298	250	503	502
+Employed Full Time ('000)	Males	August Quarter 2000	691	793	1139	169	318	243	492	502
+Employed Full Time ('000)	Males	November Quarter 2000	707	796	1125	170	334	262	479	505
+Employed Full Time ('000)	Males	February Quarter 2001	697	819	1101	175	341	245	485	504
+Employed Full Time ('000)	Males	May Quarter 2001	724	809	1091	160	320	238	496	488
+Employed Full Time ('000)	Males	August Quarter 2001	719	816	1097	173	302	220	499	462
+Employed Full Time ('000)	Males	November Quarter 2001	767	800	1105	169	307	232	492	475
+Employed Full Time ('000)	Males	February Quarter 2002	757	819	1117	174	300	247	494	486
+Employed Full Time ('000)	Males	May Quarter 2002	746	824	1114	178	300	253	495	495
+Employed Full Time ('000)	Males	August Quarter 2002	710	816	1093	174	315	256	490	501
+Employed Full Time ('000)	Males	November Quarter 2002	718	834	1114	179	324	255	501	486
+Employed Full Time ('000)	Males	February Quarter 2003	709	848	1133	190	327	269	509	501
+Employed Full Time ('000)	Males	May Quarter 2003	736	830	1141	179	311	255	499	476
+Employed Full Time ('000)	Males	August Quarter 2003	738	825	1152	181	313	255	486	483
+Employed Full Time ('000)	Males	November Quarter 2003	749	838	1163	189	327	242	486	515
+Employed Full Time ('000)	Males	February Quarter 2004	745	858	1185	193	316	251	500	514
+Employed Full Time ('000)	Males	May Quarter 2004	744	851	1169	188	316	250	507	519
+Employed Full Time ('000)	Males	August Quarter 2004	767	834	1146	179	315	250	503	521
+Employed Full Time ('000)	Males	November Quarter 2004	772	842	1194	183	322	258	516	504
+Employed Full Time ('000)	Males	February Quarter 2005	796	823	1219	192	346	262	511	528
+Employed Full Time ('000)	Males	May Quarter 2005	785	856	1194	191	337	270	510	527
+Employed Full Time ('000)	Males	August Quarter 2005	794	881	1205	196	329	275	513	502
+Employed Full Time ('000)	Males	November Quarter 2005	783	899	1225	195	322	273	510	522
+Employed Full Time ('000)	Males	February Quarter 2006	828	908	1209	187	325	269	512	522
+Employed Full Time ('000)	Males	May Quarter 2006	792	915	1234	192	321	261	521	520
+Employed Full Time ('000)	Males	August Quarter 2006	817	900	1236	182	333	254	548	495
+Employed Full Time ('000)	Males	November Quarter 2006	823	884	1258	191	337	253	569	489
+Employed Full Time ('000)	Males	February Quarter 2007	834	915	1248	201	358	255	568	519
+Employed Full Time ('000)	Males	May Quarter 2007	839	929	1263	205	349	249	572	518
+Employed Full Time ('000)	Males	August Quarter 2007	850	920	1269	198	341	247	586	509
+Employed Full Time ('000)	Males	November Quarter 2007	849	938	1286	197	332	251	608	517
+Employed Full Time ('000)	Males	February Quarter 2008	835	959	1322	204	360	260	576	529
+Employed Full Time ('000)	Males	May Quarter 2008	851	953	1296	198	342	264	580	522
+Employed Full Time ('000)	Males	August Quarter 2008	869	970	1326	199	348	262	582	516
+Employed Full Time ('000)	Males	November Quarter 2008	826	983	1331	214	356	253	595	522
+Employed Full Time ('000)	Males	February Quarter 2009	853	981	1330	203	357	231	586	502
+Employed Full Time ('000)	Males	May Quarter 2009	875	941	1280	214	352	236	567	487
+Employed Full Time ('000)	Males	August Quarter 2009	888	966	1226	199	351	251	560	501
+Employed Full Time ('000)	Males	November Quarter 2009	891	1014	1250	205	340	251	547	499
+Employed Full Time ('000)	Males	February Quarter 2010	914	1031	1275	198	338	237	566	510
+Employed Full Time ('000)	Males	May Quarter 2010	928	975	1279	189	350	256	578	505
+Employed Full Time ('000)	Males	August Quarter 2010	903	986	1302	204	345	266	574	494
+Employed Full Time ('000)	Males	November Quarter 2010	900	984	1331	218	363	273	567	544
+Employed Full Time ('000)	Males	February Quarter 2011	860	1069	1351	212	371	265	574	547
+Employed Full Time ('000)	Males	May Quarter 2011	889	1059	1335	214	334	246	586	510
+Employed Full Time ('000)	Males	August Quarter 2011	891	1033	1276	218	350	257	613	512
+Employed Full Time ('000)	Males	November Quarter 2011	895	998	1297	230	356	257	651	507
+Employed Full Time ('000)	Males	February Quarter 2012	899	1063	1321	227	357	248	609	528
+Employed Full Time ('000)	Males	May Quarter 2012	908	1074	1318	220	357	242	602	505
+Employed Full Time ('000)	Males	August Quarter 2012	883	1070	1316	219	339	258	605	508
+Employed Full Time ('000)	Males	November Quarter 2012	885	1086	1326	242	350	241	640	506
+Employed Full Time ('000)	Males	February Quarter 2013	880	1069	1328	225	365	266	640	509
+Employed Full Time ('000)	Males	May Quarter 2013	909	1058	1322	238	372	244	609	502
