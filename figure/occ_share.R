@@ -82,10 +82,10 @@ occupation_share_charts <- function() {
 	print(p %+% combined.c +
 		ggtitle("Employment Share by Major Occupational Group"))
 	fn()
-	print(p %+% malefemale + facet_grid(sex~.) +
+	print(p %+% malefemale + facet_grid(.~sex) +
 		ggtitle("Employment Share by Broad Occupational Group, by Sex"))
 	fn()
-	print(p %+% malefemale.c + facet_grid(sex~.)  +
+	print(p %+% malefemale.c + facet_grid(.~sex)  +
 		ggtitle("Employment Share by Major Occupational Group, by Sex"))
 	fn()
 }
