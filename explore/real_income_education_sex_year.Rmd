@@ -4,7 +4,7 @@ The latest version of this exploratory analysis is available at [http://bit.ly/1
 
 The data used here are the ABS Surveys of Income and Housing (formerly, Income Distribution Survey), catalogue numbers 6543.0, 6541.0, 6503.0.
 
-The data plotted below show only full-time, full-year workers whose main source of income are wages and salaries. Full-year workers are defined as those who have worked more than 49 weeks in the previous year (with the exception of 1995, where six out of the last seven months must have been worked.)
+The data plotted below show only full-time, full-year workers whose main source of income are wages and salaries.
 
 The surveys are conducted at three unit levels: households, income units, and individuals. For the purposes of this analysis, household and income unit data are discarded; the figures below are computed using person-level information. All data are weighted by the survey person weight.
 
@@ -21,6 +21,8 @@ library(reshape2)
 source('../lib/footnote.R')
 source('../lib/plot_theme.R')
 load('../data/curf/ftwswaw.rda')
+# Standard footnote for figures
+footnote <- function() { makeFootnote("Full-time wage/salary earners. 2013 AUD, CPI deflator. Source: ABS cat. 6543.0, 6541.0, 6503.0.")}
 ```
 
 Comparison by Education Level
@@ -42,13 +44,13 @@ p <- ggplot(ftwswaw[ed_a,],
                        breaks=c(500,1e3,2e3)) +
         facet_grid(Year ~ Sex) +
         ggtitle("Annual real earned income distribution by education and sex (Australia)") +
-        xlab("Previous Financial Year Real Income (log scale, 2013 dollars)")
+        xlab("Current Weekly Real Income (log scale, 2013 dollars)")
 # NB: we suppress warnings since trimming the edges of the distribution means the area
 # under the curves are no longer precisely equal to 1.
 suppressWarnings(print(p))
-makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+footnote()
 ```
-<small>Earnings from wages and salaries, including tips and bonuses, in the previous fiscal year. Only respondents who reported working full-time for at least 49 weeks out of the previous financial year, and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
+<small>Earnings from wages and salaries, including tips and bonuses, in the week of the survey. Only respondents who reported working full-time and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
 
 ```{r, dependson='load_data', fig.height=10, fig.width=8}
 medians.EducB <- ddply(ftwswaw,~EducB + Sex + Year,summarise,
@@ -63,13 +65,13 @@ p <- ggplot(ftwswaw,
                        breaks=c(500,1e3,2e3)) +
         facet_grid(Year ~ Sex) +
         ggtitle("Annual real earned income distribution by education and sex (Australia)") +
-        xlab("Previous Financial Year Real Income (log scale, 2013 dollars)")
+        xlab("Current Weekly Real Income (log scale, 2013 dollars)")
 # NB: we suppress warnings since trimming the edges of the distribution means the area
 # under the curves are no longer precisely equal to 1.
 suppressWarnings(print(p))
-makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+footnote()
 ```
-<small>Earnings from wages and salaries, including tips and bonuses, in the previous fiscal year. Only respondents who reported working full-time for at least 49 weeks out of the previous financial year, and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
+<small>Earnings from wages and salaries, including tips and bonuses, in the week of the survey. Only respondents who reported working full-time, and whose principal source of income are wages and salaries, are shown. Vertical lines represent the median income for each education level, within each sex/year cell. Real earnings are computed from nominal figures using the (untrimmed) CPI, centered at the midpoint of the reported fiscal year. Distributions are computed using Gaussian kernel densities with Sheather & Jones (1991) bandwidth, and the survey weight per person is re-scaled so that the area under each education/sex/year curve is 1. The (logarithmic) real earnings axis is truncated at $20k and $200k, in 2013 dollars. </small>
 
 A number of regularities are evident in the data above:
 
@@ -132,7 +134,7 @@ ggplot(ed_prop, aes(x=as.numeric(as.character(Year)), y=wmedian,group=Sex)) +
     ggtitle("Median, 5%-95% Income Percentiles by Education and Sex") +
     xlab("Year of Survey") +
     ylab("Real weekly income (log scale)")
-makeFootnote("Full-time, working-age, wages & salaries primary income. 2013 dollars, CPI deflator. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+footnote()
 
 ```
 
@@ -145,7 +147,7 @@ ggplot(ed_prop, aes(x=Year, y=wsum, fill=EducB, colour=EducB)) +
        ggtitle("Education Levels by Year (Australia)") +
        ylab("Weighted percentage of respondents") +
        xlab("Education Level")
-makeFootnote("Full-time, full-year workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+footnote()
 ```
 <small>Proportions computed using person-level survey weights. Only respondents who reported working full-time, and whose principal source of income are wages and salaries, are shown.</small>
 
@@ -157,8 +159,8 @@ combo <- acast(hs_supp, Year ~ EducB ~ Sex ~ Age4, fun.aggregate=sum,
 combo[,1,,] <- log(combo[,3,,] + combo[,2,,]) - log(combo[,1,,])
 for (a in 1:2) {
     age <- c("15-34","35-54")
-    slice <- melt(combo[,1,,a])
-    p <- ggplot(slice, aes(x=X1,y=value,group=X2,color=X2)) + 
+    slice <- melt(combo[,1,,a], id=c('Sex', 'Year'))
+    p <- ggplot(slice, aes(x=Var1,y=value,group=Var2,color=Var2)) + 
         geom_line() +
         geom_point() +
         ggtitle(paste('University/Trade Relative Supply',age[a])) +
@@ -167,12 +169,79 @@ for (a in 1:2) {
 }
 ```
 
+### Cumulative change in Real Weekly Earnings
+Note the faster growth of female wages relative to males. Further note the negligible real growth of male wages at the 10th percentile between 1982 and 2010. This reproduces Figure 7 in A&A.
+```{r dependson='load_data', fig.width=10, fig.height=8}
+log_chg <- ddply(ftwswaw, ~ Sex + Year, summarise,
+                    w90=weighted.fractile(log(CRInc), SexYearWeight, 0.95),
+                    w10=weighted.fractile(log(CRInc), SexYearWeight, 0.05),
+                    wmedian=weighted.median(log(CRInc), Weight)
+                 )
+for (sex in c('Male','Female')) {
+    subs <- with(log_chg, which(Sex == sex))
+    for (c in c('w90', 'w10', 'wmedian')) {
+        log_chg[subs,c] <- log_chg[subs,c] - log_chg[subs[1],c]
+    }
+}
+ggplot(melt(log_chg), aes(x=as.numeric(as.character(Year)), 
+                          y=value, group=variable, color=variable)) +
+    geom_point() + 
+    geom_line() +
+    facet_grid(.~Sex) +
+    scale_x_continuous() +
+    xlab("Year") + ylab("Log points") +
+    ggtitle("Cumulative log change in real weekly earnings\n90th, 50th, 10th percentile")
+footnote()
+```
+
+### Wage growth by fractile
+
+```{r dependson='load_data', fig.width=10, fig.height=8}
+wage_fractile_growth <- function(fracyears, sexes=c('Male','Female')) {
+    fractiles <- matrix(nrow=length(fracyears), ncol=91)
+    for (y in 1:length(fracyears)) {
+        thisyear <- subset(ftwswaw, Year == fracyears[y] & Sex %in% sexes)
+        frac <- function(p) with(thisyear, weighted.fractile(y=log(CRInc), w=Weight, p=p))
+        fractiles[y,] <- sapply(5:95/100, frac)
+    }
+    # compute log difference (ie percentage change)
+    fracgrowth <- matrix(ncol=91, nrow=length(fracyears)-1,
+        fractiles[2:length(fracyears),] - fractiles[1:(length(fracyears)-1),])
+    colnames(fracgrowth) <- 5:95
+    # now make relative to median, so subtract the value in column "50" from each row
+    for (r in 1:(length(fracyears)-1)) {
+        fracgrowth[r,] <- fracgrowth[r,] - fracgrowth[r,50-5+1]
+    }    
+    # fracgrowth <- as.data.frame(fracgrowth)
+    rownames(fracgrowth) <- paste(fracyears[1:(length(fracyears)-1)],
+                                  fracyears[2:length(fracyears)],sep="-")
+    fracgrowth_long <- melt(fracgrowth, id='YearRange')
+    colnames(fracgrowth_long) <- c("YearRange","Percentile","Growth")
+    return(fracgrowth_long)
+}
+
+for (years in list(c(1982, 1996, 2010), c(1982, 2010))) {
+    mgrowth <- wage_fractile_growth(years, 'Male')
+    mgrowth$Sex <- 'Male'
+    fgrowth <- wage_fractile_growth(years, 'Female')
+    fgrowth$Sex <- 'Female'
+    
+    p <- ggplot(rbind(mgrowth,fgrowth), 
+           aes(x=Percentile, y=Growth, group=YearRange, colour=YearRange)) +
+        geom_line() +
+        facet_grid(.~Sex) +
+        ggtitle("Changes in Log Weekly Wages by Percentile\nRelative to Median, by Sex") +
+        xlab("Weekly Earnings Quantile") +
+        ylab("Relative log earnings change")
+    print(p)
+    footnote()
+}
+```
+
+
 3. The gender gap is persistent
 -------------------------------
 ```{r dependson='load_data', fig.width=10, fig.height=10}
-# medians.Sex <- ddply(ftwswaw[ed_a,],~EducA + Sex + Year,summarise,
-#                     mean=mean(CRInc),sd=sd(CRInc),
-#                     median=weighted.median(CRInc, Weight))
 p <- ggplot(ftwswaw[ed_a,],
             aes(x=CRInc+1,color=Sex,fill=Sex,weight=SexYearEducAWeight)) + 
         geom_density(bw="SJ",alpha=0.2) + 
@@ -186,7 +255,7 @@ p <- ggplot(ftwswaw[ed_a,],
 # NB: we suppress warnings since trimming the edges of the distribution means the area
 # under the curves are no longer precisely equal to 1.
 suppressWarnings(print(p))
-makeFootnote("Full-time workers with wages & salaries as primary income. Source: ABS cat. 6543.0, 6541.0, 6503.0. Author's calculations.")
+footnote()
 ```
 
 Job Polarization?
@@ -194,7 +263,7 @@ Job Polarization?
 The ABS, bless their cotton socks, have used FOUR different occupational classification schemes throughout this data set.
 The most commonly used is the ASCO 2nd edition, used 1997-2006.
 
-## ASCO I (1986-1995)
+### ASCO I (1986-1995)
 ```{r dependson='load_data', results='asis'}
 asco <- with(ftwswaw, table(Asco, Year))
 asco_p <- round(prop.table(asco, margin=2) * 100, 1)
