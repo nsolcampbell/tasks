@@ -1,0 +1,74 @@
+Space-Time Research									
+"Employed Persons (ST E13_Aug96_ANZSCO06) by Occupation Major Group, State, Age, Sex - from August 1996 Copyright © Commonwealth of Australia 2013  "									
+Table 1									
+"Employed ft, pt, total by Month by ANZSCO06 major group"									
+									
+		Managers	Professionals	Technicians and Trades Workers	Community and Personal Service Workers	Clerical and Administrative Workers	Sales Workers	Machinery Operators And Drivers	Labourers
+Employed Full Time ('000)	August Quarter 1996	899	1150	1214	337	968	453	558	649
+Employed Full Time ('000)	November Quarter 1996	886	1199	1210	341	958	445	567	670
+Employed Full Time ('000)	February Quarter 1997	895	1173	1237	343	959	442	553	669
+Employed Full Time ('000)	May Quarter 1997	907	1178	1231	344	933	431	536	668
+Employed Full Time ('000)	August Quarter 1997	882	1203	1200	338	925	428	531	662
+Employed Full Time ('000)	November Quarter 1997	906	1217	1205	363	975	447	547	658
+Employed Full Time ('000)	February Quarter 1998	874	1231	1253	360	977	453	543	657
+Employed Full Time ('000)	May Quarter 1998	888	1242	1234	360	953	454	534	659
+Employed Full Time ('000)	August Quarter 1998	891	1250	1220	350	960	437	545	678
+Employed Full Time ('000)	November Quarter 1998	912	1293	1209	361	946	443	575	653
+Employed Full Time ('000)	February Quarter 1999	910	1322	1197	364	971	459	551	660
+Employed Full Time ('000)	May Quarter 1999	909	1295	1227	355	967	445	541	639
+Employed Full Time ('000)	August Quarter 1999	937	1273	1224	348	960	458	537	658
+Employed Full Time ('000)	November Quarter 1999	958	1311	1262	367	974	442	541	659
+Employed Full Time ('000)	February Quarter 2000	961	1328	1253	367	992	445	535	674
+Employed Full Time ('000)	May Quarter 2000	931	1358	1259	349	1004	435	554	655
+Employed Full Time ('000)	August Quarter 2000	942	1364	1244	357	1029	434	537	663
+Employed Full Time ('000)	November Quarter 2000	966	1369	1237	367	1048	462	524	664
+Employed Full Time ('000)	February Quarter 2001	963	1409	1209	384	1054	441	527	656
+Employed Full Time ('000)	May Quarter 2001	990	1387	1203	374	1007	435	537	636
+Employed Full Time ('000)	August Quarter 2001	989	1375	1207	383	976	413	535	609
+Employed Full Time ('000)	November Quarter 2001	1050	1363	1220	384	975	435	531	623
+Employed Full Time ('000)	February Quarter 2002	1032	1397	1235	375	983	429	536	642
+Employed Full Time ('000)	May Quarter 2002	1016	1420	1227	380	947	445	535	644
+Employed Full Time ('000)	August Quarter 2002	983	1417	1205	385	974	448	533	649
+Employed Full Time ('000)	November Quarter 2002	990	1426	1229	399	1000	460	544	634
+Employed Full Time ('000)	February Quarter 2003	1001	1459	1260	403	1012	471	549	655
+Employed Full Time ('000)	May Quarter 2003	1012	1428	1252	390	985	465	543	634
+Employed Full Time ('000)	August Quarter 2003	1004	1421	1267	392	996	452	528	634
+Employed Full Time ('000)	November Quarter 2003	1036	1457	1283	406	1008	445	530	660
+Employed Full Time ('000)	February Quarter 2004	1033	1493	1299	413	1004	446	544	657
+Employed Full Time ('000)	May Quarter 2004	1025	1499	1282	396	995	441	553	666
+Employed Full Time ('000)	August Quarter 2004	1066	1466	1255	408	986	437	543	684
+Employed Full Time ('000)	November Quarter 2004	1097	1469	1305	428	1004	474	556	671
+Employed Full Time ('000)	February Quarter 2005	1141	1458	1354	430	1035	482	547	688
+Employed Full Time ('000)	May Quarter 2005	1098	1513	1329	415	1024	479	555	673
+Employed Full Time ('000)	August Quarter 2005	1115	1521	1333	429	1020	479	552	657
+Employed Full Time ('000)	November Quarter 2005	1110	1539	1351	447	1010	502	551	682
+Employed Full Time ('000)	February Quarter 2006	1159	1596	1336	435	1027	488	552	683
+Employed Full Time ('000)	May Quarter 2006	1118	1598	1364	438	1025	472	561	676
+Employed Full Time ('000)	August Quarter 2006	1155	1571	1366	419	1069	465	586	661
+Employed Full Time ('000)	November Quarter 2006	1182	1590	1401	437	1067	464	612	649
+Employed Full Time ('000)	February Quarter 2007	1179	1637	1386	465	1096	465	615	685
+Employed Full Time ('000)	May Quarter 2007	1182	1662	1403	474	1084	462	617	669
+Employed Full Time ('000)	August Quarter 2007	1201	1644	1408	468	1071	450	634	660
+Employed Full Time ('000)	November Quarter 2007	1222	1681	1430	474	1066	476	651	671
+Employed Full Time ('000)	February Quarter 2008	1208	1745	1470	467	1106	484	620	688
+Employed Full Time ('000)	May Quarter 2008	1228	1719	1432	464	1091	472	629	676
+Employed Full Time ('000)	August Quarter 2008	1249	1742	1458	462	1104	461	632	671
+Employed Full Time ('000)	November Quarter 2008	1199	1758	1473	493	1092	467	647	687
+Employed Full Time ('000)	February Quarter 2009	1217	1763	1477	494	1117	445	626	659
+Employed Full Time ('000)	May Quarter 2009	1258	1712	1424	491	1103	450	606	651
+Employed Full Time ('000)	August Quarter 2009	1252	1768	1345	463	1059	453	601	651
+Employed Full Time ('000)	November Quarter 2009	1300	1819	1365	475	1055	475	581	659
+Employed Full Time ('000)	February Quarter 2010	1290	1845	1406	480	1057	440	604	653
+Employed Full Time ('000)	May Quarter 2010	1319	1799	1406	464	1072	466	619	649
+Employed Full Time ('000)	August Quarter 2010	1276	1822	1428	498	1049	492	620	622
+Employed Full Time ('000)	November Quarter 2010	1269	1819	1460	529	1100	509	616	694
+Employed Full Time ('000)	February Quarter 2011	1246	1919	1487	499	1084	493	624	706
+Employed Full Time ('000)	May Quarter 2011	1276	1911	1453	481	1090	449	637	652
+Employed Full Time ('000)	August Quarter 2011	1303	1857	1398	508	1089	465	657	650
+Employed Full Time ('000)	November Quarter 2011	1303	1844	1430	530	1096	480	694	643
+Employed Full Time ('000)	February Quarter 2012	1296	1925	1457	525	1116	462	656	663
+Employed Full Time ('000)	May Quarter 2012	1311	1953	1452	502	1126	439	644	659
+Employed Full Time ('000)	August Quarter 2012	1255	1936	1452	496	1093	465	644	660
+Employed Full Time ('000)	November Quarter 2012	1274	1960	1456	528	1103	477	690	662
+Employed Full Time ('000)	February Quarter 2013	1266	1936	1469	541	1128	482	684	660
+Employed Full Time ('000)	May Quarter 2013	1314	1938	1468	546	1091	475	661	635
