@@ -2,10 +2,13 @@
 require(reshape2)
 
 # First load and merge ONET abilities, knowledge and work activities
-
 abilities <- read.delim("data/onet/csv/Abilities.txt", stringsAsFactors=F)
 knowledge <- read.delim("data/onet/csv/Knowledge.txt", stringsAsFactors=F)
 tasks     <- read.delim("data/onet/csv/Work Activities.txt", stringsAsFactors=F)
+
+ability_list <- unique(abilities$Element.Name)
+knowledge_list <- unique(knowledge$Element.Name)
+task_list <- unique(tasks$Element.Name)
 
 # Approach: filter only the measurement fields, then merge.
 # Note these are in long format.
@@ -46,8 +49,9 @@ map <- merge(x=map, y=titles3, by='ANZSCO3')
 imptce <- merge(x=map, y=imptce, by.x="ONET", by.y="onet")
 levels <- merge(x=map, y=levels, by.x="ONET", by.y="onet")
 
-save(imptce, levels, file="data/anzsco_onet.dta")
+save(imptce, levels, ability_list, task_list, knowledge_list, 
+     file="data/anzsco_onet.dta")
 
 # also write out CSV copies for easy access
-write.csv(imptce, 'data/anzsic_ability_knowledge_work_activity-importance.csv')
-write.csv(levels, 'data/anzsic_ability_knowledge_work_activity-levels.csv')
+write.csv(imptce, 'data/anzsco_ability_knowledge_work_activity-importance.csv')
+write.csv(levels, 'data/anzsco_ability_knowledge_work_activity-levels.csv')

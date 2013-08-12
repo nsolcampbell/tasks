@@ -20,6 +20,11 @@ combined <- rbind(subset_1982, subset_1986,
 year_list <- sort(unique(combined$Year))
 combined$Year <- factor(combined$Year, ordered=TRUE, levels=as.character(year_list))
 
+# recode industry (this function does all the years > 1990)
+combined$CIndA <- recode_IndA(combined$CIndA)
+# recode occupation to broad group
+combined$COccupA <- recode_occupA(combined$COccupA)
+
 # get rid of <1000 prev yr earners
 combined <- combined[which(combined$PFYInc >= 1000),]
 
