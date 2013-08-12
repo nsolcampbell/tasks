@@ -29,8 +29,8 @@ premium$Ratio <- recodeVar(as.character(premium$Ratio),
                            c("Trade/associate degree vs none","Bachelor degree or higher vs none"))
 
 pdf("figure/ed_premium_time.pdf", width=9, height=5)
-p <- ggplot(premium, aes(x = Year, y = Premium, group = Ratio, 
-                          color = Ratio)) + geom_point() + geom_line() + #facet_grid(. ~ Sex) + 
+p <- ggplot(premium, aes(x = Year, y = Premium, group = Ratio, color = Ratio, shape = Ratio)) + 
+     geom_point() + geom_line() + #facet_grid(. ~ Sex) + 
         scale_x_continuous() + xlab("Year") + ylab("Log points") + 
         ggtitle("Education Wage Premium 1981-2010")
 print(p)
@@ -48,7 +48,7 @@ wide_median[,"H"] <- wide_median[,"H"] - wide_median[,"L"]
 premium <- data.frame(Year=as.numeric(rownames(wide_median)), Premium=wide_median[,"H"])
 
 pdf("figure/ed_premium_time_two.pdf", width=9, height=5)
-p <- ggplot(premium, aes(x = Year, y = Premium)) + 
+p <- ggplot(premium, aes(x = Year, y = Premium, shape = Ratio)) + 
         geom_point() + geom_line() + 
         scale_x_continuous() + xlab("Year") + ylab("Log points") + 
         ggtitle("Education Wage Premium 1981-2010")

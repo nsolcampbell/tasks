@@ -1,6 +1,7 @@
 library(ggplot2)
 library(plyr)
 library(isotone) # for weighted median
+library(doBy)
 source('lib/footnote.R')
 source('lib/plot_theme.R')
 load('data/curf/ftwswaw.rda')
@@ -18,9 +19,15 @@ for (sex in c("Male", "Female")) {
         log_chg[subs, c] <- log_chg[subs, c] - log_chg[subs[1], c]
     }
 }
+long_data <- melt(log_chg)
+long_data$variable <- recodeVar(as.character(long_data$variable),
+                                c("perc95", "perc5", "median"),
+                                c("5th Percentile", "Median", "95th Percentile"))
+long_data$variable <- factor(long_data$variable, ordered=T, 
+                             levels=c("5th Percentile", "Median", "95th Percentile"))
 pdf("figure/wage_change_time.pdf", width=9, height=5)
-p <- ggplot(melt(log_chg), aes(x = as.numeric(as.character(Year)), y = value, group = variable, 
-                          color = variable)) + geom_point() + geom_line() + facet_grid(. ~ Sex) + 
+p <- ggplot(long_data, aes(x = as.numeric(as.character(Year)), y = value, group = variable, 
+                          color = variable, shape=variable)) + geom_point() + geom_line() + facet_grid(. ~ Sex) + 
     scale_x_continuous() + xlab("Year") + ylab("Log points") + 
     ggtitle("Cumulative log change in real weekly earnings: 95th, 50th, 5th percentile")
 print(p)

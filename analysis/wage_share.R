@@ -126,29 +126,41 @@ rd_long$group <- with(rd_long, factor(group, ordered=T,
 
 summary(lm(dshare ~ dl_nonict + dl_ict + dl_valadd, data=rd_long))
 
-qplot(dl_equip, dshare, color=group, fill=group, data=subset(rd_long, T==T)) + 
+qplot(dl_equip, dshare, color=group, fill=group, data=rd_long) + 
     geom_smooth(method="lm", alpha=0.25) + facet_grid(.~group) + 
     ggtitle("Change in Wage Share and ICT Equipment Investment 1996-2010") +
     xlab("Change in log equipment capital-value added ratio") +
     ylab("Change in wage share") +
     theme(legend.position="none")
 
-summary(lm(dshare_H ~ dlog_HL + dlog_ML + dl_nonict + dl_ict + dl_valadd, data=regdata))
-summary(lm(dshare_M ~ dlog_HL + dlog_ML + dl_nonict + dl_ict + dl_valadd, data=regdata))
-summary(lm(dshare_L ~ dlog_HL + dlog_ML + dl_nonict + dl_ict + dl_valadd, data=regdata))
+require(stargazer)
+gdata <- subset(rd_long, group == "High Skill")
+gdata$share.h <- gdata$dshare
+full.h   <- lm(share.h ~ dl_equip + dl_soft + dl_nonict + dl_valadd, data=gdata)
+equip.h  <- lm(share.h ~ dl_equip + dl_valadd, data=gdata)
 
-summary(lm(dshare_H ~ dlog_HL + dlog_ML + dl_nonict + dl_periph + dl_soft + dl_valadd, data=regdata))
-summary(lm(dshare_M ~ dlog_HL + dlog_ML + dl_nonict + dl_periph + dl_soft + dl_valadd, data=regdata))
-summary(lm(dshare_L ~ dlog_HL + dlog_ML + dl_nonict + dl_periph + dl_soft + dl_valadd, data=regdata))
+gdata <- subset(rd_long, group == "Medium Skill")
+gdata$share.m <- gdata$dshare
+full.m   <- lm(share.m ~ dl_equip + dl_soft + dl_nonict + dl_valadd, data=gdata)
+equip.m  <- lm(share.m ~ dl_equip + dl_valadd, data=gdata)
 
-summary(lm(dshare_H ~ dl_nonict + dl_ict + dl_valadd, data=regdata))
-summary(lm(dshare_M ~ dl_nonict + dl_ict + dl_valadd, data=regdata))
-summary(lm(dshare_L ~ dl_nonict + dl_ict + dl_valadd, data=regdata))
+gdata <- subset(rd_long, group == "Low Skill")
+gdata$share.l <- gdata$dshare
+full.l   <- lm(share.l ~ dl_equip + dl_soft + dl_nonict + dl_valadd, data=gdata)
+equip.l <- lm(share.l ~ dl_equip + dl_valadd, data=gdata)
 
-summary(lm(dshare_H ~ dl_nonict + dl_ict, data=regdata))
-summary(lm(dshare_M ~ dl_nonict + dl_ict, data=regdata))
-summary(lm(dshare_L ~ dl_nonict + dl_ict, data=regdata))
-
-# Does ICT investment even affect the differential? Nope.
-summary(lm(d_HL ~ dl_nonict + dl_ict + dl_valadd, data=regdata))
-summary(lm(d_ML ~ dl_nonict + dl_ict + dl_valadd, data=regdata))
+stargazer(full.h, equip.h,
+          full.m, equip.m,
+          full.l, equip.l,
+          covariate.labels=c("$\\Delta$log {\\em equipment}",
+                            "$\\Delta$log {\\em software}",
+                            "$\\Delta$log {\\em other capital}",
+                            "$\\Delta$log {\\em value added}",
+                            "Constant"),
+          dep.var.labels=c("$\\Delta SHARE^H$", "$\\Delta SHARE^M$",
+                           "$\\Delta SHARE^L$"),
+          title="Wage Share Change Estimation Results: 1996-2010",
+          label="tbl:reg",
+          out='doc/conference_table_2.tex', 
+          float.env="sidewaystable"
+          )

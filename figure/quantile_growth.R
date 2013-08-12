@@ -73,9 +73,30 @@ for (years in list(c(1982, 2010), c(1982, 2001, 2010), levels(harmonized.ft$Year
     print(p)
     footnote()
 }
+
+# Now absolute plot
+years <- c(1982,2010)
+leg.pos <- "hidden"
+mgrowth <- wage_fractile_growth(harmonized.ft, years, 'Male', rel.median=FALSE)
+mgrowth$Sex <- 'Male'
+fgrowth <- wage_fractile_growth(harmonized.ft, years, 'Female', rel.median=FALSE)
+fgrowth$Sex <- 'Female'
+p <- ggplot(rbind(mgrowth,fgrowth), 
+            aes(x=Percentile, y=Growth, group=YearRange, colour=YearRange)) +
+    geom_line() +
+    facet_grid(.~Sex) +
+    scale_x_continuous(breaks=c(5,25,50,75,95)) +
+    scale_y_continuous(labels=percent) +
+    ggtitle(paste("Percentage change in weekly real wages by percentile,",
+                  "by sex, 1982-2010 (Australia)", sep="\n")) +
+    xlab("Weekly earnings percentile") +
+    ylab("Relative earnings change") +
+    theme(legend.position=leg.pos)
+print(p)
+footnote()
 dev.off()
 
-png('figure/quantile_mf.png', height=480, width=640)
+pdf('figure/quantile_mf.pdf', height=5, width=10)
 years <- c(1982,2010)
 leg.pos <- "hidden"
 mgrowth <- wage_fractile_growth(harmonized.ft, years, 'Male')
