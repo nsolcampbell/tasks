@@ -156,6 +156,21 @@ if (interactive()) {
     dev.off()
 }
 
+p <- qplot(dl_periph, dshare, color=group, fill=group, data=rd_long) +
+        geom_smooth(method="loess", alpha=0.25) + facet_grid(.~group) +
+        ggtitle("Change in Wage Share and ICT Computer Peripherals Investment 1996-2010") +
+        xlab("Change in log computer peripherals capital-value added ratio") +
+        ylab("Change in wage share") +
+        theme(legend.position="none")
+
+if (interactive()) {
+    print(p)
+} else {
+    pdf('figure/wage_share_peripherals_skill.pdf', width=12, height=8)
+    print(p)
+    dev.off()
+}
+
 require(stargazer)
 gdata <- subset(rd_long, group == "High Skill")
 gdata$share.h <- gdata$dshare
