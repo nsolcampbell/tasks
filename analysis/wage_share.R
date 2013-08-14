@@ -47,9 +47,9 @@ load("data/curf/ftwswaw.rda") # full-time, wage/salary, working age
 
 # drop inconsistently coded industries
 mysubset <- subset(ftwswaw, !CIndA %in% c("Unknown", "Other Services"))
-# mysubset$Group <- recodeVar(as.character(mysubset$EducB),
-#                             c("No Post-Secondary","Associate/Trade","Bachelor or Higher"),
-#                             c("L","M","H"))
+mysubset$Group <- recodeVar(as.character(mysubset$EducB),
+                             c("No Post-Secondary","Associate/Trade","Bachelor or Higher"),
+                             c("L","M","H"))
 mysubset <- subset(mysubset, COccupA != "Other")
 mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
                             c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
@@ -123,53 +123,54 @@ rd_long$group <- with(rd_long, recodeVar(as.character(group),
                                          c("Low Skill", "Medium Skill", "High Skill")))
 rd_long$group <- with(rd_long, factor(group, ordered=T,
                                       levels=c("Low Skill", "Medium Skill", "High Skill")))
+rd_long$Year <- recodeVar(rd_long$Year, c(2003, 2010), c("1996-2003", "2004-2010"))
+rd_long$Year <- as.factor(rd_long$Year)
 
 summary(lm(dshare ~ dl_nonict + dl_ict + dl_valadd, data=rd_long))
 
+# save or print chart depending on whether running interactively or in a script
+save_or_print <- function(plot, filename) {
+    if (interactive()) {
+        print(plot)
+    } else {
+        pdf(filename, width=12, height=8)
+        print(plot)
+        dev.off()
+    }
+}
+
 p <- qplot(dl_equip, dshare, color=group, fill=group, data=rd_long) + 
+        geom_hline(y=0) +
         geom_smooth(method="loess", alpha=0.25) + facet_grid(.~group) + 
         ggtitle("Change in Wage Share and ICT Equipment Investment 1996-2010") +
         xlab("Change in log equipment capital-value added ratio") +
         ylab("Change in wage share") +
         theme(legend.position="none")
 
-if (interactive()) {
-    print(p)
-} else {
-    pdf('figure/wage_share_equipment_skill.pdf', width=12, height=8)
-    print(p)
-    dev.off()
-}
+save_or_print(p, 'figure/wage_share_equipment_skill.pdf')
+save_or_print(p + facet_grid(Year~group), 'figure/wage_share_equipment_skill_split.pdf')
 
 p <- qplot(dl_soft, dshare, color=group, fill=group, data=rd_long) +
+        geom_hline(y=0) +
         geom_smooth(method="loess", alpha=0.25) + facet_grid(.~group) +
         ggtitle("Change in Wage Share and ICT Software Investment 1996-2010") +
         xlab("Change in log software capital-value added ratio") +
         ylab("Change in wage share") +
         theme(legend.position="none")
 
-if (interactive()) {
-    print(p)
-} else {
-    pdf('figure/wage_share_software_skill.pdf', width=12, height=8)
-    print(p)
-    dev.off()
-}
+save_or_print(p, 'figure/wage_share_software_skill.pdf')
+save_or_print(p + facet_grid(Year~group), 'figure/wage_share_software_skill_split.pdf')
 
 p <- qplot(dl_periph, dshare, color=group, fill=group, data=rd_long) +
+        geom_hline(y=0) +
         geom_smooth(method="loess", alpha=0.25) + facet_grid(.~group) +
-        ggtitle("Change in Wage Share and ICT Computer Peripherals Investment 1996-2010") +
-        xlab("Change in log computer peripherals capital-value added ratio") +
+        ggtitle("Change in Wage Share and ICT Computers and Peripherals Investment 1996-2010") +
+        xlab("Change in log computers and peripherals capital-value added ratio") +
         ylab("Change in wage share") +
         theme(legend.position="none")
 
-if (interactive()) {
-    print(p)
-} else {
-    pdf('figure/wage_share_peripherals_skill.pdf', width=12, height=8)
-    print(p)
-    dev.off()
-}
+save_or_print(p, 'figure/wage_share_peripherals_skill.pdf')
+save_or_print(p + facet_grid(Year~group), 'figure/wage_share_peripherals_skill_split.pdf')
 
 require(stargazer)
 gdata <- subset(rd_long, group == "High Skill")
