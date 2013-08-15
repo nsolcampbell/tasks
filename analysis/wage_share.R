@@ -14,16 +14,23 @@ load("data/curf/ftwswaw.rda") # full-time, wage/salary, working age
 
 # drop inconsistently coded industries
 mysubset <- subset(ftwswaw, !CIndA %in% c("Unknown", "Other Services"))
-# mysubset$Group <- recodeVar(as.character(mysubset$EducB),
-#                              c("No Post-Secondary","Associate/Trade","Bachelor or Higher"),
-#                              c("L","M","H"))
+mysubset$Group <- recodeVar(as.character(mysubset$EducB),
+                             c("No Post-Secondary","Associate/Trade","Bachelor or Higher"),
+                             c("L","M","H"))
 mysubset <- subset(mysubset, COccupA != "Other")
-mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
-                            c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
-                            c("L","M","H"))
+#mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
+#                            c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
+#                            c("L","M","H"))
 
 #mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
-mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998"))
+#mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998", "2003", "2008"))
+mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998")) #, "2003", "2008"))
+#mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
+
+# this list is useful for trimming national accounts data
+year_list <- as.numeric(as.character(with(mysubset, unique(Year))))
+Tobs <- length(year_list)
+keep_years_from_90 <- 1990:2012 %in% year_list
 
 # wage bill: Year/Group (scale by person weight)
 ye_wb <- ddply(mysubset, .(Year, Group, CIndA), summarise, 
@@ -42,11 +49,6 @@ wage_arr  <- acast(wb, Year ~ CIndA ~ Group, value.var="mean_wage")
 
 HL <- wage_arr[,,"H"] / wage_arr[,,"L"]
 ML <- wage_arr[,,"M"] / wage_arr[,,"L"]
-
-# this list is useful for trimming national accounts data
-T <- length(year_list)
-year_list <- as.numeric(as.character(with(mysubset, unique(Year))))
-keep_years_from_90 <- 1990:2012 %in% year_list
 
 #####################
 # second: load, process and subset the national accounts
@@ -103,10 +105,10 @@ X <- abind(H_share=share_arr[,,"H"],
            along=3)
 
 # calc number of years in periods
-period_lengths <- year_list[2:T] - year_list[1:(T-1)]
+period_lengths <- year_list[2:Tobs] - year_list[1:(Tobs-1)]
 
 # take difference of all variables
-dX <- (X[2:T,,] - X[1:(T-1),,]) / period_lengths
+dX <- (X[2:Tobs,,] - X[1:(Tobs-1),,]) / period_lengths
 
 # convert to long format for regression
 regdata <- adply(dX, .margins=c(1,2))
@@ -114,14 +116,13 @@ colnames(regdata)[1:2] <- c("year","ind")
 
 regdata <- subset(regdata, ind != 'Accommodation and Food Services') # badly coded
 
-qplot(H_share, l_equip, data=regdata) + geom_smooth(method="lm")
+qplot(l_ict, M_share, colour=year, data=regdata) + geom_smooth(method="loess")
 
-summary(lm(H_share ~ l_nonict + l_equip, data=regdata))
+summary(lm(M_share ~ l_nonict + l_equip, data=regdata))
 summary(lm(M_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 summary(lm(L_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 
 rd_long <- melt(d_shares, measure=c("L", "M", "H"),variable.name="group",value.name="dshare")
-
 
 rd_long$group <- with(rd_long, recodeVar(as.character(group),
                                          c("L","M","H"),
