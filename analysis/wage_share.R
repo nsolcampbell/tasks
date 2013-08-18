@@ -14,17 +14,17 @@ load("data/curf/ftwswaw.rda") # full-time, wage/salary, working age
 
 # drop inconsistently coded industries
 mysubset <- subset(ftwswaw, !CIndA %in% c("Unknown", "Other Services"))
-mysubset$Group <- recodeVar(as.character(mysubset$EducB),
-                             c("No Post-Secondary","Associate/Trade","Bachelor or Higher"),
-                             c("L","M","H"))
+# mysubset$Group <- recodeVar(as.character(mysubset$EducB),
+#                              c("No Post-Secondary","Associate/Trade","Bachelor or Higher"),
+#                              c("L","M","H"))
 mysubset <- subset(mysubset, COccupA != "Other")
-#mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
-#                            c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
-#                            c("L","M","H"))
+mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
+                           c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
+                           c("L","M","H"))
 
-#mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
+mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998", "2003", "2008"))
-mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998")) #, "2003", "2008"))
+#mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998")) #, "2003", "2008"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
 
 # this list is useful for trimming national accounts data
@@ -39,6 +39,8 @@ ye_wb <- ddply(mysubset, .(Year, Group, CIndA), summarise,
 # wage bill: Year
 y_wb <- ddply(mysubset, .(Year, CIndA), summarise,
               year_wage_bill=sum(Weight * CInc))
+# industry weight : Year
+total_weight <- sum(mysubset$Weight)
 
 wb <- merge(ye_wb, y_wb, by=c("Year", "CIndA"))
 wb$share <- with(wb, wage_bill / year_wage_bill)
@@ -116,11 +118,12 @@ colnames(regdata)[1:2] <- c("year","ind")
 
 regdata <- subset(regdata, ind != 'Accommodation and Food Services') # badly coded
 
-qplot(l_ict, M_share, colour=year, data=regdata) + geom_smooth(method="loess")
+qplot(l_equip, M_share, data=regdata) + geom_smooth(method="lm")
 
-summary(lm(M_share ~ l_nonict + l_equip, data=regdata))
+summary(lm(M_share ~ l_nonict + l_soft + l_equip + l_valadd, data=regdata))
 summary(lm(M_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 summary(lm(L_share ~ l_nonict + l_ict + l_valadd, data=regdata))
+summary(lm(H_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 
 rd_long <- melt(d_shares, measure=c("L", "M", "H"),variable.name="group",value.name="dshare")
 
