@@ -1,29 +1,100 @@
 # weight the O*NET mappings onto ANZSCO two- and three-digit codes
 require(reshape2)
 
+load.frequency <- function(filename) {
+    longfmt <- read.delim(filename, stringsAsFactors=F, na.strings="n/a")
+    # Approach: filter only the measurement fields, then merge.
+    # Note these are in long format.
+    longfmt <- longfmt[,c("O.NET.SOC.Code", "Element.Name", "Scale.ID", "Category", "Data.Value")]
+    colnames(longfmt) <- c('onet','element','scale','cat','value')
+    longfmt$fv <- with(longfmt, cat * value)
+    wformat <- acast(subset(longfmt, scale %in% c('CXP')), onet ~ scale ~ element, value.var='fv', fun.aggregate=mean)
+    # make sure names are syntactically valid
+    dimnames(wformat)[[3]] <- make.names(dimnames(wformat)[[3]])
+    freq <- data.frame(wformat[,"CXP",])
+    
+    # scale each column, to ensure equal weight
+    maxes <- apply(freq, MARGIN=2, FUN="max")
+    #mins  <- apply(freq, MARGIN=2, FUN="min")
+    scaled <- data.frame(sweep(freq,MARGIN=2,maxes,`/`))
+    
+    return(list(scaled_values=scaled, elements=unique(longfmt$element)))
+}
+
+load.level.importance <- function(filename) {
+    longfmt <- read.delim(filename, stringsAsFactors=F)
+    # Approach: filter only the measurement fields, then merge.
+    # Note these are in long format.
+    longfmt <- longfmt[,c("O.NET.SOC.Code", "Element.Name", "Scale.ID", "Data.Value")]
+    colnames(longfmt) <- c('onet','element','scale','value')
+    wformat <- acast(longfmt, onet ~ scale ~ element, value.var='value')
+    # make sure names are syntactically valid
+    dimnames(wformat)[[3]] <- make.names(dimnames(wformat)[[3]])
+    levels <- data.frame(wformat[,"LV",])
+    imptce <- data.frame(wformat[,"IM",])
+    combined <- imptce^(2/3)*levels^(1/3)
+    
+    # scale each column, to ensure equal weight
+    maxes <- apply(combined, MARGIN=2, FUN="max")
+    scaled <- data.frame(sweep(combined,MARGIN=2,maxes,`/`))
+    
+    return(list(scaled_values=scaled, elements=unique(longfmt$element)))
+}
+
+
 # First load and merge ONET abilities, knowledge and work activities
-abilities <- read.delim("data/onet/csv/Abilities.txt", stringsAsFactors=F)
-knowledge <- read.delim("data/onet/csv/Knowledge.txt", stringsAsFactors=F)
-tasks     <- read.delim("data/onet/csv/Work Activities.txt", stringsAsFactors=F)
+abilities <- load.level.importance("data/onet/csv/Abilities.txt")
+knowledge <- load.level.importance("data/onet/csv/Knowledge.txt")
+tasks     <- load.level.importance("data/onet/csv/Work Activities.txt")
+context   <- load.frequency('data/onet/csv/Work Context.txt')
 
-ability_list <- unique(abilities$Element.Name)
-knowledge_list <- unique(knowledge$Element.Name)
-task_list <- unique(tasks$Element.Name)
+# Context is missing some values. We'll plug with zeros.
+dummy_index <- data.frame(onet=rownames(tasks$scaled_values))
+context$scaled_values$onet <- rownames(context$scaled_values)
+context.all <- merge(x=dummy_index, y=context$scaled_values, by="onet", all.x=T)
 
-# Approach: filter only the measurement fields, then merge.
-# Note these are in long format.
-cols      <- c("O.NET.SOC.Code", "Element.Name", "Scale.ID", "Data.Value")
-merged_l  <- rbind(abilities[,cols], knowledge[,cols], tasks[,cols])
-colnames(merged_l) <- c('onet','element','scale','value')
-import_l  <- subset(merged_l, scale == 'IM')
-level_l   <- subset(merged_l, scale == 'LV')
-merged_w <- acast(merged_l, onet ~ scale ~ element, value.var='value')
-# make sure names are syntactically valid
-dimnames(merged_w)[[3]] <- make.names(dimnames(merged_w)[[3]])
-levels <- data.frame(merged_w[,"LV",])
-levels$onet <- rownames(levels)
-imptce <- data.frame(merged_w[,"IM",])
-imptce$onet <- rownames(imptce)
+context.all <- context.all[,-which(colnames(context.all) == "onet")]
+
+all_scales = cbind(abilities$scaled_values, knowledge$scaled_values, tasks$scaled_values, context.all)
+all_scales <- data.frame(apply(all_scales, 2, function(x){replace(x, is.na(x), 0)}))
+
+# Combine; note each one is on a scale 0-1
+onet_tasks <- with(all_scales,
+             data.frame(
+                    ONET = rownames(all_scales),
+                    Information.Content =
+                       (Getting.Information +
+                        Processing.Information +
+                        Analyzing.Data.or.Information +
+                        Interacting.With.Computers +
+                        Documenting.Recording.Information) / 5,
+                    Automation.Routinization = 
+                       (Degree.of.Automation +
+                        Importance.of.Repeating.Same.Tasks +
+                        (1- Structured.versus.Unstructured.Work) +
+                        Pace.Determined.by.Speed.of.Equipment +
+                        Spend.Time.Making.Repetitive.Motions) / 5,
+                   Face.to.Face =
+                       (Face.to.Face.Discussions +
+                        Establishing.and.Maintaining.Interpersonal.Relationships +
+                        Assisting.and.Caring.for.Others +
+                        Performing.for.or.Working.Directly.with.the.Public +
+                        Coaching.and.Developing.Others) / 5,
+                   On.Site.Job =
+                       (Inspecting.Equipment..Structures..or.Material +
+                        Handling.and.Moving.Objects +
+                        Controlling.Machines.and.Processes +
+                        Operating.Vehicles..Mechanized.Devices..or.Equipment +
+                        Repairing.and.Maintaining.Electronic.Equipment * 0.5 +
+                        Repairing.and.Maintaining.Mechanical.Equipment * 0.5) / 5,
+                   Decision.Making = 
+                       (Making.Decisions.and.Solving.Problems + 
+                        Thinking.Creatively +
+                        Developing.Objectives.and.Strategies +
+                        Responsibility.for.Outcomes.and.Results +
+                        Frequency.of.Decision.Making) / 5
+              )
+         )
 
 # for simplicity, we'll weight irrespective of industry
 map <- read.csv("data/anzsco4_onet.csv", stringsAsFactors=F)
@@ -46,12 +117,19 @@ map <- merge(x=map, y=titles3, by='ANZSCO3')
 
 # and finally, merge onet data over the ANZSCO classifications
 
-imptce <- merge(x=map, y=imptce, by.x="ONET", by.y="onet")
-levels <- merge(x=map, y=levels, by.x="ONET", by.y="onet")
+task_content <- merge(x=map, y=onet_tasks, by="ONET")
 
-save(imptce, levels, ability_list, task_list, knowledge_list, 
+ability_list=abilities$elements
+task_list=tasks$elements
+knowledge_list=knowledge$elements
+context_list=context$elements
+
+save(task_content, 
+     ability_list, 
+     task_list, 
+     knowledge_list, 
+     context_list,
      file="data/anzsco_onet.dta")
 
 # also write out CSV copies for easy access
-write.csv(imptce, 'data/anzsco_ability_knowledge_work_activity-importance.csv')
-write.csv(levels, 'data/anzsco_ability_knowledge_work_activity-levels.csv')
+write.csv(task_content, 'data/anzsco_onet_combined.csv')
