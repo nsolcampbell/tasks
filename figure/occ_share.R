@@ -54,7 +54,6 @@ condense <- function(tenocc) {
 	return(datatable)
 }
 
-occupation_share_charts <- function() {
 	combined <- open_supertable_file("data/ft_occ_emp_quarter.txt")
 	combined.c <- condense(combined)
 	
@@ -77,6 +76,7 @@ occupation_share_charts <- function() {
 	malefemale <- rbind(male, female)
 	malefemale.c <- rbind(male.c, female.c)
 	
+if (!interactive()) { pdf(filename, paper="a4r", height=8, width=12) }
 	print(p)
 	fn()
 	print(p %+% combined.c +
@@ -88,10 +88,8 @@ occupation_share_charts <- function() {
 	print(p %+% malefemale.c + facet_grid(.~sex)  +
 		ggtitle("Employment Share by Major Occupational Group, by Sex"))
 	fn()
-}
 
-occupation_share_charts_pdf <- function(filename="figure/occ_share.pdf") {
-	pdf(filename, paper="a4r", height=8, width=12)
+	
 	occupation_share_charts()
 	dev.off()
 }
