@@ -38,12 +38,12 @@ condense <- function(tenocc) {
 					service=Community.and.Personal.Service.Workers))
 	datatable <- melt(condensed_data, id.vars="quarter")
 	names(datatable) <- c("quarter", "occupation", "prop")
-	datatable$occupation <- recodeVar(datatable$occupation,
-																		c("manprof","cleric","produc","service"),
-																		c("Professional, Managerial, Technical", 
-																			"Clerical, Sales",
-																			"Production, Operators",
-																			"Service"))
+	datatable$occupation <- recodeVar(as.character(datatable$occupation),
+									c("manprof","cleric","produc","service"),
+									c("Professional, Managerial, Technical", 
+										"Clerical, Sales",
+										"Production, Operators",
+										"Service"))
 	datatable$occupation <- 
 		factor(datatable$occupation, 
 					 levels=c("Professional, Managerial, Technical", 
@@ -58,13 +58,13 @@ condense <- function(tenocc) {
 	combined.c <- condense(combined)
 	
 	p <- ggplot(combined, aes(x=quarter, y=prop, group=occupation, color=occupation)) + 
-					geom_line() +
+					geom_line(width=2) +
 					scale_y_continuous(labels=percent) +
 					ylab("Share of Employment") +
 					xlab("Quarter") +
 					ggtitle("Employment Share by Broad Occupational Group") +
 					theme(legend.position='right')
-	
+
 	# Compare males, females
 	
 	male <- open_supertable_file("data/ft_occ_emp_quarter_male.txt")
@@ -76,7 +76,7 @@ condense <- function(tenocc) {
 	malefemale <- rbind(male, female)
 	malefemale.c <- rbind(male.c, female.c)
 	
-if (!interactive()) { pdf(filename, paper="a4r", height=8, width=12) }
+if (!interactive()) { pdf("figure/occ_share.pdf", height=6, width=8) }
 	print(p)
 	fn()
 	print(p %+% combined.c +
@@ -88,8 +88,12 @@ if (!interactive()) { pdf(filename, paper="a4r", height=8, width=12) }
 	print(p %+% malefemale.c + facet_grid(.~sex)  +
 		ggtitle("Employment Share by Major Occupational Group, by Sex"))
 	fn()
+if (!interactive()) {dev.off()}
 
-	
-	occupation_share_charts()
-	dev.off()
-}
+pdf("figure/occ_share_sex_nolegend.pdf", height=6, width=8)
+print(p %+% malefemale.c + facet_grid(.~sex)  +
+          ggtitle("Employment Share by Major Occupational Group, 1996-2013") +
+          theme(legend.position='none')
+      )
+fn()
+dev.off()

@@ -2,7 +2,7 @@ library(ggplot2)
 library(scales)
 library(plyr)
 library(isotone) # for weighted median
-save(fyftws, file='data/curf/fyftws.rda')
+load('data/curf/ftwswa.rda')
 
 fyftws <- subset(fyftws, Age4 == '15-34')
 
