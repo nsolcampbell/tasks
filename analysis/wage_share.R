@@ -133,13 +133,13 @@ save_or_print <- function(plot, filename) {
     if (interactive()) {
         print(plot)
     } else {
-        pdf(filename, width=12, height=8)
+        pdf(filename, width=8, height=6)
         print(plot)
         dev.off()
     }
 }
 
-p <- qplot(dl_equip, dshare, color=group, fill=group, data=rd_long) + 
+p <- qplot(dl_equip, dshare, color=group, fill=group, size=wage_share, data=rd_long) + 
         geom_hline(y=0) +
         geom_smooth(method="loess", alpha=0.25) + facet_grid(.~group) + 
         ggtitle("Change in Wage Share and ICT Equipment Investment 1996-2010") +
