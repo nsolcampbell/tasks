@@ -99,6 +99,10 @@ onet_tasks <- with(all_scales,
 # for simplicity, we'll weight irrespective of industry
 map <- read.csv("data/anzsco4_onet.csv", stringsAsFactors=F)
 
+# drop all but the ONET mapping used for tasks (not the closest in meaning)
+map <- map[,c("ANZSCO4","Title","Alt.ONET","Alt.ONET.Title")]
+names(map) <- c("ANZSCO4","Title","ONET","ONET.Title")
+
 # now include 1, 2 and 3 digit codes, and merge in titles
 map$ANZSCO1 <- substr(map$ANZSCO4, 1, 1)
 map$ANZSCO2 <- substr(map$ANZSCO4, 1, 2)
