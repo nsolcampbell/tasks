@@ -1,6 +1,9 @@
 # weight the O*NET mappings onto ANZSCO two- and three-digit codes
 require(reshape2)
 
+# Scales with "frequency" are given by their coded value, multiplied by
+# their frequency coded value. This is totally arbitrary, but follows
+# JK and FFL.
 load.frequency <- function(filename) {
     longfmt <- read.delim(filename, stringsAsFactors=F, na.strings="n/a")
     # Approach: filter only the measurement fields, then merge.
@@ -21,6 +24,8 @@ load.frequency <- function(filename) {
     return(list(scaled_values=scaled, elements=unique(longfmt$element)))
 }
 
+# Levels and importance are scaled by the arbitrary Cobb-Douglas weights
+# of 1/3 and 2/3, respectively. Again, this follows FFL and JK.
 load.level.importance <- function(filename) {
     longfmt <- read.delim(filename, stringsAsFactors=F)
     # Approach: filter only the measurement fields, then merge.
@@ -43,12 +48,12 @@ load.level.importance <- function(filename) {
 
 
 # First load and merge ONET abilities, knowledge and work activities
-abilities <- load.level.importance("data/onet/csv/Abilities.txt")
-knowledge <- load.level.importance("data/onet/csv/Knowledge.txt")
-tasks     <- load.level.importance("data/onet/csv/Work Activities.txt")
-context   <- load.frequency('data/onet/csv/Work Context.txt')
+abilities <- load.level.importance("data/onet/db_17_0/Abilities.txt")
+knowledge <- load.level.importance("data/onet/db_17_0/Knowledge.txt")
+tasks     <- load.level.importance("data/onet/db_17_0/Work Activities.txt")
+context   <- load.frequency('data/onet/db_17_0/Work Context.txt')
 
-# Context is missing some values. We'll plug with zeros.
+# Context is missing some (very rare) values. We'll plug with zeros.
 dummy_index <- data.frame(onet=rownames(tasks$scaled_values))
 context$scaled_values$onet <- rownames(context$scaled_values)
 context.all <- merge(x=dummy_index, y=context$scaled_values, by="onet", all.x=T)
@@ -96,7 +101,7 @@ onet_tasks <- with(all_scales,
               )
          )
 
-# for simplicity, we'll weight irrespective of industry
+# for simplicity, we'll weight at 4-digit level, irrespective of industry
 map <- read.csv("data/anzsco4_onet.csv", stringsAsFactors=F)
 
 # now include 1, 2 and 3 digit codes, and merge in titles
