@@ -1,3 +1,39 @@
+\message{ !name(paper.tex)}\documentclass[a4paper,11pt]{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{rotating}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{Polarization.bib}
+
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\hypersetup{%
+    pdftitle={Tasks, occupations, and the polarization hypothesis},%
+    pdfauthor={Alex Cooper},%
+    pdfsubject={An analysis of one determinant of inequality in Australia.},%
+    pdfkeywords={labor, polarization, routinization, SBTC, inequality},%
+}
+\ExecuteBibliographyOptions{doi=false}
+\newbibmacro{string+doi}[1]{%
+  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+
+\numberwithin{equation}{chapter}
+
+\begin{document}
+
+\message{ !name(chapter_04.tex) !offset(-36) }
 \chapter{Occupational tasks and the wage structure}
 
 In the previous two chapters, we have seen that `canonical' model of skill-biased technical change does a poor job of explaining the evolution of wage inequality in Australia. In particular, we have seen that while growing inequality the Australian labour market has mirrored that of overseas economies, there is no empirical evidence that this has been driven by a premium paid to more educated labour. However, the evidence presented in the preceding chapter suggests that, while educational attainment may be a poor instrument for between-group inequality, there {\em may} be an association between occupational group and the widening wage distribution. This evidence suggests that properties of those occupations---specifically, whether those occupations could be out-sourced by firms or automated with capital equipment---may explain changes in the demand, and hence occupational wage, for those occupations.
@@ -61,4 +97,13 @@ The decision to use census data was particularly difficult, because this new dat
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "paper"
+%%% End: 
+
+\message{ !name(paper.tex) !offset(-56) }
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
 %%% End: 
