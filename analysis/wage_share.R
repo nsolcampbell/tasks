@@ -22,10 +22,10 @@ mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
                            c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
                            c("L","M","H"))
 
-mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
+#mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998", "2003", "2008"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998")) #, "2003", "2008"))
-#mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
+mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
 
 # this list is useful for trimming national accounts data
 year_list <- as.numeric(as.character(with(mysubset, unique(Year))))
@@ -125,17 +125,18 @@ summary(lm(M_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 summary(lm(L_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 summary(lm(H_share ~ l_nonict + l_ict + l_valadd, data=regdata))
 
-rd_long <- melt(d_shares, measure=c("L", "M", "H"),variable.name="group",value.name="dshare")
+rd_long <- melt(regdata, measure=c("L_share", "M_share", "H_share"),
+                variable.name="group",value.name="dshare")
 
 rd_long$group <- with(rd_long, recodeVar(as.character(group),
-                                         c("L","M","H"),
+                                         c("L_share","M_share","H_share"),
                                          c("Low Skill", "Medium Skill", "High Skill")))
 rd_long$group <- with(rd_long, factor(group, ordered=T,
                                       levels=c("Low Skill", "Medium Skill", "High Skill")))
-rd_long$Year <- recodeVar(rd_long$Year, c(2003, 2010), c("1996-2003", "2004-2010"))
-rd_long$Year <- as.factor(rd_long$Year)
+#rd_long$year <- recodeVar(as.character(rd_long$year), c("2003", "2010"), c("1996-2003", "2004-2010"))
+#rd_long$year <- as.factor(rd_long$year)
 
-summary(lm(dshare ~ dl_nonict + dl_ict + dl_valadd, data=rd_long))
+fit <- lm(dshare ~ 0 + year + l_nonict + l_ict + l_valadd, data=rd_long)
 
 # save or print chart depending on whether running interactively or in a script
 save_or_print <- function(plot, filename) {
@@ -148,7 +149,7 @@ save_or_print <- function(plot, filename) {
     }
 }
 
-p <- qplot(dl_equip, dshare, color=group, fill=group, data=rd_long) + 
+p <- qplot(l_equip, dshare, color=group, fill=group, data=rd_long) + 
         geom_hline(y=0) +
         geom_smooth(method="loess", alpha=0.25) + facet_grid(.~group) + 
         ggtitle("Change in Wage Share and ICT Equipment Investment 1996-2010") +
