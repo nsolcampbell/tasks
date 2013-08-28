@@ -59,8 +59,16 @@
 \begin{frame}[c]
 \frametitle{Wage inequality has risen since the 1980s}
 \begin{center}
-  \includegraphics[width=\textwidth]{slides_fig/quantile_growth_persons.pdf}
+  \includegraphics[width=\textwidth]{slides_fig/quantile_growth_percent.pdf}
 \end{center}
+\end{frame}
+
+\begin{frame}[c]
+\frametitle{Real cost of computation has decreased exponentially}
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{slides_fig/nordhaus_2007.pdf}
+\end{center}
+Price per computation/second, 2006 USD (Nordhaus 2007)
 \end{frame}
 
 \subsection{Outline}
@@ -69,8 +77,8 @@
 Three approaches:
 \begin{enumerate}
 \vfill\item The `canonical' model: skill-biased technical change (SBTC)
-\vfill\item Are labour and technology substitutes?
-\vfill\item A new approach: jobs and tasks
+\vfill\item The relationship between ICT investment and occupational changes
+\vfill\item Further research: job `task content' and wages
 \end{enumerate}
 \end{frame}
 
@@ -88,13 +96,13 @@ Production function:
             + \left(A_HH\right)^{\frac{\sigma - 1}{\sigma}}
           \right]^\frac{\sigma}{(\sigma-1)}
 \end{equation*}
-If $\sigma>1$, SBTC implies rise in the skill premium.
+We assume $\sigma>1$.
 \end{frame}
 
 \begin{frame}
 \frametitle{The `canonical model:' skill-biased technical change}
 \begin{itemize}
-\item Predicts
+\item When high-skilled technology is increasing, {\em ceteris paribus},
   \begin{itemize}
   \item Increasing inequality, driven by skill demand.
   \item Rising college/education premium.
@@ -103,8 +111,8 @@ If $\sigma>1$, SBTC implies rise in the skill premium.
 \vspace{1cm}
 \item Empirically successful, e.g.
   \begin{itemize}
-  \item \citet{Katz1992}
-  \item \citet{Card2001}
+  \item Katz and Murphy (1992)
+  \item Card and Lemieux (2001)
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -115,7 +123,6 @@ If $\sigma>1$, SBTC implies rise in the skill premium.
   \begin{center}
     \includegraphics[width=\textwidth]{slides_fig/ed_premium_us.pdf}
   \end{center}
-  USA Data: Acemoglu \& Autor (2011)
 \end{frame}
 
 \begin{frame}
@@ -123,7 +130,6 @@ If $\sigma>1$, SBTC implies rise in the skill premium.
   \begin{center}
     \includegraphics[width=\textwidth]{slides_fig/ed_premium.pdf}
   \end{center}
-  USA Data: Acemoglu \& Autor (2011)
 \end{frame}
 
 \subsection{Results: non-monotone wage growth}
@@ -156,7 +162,7 @@ If $\sigma>1$, SBTC implies rise in the skill premium.
 \end{frame}
 
 \subsection{One explanation?}
-\begin{frame}{Could job polarisation explain the trend?}
+\begin{frame}{Could job composition explain the trend?}
   \begin{center}
     \includegraphics[width=\textwidth]{slides_fig/occ_share_sex.pdf}
   \end{center}
@@ -203,6 +209,20 @@ Autor, Levy, and Murnane (QJE 2003)
 \end{frame}
 
 \begin{frame}[c]
+\frametitle{The `task approach'}
+\begin{itemize}
+\item The canonical approach\\
+\begin{center}
+\includegraphics[width=2in]{slides_fig/CES.pdf}
+\end{center}
+\item The task approach\\
+\begin{center}
+\includegraphics[width=3in]{slides_fig/CES_tasks.pdf}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[c]
   \frametitle{A simple test (Michaels {\em et al.} 2013)}
 Production function with three types of labour and ICT capital $C$:
 $$
@@ -217,8 +237,8 @@ $$
   \begin{itemize}
   \item Comparative statics: if $C$ increases exogenously, then: 
   \begin{itemize}
-  \item high wage share should increase, and 
-  \item medium wage share should decrease.
+  \item high-skilled wage share should increase, and 
+  \item medium-skilled wage share should decrease.
   \end{itemize}
   \vitem We form three groups of occupations:
   \begin{itemize}
@@ -366,62 +386,6 @@ Katz, \& Murphy, K. J. (1992). “Changes in Relative Wages, 1963-1987: Supply a
   \begin{center}
     Spare Slides
   \end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{O*NET Data Example}
-\begin{table}[htbp]
-\begin{tabular}{|p{2cm}|p{1.65cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
-\hline
-{Job Title} & {Gather Data} & {Analyze Data} & {\small Think Creatively} & {Handle Moving Objects} \\ \hline
-{CEOs} & 5.03 & 4.82 & 5.1 & 1.1  \\ \hline
-{Economists} & 5.88 & 6.58 & 5.38 & 0.54 \\ \hline
-{Dancers} & 3.88 & 1.96 & 4.37 & 2.63 \\ \hline
-{Programmers} & 4.91 & 5.05 & 5.96 & 0.44 \\ \hline
-{Tellers} & 2.91 & 2.65 & 2.21 & 2.74 \\ \hline
-{Surgeons} & 5.72 & 5.49 & 4.67 & 3.62 \\ \hline
-{Bakers} & 2.8 & 3.29 & 2.93 & 5.06 \\ \hline
-{Receptionists} & 3.1 & 2.45 & 2.54 & 2.88 \\ \hline
-{Typists} & 4.35 & 1.52 & 3.9 & 1.43 \\ \hline
-\end{tabular}
-\caption{O*NET Work Activity Example (Levels, Scale 0--7)}
-\label{onetex}
-\end{table}
-\end{frame}
-
-\begin{frame}
-  \frametitle{O*NET Data Example: Dendrogram}
-  \begin{center}
-  \includegraphics[width=\textwidth]{slides_fig/example_cluster.pdf} \\
-  Hierarchical cluster analysis, work activity (Euclidean distance)
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{O*NET Data Example: PCA}
-  \begin{center}
-  \includegraphics[width=0.8\textwidth]{slides_fig/pca_example.pdf} \\
-  Groups identified with k-means cluster analysis (k=2).
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Imputing Worker Activities from O*NET}
-ABS data: $N$ Australian occupations and $M$ industries.\\
-O*NET: $K$ occupations, $L$ activities.
-  \begin{enumerate}
-  \item Employment by occupations and industry, is 
-    $\underset{M\times N}{{\bf \Omega}_t}$.
-  \item Define an occupation equivalence matrix, $\underset{N\times K}{\bf Z}$, where \vspace{-10pt}   \[
-    z_{n,k} = \left\{ 
-      \begin{array}{ll}1 &\text{if US occupation $n$ is equivalent to $k$}\\
-      0 & \text{otherwise.}\end{array}\right.
-    \]
-  \item O*NET activity weights by US occupation are $\underset{K\times L}{\bf \Psi}$.
-  \item Then employment of worker activities is:
-    $$ \underset{M\times L}{{\bf Q}_t} = {\bf \Omega\; Z\; \Psi} $$
-  \item ${{\bf Q}_t}$ can be further weighted for routine, non-routine and off-shoreable labour.
-  \end{enumerate}
 \end{frame}
 
 \begin{frame}[c]
