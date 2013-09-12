@@ -5,9 +5,16 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{dcolumn}
 \usepackage{fullpage}
+\usepackage{rotating}
 \usepackage{setspace}
+\usepackage{bm}
 \onehalfspacing
+
+\newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\vbeta}{\boldsymbol{\beta}}
+\newcommand{\R}{\mathbb{R}}
 
 \usepackage[american]{babel}
 \usepackage{csquotes}
@@ -15,11 +22,13 @@
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{Polarization.bib}
 
+\newcommand{\bmu}{\boldsymbol{\mu}}%
+
 \usepackage[colorlinks,allcolors=blue]{hyperref}
 \hypersetup{%
-    pdftitle={The Luddite Hypothesis [working title]},%
+    pdftitle={Tasks, occupations, and the polarization hypothesis},%
     pdfauthor={Alex Cooper},%
-    pdfsubject={An analysis of determinants of inequality in Australia.},%
+    pdfsubject={An analysis of one determinant of inequality in Australia.},%
     pdfkeywords={labor, polarization, routinization, SBTC, inequality},%
 }
 \ExecuteBibliographyOptions{doi=false}
