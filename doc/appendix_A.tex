@@ -1,0 +1,26 @@
+\chapter{Data Construction}
+
+
+\section{Survey of Income and Housing}
+
+The Survey of Income and Housing (SIH) is a hierarchical, clustered sample survey of income and expenditure patterns of the the Australian population, periodically conducted by the Australian Bureau of Statistics. It was first conducted in the 1981-2 fiscal year, followed by 1985-6, and then every two or three years from 1994-5. Microdata files were obtained as confidentialized unit record files (CURFs) for the surveys performed in 1981-2, 1985-6, 1994-5, 1995-6, 1996-7, 1997-8, 2000-1, 2002-3, 2005-6, 2007-8 and 2009-10.
+
+Unlike the Census, which is a population survey, the SIH is conducted on just a sample of the population, and unit records are weighted by demographic variables in order to create a representative sample. Weights are produced at three levels of the survey hierarchy: household, income unit and person. (In addition, the SIH is occasionally produced simultaneously with the Housing Expenditure Survey, or HES, in which case further expenditure levels are recorded.) For the purposes of this project, only individual-level records are of interest, and so results are weighted by person weight, $PERS\_WT$.
+
+In all versions of the SIH, the $PERS\_WT$ variable for the $i$th record is computed as the reciprocal of that individual's probability of selection $\pi_i$:
+$$ PERS\_WT_i = \frac{1}{\pi_i}, $$
+$PERS\_WT_i$ can be interpreted as the number of individuals `represented' by record $i$. Note that the selection probabilities $\pi_i$, $i=1,\cdots,n$, need not sum to 1.
+
+% repeated cross-section
+
+\subsection{Data Processing Steps}
+
+\section{Census}
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "paper"
+%%% End: 
