@@ -1,0 +1,57 @@
+\chapter{Proof of Propositions in Chapter~3}
+
+\newcommand{\ELL}{\mathcal{L}}
+\newcommand{\EH}{\mathcal{H}}
+\newcommand{\M}{\mathcal{M}}
+
+First, suppose a competitive economy is governed by an CES aggregate production function which employs three types of workers: low-skilled, medium-skilled, and high-skilled. We do not necessarily require that workers of each type are homogeneous; but we do assume that the unit wage for each type of labor is fixed. 
+
+Call the sets of high-, medium- and low-skilled workers $\EH$, $\M$, and $\ELL$, respectively. Then we can define the aggregate inputs of each worker type by summing over the inputs of each worker $i$, measured in efficiency units:
+$$ H = \int_{i\in\EH}h_i\;di\quad 
+     M = \int_{i\in\M}m_i\;di\quad
+     L = \int_{i\in\ELL}\ell_i\;di $$
+
+The aggregate production function also depends on ICT capital, $C$, which is a complement in production for high-skilled workers, and substitute for medium-skilled workers.
+\begin{equation}\label{eq:prod}
+Y =\left(\gamma  \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta }+\beta  (C+M)^{\rho }+\alpha  L^{\rho }\right)^{1/\rho }
+\end{equation}
+For convenience, we'll assume the share parameters are equal and sum to unity, i.e. $\alpha=\beta=\gamma=1/3$.
+
+Since the economy is competitive, the wage is given by each worker's marginal product, computed by taking the partial derivative of $Y$.
+\begin{align*}
+w_L &= \partial_LY \\
+    &= \alpha  L^{\rho -1} \left(\gamma  \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta }+\beta  (C+M)^{\rho }+\alpha  L^{\rho }\right)^{\frac{1}{\rho }-1} \\
+w_M &= \partial_MY \\
+    &= \beta  (C+M)^{\rho -1} \left(\gamma  \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta }+\beta  (C+M)^{\rho }+\alpha  L^{\rho }\right)^{\frac{1}{\rho }-1} \\
+w_H &= \partial_HY \\
+    &= \gamma  H^{\eta -1} \left(C^{\eta }+H^{\eta }\right)^{\frac{\rho }{\eta }-1} \left(\gamma  \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta }+\beta  (C+M)^{\rho }+\alpha  L^{\rho }\right)^{\frac{1}{\rho }-1}
+\end{align*}
+
+One way to achieve determinate comparative static predictions is to instead consider the {\em wage share}, computed as the wage bill for the labour type, divided by the total wage bill. These wage shares are:
+\begin{align*}
+\theta_H &= \frac{H w_H}{H w_H+L w_L+M w_M} \\
+&= \frac{\gamma  (C+M) H^{\eta } \left(C^{\eta }+H^{\eta }\right)^{\frac{\rho }{\eta }-1}}{\alpha  (C+M) L^{\rho }+\beta  M (C+M)^{\rho }} \\
+\theta_M &= \frac{M w_M}{H w_H+L w_L+M w_M} \\
+&= \frac{\beta  M \left(C^{\eta }+H^{\eta }\right) (C+M)^{\rho -1}}{H^{\eta } \left(\gamma  \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta }+\alpha  L^{\rho }\right)+\alpha  C^{\eta } L^{\rho }} \\
+\theta_L &= \frac{L w_L}{H w_H+L w_L+M w_M} \\
+&= \frac{\alpha  L^{\rho }}{\gamma  H^{\eta } \left(C^{\eta }+H^{\eta }\right)^{\frac{\rho }{\eta }-1}+\beta  M (C+M)^{\rho -1}}
+\end{align*}
+And the comparative statics are---
+\begin{align*}
+\frac{\partial \theta_H}{\partial C}
+&= \frac{\gamma  H^{\eta } \left(C^{\eta }+H^{\eta }\right)^{\frac{\rho }{\eta }-2} \left(\beta  M (C+M)^{\rho } \left(C^{\eta } (C (-\eta )+C+M (\rho -\eta ))-C (\rho -1) H^{\eta }\right)-\alpha  C^{\eta } (C+M)^2 (\eta -\rho ) L^{\rho }\right)}{C \left(\alpha  (C+M) L^{\rho }+\beta  M (C+M)^{\rho }\right)^2} \\
+&>0 \\
+%
+\frac{\partial \theta_M}{\partial C}
+&= \frac{\beta  M (C+M)^{\rho -2} \left(\alpha  C (\rho -1) L^{\rho } \left(C^{\eta }+H^{\eta }\right)^2+\gamma  H^{\eta } \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta } \left(C^{\eta } (C (\eta -1)+M (\eta -\rho ))+C (\rho -1) H^{\eta }\right)\right)}{C \left(H^{\eta } \left(\gamma  \left(C^{\eta }+H^{\eta }\right)^{\rho /\eta }+\alpha  L^{\rho }\right)+\alpha  C^{\eta } L^{\rho }\right)^2} \\
+& < 0 \\
+%
+\frac{\partial \theta_L}{\partial C}
+&= -\frac{\alpha  L^{\rho } \left(\beta  M (\rho -1) (C+M)^{\rho -2}-\gamma  C^{\eta -1} (\eta -\rho ) H^{\eta } \left(C^{\eta }+H^{\eta }\right)^{\frac{\rho }{\eta }-2}\right)}{\left(\gamma  H^{\eta } \left(C^{\eta }+H^{\eta }\right)^{\frac{\rho }{\eta }-1}+\beta  M (C+M)^{\rho -1}\right)^2} \\
+& \gtrless 0
+\end{align*}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "paper"
+%%% End: 
