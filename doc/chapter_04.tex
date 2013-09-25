@@ -10,13 +10,12 @@ In this chapter, we formalize this analysis, using data on occupational task con
 
 In the previous two chapters, we assumed little about the functional relationship between specific skills and wages. Decomposition methods are especially powerful because they are able to extract relatively rich information from the data. This strength comes at the price of relatively strong assumptions imposed on the data in order to guarantee parameter identification; the limitations these assumptions bring are shared by all decomposition methods. These assumptions are discussed in detail in section~\ref{sec:id}, and mostly stem from the fact that decompositions provide only `shallow' analyses of economic phenomena, and are not able to model `deep,' structural properties of the labour market. The most important of these restrictions, and possibly the least palatable, is that the entire analysis assumes a partial equilibrium framework: general equilibrium effects are assumed to be dominated by first-order effects, so that the labour market for each occupation is assumed independent.\footnote{Within a general equilibrium framework, this assumption is equivalent to the assumption of diagonal dominance \citep[p.233]{Arrow1971}.} It is quite unlikely, for example, that a collapse in the demand for labour in one occupation, would not cause some workers to change their occupational affiliations, triggering a shift in the supply of labour in other occupations. Nonetheless, this and other assumptions are standard in the inequality literature \citep[p.1]{Fortin2011}, and these limitations will be discussed in greater detail in Section~\ref{sec:id}.
 
-\section{Theoretical Background}
-
+\section{The Roy Model}
 The economic intuition behind this analysis stems from Roy's~(\citeyear{Roy1951}) model of self-selection, where individuals are endowed with heterogeneous skills, and can select between multiple occupations according to their own comparative advantage. The model is sophisticated enough to handle any number of occupations, and distributions of individual skill. For simplicity, let us consider Roy's original example, a remote village where individuals with heterogeneous skills must choose between two occupations: hunting rabbits and fly fishing. 
 
-The level of skill required to practise these jobs is quite different: hunting rabbits, which are described as `slow and stupid,' so are relatively easy to catch, is easy. As a result, the returns to rabbit hunting skills is not particularly great: skilled trappers will not catch many more rabbits than unskilled trappers. Fly fishing, by contrast, is extremely difficult. In this occupation, the return to skill is considerable: unskilled fishermen will hardly catch anything, but those who have mastered the art can catch a great many fish.
+The level of skill required to practise these jobs is quite different: hunting rabbits, which are described as `slow and stupid,' is easy. As a result, the returns to rabbit hunting skills is not particularly great: skilled trappers will not catch many more than unskilled trappers. Fly fishing, by contrast, is extremely difficult. In this occupation, the return to skill is considerable: unskilled fishermen will hardly catch anything, but those who have mastered the art can make a good living.
 
-The wage accrued to each activity arises from the sale of what is caught. Both fish and rabbits fetch a well-known market price, and an individual's wage is determined simply by the product of the market price and the size of the catch. It is assumed that individuals make their labour supply decisions based only on their wage; if the distribution of each type of skill is continuous, then individual agents will almost never be indifferent to any two activities.
+In the model, the wage accrued to each activity arises from the sale of what is caught. Both fish and rabbits fetch a well-known market price, and an individual's wage is determined simply by the product of the market price and the size of the catch. It is assumed that individuals make their labour supply decisions based only on their wage; if the distribution of each type of skill is continuous, then individual agents will almost never be indifferent to any two activities.
 
 Roy's intention for creating this model was to explain the {\em selection effect}, or the difference in productivity of individuals in an occupation relative to the population mean, as a result of their own self-selection decisions. For illustrative purposes, we present here a simple parametric example with two occupations from \citet{Heckman2008}. Although this simple example has considered only two occupations, Roy models can be generalized to any number occupations; the intention here is to illustrate the intuition behind the model, rather than derive a general result. Assume first that individual $i$'s efficiency follows a bivariate normal distribution with covariance $\ve{\Sigma}$, where an individual would catch either $F_i$ fish, or $R_i$ rabbits, depending on the occupation selected:
 \begin{equation*}
@@ -49,121 +48,130 @@ This intuitive comparative static prediction forms the basis for the empirical a
 
 As shall be discussed below, the key challenges arising out of empirical implementations of model of this type is identification. If the profit maximization and log-normality assumptions can be maintained, and if wages are observable in each sector, then the model is identified. However, when a Roy model is used to analyze a labour supply decision, where wages for the household sector are {\em not} observable, and nor are the talents of individuals, then the parameters in \eqref{eq:sr} are not identified. In this case, variations {\em across } markets, or variations {\em within } markets (ie across individuals) are used to identify the model.
 
-\section{Emprical Approach}
+\section{Emprical Approach}\label{sec:emp}
 
-The theory above suggests that, if an automation and outsourcing shock has indeed occurred, then the mean and spread of wages in occupations with high levels of tasks that can be automated and/or outsourced should have decreased between the 1980s and the present. In this section, we follow \citet{Firpo2011} and outline an approach to decomposing wage changes over time according to occupational task content.
+The theory above suggests that, if an automation and outsourcing shock has indeed occurred, then the mean and spread of wages in the affected occupations should have decreased between the 1980s and the present. In this section, we follow \citet{Firpo2011} and outline an approach to decomposing wage changes over time according to occupational task content.
 
-Most decompositions of the determinants of wages follow the Mincerean `human capital' approach, which suggests that the primary determinants of wages are investments in education and experience, which enhance productivity \citep{Mincer1962}. As is well-known, OLS regression estimates of Mincer-style wage equations tend to exhibit endogeneity bias, since observable characteristics (such as years of schooling) tend to be correlated with unobserved characteristics such as general ability or talent \citep{Card1999}. Consequently, any regression specification that omits an accurate measure of `ability' will exhibit endogeneity bias, since the omitted variable will cause explanatory variables such as schooling to be correlated with the error term.
+The first step in the analysis is to determine whether there is any relationship between task measures and changes in the occupational wage profile. Following \citet{Juhn1993}, we first estimate changes in the wage quantiles, for each occupation $j$ and each quantile $q$,
+$$ \Delta w_j^q = a_j + b_jw_{j0}^q + \lambda^q + \epsilon^q_j, $$
+where $\lambda^q$ is an estimate of returns-to-skill at each quantile $q$. Under the maintained assumption that the returns to skill at each quantile of the wage distribution is independent of the actual occupation, then the parameters $a_j$ and $b_j$ describe the changes in each occupation over the study period.
 
-One solution approach to this problem, was suggested by \citet{Juhn1993}, who set out to explain the widening skill distribution of the late 1980s by an increasing `return to skills'. After controlling for individual characteristics such as schooling and experience, they interpreted an individual's {\em position} within the wage distribution for a given occupation as an indicator of `unobserved ability.'
-
-% growth accounting - decomposition
-% strong assumptions in decomp methods
-% partial equilibrium approach
-% "shallow" empirical models (eg gender / wage gap)
-
-% movements at different parts of the wage distribution (min wage effects, for example)
-
-% identification strategy: cannot assume that \epsilon and X are uncorrelated.
-% instead, follow JMP 93, and interpret position in the wage dispersion as unobserved ability
-% then estimate decomposition
+The next step in the analysis is to decompose these changes according to the task we are interested in. These task measures, defined below, capture the ability to off-shore or automate an occupation. Applying the first-step regressions defined above, we are now in a position to test the relationship between changes in occupational wage profiles and task indexes:
+\begin{align}
+  \hat{a}_j &= \gamma_0 + \sum_{h=1}^K\gamma_{jh}TC_{jh} + \mu_j, \\
+  \hat{b}_j &= \delta_0 + \sum_{h=1}^K\delta_{jh}TC_{jh} + \nu_j.
+\end{align}
 
 \subsection{Oaxaca-Blinder Decomposition}
+The next step in the analysis is to decompose changes in the log wage distribution according, according to task index measures. The decomposition methods upon which this study is based were first considered by \citet{Oaxaca1973} and \citet{Blinder1973}. Oaxaca considered the problem of identifying the impact of wage discrimination between individuals belonging to two mutually exclusive groups. 
 
-\citet{Oaxaca1973} considered the problem of identifying the impact of discrimination against different groups on wage differentials. He proposed an empirical approach that decomposed the influence of human capital variables on wages, from the difference that arise purely from membership in a particular group. Formally, the question is the degree to which the mean difference in log wages 
-$$ R = E(\ln y_m) - E(\ln y_f) $$ 
-can be explained by a matrix of human capital and experience covariates $\ve{X}\in\mathcal{X}\subset\R^K$, and what is left to be explained by sex. Although Oaxaca was interested in sex discrimination, rather than the changing wage distribution of occupations, the method we consider in this paper is an extension of his original decomposition.
+To begin the discussion, suppose that the support of wage-setting factors $\ve{X}\in\mathcal{X}\subset\R^K$ is the same for both groups, then the fraction of the mean wage differential that {\em cannot} be explained by human capital variables, must arise as a consequence of group membership. Wage discrimination, is the proportion of expected log wages,
+\begin{equation} \Delta = E[\ln y_m] - E[\ln y_f] \label{eq:odec} \end{equation}
+cannot be explained by a matrix of human capital and experience covariates.
 
-To determine the influence of sex on the mean of the wage distribution, he considered two separate regression models, one for each sex, using data from $n_{m,i}$ males and $n_{f,i}$ females. Each vector includes demographic and human capital variables such as years of education, work experience and age.
+To determine the influence of sex on the mean of the wage distribution, he considered two separate regression models, one for each sex. Each vector includes demographic and human capital variables such as years of education, work experience and age:
+$$  \ln y_{g,i} = \ve{x}_{g,i}'\vbeta_g + \epsilon_{g,i} \quad \text{where}\ g=M,F. $$
+Then, taking expectations of both sides and substituting into \eqref{eq:odec}, the difference of expected log wages can be decomposed as,
 \begin{align}
-  \ln y_{m,i} &= \ve{x}_{m,i}'\vbeta_m + \epsilon_{m,i} \label{eq:om} \\
-  \ln y_{f,i} &= \ve{x}_{f,i}'\vbeta_f + \epsilon_{f,i} \label{eq:of}
+  \Delta_O &= E[X_m]'\vbeta_m -  E[X_f]'\vbeta_f \notag \\
+  &= \underbrace{E[X_m]'(\vbeta_m - \vbeta_f)}_{\Delta_S} + \underbrace{(E[X_m]'-E[Y_m]')\vbeta_f}_{\Delta_X}. \label{eq:odecomp}
 \end{align}
+The second term of this decomposition, $\Delta_X$, is the difference in mean log wages that can be explained by human capital factors (the `endowments effect'). The other term, $\Delta_S$, represents the `structural' difference in wages between the two groups. In the case where the wages of males and females are being considered, this term can be interpreted as the sex discrimination differential. The parameters in \eqref{eq:odecomp} are computed at their means to determine the difference $E[X_m]'(\vbeta_m - \vbeta_f)$ attributable to discrimination, in the mean log wage.
 
-Oaxaca's goal was to determine whether there was evidence for sex discrimination, which could not otherwise be explained by the other sociodemographic variables. In other words, to what degree do \eqref{eq:om} and \eqref{eq:of} explain differences in the observed wage distribution, and how much variation remains unexplained? To achieve this, he considered the identity,
-\begin{align}
-  R &= E[\ln y_{m}] - E[\ln y_{f}] \\
-  &=  E[X_m]'\vbeta_m -  E[X_f]'\vbeta_f \notag \\
-  &= \underbrace{E[X_m]'(\vbeta_m - \vbeta_f)}_{\text{unexplained by H.C.}} + \underbrace{(E[X_m]'-E[Y_m]')\vbeta_f}_{\text{explained by H.C.}}. \label{eq:odecomp}
-\end{align}
-This decomposition implies that the difference between the expected log wage between men and women can be explained partially by human capital factors (the `endowments effect' arising from the fact that the distribution of human capital is not independent of sex), and other factors. The parameters in \eqref{eq:odecomp} are computed at their means to determine the difference $E[X_m]'(\vbeta_m - \vbeta_f)$ attributable to discrimination---that is, the proportion of the variance due to group membership---rather than human capital factors. 
-%TODO: cite Stata journal
+In this study, the object of interest is the distribution of wages, rather than differences in the conditional mean, and the two groups of interest are not gender groups, but rather two different time periods: 1981-2 and 2009-10. For simplicity, we refer to these time periods as $T=0$ and $T=1$, respectively. The explanatory variables of interest in this case is a matrix of task content indexes, for each occupation. The procedure for constructing these indexes is described in Section~\ref{sec:onet}, below.
 
 \subsection{Unconditional Quantile Regression}
 One major shortcoming of the Oaxaca-Blinder decomposition is that only the conditional means of a wage distribution, $E(Y|X)$, and its counterfactual can be compared. Recall that, in the Roy model described above, changes in the profitability of any occupation should result in the more efficient individuals self-selecting out of an occupation. The mean of a wage distribution is a poor instrument for observing this phenomenon: rather, any polarisation effect will be observed in the overall {\em distribution} of wages, $F_Y$. Ideally, we would like to compute a decomposition similar to \eqref{eq:odecomp}, but which decomposes changes in the $\alpha$th quantile of the wage distribution, $q_\tau(F_Y)$. Such a decomposition was considered by \citet{Firpo2011}; it is their technique, as described in \citet{Firpo2009}, that we apply here.
 
-Suppose that the wage of individual $i$ is observed in two periods, $0$ and $1$. Under the hypothesis of wage polarisation, we will assume that individuals are paid under two distinct wage structures: the pre-polarisation wage structure, $F_{Y_0}$ (when $T=1$) and the post-polarisation wage structure, $F_{Y_1}$ (when $T=0$). We wish to compute an overall change $R^\alpha$ in the quantile statistic, attributable to changes in work force composition $R^\alpha_X$ and changes in the wage structure, $R^\alpha_S$:
+Suppose that the wage of individual $i$ is observed in two periods, $0$ and $1$. Under the hypothesis of wage polarisation, we will assume that individuals are paid under two distinct wage structures: the pre-polarisation wage structure, $F_{Y_0}$ (when $T=1$) and the post-polarisation wage structure, $F_{Y_1}$ (when $T=0$). We wish to compute an overall change $\Delta^\alpha$ in the quantile statistic, attributable to changes in work force composition $\Delta^\alpha_X$ and changes in the wage structure, $\Delta^\alpha_S$:
 \begin{align}
-  R^\alpha &= q_\tau(F_{Y_1|T=1}) - q_\tau(F_{Y_0|T=0}) \notag \\
-  &= \underbrace{q_\tau(F_{Y_1|T=1}) -  q_\tau(F_{Y_0|T=1})}_{R^\alpha_S} + \underbrace{q_\tau(F_{Y_0|T=1}) q_\tau(F_{Y_0|T=0})}_{R^\alpha_X} \label{eq:decomp}
-\end{align}Notice that this decomposition depends crucially on a hypothetical counterfactual distribution, $F_{Y_0|T=1}$, where the workers of period $1$ are paid according to the wage structure of period $0$. Although such a distribution cannot be directly observed, \citet{Firpo2011} show that a consistent estimator of $F_{Y_0|T=1}$ can be found by re-weighting $F_{Y_0}$ to have the same distribution as $F_{Y_1}$.
+  \Delta^\alpha_O &= q_\tau(F_{Y_1|T=1}) - q_\tau(F_{Y_0|T=0}) \notag \\
+  &= \underbrace{q_\tau(F_{Y_1|T=1}) -  q_\tau(F_{Y_0|T=1})}_{\Delta^\alpha_S} + \underbrace{q_\tau(F_{Y_0|T=1}) q_\tau(F_{Y_0|T=0})}_{\Delta^\alpha_X} \label{eq:decomp}
+\end{align}Notice that this decomposition depends crucially on a hypothetical counterfactual distribution, $F_{Y_0|T=1}$, where the workers of period $1$ are paid according to the wage structure of period~$0$. Although such a distribution cannot be directly observed, \citet{Firpo2011} show that a consistent estimator of $F_{Y_0|T=1}$ can be found by re-weighting $F_{Y_0}$ to have the same distribution as $F_{Y_1}$.
 
-\citet{Firpo2009} demonstrate that the decomposition described in \eqref{eq:decomp} can be performed using an OLS regression on the recentered influence function of the distributional statistic. This function is the usual influence function used in the analysis of robust estimators, `recentered' by adding the value of the distributional statistic. In the case of the quantile function $q_\tau$, the RIF is given by,
-\begin{align*}
-  RIF(y; q_\tau) &= q_\tau + IF(y; q_\tau) \\
-  &= q_\tau + \frac{q_\tau - \mathbf{1}\{y \leq q_\tau\}}{f_Y(q_\tau)}.
-\end{align*}
+\citet{Firpo2009} demonstrate that an aggregate decomposition, as described in \eqref{eq:decomp}, can be performed using an OLS regression on the recentered influence function of the distributional statistic. This function is the usual influence function used in the analysis of robust estimators, `recentered' by adding the value of the distributional statistic. In the case of the quantile function $q_\tau$, the RIF is given by,
+$$  RIF(y; q_\tau) = q_\tau + IF(y; q_\tau) = q_\tau + \frac{q_\tau - \mathbf{1}\{y \leq q_\tau\}}{f_Y(q_\tau)}. $$
+
 Then the estimated coefficient $\gamma^{q_\tau}_t$ of a regression of $RIF(y_t; q_\tau)$ on $X$ is
 \begin{align*} 
 \gamma^{q_\tau}_t &= (E[X \cdot X' | T = t])^{-1} \cdot E[RIF(y_t; q_\tau) \cdot X | T = t]
-\intertext{\citet{Firpo2011} show that the distributional statistics themselves can be written as expectations of the conditional RIF, since the expected value of the influence function is zero by definition.}
+\intertext{\citet{Firpo2009} show that the distributional statistics themselves can be written as expectations of the conditional RIF, since the expected value of the influence function is zero, and thus $E[RIF(y_t;q_\tau)]=q_\tau$.}
 q_\tau(F_t) &= E_X[E[RIF(y_t; q_\tau) | X=x]] \\
 & = E[X|T=t] \cdot \gamma^{q_\tau}_t
 \intertext{And thus we can write \eqref{eq:decomp} in a similar form as \eqref{eq:odecomp},}
-R^\alpha &= \underbrace{E[X|T=t] \cdot (\gamma^{q_\tau}_1 - \gamma^{q_\tau}_0)}_{R^\alpha_S} + \underbrace{(E[X|T=1] - E[X|T=0]) \cdot \gamma^{q_\tau}_0}_{R^\alpha_X}.
+\Delta^\alpha_O &= \underbrace{E[X|T=t] \cdot (\gamma^{q_\tau}_1 - \gamma^{q_\tau}_0)}_{\Delta^\alpha_S} + \underbrace{(E[X|T=1] - E[X|T=0]) \cdot \gamma^{q_\tau}_0}_{\Delta^\alpha_X}.
 \end{align*}
-However, this decomposition is based on a linear specification of the model, where the local approximation at the mean may not be appropriate, particularly for larger changes in covariates.  In particular, if the relationship between $Y$ and $X$ is nonlinear, then shifts in the distribution of $X$ may result in different estimates for $\gamma^{q_\tau}_t$ even if $Y$ is invariant. \citet{Firpo2011} suggest a re-weighting procedure to deal with this problem. They define a re-weighting function, $\Psi(X)$,
-\begin{equation}
-  \label{eq:wt}
-  \Psi(X) = \frac{\Pr(T=1|X)/\Pr(T=1}{\Pr(T=0|X)/\Pr(T=0)},
-\end{equation}
-that re-weights the data in period $0$ to match the distribution of covariates observed in period $1$.
 
-Using re-weighted data, we can estimate the means of the counterfactual distribution, $\bar{X}=\sum_{i|T=0}\hat{\Psi}(X_i) \cdot X_i$, and the coefficients $\hat{\gamma}_{01}^{q_\tau}$ by regressing $RIF(Y_0;q_\tau)$ with the new sample weights. We then rewrite the decomposition \eqref{eq:decomp} as the sum of two separate Oaxaca-Blinder decompositions. The first term, the wage structure effect, is decomposed into a composition effect $\hat{R}^{q_\tau}_{S,p}$ and specification error, $\hat{R}^{q_\tau}_{S,e}$. The second gives a similar decomposition for composition effect:
+Under the `ignorability' assumption, these two components of the decomposition are identified. 
+
+Most decompositions of the determinants of wages follow the Mincerean `human capital' approach, which suggests that the primary determinants of wages are investments in education and experience, which enhance productivity \citep{Mincer1962}. As is well-known, OLS regression estimates of Mincer-style wage equations tend to exhibit endogeneity bias, since observable characteristics (such as years of schooling) tend to be correlated with unobserved characteristics such as general ability or talent \citep{Card1999}. Consequently, any regression specification that omits an accurate measure of `ability' will exhibit endogeneity bias, since the omitted variable will cause explanatory variables such as schooling to be correlated with the error term.
+
+One solution approach to this problem, was suggested by \citet{Juhn1993}, who set out to explain the widening skill distribution of the late 1980s by an increasing `return to skills'. After controlling for individual characteristics such as schooling and experience, they interpreted {\em position} within the wage distribution for a given occupation as an indicator of `unobserved ability,' in order to correct for endogeneity effects. In this analysis, we follow \citet{Firpo2011} and take a similar approach, estimating a correction term $\lambda^\tau$ for the changing `returns to ability' at different percentiles $\tau$ within the wage distribution.
+
+\subsection{Re-weighting the counterfactual distribution}\label{sec:reweight}
+
+\citet[p.19]{Firpo2011} point out that the RIF-regression described above is a local approximation that may not hold for large variations in covariates $X$. In particular, if the relationship between $Y$ and $X$ is nonlinear, then shifts in the distribution of $X$ may result in different estimates for $\gamma^{q_\tau}_t$ even if $Y$ is invariant. 
+
+Unfortunately, in this application, changes in covariates between period $T=0$ and $T=1$ cannot be assumed to be small. ABS data show that there are considerable differences in the composition of the labour force between 1981-2 and 2009-10 \citep{LFSApr2013}. The average unemployment rate in 1981-2 similar to that of 2009-10 (6.1 per cent versus 5.7 per cent, respectively), but the period was marked by considerable demographic changes. Since the 1980s, women have entered the work force in far greater numbers, and overall labour force participation patterns have varied. Between 1981-2 and 2009-10, the average participation rate for men fell from 77.7 per cent to 72.3 per cent. For women, on the other hand, the participation rate rose from 44.8 per cent to 58.6 per cent. And, for both sexes, the rate of part-time employment has increased dramatically. Clearly, the covariate distributions at both time periods are not directly comparable.
+
+In order to create a comparable counterfactual wage distribution, \citet{Firpo2011} suggest a hybrid approach, where the data in period $0$ are reweighted so that covariates in period $0$ match those in period $1$. Adopting the re-weighting procedure suggested by \citet{DiNardo1996}, they aim to create a counterfactual wage distribution $F_{Y_0}^C$ that exhibits the characteristics of period $0$, but with the wage structure of period $1$:
+\begin{align*}
+  F_{Y_0}^C &= \int F_{Y_0|X_0}(y|X) dF_{X_1}(X)
+\intertext{We now re-write this equation as an integral over $F_{X_0}(X)$, by adding a reweighting factor $\Psi(X) = dF_{X_1}(X)/dF_{X_0}(X)$:}
+  F_{Y_0} &= \int F_{Y_0|X_0}(y|X) \Psi(X)dF_{X_0}(X)
+\end{align*}
+\citet{Fortin2011} show that this re-weighting factor, which is the ratio of two marginal distribution functions, can be manipulated with an application of Bayes rule to yield a ratio of two binary outcome models:
+\begin{align*}
+  \label{eq:wt}
+  \Psi(X) &= \frac{\Pr(T=1|X)/\Pr(T=1)}{\Pr(T=0|X)/\Pr(T=0)},
+\end{align*}
+that re-weights the data in period $0$ to match the distribution of covariates observed in period~$1$. To implement this re-weighting function, the probability of $T$ being 1 or 0 can be modeled using a probit model, fit to the combined data sets, with $T$ as the response variable. % Probit model: help! How do I weight this?
+
+Using re-weighted data, we can estimate the means of the counterfactual distribution, $\bar{X}=\sum_{i|T=0}\hat{\Psi}(X_i) \cdot X_i$, and the coefficients $\hat{\gamma}_{01}^{q_\tau}$ by regressing $RIF(Y_0;q_\tau)$ with the new sample weights. We then rewrite the decomposition \eqref{eq:decomp} as the sum of two separate Oaxaca-Blinder decompositions. The first term, the wage structure effect, is decomposed into a composition effect $\hat{\Delta}^{q_\tau}_{S,p}$ and specification error, $\hat{\Delta}^{q_\tau}_{S,e}$. The second gives a similar decomposition for composition effect:
 \begin{align}
-  \hat{R}^{q_\tau} &= (\hat{R}^{q_\tau}_{S,p} + \hat{R}^{q_\tau}_{S,e}) + (\hat{R}^{q_\tau}_{X,p} + \hat{R}^{q_\tau}_{X,e}) \notag \\
+  \hat{\Delta}^{q_\tau} &= (\hat{\Delta}^{q_\tau}_{S,p} + \hat{\Delta}^{q_\tau}_{S,e}) + (\hat{\Delta}^{q_\tau}_{X,p} + \hat{\Delta}^{q_\tau}_{X,e}) \notag \\
   &= \underbrace{\left( [\bar{X}_{01} - \bar{X}_0 ] \hat{\gamma}^{q_\tau}_{01} +
-    \bar{X}_{01}[\hat{\gamma}_{01}^{q_\tau} - \hat{\gamma}_0^{q_\tau}] \right)}_{\hat{R}^{q_\tau}_{S}} +
+    \bar{X}_{01}[\hat{\gamma}_{01}^{q_\tau} - \hat{\gamma}_0^{q_\tau}] \right)}_{\hat{\Delta}^{q_\tau}_{S}} +
   \underbrace{\left( \bar{X}_{1}[\hat{\gamma}_{1}^{q_\tau} - \hat{\gamma}_{01}^{q_\tau}] + 
-    [\bar{X}_{1} - \bar{X}_{01} ] \hat{\gamma}^{q_\tau}_{01}\right)}_{\hat{R}^{q_\tau}_{X}}.
+    [\bar{X}_{1} - \bar{X}_{01} ] \hat{\gamma}^{q_\tau}_{01}\right)}_{\hat{\Delta}^{q_\tau}_{X}}.
 \end{align}
 
 This decomposition can be performed on income surveys of repeated cross-sections of the same markets over time.
 
-\subsection{Identification Strategy} \label{sec:id}
+\subsection{Identifying Changes in the Wage Distribution}
+ \label{sec:id}
 
-\section{Data}
+In the analysis that follows, we will apply an extension of the Oaxaca-Blinder decomposition to decompose changes in the wage distribution with respect to these task index covariates. However, before this decomposition can be applied, additional assumptions are required.
 
-One step which was skipped over in the informal analysis in the previous chapter was the assignment of occupations into task groups, on the basis of the occupational classification scheme. If task content is to be analyzed rigorously, and in greater detail than a simple three-occupation breakdown, a quantitative view of occupational task content is required. 
+The first, and most basic assumption is that the support of these covariates is the same for both time periods. In other words, it should not be possible to unambiguously predict which time period an observation belongs to, simply by observing the value of its covariates. 
+\begin{assumption}[Overlapping support] \label{ass:overlap}
+  Let the support of wage setting factors in both periods $[X',\epsilon']'$ be $\mathcal{X}\times\mathcal{E}$. For all $[x',e']' \in \mathcal{X}\times\mathcal{E}$,  $0 < \Pr[T=0 | X=x, \epsilon=e] < 1$.
+\end{assumption}
+Importantly, Assumption~\ref{ass:overlap} means that the set of occupational titles in both periods must be the same, even though many new types of occupational titles have been created since 1981-2. Due to the small sample size, and the level of aggregation of the available data, this did not present a problem. Occupations were considered at the two-digit level, and a correspondence was easily found between jobs in 1981-2 and 2009-10.
 
-The standard classification scheme for occupations used in Australia, ANZSCO, simply lists by name the tasks a particular job title might be required to perform. These tasks are listed in an occupation-specific way, such that they cannot be compared between occupations. For example, under the unit group 2243: {\em Economists}, the required tasks include
-\begin{quote}
-{\em Analysing interrelationships between economic variables and studying the effects of government fiscal and monetary policies, expenditure, taxation and other budgetary policies on the economy and the community \citep[p.185]{Trewin2006}}
-\end{quote}
+The desired decomposition is a relationship between occupations and their constituent tasks. Roy-type models posit that the wage an individual is paid depends on the skills demanded by that occupation, and the returns to the skills in question. \citet{Firpo2011} adapt the simple linearly additive functional form suggested by \citet{Welch1969}, and assume that an individual's wage is set according to the skills demanded by an occupation.
+\begin{assumption}[Linear additivity of returns to skills]
+  An individual $i$'s wage in occupation $j$ at time $t$ is set according to the sum of the returns $r_{jk}$ to skills $k$, $k=1,\dots,K$ required for that occupation:
+\begin{equation}
+  w_{ijt} = \theta_{jt} + \sum_{k=1}^K r_{jkt}S_{ik} + u_{ijt}, \label{eq:linear}
+\end{equation}
+Where $\theta_{jt}$ is a `base pay' term, and $u_{ijt}\sim i.i.d$ captures idiosyncratic characteristics of each worker. Linear additivity implies that the labour market in each occupation is free of general equilibrium effects arising from changes in other occupational wage structures.
+\end{assumption}
 
-{\em Statisticians} (unit group 2441) perform tasks that are largely similar to that of economists, even though the underlying theory that motivates their work may be somewhat different. A corresponding task entry for statisticians includes
-\begin{quote}
-{\em Defining, analysing and solving complex financial and business problems relating to areas such as insurance premiums, annuities, superannuation funds, pensions and dividends \citep[p.181]{Trewin2006}}
-\end{quote}
-Given the qualitative nature of this classification scheme, there is no obvious way to systematically formalise the similarity between economists and statisticians on the basis of the ANZSCO classification. However, alternative classification schemes do exist which include comparable task classifications.
+Notice that in \eqref{eq:linear}, the returns to skill $k$ are particular to occupation $j$. This makes intuitive sense: since each individual is endowed with a particular mix of skills, which may not necessarily be useful in that individual's chosen occupation, there is no reason to expect the returns to certain skills to equilibrate across markets. In Roy's example above, fly fishing skills of any level do not earn a return for workers engaged in rabbit hunting.
 
-\subsection{Occupational tasks: O*NET}
+Further, in order to identify the explained and unexplained effects of the covariates, we require that the error term $\epsilon$ has the same conditional distribution in both time periods. This is known as the {\em ignorability} assumption.
+\begin{assumption}[Ignorability]
+  For $T\in\{0,1\}$, let $(T, X, \epsilon)$ have a joint distribution. Then, for all $x\in \mathcal{X}$, $\epsilon$ is independent of $T$ given $X=x$.
+\end{assumption}
 
-The U.S. equivalent to the ANZSCO classification, the O*NET database, includes hundreds of quantitative scales for the level of work activities, knowledge types and abilities for individuals in each of approximately five hundred occupations. The data were constructed using expert surveys, and provide a very rich source of information about the activities that workers in each occupation actually undertake. For example, for the work activity {\em analyze data}, the occupations {\em economist} and {\em surgeon} score highly (6.58/7 and 5.49/7, respectively.) But for the work activity {\em Handle moving objects}, surgeons score 3.62/7, and economists score only 0.54/7.
+The assumptions stated so far are sufficient for decomposing the wage structure component ($\hat{\Delta}_S$) and endowment effect component ($\hat{\Delta}_X$) of the aggregate decomposition. This aggregate decomposition is useful, but the purpose of this analysis is to perform a detailed decomposition: the contribution of individual covariates in $X$ to changes in the wage structure is required. For these contributions to be found, the following assumption, found in \citet{Matzkin2003}, must hold.
+\begin{assumption}[Independence]
+  For $T=0,1$, $X$ is uncorrelated with $\epsilon$ in time $T$.
+\end{assumption}
+As is well-known, in Mincerian wage determination studies, independence of covariates and the wage residual can not, be assumed, since unobserved ability is a key determinant of wages. We therefore follow \citet{Juhn1993}, and estimate changes to the wage distribution in two steps, using quantiles within groups as estimates for unobserved ability.
 
-We have mapped the ANZSCO (and its predecessors, various editions of ASCO and the CCLO) to the O*NET data, and sucessfully constructued a skill measure series for Australian occupational classification schemes. We then apply a transformation step, described by \citet{Firpo2011}, to build composite indexes for `automation,' `offshorability', and so on. These composite indexes provide a dependent variable which, along with levels of capital investment on an industry-by-industry basis, provide a basis by which changes in the occupational wage structure can be analyzed.
 
-\subsection{Survey of Income and Housing, 1981-2010}
-
-As in Chapter~2, we use microdata from the ABS Survey of Income and Housing (SIH) data. A detailed discussion of data issues and the processing steps performed on these data files is provided in the Data Appendix.
-
-The survey data are weighted so as to be a representative sample of the Australian population. Weights are given in survey data as `person weights', an inverse selection probability scaled by the current resident population. In order to apply the weighting function in \eqref{eq:wt}, we convert the `person weight' to a selection probability, scale this probability by the weighting function, and then invert this number to give an inverse selection probability. Inverse selection probabilities are then treated as analytic weights, so that the weighted least squares estimator described in Cameron \& Trivedi (2005) can be used.
-
-%Conducting this research for the Australian work force has presented many challenges, particularly when attempting to obtain appropriate data. Unlike the United States, where detailed occupational data appears to be readily available to researchers, we have not been able to obtain survey data for occupations at the four-digit level, which has meant that, when mapping between Australian classification schemes and O*NET, we have had to dramatically reduce the fidelity of our dataset. In general, occupation variables have only been available at the one- and two-digit levels. Unfortunately, comparisons at the two-digit level cannot be made, because during our period of interest of 1981-2010 the ABS has used four different occupational classification schemes. Regrettably, there is no satisfactory way to map between these schemes in a way that is completely comparable, so comparisons must be performed at a higher level of aggregation. For the second part of this study, we are investigating the use of census data instead, for which it may be easier to obtain four-digit data. 
-
-%The decision to use census data was particularly difficult, because this new data brings with it new challenges. The key advantage of the SIH is that the survey is administered by expert interviewers, who are trained to ensure that the income reported by each respondent fits the survey criteria. The resulting income series is of high quality, and is also provided as a continuous variable, so that detail quantile measurements can be made. In the census, respondents do not provide their actual income; instead, income levels are self-reported in binned intervals. Not only does this reduce the accuracy of any analysis performed using census data, but it also necessitates more complicated estimators for changes in the occupational wage structure.
-
-\section{Results and discussion}
 
 %%% Local Variables: 
 %%% mode: latex
