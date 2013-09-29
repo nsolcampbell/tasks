@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Note: the mappings files are maintained in a google spreadsheet
+#       so don't edit the CSV files in the mappings directory. They're
+#       version controlled for convenience only.
+
 if [ ! -d mappings ]; then
     mkdir mappings
 fi
