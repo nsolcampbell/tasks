@@ -1,0 +1,52 @@
+ANZSCO,ANZSCO Name,COMBINEDII,COMBINEDII Name
+10, Managers nfd,1,"General Managers, Legislators"
+11," Chief Executives, General Managers and Legislators",1,"General Managers, Legislators"
+12, Farmers and Farm Managers,2,Farm Managers
+13, Specialist Managers,3,Specialist Managers
+14," Hospitality, Retail and Service Managers",4,Hospitality and Service Managers and Workers
+20, Professionals nfd,5,Other Professionals
+21, Arts and Media Professionals,5,Other Professionals
+22," Business, Human Resource and Marketing Professionals",6,"Business, ICT Professionals"
+23," Design, Engineering, Science and Transport Professionals",7,STEM Professionals
+24, Education Professionals,8,Education Professionals
+25, Health Professionals,9,Health Professionals
+26, ICT Professionals,6,"Business, ICT Professionals"
+27," Legal, Social and Welfare Professionals",11,Legal Professionals
+30, Technicians and Trades Workers nfd,12,Technicians
+31," Engineering, ICT and Science Technicians",12,Technicians
+32, Automotive and Engineering Trades Workers,13,Auto and engineering tradespersons
+33, Construction Trades Workers,14,Construction tradesworkers
+34, Electro technology and Telecommunications Trades Workers,15,Electricians and telecom tradesworkers
+35, Food Trades Workers,16,Food trades workers
+36, Skilled Animal and Horticultural Workers,17, Skilled Animal and Horticultural Workers
+39, Other Technicians and Trades Workers,18,Associate Professionals
+40, Community and Personal Service Workers nfd,29, Health and Welfare Support Workers
+41, Health and Welfare Support Workers,29, Health and Welfare Support Workers
+42, Carers and Aides,20,Business and Administration Associate Professionals
+43, Hospitality Workers,4,Hospitality and Service Managers and Workers
+44, Protective Service Workers,18,Associate Professionals
+45, Sports and Personal Service Workers,18,Associate Professionals
+50, Clerical and Administrative Workers nfd,19,Clerical Workers
+51, Office Managers and Program Administrators,20,Business and Administration Associate Professionals
+52, Personal Assistants and Secretaries,21, Personal Assistants and Secretaries
+53, General Clerical Workers,19,Clerical Workers
+54, Inquiry Clerks and Receptionists,19,Clerical Workers
+55, Numerical Clerks,19,Clerical Workers
+56, Clerical and Office Support Workers,19,Clerical Workers
+59, Other Clerical and Administrative Workers,22, Other Clerical and Administrative Workers
+60, Sales Workers nfd                     ,23,Sales workers
+61, Sales Representatives and Agents      ,10,Sales supervisors and agents
+62, Sales Assistants and Salespersons     ,23,Sales workers
+63, Sales Support Workers                 ,23,Sales workers
+70, Machinery Operators and Drivers nfd   ,24,Plant operators
+71, Machine and Stationary Plant Operators,24,Plant operators
+72, Mobile Plant Operators                ,24,Plant operators
+73, Road and Rail Drivers                 ,25,Road and rail drivers
+74, Store persons                          ,26,Other production workers
+80, Labourers nfd                         ,27,Labourers
+81, Cleaners and Laundry Workers          ,28,Cleaners
+82, Construction and Mining Labourers     ,27,Labourers
+83, Factory Process Workers               ,26,Other production workers
+84," Farm, Forestry and Garden Workers     ",27,Labourers
+85, Food Preparation Assistants           ,27,Labourers
+89, Other Labourers                       ,27,Labourers

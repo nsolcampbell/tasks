@@ -1,29 +1,29 @@
-CCLO,ANZSCO,Group ID,Description
-"12, 23, 25","10, 13, 51",1,Other managers
-11,"11, 22, 26",2,"Business professionals - CEOs, GMs, Legislators"
-"3, 4, 5","25, 41",3,Health professionals
-10,20,4,Professionals NFD
-6,24,5,Teachers
-7,27,6,Legal Professionals
-"1, 2, 37",23,7,"Designers, Engineers, Scientists, Transport Professionals"
-"9, 12","30, 31",8,Technicians
-"24,28,29,30",73,9,Road transport & railway workers
-"31, 39",34,10,Electrotechnology and Telecommunications trades workers
-"14, 15, 26, 32","50, 52, 53, 54, 55, 56, 59",11,"Office support, clerical and postal workers"
-19,12,12,Farmers/farm managers
-"20,21",84,13,Farm/rural/garden workers
-50,74,14,"Storepersons, freight handlers"
-51,"80, 82, 89",15,Labourers
-"41, 43",33,16,Construction trades workers
-45,"35, 85",17,Food trades workers
-"8, 42, 59",21,18,Arts and media professionals
-54,"14, 43",19,Hospitality workers
-"33, 34, 35, 44, 46, 47, 56","36, 39",20,Other technicians and trades workers
-"16, 17",61,21,Sales representatives and agents
-"13, 18","60, 62, 63",22,Sales assistants and support workers
-"36, 38, 40",32,23,Automotive and Engineering trades workers
-"53, 55, 57","42, 81",24,Cleaners and caretakers
-"58, 60","40, 45",25,Sports and personal service workers
-48,83,26,Factory process workers
-52,44,27,Protective service workers
-"22, 49","70, 71, 72",28,Machine operators
+COMBINED1,Title
+1,Other managers
+2,"Business professionals - CEOs, GMs, Legislators"
+3,Health professionals
+4,Professionals NFD
+5,Teachers
+6,Legal Professionals
+7,"Designers, Engineers, Scientists, Transport Professionals"
+8,Technicians
+9,Road transport & railway workers
+10,Electrotechnology and Telecommunications trades workers
+11,"Office support, clerical and postal workers"
+12,Farmers/farm managers
+13,Farm/rural/garden workers
+14,"Storepersons, freight handlers"
+15,Labourers
+16,Construction trades workers
+17,Food trades workers
+18,Arts and media professionals
+19,Hospitality workers
+20,Other technicians and trades workers
+21,Sales representatives and agents
+22,Sales assistants and support workers
+23,Automotive and Engineering trades workers
+24,Cleaners and caretakers
+25,Sports and personal service workers
+26,Factory process workers
+27,Protective service workers
+28,Machine operators
