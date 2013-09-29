@@ -21,9 +21,13 @@ drop _all
 """ % {"svr": serverfile})
 
 # process CSV files downloaded by download_mappings.sh
+# 2000/01 <-> 2009/10
 make_dofile('Combined2Map', 'anzsco_combinedii.csv', 'anzsco_combinedii.do', 'OCC6DIG', 'COMBINEDII')
-make_dofile('AscoCombined1Map', 'ascoii_combinedii.csv', 'ascoii_combinedii.do', 'OCC6DIG', 'COMBINEDI')
+make_dofile('AscoCombined2Map', 'ascoii_combinedii.csv', 'ascoii_combinedii.do', 'OCC6DIG', 'COMBINEDII')
+
+# 1981/82 <-> 2009/10
 make_dofile('AnzscoCombined1Map', 'anzsco_combinedi.csv', 'anzsco_combinedi.do', 'OCC6DIG', 'COMBINEDI')
+make_dofile('CcloCombined1Map', 'cclo_combinedi.csv', 'cclo_combinedi.do', 'OCC6DIG', 'COMBINEDI')
 
 import os
 os.system("cat *_*.do > mappings.do")
