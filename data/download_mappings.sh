@@ -18,5 +18,6 @@ curl "https://docs.google.com/spreadsheet/pub?key=0AsjX9EgXuAkDdDAwTnRWaENIYnhYL
 # COMBINEDII : ASCOII <-> ANZSCO
 curl "https://docs.google.com/spreadsheet/pub?key=0AsjX9EgXuAkDdDAwTnRWaENIYnhYLXZtb1pWcnk2cEE&single=true&gid=7&output=csv" > combinedii.csv
 curl "https://docs.google.com/spreadsheet/pub?key=0AsjX9EgXuAkDdDAwTnRWaENIYnhYLXZtb1pWcnk2cEE&single=true&gid=8&output=csv" > ascoii_combinedii.csv
-curl "https://docs.google.com/spreadsheet/pub?key=0AsjX9EgXuAkDdDAwTnRWaENIYnhYLXZtb1pWcnk2cEE&single=true&gid=9&output=csv" > anzscoii_combinedii.csv
+curl "https://docs.google.com/spreadsheet/pub?key=0AsjX9EgXuAkDdDAwTnRWaENIYnhYLXZtb1pWcnk2cEE&single=true&gid=9&output=csv" > anzsco_combinedii.csv
 
+python make_do.py
