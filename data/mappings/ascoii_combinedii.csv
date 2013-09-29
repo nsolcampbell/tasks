@@ -1,0 +1,45 @@
+ASCO2,COMBINEDII,COMBINEDII Name,ASCO Name
+10,1,"General Managers, Legislators",Managers NFD
+11,1,"General Managers, Legislators",Generalist Managers
+12,3,Specialist Managers,Specialist Managers
+13,2,Farm Managers,Farmers and Farm Managers
+20,5,Other Professionals,Professionals NFD
+21,7,STEM Professionals,"Science, Building and Engineering Professionals"
+22,6,"Business, ICT Professionals",Business and Information Professionals
+23,9,Health Professionals,Health Professionals
+24,8,Education Professionals,Education Professionals
+25,5,Other Professionals,"Social, Arts and Miscellaneous Professionals"
+25,11,Legal Professionals,"Social, Arts and Miscellaneous Professionals"
+30,18,Associate Professionals,Associate Professionals
+31,12,Technicians,"Science, Engineering and Related Associate Professionals"
+32,20, Health and Welfare Support Workers,Business and Administration Associate Professionals
+33,4,Hospitality and Service Managers and Workers,Managing Supervisors (Sales and Service)
+34,31, Health and Welfare Support Workers,Health and Welfare Associate Professionals
+39,18,Associate Professionals,Other Associate Professionals
+40,29,Other trades workers,Tradespersons and Related Workers NFD
+41,13,Auto and engineering tradespersons,Mechanical and Fabrication Engineering Tradespersons
+42,13,Auto and engineering tradespersons,Automotive Tradespersons
+43,15,Electricians and telecom tradesworkers,Electrical and Electronics Tradespersons
+44,14,Construction tradesworkers,Construction Tradespersons
+45,16,Food trades workers,Food Tradespersons
+46,17, Skilled Animal and Horticultural Workers,Skilled Agricultural and Horticultural Workers
+49,29,Other trades workers,Other Tradespersons and Related Workers
+50,19,Clerical Workers,Advanced Clerical and Service Workers NFD
+51,21, Personal Assistants and Secretaries,Secretaries and Personal Assistants
+59,22, Other Clerical and Administrative Workers,Other Advanced Clerical and Service Workers
+60,19,Clerical Workers,"Intermediate Clerical, Sales and Service Workers NFD"
+61,19,Clerical Workers,Intermediate Clerical Workers
+63,18,Associate Professionals,Intermediate Service Workers
+70,24,Plant operators,"Intermediate Production and Transport Workers, NFD"
+71,24,Plant operators,Intermediate Plant Operators
+72,24,Plant operators,Intermediate Machine Operators
+73,25,Road and rail drivers,Road and Rail Transport Drivers
+79,26,Other production workers,Other Intermediate Production and Transport Workers
+80,23,Sales workers,"Elementery Clerical, Sales and Service Workers, NFD"
+81,19,Clerical Workers,Elementary Clerks
+82,23,Sales workers,Elementary Sales Workers
+83,18,Associate Professionals,Elementary Service Workers
+90,27,Labourers,"Labourers and Related Workers, NFD"
+91,28,Cleaners,Cleaners
+92,26,Other production workers,Factory Labourers
+99,27,Labourers,Other Labourers and Related Workers
