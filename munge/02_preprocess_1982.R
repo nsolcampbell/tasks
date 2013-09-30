@@ -55,6 +55,7 @@ weights <- read.csv("data/curf/1982/weights.csv", stringsAsFactors=F)
 
 subs <- join(x=subs, y=weights, 
              by=c("IDENT_PSN", "FAMNO_PSN", "IUNO_PSN", "PERSON_NUMBER"))
+write.dta(subs, file='data/curf/1982/IDS82.dta')
 
 # EducA
 subs$EducA <- recodeVar(as.character(subs$HighestQual), 
