@@ -1,3 +1,4 @@
+rm(list=ls())
 # weight the O*NET mappings onto ANZSCO two- and three-digit codes
 require(reshape2)
 
@@ -133,12 +134,13 @@ task_list=tasks$elements
 knowledge_list=knowledge$elements
 context_list=context$elements
 
-save(task_content, 
+anzsco_onet <- task_content
+save(anzsco_onet, 
      ability_list, 
      task_list, 
      knowledge_list, 
      context_list,
-     file="data/anzsco_onet.dta")
+     file="data/anzsco_onet.rda")
 
 # also write out CSV copies for easy access
 write.csv(task_content, 'data/anzsco_onet_combined.csv')
