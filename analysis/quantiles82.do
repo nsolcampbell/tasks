@@ -27,7 +27,7 @@ pctile DEC_L_IWSTPP = L_IWSTPP [aweight = PERS_WT] , nq(10)
 mkmat DEC_L_IWSTPP in 1/9, matrix(A)
 drop DEC_L_IWSTPP
 
-tabulate COMBINEDI
+tabulate COMBINEDI [aweight = PERS_WT]
 
 * drop if CurrentOccup == 1
 
@@ -51,7 +51,7 @@ matrix list A
 
 drop _all
 quietly svmat A
-export delimited using "data/quantiles/82_combined1.csv", replace
+export delimited using "data/quantiles/1982_combined1.csv", replace
 
 drop _all
 quietly svmat DENSITY, names(col) 

@@ -55,7 +55,7 @@ scale_tasks <- function(task_measures) {
     for (col in cols) {
         xbar <- mean(task_measures[,col])
         s    <- sd(task_measures[,col])
-        task_measures[,col] <- (task_measures[,col] - xbar) / s
+        task_measures[,col] <- (task_measures[,col] - xbar) / s + 1
     }
     return(task_measures)
 }

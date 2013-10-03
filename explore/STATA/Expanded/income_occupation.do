@@ -1,60 +1,58 @@
-input byte(OCC6DIG ASCO2)
-0	.
-10	10
-11	11
-12	13
-13	12
-14	33
-20	20
-21	25
-22	22
-23	21
-24	24
-25	23
-26	22
-27	25
-30	30
-31	31
-32	41
-33	44
-34	43
-35	45
-36	46
-39	39
-40	30
-41	34
-42	63
-44	39
-45	39
-50	60
-51	32
-52	51
-53	61
-54	61
-55	61
-56	81
-59	59
-60	80
-61	33
-62	82
-63	82
-70	70
-71	72
-72	71
-73	73
-74	79
-80	90
-81	91
-82	99
-82	99
-83	92
-84	99
-85	99
-89	99
-99	.
+input byte(OCC6DIG COMBINEDII)
+10	1
+11	1
+12	2
+13	3
+14	4
+20	5
+21	5
+22	6
+23	7
+24	8
+25	9
+26	6
+27	11
+30	12
+31	12
+32	13
+33	14
+34	15
+35	16
+36	17
+39	18
+40	29
+41	31
+42	20
+43	4
+44	18
+45	18
+50	19
+51	20
+52	21
+53	19
+54	19
+55	19
+56	19
+59	22
+60	23
+61	30
+62	23
+63	23
+70	24
+71	24
+72	24
+73	25
+74	26
+80	27
+81	28
+82	27
+83	26
+84	27
+85	27
+89	27
 end
-tempfile OccupMap
-quietly save "`OccupMap'", replace
+tempfile AnzscoCombined2
+quietly save "`AnzscoCombined2'", replace
 drop _all
 
 * EXPANDED CURF
@@ -64,11 +62,13 @@ keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
     FTPTSTAT SECEDQL OCC6DIG AGEEC PSRC4PP PSRCSCP IWSSUCP8 IWSUCP SIHPSWT ///
 	WPS0101-WPS0160
 
-* merge m:1 OCC6DIG using `OccupMap'
+* merge m:1 OCC6DIG using `AnzscoCombined2'
 
 * stone age STATA means we need a workaround for merge
 sort OCC6DIG
-joinby OCC6DIG using `OccupMap', unmatched(both)
+joinby OCC6DIG using `AnzscoCombined2', unmatched(both)
+
+sort COMBINEDII
 
 svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
@@ -79,6 +79,8 @@ drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
 drop if (OCC6DIG == 0) | (OCC6DIG == 99)
 
 svrmean IWSSUCP8, by(OCC6DIG)
-svrmean IWSSUCP8, by(ASCO2)
+svrmean IWSSUCP8, by(COMBINEDII)
 
+table COMBINEDII
+* tab OCC6DIG
 * svrtab OCC6DIG

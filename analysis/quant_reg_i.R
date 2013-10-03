@@ -1,6 +1,6 @@
 rm(list=ls())
 library(reshape2)
-
+source('analysis/quantile_regressions.R')
 source('lib/centered_cpi.R')
 
 start_w <- read.csv("data/quantiles/1982_combined1.csv")[,-1]
@@ -37,6 +37,9 @@ A      <- fixef(mdl)[grep('occupation', names(fixef(mdl)))]
 Lambda <- fixef(mdl)[grep('quantile', names(fixef(mdl)))]
 B      <- ranef(mdl)
 
+Lambda <- c(0,Lambda) # because q=0.1 is the omitted group
+save(Lambda, file="data/lambdas/combinedi.rda")
+
 load("data/tasks.combinedi.rda")
 
 A.df <- data.frame(A=A, occupation=1:length(A))
@@ -46,15 +49,6 @@ B <- cbind(B, occupation=1:nrow(B))
 names(B) <- c("B", "occupation")
 B.tasks <- merge(x=B, y=tasks.combinedi, by.x='occupation', by.y='COMBINED1')
 
-A.lm.unweighted <- glm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-           data=A.tasks)
-A.lm <- glm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-           data=A.tasks, weights=pop82$population)
-
-B.lm.unweighted <- glm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-           data=B.tasks)
-B.lm <- glm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-           data=B.tasks, weights=pop82$population, family=gaussian)
-
-library(stargazer)
-stargazer(A.lm, A.lm.unweighted, B.lm, B.lm.unweighted, type="text", title="First-stage regression results")
+quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 1981/2 - 2009/10", 
+                     notes="Occupational grouping #1 used, with 28 occupational groups.",
+                     out="analysis/quant_reg_i")

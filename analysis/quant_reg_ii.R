@@ -1,7 +1,8 @@
 rm(list=ls())
 library(reshape2)
-
+source('analysis/quantile_regressions.R')
 source('lib/centered_cpi.R')
+
 # log factor to inflate 2001 prices to 2010 prices
 cpi_factor <- log(centered_cpi(2010)) - log(centered_cpi(2001))
 
@@ -39,28 +40,20 @@ A      <- fixef(mdl)[grep('occupation', names(fixef(mdl)))]
 Lambda <- fixef(mdl)[grep('quantile', names(fixef(mdl)))]
 B      <- ranef(mdl)
 
+Lambda <- c(0,Lambda) # q=0.1 is the omitted group
+save(Lambda, file="data/lambdas/combinedii.rda")
+
 load("data/tasks.combinedii.rda")
 
 A.df <- data.frame(A=A, occupation=1:length(A))
 A.tasks <- merge(x=A.df, y=tasks.combinedii, by.x='occupation', by.y='COMBINEDII')
-A.tasks$pop <- pop01$Population
+A.tasks$Population <- pop01$Population
 
 B <- cbind(B, occupation=1:nrow(B))
 names(B) <- c("B", "occupation")
 B.tasks <- merge(x=B, y=tasks.combinedii, by.x='occupation', by.y='COMBINEDII')
-B.tasks$pop <- pop01$Population
+B.tasks$Population <- pop01$Population
 
-A.lm.unweighted <- glm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-            data=A.tasks, weights = pop, family = gaussian)
-
-A.lm <- glm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-            data=A.tasks, weights = pop, family = gaussian)
-
-B.lm.unweighted <- glm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-            data=B.tasks, weights = pop, family = gaussian)
-
-B.lm <- glm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
-            data=B.tasks, weights = pop, family = gaussian)
-
-library(stargazer)
-stargazer(A.lm, A.lm.unweighted, B.lm, B.lm.unweighted, type="text", title="First-stage regression results")
+quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 2000/01 - 2009/10", 
+                     notes="Occupational grouping #2 used, with 29 occupational groups.",
+                     out="analysis/quant_reg_ii")
