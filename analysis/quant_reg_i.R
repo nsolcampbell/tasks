@@ -1,3 +1,4 @@
+rm(list=ls())
 library(reshape2)
 
 source('lib/centered_cpi.R')
@@ -24,8 +25,13 @@ dset$quantile <- factor(dset$quantile)
 dset$occupation <- as.numeric(gsub('X', '', dset$occupation))
 dset$occupation <- factor(dset$occupation)
 
+# load 1982 population weights
+pop82 <- read.csv("data/Population/1982_combinedi.csv")
+dset2 <- merge(x=dset, y=pop82, by.x="occupation", by.y="COMBINEDI")
+
 library(nlme)
-mdl <- lme(diff ~ 0 + occupation + quantile, random = ~ 0 + start|occupation, data=dset)
+mdl <- lme(diff ~ 0 + occupation + quantile, random = ~ 0 + start|occupation, 
+           data=dset2, weights=dset$population)
 
 A      <- fixef(mdl)[grep('occupation', names(fixef(mdl)))]
 Lambda <- fixef(mdl)[grep('quantile', names(fixef(mdl)))]
@@ -40,10 +46,15 @@ B <- cbind(B, occupation=1:nrow(B))
 names(B) <- c("B", "occupation")
 B.tasks <- merge(x=B, y=tasks.combinedi, by.x='occupation', by.y='COMBINED1')
 
-A.lm <- lm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+A.lm.unweighted <- glm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
            data=A.tasks)
-summary(A.lm)
+A.lm <- glm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+           data=A.tasks, weights=pop82$population)
 
-B.lm <- lm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+B.lm.unweighted <- glm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
            data=B.tasks)
-summary(B.lm)
+B.lm <- glm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+           data=B.tasks, weights=pop82$population, family=gaussian)
+
+library(stargazer)
+stargazer(A.lm, A.lm.unweighted, B.lm, B.lm.unweighted, type="text", title="First-stage regression results")
