@@ -1,0 +1,35 @@
+. * Perform a RIF regression on the 2010 CURF with the 1st combined grouping
+. *
+. * NB: All loops are unrolled, quantiles/densities are hard-coded and matrixes
+>  are
+. *     not used because of RADL restrictions. Results are computer-processed f
+> rom 
+. *     output log files using the script analysis/parse_rif_2010.py
+. *
+. * This is a generated file -- do not edit. Edit analysis/make_rif_2010.py ins
+> tead.
+. *
+. * USE EXPANDED CURF
+. use "`SIH10EP'"
+. 
+. keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
+>     FTPTSTAT SECEDQL OCC6DIG AGEEC PSRC4PP PSRCSCP IWSSUCP8 IWSUCP SIHPSWT //
+> /
+>     SEXP LVLEDUA MSTATP ///
+>     WPS0101-WPS0160
+. 
+. * stone age STATA means we need a workaround for merge
+. sort OCC6DIG
+. joinby OCC6DIG using "`SAVED'AnzscoCombined1Map", unmatched(both)
+. 
+. sort COMBINEDI
+. 
+. svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
+. 
+. * keep only full-time Wage & Salary records
+. drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
+. 
+. * remove "Not Applicable" or "Inadequately Described" records
+. drop if (OCC6DIG == 0) | (OCC6DIG == 99)
+. 
+. svrmean IWSSUCP8, by(OCC6DIG)

@@ -81,8 +81,12 @@ replace potexpy = potexpy - 3 if educ == 4
 replace potexpy = potexpy - 2 if educ == 3
 replace potexpy = max(potexpy, 0)
 * now cut into 5 year bands
-egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,40,45) label
+egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,40) label
 tabulate potexp, generate(expdum)
+
+summary expdum1-expdum3 expdum5-expdum9 female married ///
+      educ1 educ2 educ4 educ5 ///
+      inform routine face site decision [aweight = WTPSN]
 """
 
 import csv

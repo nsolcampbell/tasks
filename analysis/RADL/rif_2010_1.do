@@ -62,14 +62,7 @@ replace educ = 4 if (LVLEDUA == 3 | LVLEDUA == 2)
 replace educ = 5 if (LVLEDUA == 1)
 
 * now create education dummies
-tabulate educ, generate(educ)
-
-
-* generate potential experience flags
-* (for this one we deem experience to start at 15)
-egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,60) label
-tabulate potexp, generate(expdum)
-
+tabulate AgeGrp, generate(expdum)
 
 * manual RIF regression 1
 generate rif_01 = 6.253829 + (6.253829 - (lwage < 6.253829))/0.156011

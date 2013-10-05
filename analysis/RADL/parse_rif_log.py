@@ -6,7 +6,7 @@
 #    ./parse_rif_log.py <OUTPUT_NUMBER> <OUTFILE.csv>
 #
 # where <OUTPUT_NUMBER> is the RADL job serial number, e.g. 65
-# and <OUTFILE.csv> is the CSV file to write to
+# and <OUTFILE.csv> is the CSV file to write out, e.g. rif_2010_1.csv
 
 # Parse RIF regression results for all 19 quantiles
 
