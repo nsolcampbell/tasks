@@ -1,5 +1,18 @@
 #!/usr/bin/env python
 
+# usage: ./make_rif_2010.py 1|2
+# where 1 or 2 is the mapping scheme for 2009-10
+
+import sys
+mapping = int(sys.argv[1])
+
+if mapping == 1:
+    mapfile = "AnzscoCombined1Map"
+    grpvar  = "COMBINEDI"
+else:
+    mapfile = "Combined2Map"
+    grpvar  = "COMBINEDII"
+
 print """* Perform a RIF regression on the 2010 CURF with the 1st combined grouping
 *
 * NB: All loops are unrolled, quantiles/densities are hard-coded and matrixes are
@@ -18,9 +31,9 @@ keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
 
 * stone age STATA means we need a workaround for merge
 sort OCC6DIG
-joinby OCC6DIG using "`SAVED'Combined2Map", unmatched(both)
+joinby OCC6DIG using "`SAVED'%(mapfile)s", unmatched(both)
 
-sort COMBINEDII
+sort %(grpvar)s
 
 svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
@@ -31,23 +44,24 @@ drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
 drop if (OCC6DIG == 0) | (OCC6DIG == 99)
 
 svrmean IWSSUCP8, by(OCC6DIG)
-svrmean IWSSUCP8, by(COMBINEDII)
+svrmean IWSSUCP8, by(%(grpvar)s)
 
-table COMBINEDII
+table %(grpvar)s
 
 * see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D000F7C5D?opendocument
 svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
 generate lwage = log(IWSSUCP8)
 
-* find percentiles, as 19*0.5 increments
+* find percentiles, as 19*0.05 increments
 pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
 * then densities at those particular percentile
 
-* generate potential experience flags
-* (for this one we deem experience to start at 15)
-egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,60) label
-tabulate potexp, generate(expdum)
+generate female = 0
+replace  female = 1 if (SEXP == 2)
+
+generate married = 0
+replace  married = 1 if (MSTATP == 1)
 
 generate educ = .
 * 1 = some high school or undetermined
@@ -65,13 +79,30 @@ replace educ = 5 if (LVLEDUA == 1)
 * now create education dummies
 tabulate educ, generate(educ)
 
-generate female = 0
-replace  female = 1 if (SEXP == 2)
+""" % {'grpvar': grpvar, 'mapfile': mapfile}
 
-generate married = 0
-replace  married = 1 if (MSTATP == 1)
-
+if mapping == 1:
+    print """* generate potential experience flags
+* (for this one we deem experience to start at 15)
+egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,60) label
+tabulate potexp, generate(expdum)
 """
+else:
+    print """* generate potential experience, in years,
+* which we then cut according to five-yearly bands
+* we don't have year left school for everyone in 2000-1, 
+* so assume experience starts at 18
+gen potexpy = AGEEC - 18
+* reduce by years of postgraduate education
+replace potexpy = potexpy - 5 if educ == 5
+replace potexpy = potexpy - 3 if educ == 4
+replace potexpy = potexpy - 2 if educ == 3
+replace potexpy = max(potexpy, 0)
+* now cut into 5 year bands
+egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,40,45) label
+tabulate potexp, generate(expdum)
+"""
+
 import csv
 with open("../../data/density/2010.csv", 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='"')
