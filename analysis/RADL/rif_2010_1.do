@@ -16,9 +16,9 @@ keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
 
 * stone age STATA means we need a workaround for merge
 sort OCC6DIG
-joinby OCC6DIG using "`SAVED'Combined2Map", unmatched(both)
+joinby OCC6DIG using "`SAVED'AnzscoCombined1Map", unmatched(both)
 
-sort COMBINEDII
+sort COMBINEDI
 
 svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
@@ -29,23 +29,24 @@ drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
 drop if (OCC6DIG == 0) | (OCC6DIG == 99)
 
 svrmean IWSSUCP8, by(OCC6DIG)
-svrmean IWSSUCP8, by(COMBINEDII)
+svrmean IWSSUCP8, by(COMBINEDI)
 
-table COMBINEDII
+table COMBINEDI
 
 * see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D000F7C5D?opendocument
 svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
 generate lwage = log(IWSSUCP8)
 
-* find percentiles, as 19*0.5 increments
+* find percentiles, as 19*0.05 increments
 pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
 * then densities at those particular percentile
 
-* generate potential experience flags
-* (for this one we deem experience to start at 15)
-egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,60) label
-tabulate potexp, generate(expdum)
+generate female = 0
+replace  female = 1 if (SEXP == 2)
+
+generate married = 0
+replace  married = 1 if (MSTATP == 1)
 
 generate educ = .
 * 1 = some high school or undetermined
@@ -63,12 +64,11 @@ replace educ = 5 if (LVLEDUA == 1)
 * now create education dummies
 tabulate educ, generate(educ)
 
-generate female = 0
-replace  female = 1 if (SEXP == 2)
 
-generate married = 0
-replace  married = 1 if (MSTATP == 1)
-
+* generate potential experience flags
+* (for this one we deem experience to start at 15)
+egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,60) label
+tabulate potexp, generate(expdum)
 
 
 * manual RIF regression 1

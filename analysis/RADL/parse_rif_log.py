@@ -3,9 +3,10 @@
 # Unzip the RADL output archive to create a results.../ subdirectory
 # in the current directory, then execute:
 #
-#    usage: ./parse_rif_2010.py <OUTPUT_NUMBER>
+#    ./parse_rif_log.py <OUTPUT_NUMBER> <OUTFILE.csv>
 #
 # where <OUTPUT_NUMBER> is the RADL job serial number, e.g. 65
+# and <OUTFILE.csv> is the CSV file to write to
 
 # Parse RIF regression results for all 19 quantiles
 
@@ -33,7 +34,7 @@ quant_hdr = re.compile("^. reg rif_(\d+)")
 reg_res_re = "^ +(" + "|".join(variables) + ") \\| +([0-9.-]+) "
 reg_res   = re.compile(reg_res_re)
 results   = [[0 for col in range(len(variables))] for row in range(nquant)]
-outfile   = "rif_2010.csv"
+outfile   = sys.argv[2]
 
 # first populate quantile list
 for q in range(19):
@@ -45,12 +46,10 @@ with open("results%04d/output%04d.txt" % (result_id, result_id), 'r') as f:
         result = quant_hdr.match(line)
         if result:
             quantile = int(result.group(1))
-            print "Quantile %(q)d" % {'q': quantile}
         result = reg_res.match(line)
         if result:
             variable = result.group(1)
             estimate = float(result.group(2))
-            print "\t%(v)s = %(est)f" % {'v': variable, 'est': estimate}
             results[quantile-1][variables.index(variable)] = estimate
 
 import csv
