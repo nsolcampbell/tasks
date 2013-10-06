@@ -47,7 +47,7 @@ Delta_O_i <- qs_2010_i - qs_1982_i
 DGamma_i  <- cbind(Gamma_2010_i - Gamma_1982_i, q = 1:19)
 DEX_i     <- EX_2010_i - EX_1982_i
 
-Delta_S_i <- (Gamma_2010_i - Gamma_1982_i) %*% t(Ex_1982_i)
+Delta_S_i <- (Gamma_2010_i - Gamma_1982_i) %*% t(Ex_2010_i)
 # and now disaggregated version
 Delta_S_i_d <- (Gamma_2010_i - Gamma_1982_i) * EX_2010_i
 Delta_X_i <- Gamma_2010_i %*% t(Ex_2010_i - Ex_1982_i)
@@ -57,7 +57,7 @@ Delta_O_ii <- qs_2010_ii - qs_2001_ii
 DGamma_ii  <- cbind(Gamma_2010_ii - Gamma_2010_i, q = 1:19)
 DEX_ii     <- EX_2010_ii - EX_2001_ii
 
-Delta_S_ii <- (Gamma_2010_ii - Gamma_2001_ii) %*% t(Ex_2010_ii)
+Delta_S_ii <- (Gamma_2010_ii - Gamma_2001_ii) %*% t(Ex_2001_ii)
 # and now disaggregated version
 Delta_S_ii_d <- (Gamma_2010_ii - Gamma_2001_ii) * EX_2001_ii
 Delta_X_ii <- Gamma_2010_ii %*% t(Ex_2010_ii - Ex_2001_ii)
@@ -82,7 +82,7 @@ make.dframe <- function(Delta_S_d) {
     return(dg.long)
 }
 
-pdf("figure/decomp.pdf", paper="a4r", height=8, width=12)
+pdf("figure/decomp2.pdf", paper="a4r", height=8, width=12)
 p <- ggplot(make.dframe(Delta_S_i_d), aes(y=value, x=q, group=covariate)) + 
         geom_line(color='red') + facet_wrap(~ covariate) +
         ggtitle("Decomposition of effect of covariates on log wage quantiles, 1982-2010") +
@@ -93,4 +93,16 @@ p <- ggplot(make.dframe(Delta_S_i_d), aes(y=value, x=q, group=covariate)) +
 print(p)
 print(p %+% make.dframe(Delta_S_ii_d) +
           ggtitle("Decomposition of effect of covariates on log wage quantiles, 2001-2010"))
+dev.off()
+
+pdf("figure/decomp.pdf", paper="a4r", height=8, width=12)
+cframe <- rbind(cbind(make.dframe(Delta_S_i_d), period='1981-2010'), 
+                cbind(make.dframe(Delta_S_ii_d), period='2001-2010'))
+p <- ggplot(cframe, aes(y=value, x=q, group=period, color=period)) + 
+    geom_line() + facet_wrap(~ covariate) +
+    ggtitle("Decomposition of effect of covariates on log wage quantiles, 1982-2010") +
+    geom_hline(y=0, alpha=0.5) +
+    ylab("Wage difference (log points)") +
+    xlab("Wage quantile")
+print(p)
 dev.off()
