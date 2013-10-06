@@ -47,12 +47,16 @@ begin_OD  = re.compile("BEGIN OVERALL DISTRIBUTION")
 end_OD    = re.compile("END OVERALL DISTRIBUTION")
 dist_res  = re.compile("^ +([0-9]+). \| +([0-9.-]+)")
 
+mean_occ  = re.compile("^ *COMBINEDI+==([0-9]+) *\| +([0-9.-]+)")
+
 # empty results matrix
 results   = [[0 for col in range(len(variables))] for row in range(nquant)]
 # expected value vector
 EX_matrix = [0 for i in range(len(variables))]
 # overall distribution quantile vector
 OD_vector = [0 for i in range(19)]
+# mean occupational wage vector (28/29 entries)
+wage_vect = [0 for i in range(29)]
 
 # filename slug
 outfile   = sys.argv[2]
@@ -93,7 +97,12 @@ with open("results%04d/output%04d.txt" % (result_id, result_id), 'r') as f:
                 estimate = float(result.group(2))
                 OD_vector[quantile-1] = estimate
         else:
-            # we're in "saving regressions" mode
+            # saving regressions/mean occupations mode
+            result = mean_occ.match(line)
+            if result:
+                quantile = int(result.group(1))
+                mean = float(result.group(2))
+                wage_vect[quantile - 1] = mean
             result = quant_hdr.match(line)
             if result:
                 quantile = int(result.group(1))
@@ -108,12 +117,18 @@ import csv
 riffile = "../../data/rif/%s.csv" % outfile
 exfile  = "../../data/EX/%s.csv" % outfile
 odfile  = "../../data/quantiles/overall_%s.csv" % outfile
+meanfile = "../../data/means/%s.csv" % outfile
 
 with open(exfile, "wb") as f:
     writer = csv.writer(f)
     writer.writerow(variables)
     writer.writerow(EX_matrix)
 print "Wrote E[X|T=t] to %s" % exfile
+
+with open(meanfile, "wb") as f:
+    writer = csv.writer(f)
+    writer.writerow(wage_vect)
+print "Wrote means to %s" % exfile
 
 with open(odfile, "wb") as f:
     writer = csv.writer(f)
@@ -127,4 +142,3 @@ with open(riffile, "wb") as f:
     writer.writerow(variables)
     writer.writerows(results)
 print "Wrote RIF results to %s" % riffile
-
