@@ -1,3 +1,4 @@
+rm(list=ls())
 library(foreign)
 library(doBy)
 source('lib/curfmunge.R')
@@ -6,6 +7,9 @@ curf <- data.frame(read.spss('data/curf/2001/IDS00.SAV'))
 
 # Note fields are described in "65410_1994-95 (Reissue).pdf", with
 # person record notes starting on p.41
+
+# first, save a copy for use with Stata
+write.dta(curf, file='data/curf/2001/IDS00.DTA')
 
 curf$ID <- with(curf, paste(RANDOMID, as.numeric(FAMNO), 
                             as.numeric(IUNO), as.numeric(PNO), 
@@ -22,6 +26,7 @@ subs <- curf[,c("ID",
               "OCCCP",   # Occupation, main job
               "INDCP",   # Industry, main job
               "HQUALCP", # Highest post-secondary education
+              "FTPTSTAT",# FT/PT status
               "STUDSTCP",# Study status
               "YRLSCHCP",# Year left school
               "MTHSCHCP",# Month left school
@@ -60,7 +65,7 @@ subs$EducB <- recodeVar(as.character(subs$HQUALCP),
 
 subs$Age4 <- recodeAge4(subs$AGECP)
 
-subs$CFullTime <- recodeFullTime(status)
+subs$CFullTime <- with(subs, recodeFullTime(FTPTSTAT))
 
 subs$Year <- 2001
 

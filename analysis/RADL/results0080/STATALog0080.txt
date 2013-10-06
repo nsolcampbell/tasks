@@ -1,0 +1,34 @@
+. * Perform a RIF regression on the 2000-1 CURF with the 2nd combined grouping
+. *
+. * NB: All loops are unrolled, quantiles/densities are hard-coded and matrixes a
+> re
+. *     not used because of RADL restrictions. Results are computer-processed fro
+> m 
+. *     output log files using the script analysis/parse_rif_2001.py
+. *
+. * This is a generated file -- do not edit. Edit analysis/make_rif_2001.py ins
+> tead.
+. *
+. * EXPANDED CURF
+. use "`IDS00PTP'"
+. 
+. keep ABSHID ABSFID ABSIID ABSIID ABSPID ///
+>     PSRCCP FTPTSTAT OCCCP IWSUCP WTPSN ///
+>     SEXP HQUALCP AGECP MSTATCP ///
+>     REPWT1-REPWT30
+. 
+. * stone age STATA means we need a workaround for merge
+. sort OCCCP
+. joinby OCCCP using "`SAVED'AscoCombined2Map", unmatched(both)
+. 
+. sort COMBINEDII
+. 
+. svrset set meth jk1 pw WTPSN rw REPWT1-REPWT30 dof 29
+. 
+. * keep only full-time Wage & Salary records
+. drop if (PSRCCP != 1) | (FTPTSTAT != 1)
+. 
+. * remove "Not Applicable" or "Inadequately Described" records
+. drop if (OCCCP == 0) | (OCCCP == 99)
+. 
+. svrmean IWSUCP, by (OCCCP)
