@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-# usage: ./make_rif_2010.py 1|2
-# where 1 or 2 is the mapping scheme for 2009-10
+# usage: ./make_rif_2001.py
 
 print """* Perform a RIF regression on the 2000-1 CURF with the 2nd combined grouping
 *
@@ -95,7 +94,7 @@ summarize expdum1-expdum3 expdum5-expdum8 female married ///
 """
 
 import csv
-with open("../../data/density/2010.csv", 'rb') as csvfile:
+with open("../../data/density/2001_ii.csv", 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='"')
     reader.next()
     i = 0

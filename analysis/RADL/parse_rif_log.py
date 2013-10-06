@@ -20,8 +20,8 @@ nquant    = 19
 # will simply be left blank in the resulting matrix
 variables = """
    quantile
-   expdum1 expdum2 expdum3 expdum4 expdum5 expdum6 expdum7 expdum8
-   educ1 educ2 educ3 educ4 educ5
+   expdum1 expdum2 expdum3 expdum5 expdum6 expdum7 expdum8
+   educ1 educ2 educ4 educ5
    female
    married
    inform

@@ -36,7 +36,7 @@ table COMBINEDII
 * Log income
 generate lwage = log(IWSUCP)
 
-**** OVERALL DISTRIBUTION
+**** BEGIN OVERALL DISTRIBUTION
 pctile OVERALL_DECILES = lwage [aweight = WTPSN] , nq(20)
 list OVERALL_DECILES in 1/19
 **** END OVERALL DISTRIBUTION
@@ -89,133 +89,133 @@ summarize expdum1-expdum3 expdum5-expdum8 female married ///
 
 
 * manual RIF regression 1
-generate rif_01 = 6.253829 + (6.253829 - (lwage < 6.253829))/0.156011
+generate rif_01 = 5.817111 + (5.817111 - (lwage < 5.817111))/0.149770
 reg rif_01 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 2
-generate rif_02 = 6.458777 + (6.458777 - (lwage < 6.458777))/0.430942
+generate rif_02 = 6.035482 + (6.035482 - (lwage < 6.035482))/0.360346
 reg rif_02 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 3
-generate rif_03 = 6.551080 + (6.551080 - (lwage < 6.551080))/0.583479
+generate rif_03 = 6.142037 + (6.142037 - (lwage < 6.142037))/0.595124
 reg rif_03 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 4
-generate rif_04 = 6.630683 + (6.630683 - (lwage < 6.630683))/0.705411
+generate rif_04 = 6.214608 + (6.214608 - (lwage < 6.214608))/0.776236
 reg rif_04 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 5
-generate rif_05 = 6.684612 + (6.684612 - (lwage < 6.684612))/0.759589
+generate rif_05 = 6.272877 + (6.272877 - (lwage < 6.272877))/0.891914
 reg rif_05 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 6
-generate rif_06 = 6.756932 + (6.756932 - (lwage < 6.756932))/0.788736
+generate rif_06 = 6.322565 + (6.322565 - (lwage < 6.322565))/0.939733
 reg rif_06 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 7
-generate rif_07 = 6.819470 + (6.819470 - (lwage < 6.819470))/0.793478
+generate rif_07 = 6.380123 + (6.380123 - (lwage < 6.380123))/0.928797
 reg rif_07 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 8
-generate rif_08 = 6.885653 + (6.885653 - (lwage < 6.885653))/0.793904
+generate rif_08 = 6.421622 + (6.421622 - (lwage < 6.421622))/0.942339
 reg rif_08 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 9
-generate rif_09 = 6.946187 + (6.946187 - (lwage < 6.946187))/0.787109
+generate rif_09 = 6.476973 + (6.476973 - (lwage < 6.476973))/0.917758
 reg rif_09 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 10
-generate rif_10 = 7.006161 + (7.006161 - (lwage < 7.006161))/0.781563
+generate rif_10 = 6.551080 + (6.551080 - (lwage < 6.551080))/0.914299
 reg rif_10 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 11
-generate rif_11 = 7.078341 + (7.078341 - (lwage < 7.078341))/0.752327
+generate rif_11 = 6.593045 + (6.593045 - (lwage < 6.593045))/0.915855
 reg rif_11 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 12
-generate rif_12 = 7.136905 + (7.136905 - (lwage < 7.136905))/0.718137
+generate rif_12 = 6.643790 + (6.643790 - (lwage < 6.643790))/0.860307
 reg rif_12 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 13
-generate rif_13 = 7.211911 + (7.211911 - (lwage < 7.211911))/0.685978
+generate rif_13 = 6.692084 + (6.692084 - (lwage < 6.692084))/0.803603
 reg rif_13 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 14
-generate rif_14 = 7.296644 + (7.296644 - (lwage < 7.296644))/0.656732
+generate rif_14 = 6.781058 + (6.781058 - (lwage < 6.781058))/0.707184
 reg rif_14 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 15
-generate rif_15 = 7.362652 + (7.362652 - (lwage < 7.362652))/0.619972
+generate rif_15 = 6.856462 + (6.856462 - (lwage < 6.856462))/0.665956
 reg rif_15 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 16
-generate rif_16 = 7.453545 + (7.453545 - (lwage < 7.453545))/0.515545
+generate rif_16 = 6.907755 + (6.907755 - (lwage < 6.907755))/0.635963
 reg rif_16 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 17
-generate rif_17 = 7.563143 + (7.563143 - (lwage < 7.563143))/0.400368
+generate rif_17 = 7.004882 + (7.004882 - (lwage < 7.004882))/0.513879
 reg rif_17 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 18
-generate rif_18 = 7.711822 + (7.711822 - (lwage < 7.711822))/0.288694
+generate rif_18 = 7.130899 + (7.130899 - (lwage < 7.130899))/0.336493
 reg rif_18 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 
 
 * manual RIF regression 19
-generate rif_19 = 7.962973 + (7.962973 - (lwage < 7.962973))/0.143471
+generate rif_19 = 7.333023 + (7.333023 - (lwage < 7.333023))/0.178277
 reg rif_19 expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
