@@ -41,9 +41,10 @@ table COMBINEDII
 * Log income
 generate lwage = log(IWSUCP)
 
-* *** Overall distribution
+**** BEGIN OVERALL DISTRIBUTION
 pctile OVERALL_DECILES = lwage [aweight = WTPSN] , nq(20)
 list OVERALL_DECILES in 1/19
+**** END OVERALL DISTRIBUTION
 
 sort COMBINEDII
 
@@ -81,12 +82,16 @@ replace potexpy = potexpy - 3 if educ == 4
 replace potexpy = potexpy - 2 if educ == 3
 replace potexpy = max(potexpy, 0)
 * now cut into 5 year bands
-egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,40) label
+egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,99) label
 tabulate potexp, generate(expdum)
 
-summary expdum1-expdum3 expdum5-expdum9 female married ///
+* So we have now generated our covariate matrix X.
+* We need E[X|T=t], which is a column vector, to perform our decomposition
+*** BEGIN EXPECTED VALUE OF X
+summarize expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN]
+*** END EXPECTED VALUE OF X
 """
 
 import csv
@@ -101,7 +106,7 @@ with open("../../data/density/2010.csv", 'rb') as csvfile:
         print """
 * manual RIF regression %(i)d
 generate rif_%(i)02d = %(q)f + (%(q)f - (lwage < %(q)f))/%(fy)f
-reg rif_%(i)02d expdum1-expdum3 expdum5-expdum9 female married ///
+reg rif_%(i)02d expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = WTPSN], robust
 """ % {'i': i, 'q': float(q), 'fy': float(fy)}

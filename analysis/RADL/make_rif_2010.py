@@ -35,27 +35,27 @@ joinby OCC6DIG using "`SAVED'%(mapfile)s", unmatched(both)
 
 sort %(grpvar)s
 
-svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
-
 * keep only full-time Wage & Salary records
 drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
 
 * remove "Not Applicable" or "Inadequately Described" records
 drop if (OCC6DIG == 0) | (OCC6DIG == 99)
 
-svrmean IWSSUCP8, by(OCC6DIG)
+* see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D000F7C5D?opendocument
+svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
+
 svrmean IWSSUCP8, by(%(grpvar)s)
 
 table %(grpvar)s
 
-* see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D000F7C5D?opendocument
-svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
-
 generate lwage = log(IWSSUCP8)
 
+* [commented out below, is this what's upsetting the RADL??]
 * find percentiles, as 19*0.05 increments
+**** BEGIN OVERALL DISTRIBUTION
 pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
-* then densities at those particular percentile
+list pc_lwage in 1/19
+**** END OVERALL DISTRIBUTION
 
 generate female = 0
 replace  female = 1 if (SEXP == 2)
@@ -84,7 +84,7 @@ tabulate educ, generate(educ)
 if mapping == 1:
     print """* generate potential experience flags
 * (for this one we deem experience to start at 15)
-egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,60) label
+egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,110) label
 tabulate potexp, generate(expdum)
 """
 else:
@@ -98,13 +98,17 @@ replace potexpy = potexpy - 5 if educ == 5
 replace potexpy = potexpy - 3 if educ == 4
 replace potexpy = potexpy - 2 if educ == 3
 replace potexpy = max(potexpy, 0)
-* now cut into 5 year bands
-egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,40) label
-tabulate potexp, generate(expdum)
 
-summary expdum1-expdum3 expdum5-expdum%(maxedum)d female married ///
-      educ1 educ2 educ4 educ5 ///
-      inform routine face site decision [aweight = SIHPSWT]
+* now cut into 5 year bands, make dummy variables
+egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,99) label
+tabulate potexp, generate(expdum)
+"""
+
+print """
+*** BEGIN EXPECTED VALUE OF X
+summarize expdum1-expdum8 female married ///
+      educ1-educ5 inform routine face site decision [aweight = SIHPSWT]
+*** END EXPECTED VALUE OF X
 """
 
 import csv
@@ -119,7 +123,7 @@ with open("../../data/density/2010.csv", 'rb') as csvfile:
         print """
 * manual RIF regression %(i)d
 generate rif_%(i)02d = %(q)f + (%(q)f - (lwage < %(q)f))/%(fy)f
-reg rif_%(i)02d expdum1-expdum3 expdum5-expdum9 female married ///
+reg rif_%(i)02d expdum1-expdum3 expdum5-expdum8 female married ///
       educ1 educ2 educ4 educ5 ///
       inform routine face site decision [aweight = SIHPSWT], robust
 """ % {'i': i, 'q': float(q), 'fy': float(fy)}

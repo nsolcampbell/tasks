@@ -24,12 +24,14 @@
 . 
 . sort COMBINEDII
 . 
-. svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
-. 
 . * keep only full-time Wage & Salary records
 . drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
 . 
 . * remove "Not Applicable" or "Inadequately Described" records
 . drop if (OCC6DIG == 0) | (OCC6DIG == 99)
 . 
-. svrmean IWSSUCP8, by(OCC6DIG)
+. * see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D
+> 000F7C5D?opendocument
+. svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
+. 
+. svrmean IWSSUCP8, by(COMBINEDII)
