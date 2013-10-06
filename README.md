@@ -5,15 +5,6 @@ An analysis of workforce and skill polarization in Australia.
 
 This is a work in progress. Please do not cite.
 
-Documents
----------
-
-If you're just after the output documents, they're available as PDFs:
-
- * [In-progress working paper](https://github.com/adrcooper/tasks/blob/master/doc/paper.pdf?raw=true)
- * [In-progress annotated bibliography](https://github.com/adrcooper/tasks/blob/master/doc/annotated_bibliography.pdf?raw=true)
- * [Announcement slides](https://github.com/adrcooper/tasks/blob/master/doc/presentation.pdf?raw=true)
-
 Obtaining and Building
 ----------------------
 
@@ -26,16 +17,3 @@ Simply execute:
     make all
 
 If all goes well, the final paper.pdf file can be found in the doc/ directory.
-
-Data sources
-------------
-Data files are in *data/* subdirectory.
-
-* 5204.0 Australian national accounts
-  * net capital stock in machinery and equipment
-  * gross capital formation of machinery and equipment by industry
-  * net capital stock, ICT
-  * gross capital formation, ICT
-  * consumption of fixed capital, ICT
-* O*NET task database 
-  * Ability, skill and knowledge tables, by level and importance (CSV)
