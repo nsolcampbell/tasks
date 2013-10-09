@@ -44,7 +44,6 @@ tabulate educ, generate(educ)
 tabulate AgeGrp, generate(expdum)
 
 generate T = 0
-	  
 save temp_data, replace
 
 * compute E[X] - weighted mean of all explanatory variables
