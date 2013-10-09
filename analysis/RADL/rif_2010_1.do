@@ -31,6 +31,8 @@ svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
 svrmean IWSSUCP8, by(COMBINEDI)
 
+generate T = 1
+
 table COMBINEDI
 
 generate lwage = log(IWSSUCP8)

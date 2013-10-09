@@ -33,9 +33,10 @@ svrmean IWSSUCP8, by(COMBINEDII)
 
 table COMBINEDII
 
+generate T = 1
+
 generate lwage = log(IWSSUCP8)
 
-* [commented out below, is this what's upsetting the RADL??]
 * find percentiles, as 19*0.05 increments
 **** BEGIN OVERALL DISTRIBUTION
 pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
