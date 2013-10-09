@@ -50,13 +50,13 @@ to_two_digit <- function(four_digit, col) {
 
 # normalize columns to unit standard deviation and zero mean
 scale_tasks <- function(task_measures) {
-    cols <- c("Information.Content", "Automation.Routinization",
-                "Face.to.Face", "On.Site.Job", "Decision.Making")
-    for (col in cols) {
-        xbar <- mean(task_measures[,col])
-        s    <- sd(task_measures[,col])
-        task_measures[,col] <- (task_measures[,col] - xbar) / s + 1
-    }
+#     cols <- c("Information.Content", "Automation.Routinization",
+#                 "Face.to.Face", "On.Site.Job", "Decision.Making")
+#     for (col in cols) {
+#         xbar <- mean(task_measures[,col])
+#         s    <- sd(task_measures[,col])
+#         task_measures[,col] <- (task_measures[,col] - xbar) / s + 1
+#     }
     return(task_measures)
 }
 
