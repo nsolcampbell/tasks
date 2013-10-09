@@ -106,3 +106,20 @@ p <- ggplot(cframe, aes(y=value, x=q, group=period, color=period)) +
     xlab("Wage quantile")
 print(p)
 dev.off()
+
+pdf("figure/rif.pdf", paper="a4r", height=8, width=12)
+dframe <- make.dframe(Gamma_2010_i)
+dframe <- dframe[dframe$covariate != '<5 yrs exp',]
+p <- ggplot(dframe, aes(y=value, x=q, group=covariate)) + 
+    geom_line(color='red') + facet_wrap(~ covariate) +
+    ggtitle("RIF Regression Results 2010") +
+    geom_hline(y=0, alpha=0.5) +
+    ylab("Wage difference (log points)") +
+    xlab("Wage quantile") +
+    theme(legend.position='none')
+print(p)
+dframe <- make.dframe(Gamma_1982_i)
+# dframe <- dframe[dframe$covariate != '<5 yrs exp',]
+print(p %+% dframe +
+          ggtitle("RIF Regression Results 1982"))
+dev.off()
