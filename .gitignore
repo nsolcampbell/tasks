@@ -1,5 +1,6 @@
 *~
 **/*~
+**/.*
 **/*.aux
 **/*.bbl
 **/*.log
@@ -26,3 +27,5 @@ data/ids_97.rda
 data/onet
 .RData
 doc/_region_.tex
+data/EUKLEMS/
+data/autor/
