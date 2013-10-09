@@ -1,475 +1,475 @@
-ANZSCO,Title,Employees,Incorporated,Unincorporated,ContribFamily,Not Stated
-1100,Managers nfd,18455,8807,1309,649,188
-1110,"Chief Executives, General Managers and Legislators nfd",187,50,4,3,0
-1111,Chief Executives and Managing Directors,16828,22204,1146,725,103
-1112,General Managers,32663,4478,713,217,136
-1113,Legislators,1397,10,31,0,22
-1210,Farmers and Farm Managers nfd,778,418,913,574,24
-1211,Aquaculture Farmers,673,191,237,108,10
-1212,Crop Farmers,7389,5490,11317,5599,187
-1213,Livestock Farmers,9583,6015,25037,13036,353
-1214,Mixed Crop and Livestock Farmers,2937,4442,12925,6968,150
-1310,Specialist Managers nfd,12045,2847,660,248,55
-1311,"Advertising, Public Relations and Sales Managers",75521,8196,1571,509,247
-1320,Business Administration Managers nfd,2217,293,49,15,3
-1321,Corporate Services Managers,5439,495,61,27,19
-1322,Finance Managers,32580,2508,313,148,80
-1323,Human Resource Managers,28434,1543,268,56,87
-1324,Policy and Planning Managers,14538,109,43,12,20
-1325,Research and Development Managers,7336,326,53,29,18
-1330,"Construction, Distribution and Production Managers nfd",1211,361,69,24,9
-1331,Construction Managers,27896,19599,11969,1031,339
-1332,Engineering Managers,14840,1589,174,32,39
-1333,"Importers, Exporters and Wholesalers",5253,9388,2215,711,75
-1334,Manufacturers,7562,6479,2975,608,77
-1335,Production Managers,38477,4002,690,209,180
-1336,Supply and Distribution Managers,23093,1726,390,102,77
-1340,"Education, Health and Welfare Services Managers nfd",425,29,12,0,4
-1341,Child Care Centre Managers,5288,771,197,74,18
-1342,Health and Welfare Services Managers,13486,445,82,41,43
-1343,School Principals,17272,36,26,0,39
-1344,Other Education Managers,7987,311,85,14,20
-1351,ICT Managers,34991,2679,435,91,72
-1390,Miscellaneous Specialist Managers nfd,99,7,3,0,0
-1391,Commissioned Officers (Management),7235,8,8,0,20
-1392,Senior Non-commissioned Defence Force Members,2522,0,0,0,6
-1399,Other Specialist Managers,34222,1367,472,91,100
-1400,"Hospitality, Retail and Service Managers nfd",971,399,231,85,7
-1410,Accommodation and Hospitality Managers nfd,284,161,81,38,4
-1411,Cafe and Restaurant Managers,15068,9158,7945,2177,186
-1412,Caravan Park and Camping Ground Managers,1230,825,577,174,13
-1413,Hotel and Motel Managers,8590,4116,2080,895,68
-1414,Licensed Club Managers,4465,94,29,11,23
-1419,Other Accommodation and Hospitality Managers,2296,614,882,339,12
-1420,Retail Managers,94762,31288,24861,5869,787
-1490,"Miscellaneous Hospitality, Retail and Service Managers nfd",242,41,12,6,0
-1491,"Amusement, Fitness and Sports Centre Managers",4022,996,444,139,15
-1492,Call or Contact Centre and Customer Service Managers,25387,1239,385,86,88
-1493,Conference and Event Organisers,10237,823,574,76,31
-1494,Transport Services Managers,4942,4023,2336,301,69
-1499,"Other Hospitality, Retail and Service Managers",37279,4661,2478,468,168
-2000,Professionals nfd,19574,1086,971,82,90
-2100,Arts and Media Professionals nfd,112,57,113,18,0
-2110,Arts Professionals nfd,244,93,585,36,6
-2111,"Actors, Dancers and Other Entertainers",1068,230,429,28,15
-2112,Music Professionals,1116,303,1122,35,8
-2113,Photographers,1699,883,2266,123,8
-2114,Visual Arts and Crafts Professionals,567,236,1779,141,13
-2120,Media Professionals nfd,922,132,209,13,6
-2121,"Artistic Directors, and Media Producers and Presenters",5493,993,654,63,16
-2122,"Authors, and Book and Script Editors",1093,277,829,64,11
-2123,"Film, Television, Radio and Stage Directors",4085,892,876,48,19
-2124,Journalists and Other Writers,11903,525,976,51,48
-2200,"Business, Human Resource and Marketing Professionals nfd",1748,217,100,9,9
-2210,"Accountants, Auditors and Company Secretaries nfd",320,17,13,0,0
-2211,Accountants,90496,9946,7675,286,369
-2212,"Auditors, Company Secretaries and Corporate Treasurers",12949,293,204,11,35
-2220,"Financial Brokers and Dealers, and Investment Advisers nfd",633,105,48,4,7
-2221,Financial Brokers,9236,5001,1458,133,71
-2222,Financial Dealers,10799,920,748,107,53
-2223,Financial Investment Advisers and Managers,17456,6021,1614,145,76
-2230,Human Resource and Training Professionals nfd,449,25,17,0,0
-2231,Human Resource Professionals,39325,1826,723,73,139
-2232,ICT Trainers,1406,136,119,4,4
-2233,Training and Development Professionals,15272,906,608,26,57
-2240,Information and Organisation Professionals nfd,731,28,8,3,4
-2241,"Actuaries, Mathematicians and Statisticians",3363,77,41,0,8
-2242,"Archivists, Curators and Records Managers",3703,53,71,17,11
-2243,Economists,2484,126,52,4,7
-2244,Intelligence and Policy Analysts,11771,76,71,4,30
-2245,Land Economists and Valuers,6203,1891,387,125,23
-2246,Librarians,5884,11,10,0,20
-2247,Management and Organisation Analysts,29099,5284,2026,144,88
-2249,Other Information and Organisation Professionals,11675,522,373,32,34
-2250,"Sales, Marketing and Public Relations Professionals nfd",592,67,35,0,0
-2251,Advertising and Marketing Professionals,30569,2556,1470,172,114
-2252,ICT Sales Professionals,10252,472,170,25,34
-2253,Public Relations Professionals,9968,620,490,29,34
-2254,Technical Sales Representatives,20480,1106,469,75,62
-2300,"Design, Engineering, Science and Transport Professionals nfd",561,79,36,5,3
-2310,Air and Marine Transport Professionals nfd,26,0,4,0,0
-2311,Air Transport Professionals,8094,274,137,29,15
-2312,Marine Transport Professionals,4593,444,351,84,29
-2320,"Architects, Designers, Planners and Surveyors nfd",2030,555,388,63,17
-2321,Architects and Landscape Architects,9102,3163,1604,64,40
-2322,Surveyors and Spatial Scientists,8476,1059,404,6,25
-2323,"Fashion, Industrial and Jewellery Designers",3326,698,930,116,16
-2324,"Graphic and Web Designers, and Illustrators",17599,2452,4274,178,82
-2325,Interior Designers,3119,821,696,49,17
-2326,Urban and Regional Planners,6953,509,153,0,17
-2330,Engineering Professionals nfd,15965,1913,553,72,73
-2331,Chemical and Materials Engineers,1944,121,20,6,6
-2332,Civil Engineering Professionals,25046,2307,523,36,79
-2333,Electrical Engineers,10451,709,154,15,34
-2334,Electronics Engineers,2413,295,115,12,11
-2335,"Industrial, Mechanical and Production Engineers",15291,1068,434,34,49
-2336,Mining Engineers,7111,614,124,10,18
-2339,Other Engineering Professionals,4687,332,126,16,10
-2340,Natural and Physical Science Professionals nfd,5290,84,42,3,13
-2341,Agricultural and Forestry Scientists,3827,478,269,30,13
-2342,"Chemists, and Food and Wine Scientists",5220,345,174,69,14
-2343,Environmental Scientists,12263,560,305,20,31
-2344,Geologists and Geophysicists,6536,565,170,17,19
-2345,Life Scientists,3792,99,104,12,6
-2346,Medical Laboratory Scientists,10839,41,18,0,21
-2347,Veterinarians,2970,1165,794,22,9
-2349,Other Natural and Physical Science Professionals,4337,208,191,3,13
-2400,Education Professionals nfd,1943,126,154,10,18
-2410,School Teachers nfd,10317,114,328,25,80
-2411,Early Childhood (Pre-primary School) Teachers,9107,112,175,17,56
-2412,Primary School Teachers,80924,37,146,19,277
-2413,Middle School Teachers (Aus) / Intermediate School Teachers (NZ),1232,0,0,0,5
-2414,Secondary School Teachers,87537,27,88,16,307
-2415,Special Education Teachers,8699,14,43,10,39
-2420,Tertiary Education Teachers nfd,594,14,21,0,4
-2421,University Lecturers and Tutors,25950,49,73,3,77
-2422,Vocational Education Teachers (Aus) / Polytechnic Teachers (NZ),17160,578,621,37,82
-2490,Miscellaneous Education Professionals nfd,269,16,9,0,0
-2491,Education Advisers and Reviewers,5554,172,180,7,20
-2492,Private Tutors and Teachers,3062,481,2104,88,34
-2493,Teachers of English to Speakers of Other Languages,1982,8,22,3,6
-2500,Health Professionals nfd,1125,84,91,3,3
-2510,Health Diagnostic and Promotion Professionals nfd,84,3,0,0,0
-2511,Dietitians,1669,99,141,0,5
-2512,Medical Imaging Professionals,8202,145,72,4,32
-2513,Occupational and Environmental Health Professionals,14263,483,253,12,68
-2514,Optometrists and Orthoptists,1323,876,482,6,6
-2515,Pharmacists,9734,1055,1938,27,40
-2519,Other Health Diagnostic and Promotion Professionals,2994,95,79,9,11
-2520,Health Therapy Professionals nfd,48,10,30,0,0
-2521,Chiropractors and Osteopaths,290,1052,914,6,6
-2522,Complementary Health Therapists,471,399,1244,77,8
-2523,Dental Practitioners,2630,2379,2033,21,21
-2524,Occupational Therapists,4722,177,259,3,10
-2525,Physiotherapists,6658,1375,1254,11,22
-2526,Podiatrists,804,399,522,3,5
-2527,Speech Professionals and Audiologists,3051,182,369,4,9
-2530,Medical Practitioners nfd,793,174,130,0,5
-2531,Generalist Medical Practitioners,19683,6990,5101,22,99
-2532,Anaesthetists,1726,428,712,0,19
-2533,Specialist Physicians,2914,647,570,0,7
-2534,Psychiatrists,1105,301,303,0,9
-2535,Surgeons,1852,1055,1172,0,9
-2539,Other Medical Practitioners,4724,963,662,3,15
-2540,Midwifery and Nursing Professionals nfd,191,0,0,0,0
-2541,Midwives,4767,15,22,0,23
-2542,Nurse Educators and Researchers,2993,12,25,0,15
-2543,Nurse Managers,8708,34,9,0,34
-2544,Registered Nurses,94900,207,175,24,610
-2600,ICT Professionals nfd,18554,2351,747,51,68
-2610,"Business and Systems Analysts, and Programmers nfd",569,46,27,0,3
-2611,ICT Business and Systems Analysts,16371,1083,289,23,37
-2612,Multimedia Specialists and Web Developers,4692,529,790,60,18
-2613,Software and Applications Programmers,47508,3830,1469,158,131
-2620,"Database and Systems Administrators, and ICT Security Specialists",19354,534,236,14,42
-2630,ICT Network and Support Professionals nfd,544,14,10,0,3
-2631,Computer Network Professionals,14746,491,235,11,39
-2632,ICT Support and Test Engineers,5977,120,36,0,18
-2633,Telecommunications Engineering Professionals,7340,327,154,10,28
-2700,"Legal, Social and Welfare Professionals nfd",99,11,7,0,0
-2710,Legal Professionals nfd,261,26,38,0,0
-2711,Barristers,1743,108,3432,6,15
-2712,Judicial and Other Legal Professionals,5109,104,267,4,24
-2713,Solicitors,27522,3165,8061,74,135
-2720,Social and Welfare Professionals nfd,426,6,18,0,3
-2721,Counsellors,7817,232,461,23,35
-2722,Ministers of Religion,10803,119,226,38,85
-2723,Psychologists,6565,1029,2038,11,28
-2724,Social Professionals,2845,226,538,18,9
-2725,Social Workers,10050,50,100,0,49
-2726,"Welfare, Recreation and Community Arts Workers",11858,49,79,9,78
-3000,Technicians and Trades Workers nfd,13991,816,971,68,100
-3100,"Engineering, ICT and Science Technicians nfd",4107,27,16,0,27
-3110,"Agricultural, Medical and Science Technicians nfd",269,5,0,0,0
-3111,Agricultural Technicians,1377,24,34,5,0
-3112,Medical Technicians,11552,90,62,8,44
-3113,Primary Products Inspectors,2487,5,22,0,4
-3114,Science Technicians,9278,93,56,4,36
-3120,Building and Engineering Technicians nfd,5791,510,360,7,31
-3121,"Architectural, Building and Surveying Technicians",35546,3725,2749,103,178
-3122,Civil Engineering Draftspersons and Technicians,7915,516,261,5,32
-3123,Electrical Engineering Draftspersons and Technicians,6449,347,231,12,24
-3124,Electronic Engineering Draftspersons and Technicians,3617,145,102,10,12
-3125,Mechanical Engineering Draftspersons and Technicians,3551,371,236,10,16
-3126,Safety Inspectors,2397,206,92,8,11
-3129,Other Building and Engineering Technicians,16531,456,173,11,54
-3130,ICT and Telecommunications Technicians nfd,425,26,8,0,0
-3131,ICT Support Technicians,32064,1140,932,75,119
-3132,Telecommunications Technical Specialists,3592,99,74,6,9
-3200,Automotive and Engineering Trades Workers nfd,3414,262,305,7,28
-3210,Automotive Electricians and Mechanics nfd,204,22,39,0,0
-3211,Automotive Electricians,4063,741,994,36,35
-3212,Motor Mechanics,54681,6130,8691,536,457
-3220,Fabrication Engineering Trades Workers nfd,198,23,29,3,0
-3221,"Metal Casting, Forging and Finishing Trades Workers",1199,155,522,32,18
-3222,Sheetmetal Trades Workers,5130,293,261,18,39
-3223,Structural Steel and Welding Trades Workers,50538,2826,3348,185,448
-3230,Mechanical Engineering Trades Workers nfd,260,18,15,0,3
-3231,Aircraft Maintenance Engineers,12419,254,157,4,53
-3232,Metal Fitters and Machinists,71276,2662,2474,126,397
-3233,Precision Metal Trades Workers,3924,527,808,40,25
-3234,Toolmakers and Engineering Patternmakers,4036,403,251,28,33
-3240,"Panelbeaters, and Vehicle Body Builders, Trimmers and Painters nfd",415,334,316,14,7
-3241,Panelbeaters,7509,1224,1419,97,89
-3242,Vehicle Body Builders and Trimmers,3501,306,721,38,26
-3243,Vehicle Painters,6843,461,924,29,68
-3300,Construction Trades Workers nfd,1031,297,464,19,16
-3310,"Bricklayers, and Carpenters and Joiners nfd",1293,10,23,3,15
-3311,Bricklayers and Stonemasons,9114,2030,6693,77,203
-3312,Carpenters and Joiners,51046,7280,21498,293,567
-3320,Floor Finishers and Painting Trades Workers nfd,34,10,11,0,0
-3321,Floor Finishers,2155,915,2814,39,52
-3322,Painting Trades Workers,13823,3039,11507,171,249
-3330,"Glaziers, Plasterers and Tilers nfd",41,15,31,0,0
-3331,Glaziers,5167,736,818,62,54
-3332,Plasterers,9747,2468,6264,90,169
-3333,Roof Tilers,2391,874,893,18,46
-3334,Wall and Floor Tilers,3438,1300,5397,89,83
-3340,Plumbers,37005,8316,9814,195,415
-3400,Electrotechnology and Telecommunications Trades Workers nfd,2977,137,91,4,16
-3410,Electricians,76848,9535,8450,240,454
-3420,Electronics and Telecommunications Trades Workers nfd,446,36,35,0,7
-3421,Airconditioning and Refrigeration Mechanics,11481,1714,1487,51,75
-3422,Electrical Distribution Trades Workers,7661,73,38,0,31
-3423,Electronics Trades Workers,18113,1614,2286,108,87
-3424,Telecommunications Trades Workers,10292,1915,1152,48,67
-3500,Food Trades Workers nfd,47,3,10,0,0
-3511,Bakers and Pastrycooks,13283,1415,1999,380,143
-3512,Butchers and Smallgoods Makers,11468,1043,1443,152,141
-3513,Chefs,35089,2226,2980,605,322
-3514,Cooks,18322,1102,2100,691,262
-3600,Skilled Animal and Horticultural Workers nfd,13,0,5,0,0
-3610,"Animal Attendants and Trainers, and Shearers nfd",20,0,5,0,0
-3611,Animal Attendants and Trainers,3251,586,2494,397,46
-3612,Shearers,1590,93,267,43,20
-3613,Veterinary Nurses,3559,11,13,0,12
-3620,Horticultural Trades Workers nfd,281,19,48,7,0
-3621,Florists,1047,309,985,194,9
-3622,Gardeners,20371,2466,7491,183,230
-3623,Greenkeepers,7893,120,215,19,62
-3624,Nurserypersons,1322,306,579,115,21
-3900,Other Technicians and Trades Workers nfd,166,20,60,0,5
-3910,Hairdressers,17935,2008,7959,347,234
-3920,Printing Trades Workers nfd,226,17,10,3,0
-3921,Print Finishers and Screen Printers,2413,166,211,17,22
-3922,Graphic Pre-press Trades Workers,2372,61,76,4,3
-3923,Printers,9289,704,457,85,70
-3930,"Textile, Clothing and Footwear Trades Workers nfd",13,0,8,0,0
-3931,Canvas and Leather Goods Makers,920,198,665,31,16
-3932,Clothing Trades Workers,2038,245,991,80,26
-3933,Upholsterers,1240,167,693,27,24
-3940,Wood Trades Workers nfd,51,0,17,0,4
-3941,Cabinetmakers,13155,1838,3106,141,128
-3942,Wood Machinists and Other Wood Trades Workers,2504,303,717,71,27
-3990,Miscellaneous Technicians and Trades Workers nfd,87,10,6,0,0
-3991,Boat Builders and Shipwrights,2149,312,425,36,17
-3992,"Chemical, Gas, Petroleum and Power Generation Plant Operators",7246,30,21,0,25
-3993,"Gallery, Library and Museum Technicians",3167,6,22,0,11
-3994,Jewellers,1141,522,933,55,12
-3995,Performing Arts Technicians,4203,560,1070,40,22
-3996,Signwriters,2351,762,1194,57,22
-3999,Other Miscellaneous Technicians and Trades Workers,8182,818,836,71,54
-4000,Community and Personal Service Workers nfd,479,8,21,0,6
-4100,Health and Welfare Support Workers nfd,417,16,15,0,6
-4111,Ambulance Officers and Paramedics,9222,11,14,0,24
-4112,"Dental Hygienists, Technicians and Therapists",2594,674,592,15,16
-4113,Diversional Therapists,1536,0,11,0,12
-4114,Enrolled and Mothercraft Nurses,7288,3,15,0,50
-4115,Indigenous Health Workers,998,0,0,0,11
-4116,Massage Therapists,616,251,1522,52,10
-4117,Welfare Support Workers,30110,107,178,18,153
-4200,Carers and Aides nfd,1628,46,76,35,107
-4210,Child Carers,38066,766,7107,196,363
-4220,Education Aides,13004,11,22,6,78
-4230,Personal Carers and Assistants nfd,450,8,7,0,6
-4231,Aged and Disabled Carers,32627,122,300,79,425
-4232,Dental Assistants,8980,17,14,6,60
-4233,Nursing Support and Personal Care Workers,25365,47,51,9,268
-4234,Special Care Workers,1426,9,9,7,8
-4300,Hospitality Workers nfd,2533,139,106,49,37
-4311,Bar Attendants and Baristas,17898,773,840,315,144
-4312,Cafe Workers,4063,392,644,234,47
-4313,Gaming Workers,3697,4,8,0,15
-4314,Hotel Service Managers,4429,30,18,11,25
-4315,Waiters,14505,440,532,268,151
-4319,Other Hospitality Workers,1170,9,17,7,12
-4400,Protective Service Workers nfd,103,0,0,0,0
-4410,"Defence Force Members, Fire Fighters and Police nfd",41,0,0,0,0
-4411,Defence Force Members - Other Ranks,12436,24,40,0,55
-4412,Fire and Emergency Workers,10260,21,19,4,33
-4413,Police,40836,11,13,4,129
-4420,Prison and Security Officers nfd,33,0,0,0,0
-4421,Prison Officers,10229,0,5,0,47
-4422,Security Officers and Guards,26523,751,625,42,188
-4500,Sports and Personal Service Workers nfd,17,4,11,0,0
-4510,Personal Service and Travel Workers nfd,32,7,9,0,0
-4511,Beauty Therapists,4926,773,2700,203,74
-4512,Driving Instructors,830,197,743,15,5
-4513,Funeral Workers,1731,329,119,24,6
-4514,"Gallery, Museum and Tour Guides",1750,160,264,37,6
-4515,Personal Care Consultants,403,107,369,30,7
-4516,Tourism and Travel Advisers,12483,1163,570,58,64
-4517,Travel Attendants,3882,3,0,0,22
-4518,Other Personal Service Workers,2254,229,862,43,27
-4520,Sports and Fitness Workers nfd,83,5,0,0,0
-4521,Fitness Instructors,2762,791,2259,116,34
-4522,Outdoor Adventure Guides,924,37,90,20,0
-4523,"Sports Coaches, Instructors and Officials",3933,592,978,75,23
-4524,Sportspersons,2346,274,429,18,21
-5000,Clerical and Administrative Workers nfd,6353,174,77,35,36
-5100,Office Managers and Program Administrators nfd,346,19,4,0,0
-5110,"Contract, Program and Project Administrators",77470,2317,731,82,257
-5120,Office and Practice Managers nfd,70,8,0,0,0
-5121,Office Managers,57551,7925,1979,759,251
-5122,Practice Managers,7675,921,250,60,31
-5200,Personal Assistants and Secretaries nfd,87,4,0,0,0
-5211,Personal Assistants,35733,196,136,39,123
-5212,Secretaries,22324,4433,1032,616,159
-5300,General Clerical Workers nfd,437,6,0,0,8
-5311,General Clerks,120216,4607,2156,934,796
-5321,Keyboard Operators,24393,212,298,63,132
-5400,Inquiry Clerks and Receptionists nfd,222,0,3,0,3
-5410,Call or Contact Centre Information Clerks nfd,309,3,3,0,3
-5411,Call or Contact Centre Workers,16069,41,19,5,80
-5412,Inquiry Clerks,35467,161,104,31,172
-5500,Receptionists,60671,759,463,230,373
-5410,Numerical Clerks nfd,779,15,7,3,5
-5511,Accounting Clerks and Bookkeepers nfd,419,22,7,7,0
-5510,Accounting Clerks,66234,2378,724,337,299
-5512,Bookkeepers,17936,3965,3998,1000,85
-5513,Payroll Clerks,16492,491,90,35,86
-5520,Financial and Insurance Clerks nfd,495,7,4,0,3
-5521,Bank Workers,33911,135,56,14,185
-5522,Credit and Loans Officers (Aus) / Finance Clerks (NZ),16878,399,130,12,76
-5523,"Insurance, Money Market and Statistical Clerks",20483,222,129,11,90
-5600,Clerical and Office Support Workers nfd,151,5,0,0,0
-5611,Betting Clerks,467,100,165,4,8
-5612,Couriers and Postal Deliverers,16076,3790,4718,104,211
-5613,Filing and Registry Clerks,8592,73,42,16,54
-5614,Mail Sorters,6518,50,38,7,46
-5615,Survey Interviewers,460,14,13,0,3
-5616,Switchboard Operators,1776,14,21,7,23
-5619,Other Clerical and Office Support Workers,7209,34,40,16,34
-5900,Other Clerical and Administrative Workers nfd,98,0,3,0,0
-5910,Logistics Clerks nfd,2135,59,28,5,13
-5911,Purchasing and Supply Logistics Clerks,54062,954,414,93,231
-5912,Transport and Despatch Clerks,23120,756,244,41,143
-5990,Miscellaneous Clerical and Administrative Workers nfd,136,4,3,0,0
-5991,Conveyancers and Legal Executives,5295,399,489,18,22
-5992,Court and Legal Clerks,7273,47,73,13,27
-5993,Debt Collectors,5616,179,136,0,37
-5994,Human Resource Clerks,5594,50,24,3,24
-5995,Inspectors and Regulatory Officers,26173,221,159,6,111
-5996,"Insurance Investigators, Loss Adjusters and Risk Surveyors",3013,261,147,3,16
-5997,Library Assistants,2221,0,0,0,13
-5999,Other Miscellaneous Clerical and Administrative Workers,10292,86,102,6,36
-6000,Sales Workers nfd,1916,212,128,22,25
-6100,Sales Representatives and Agents nfd,160,64,23,4,0
-6110,Insurance Agents and Sales Representatives nfd,16,0,0,0,0
-6111,"Auctioneers, and Stock and Station Agents",1372,609,283,33,15
-6112,Insurance Agents,7059,463,237,4,23
-6113,Sales Representatives,71378,5218,3151,397,437
-6121,Real Estate Sales Agents,34909,11479,3075,841,235
-6210,Sales Assistants and Salespersons nfd,6382,716,636,123,121
-6211,Sales Assistants (General),106779,7589,8253,2158,924
-6212,ICT Sales Assistants,7999,469,297,56,37
-6213,Motor Vehicle and Vehicle Parts Salespersons,21026,1926,1130,157,152
-6214,Pharmacy Sales Assistants,8824,23,34,3,53
-6215,Retail Supervisors,17664,301,130,28,101
-6216,Service Station Attendants,2399,103,98,38,28
-6217,Street Vendors and Related Salespersons,1270,528,991,64,18
-6219,Other Sales Assistants and Salespersons,5496,848,927,149,66
-6310,Sales Support Workers nfd,68,0,0,0,0
-6311,Checkout Operators and Office Cashiers,15115,313,295,132,131
-6390,Miscellaneous Sales Support Workers nfd,25,5,0,0,0
-6391,Models and Sales Demonstrators,1778,69,106,0,14
-6392,Retail and Wool Buyers,3048,290,239,38,20
-6393,Telemarketers,3328,80,115,13,27
-6394,Ticket Salespersons,7575,82,63,15,47
-6395,Visual Merchandisers,1636,53,124,3,10
-6399,Other Sales Support Workers,710,102,87,4,9
-7000,Machinery Operators and Drivers nfd,8368,288,317,38,91
-7100,Machine and Stationary Plant Operators nfd,4330,66,50,14,65
-7110,Machine Operators nfd,14298,291,279,50,193
-7111,"Clay, Concrete, Glass and Stone Processing Machine Operators",2701,57,61,8,25
-7112,Industrial Spraypainters,4404,237,251,14,46
-7113,Paper and Wood Processing Machine Operators,5282,124,205,30,40
-7114,Photographic Developers and Printers,776,45,102,22,0
-7115,Plastics and Rubber Production Machine Operators,6956,196,194,14,71
-7116,Sewing Machinists,4730,324,841,86,78
-7117,Textile and Footwear Production Machine Operators,2361,46,73,10,28
-7119,Other Machine Operators,6256,129,173,29,59
-7120,Stationary Plant Operators nfd,270,0,0,0,0
-7121,"Crane, Hoist and Lift Operators",8315,318,148,17,49
-7122,"Drillers, Miners and Shot Firers",39482,593,306,67,238
-7123,Engineering Production Workers,18341,322,286,22,150
-7129,Other Stationary Plant Operators,15509,329,249,18,100
-7200,Mobile Plant Operators nfd,4701,133,142,12,40
-7211,"Agricultural, Forestry and Horticultural Plant Operators",5553,352,631,127,59
-7212,Earthmoving Plant Operators,23136,3887,4025,295,204
-7213,Forklift Drivers,36213,80,62,17,361
-7219,Other Mobile Plant Operators,6262,147,67,6,38
-7300,Road and Rail Drivers nfd,5808,449,567,48,107
-7310,"Automobile, Bus and Rail Drivers nfd",150,8,17,0,0
-7311,Automobile Drivers,6290,1636,10175,141,261
-7312,Bus and Coach Drivers,18285,325,645,66,145
-7313,Train and Tram Drivers,9474,10,16,0,65
-7321,Delivery Drivers,15344,1430,1850,103,113
-7331,Truck Drivers,98468,10495,8282,642,1046
-7411,Storepersons,73844,223,162,55,614
-8000,Labourers nfd,13128,235,551,87,220
-8100,Cleaners and Laundry Workers nfd,5745,795,1686,122,164
-8111,Car Detailers,6920,284,876,43,84
-8112,Commercial Cleaners,29706,1777,3754,232,409
-8113,Domestic Cleaners,927,200,1145,170,31
-8114,Housekeepers,5625,41,155,96,79
-8115,Laundry Workers,6442,347,674,95,72
-8116,Other Cleaners,2680,558,1475,65,32
-8200,Construction and Mining Labourers nfd,964,111,133,8,13
-8211,Building and Plumbing Labourers,27038,1267,2022,119,290
-8212,Concreters,12788,2735,3706,97,171
-8213,Fencers,2172,692,2655,99,44
-8214,Insulation and Home Improvement Installers,5175,2019,3140,97,71
-8215,Paving and Surfacing Labourers,6227,174,103,7,67
-8216,Railway Track Workers,3390,19,12,0,35
-8217,Structural Steel Construction Workers,13676,643,450,29,110
-8219,Other Construction and Mining Labourers,6196,64,67,11,33
-8300,Factory Process Workers nfd,7873,49,46,10,185
-8310,Food Process Workers nfd,474,0,3,0,6
-8311,Food and Drink Factory Workers,18977,282,217,81,172
-8312,"Meat Boners and Slicers, and Slaughterers",5568,24,48,0,61
-8313,"Meat, Poultry and Seafood Process Workers",11581,130,106,20,147
-8320,Packers and Product Assemblers nfd,182,0,0,0,0
-8321,Packers,25500,186,140,47,336
-8322,Product Assemblers,19605,83,167,24,178
-8390,Miscellaneous Factory Process Workers nfd,813,6,12,0,11
-8391,Metal Engineering Process Workers,8283,108,142,15,69
-8392,Plastics and Rubber Factory Workers,1770,10,14,0,15
-8393,Product Quality Controllers,7554,119,84,8,61
-8394,Timber and Wood Process Workers,4257,51,62,13,54
-8399,Other Factory Process Workers,6230,61,80,18,85
-8400,"Farm, Forestry and Garden Workers nfd",932,42,141,73,18
-8411,Aquaculture Workers,323,13,4,4,0
-8412,Crop Farm Workers,10494,145,383,255,103
-8413,Forestry and Logging Workers,1391,174,205,28,15
-8414,Garden and Nursery Labourers,9049,541,2423,120,114
-8415,Livestock Farm Workers,13054,181,823,563,139
-8416,Mixed Crop and Livestock Farm Workers,2156,23,104,140,10
-8419,"Other Farm, Forestry and Garden Workers",3943,857,1122,71,36
-8510,Food Preparation Assistants nfd,102,14,44,7,0
-8511,Fast Food Cooks,3301,683,1776,417,55
-8512,Food Trades Assistants,1480,14,31,11,13
-8513,Kitchenhands,17344,375,688,290,197
-8900,Other Labourers nfd,69,0,8,0,0
-8910,Freight Handlers and Shelf Fillers nfd,89,0,0,0,0
-8911,Freight and Furniture Handlers,7085,76,56,19,62
-8912,Shelf Fillers,8640,73,63,22,61
-8990,Miscellaneous Labourers nfd,125,8,8,0,0
-8991,Caretakers,3251,133,266,47,21
-8992,Deck and Fishing Hands,2546,250,841,108,28
-8993,Handypersons,8602,1002,4874,216,97
-8994,Motor Vehicle Parts and Accessories Fitters,7741,523,847,62,67
-8995,Printing Assistants and Table Workers,2680,22,12,3,27
-8996,Recycling and Rubbish Collectors,1083,126,175,11,11
-8997,Vending Machine Attendants,1934,235,124,20,8
-8999,Other Miscellaneous Labourers,22521,716,1228,100,202
+ANZSCO,Title,Employees,Incorporated,Unincorporated,ContribFamily,Not Stated,1-199,200-299,300-399,400-599,600-799,800-999,1000-1249,1250-1500,1500-1999,2000,Nil,Total
+1100,Managers nfd,18455,8807,1309,649,188,186,193,271,894,1693,2344,3454,3390,5724,10088,280,28517
+1110,"Chief Executives, General Managers and Legislators nfd",187,50,4,3,0,0,3,0,3,3,10,8,9,23,183,3,245
+1111,Chief Executives and Managing Directors,16828,22204,1146,725,103,218,212,251,827,1455,1831,2710,2976,5836,23886,297,40499
+1112,General Managers,32663,4478,713,217,136,84,99,110,390,928,1635,2911,3603,6832,21142,163,37897
+1113,Legislators,1397,10,31,0,22,3,5,17,58,61,81,98,94,177,854,3,1451
+1210,Farmers and Farm Managers nfd,778,418,913,574,24,124,172,208,391,381,296,275,170,138,156,107,2418
+1211,Aquaculture Farmers,673,191,237,108,10,27,47,55,161,247,172,159,92,112,87,22,1181
+1212,Crop Farmers,7389,5490,11317,5599,187,1144,1507,1963,4475,5053,3983,3542,2061,1752,1699,895,28074
+1213,Livestock Farmers,9583,6015,25037,13036,353,3156,3701,4361,8426,7965,6090,5414,2890,2599,3357,1878,49837
+1214,Mixed Crop and Livestock Farmers,2937,4442,12925,6968,150,1407,1756,2290,4647,4105,3088,2546,1458,1270,1544,1012,25123
+1310,Specialist Managers nfd,12045,2847,660,248,55,54,66,91,272,545,820,1431,1663,3447,7181,95,15665
+1311,"Advertising, Public Relations and Sales Managers",75521,8196,1571,509,247,194,196,269,1039,2851,5408,9874,11221,19744,34127,373,85296
+1320,Business Administration Managers nfd,2217,293,49,15,3,3,0,3,18,46,104,189,258,703,1221,4,2549
+1321,Corporate Services Managers,5439,495,61,27,19,9,9,15,58,246,541,923,865,1443,1870,18,5997
+1322,Finance Managers,32580,2508,313,148,80,38,42,52,186,470,1097,2534,3285,7496,20095,91,35386
+1323,Human Resource Managers,28434,1543,268,56,87,40,27,37,198,593,1305,2533,3273,7713,14360,84,30163
+1324,Policy and Planning Managers,14538,109,43,12,20,8,7,0,14,56,165,541,1101,5087,7680,14,14673
+1325,Research and Development Managers,7336,326,53,29,18,13,6,10,35,68,184,433,750,2081,4123,11,7714
+1330,"Construction, Distribution and Production Managers nfd",1211,361,69,24,9,6,9,7,31,72,108,186,208,326,685,10,1648
+1331,Construction Managers,27896,19599,11969,1031,339,207,404,828,2791,4915,6072,8076,7506,11309,17005,433,59546
+1332,Engineering Managers,14840,1589,174,32,39,20,15,19,70,146,337,825,1149,3036,10888,32,16537
+1333,"Importers, Exporters and Wholesalers",5253,9388,2215,711,75,201,265,357,1121,1869,2141,2527,1960,2516,4065,261,17283
+1334,Manufacturers,7562,6479,2975,608,77,224,294,501,1543,2798,2557,2536,1920,2253,2362,225,17213
+1335,Production Managers,38477,4002,690,209,180,76,63,132,629,2307,4307,6656,6373,9109,13186,162,43000
+1336,Supply and Distribution Managers,23093,1726,390,102,77,40,45,56,264,926,1891,3550,3871,5986,8418,88,25135
+1340,"Education, Health and Welfare Services Managers nfd",425,29,12,0,4,0,0,5,8,14,29,50,64,147,146,4,467
+1341,Child Care Centre Managers,5288,771,197,74,18,31,26,42,164,754,1514,1934,848,613,323,37,6286
+1342,Health and Welfare Services Managers,13486,445,82,41,43,21,9,17,120,422,948,1899,2161,4508,3852,34,13991
+1343,School Principals,17272,36,26,0,39,13,3,3,19,33,66,224,487,6824,9614,15,17301
+1344,Other Education Managers,7987,311,85,14,20,14,7,20,63,166,342,755,1068,2893,3038,15,8381
+1351,ICT Managers,34991,2679,435,91,72,53,33,42,142,387,859,1832,2909,8845,22811,97,38010
+1390,Miscellaneous Specialist Managers nfd,99,7,3,0,0,0,0,0,0,3,3,12,9,46,32,0,105
+1391,Commissioned Officers (Management),7235,8,8,0,20,6,0,13,254,433,431,514,702,2092,2794,11,7250
+1392,Senior Non-commissioned Defence Force Members,2522,0,0,0,6,6,3,3,7,25,43,169,628,1373,255,6,2518
+1399,Other Specialist Managers,34222,1367,472,91,100,47,54,103,363,1401,2667,4737,5198,8989,12334,90,35983
+1400,"Hospitality, Retail and Service Managers nfd",971,399,231,85,7,32,37,50,116,242,269,279,214,189,171,37,1636
+1410,Accommodation and Hospitality Managers nfd,284,161,81,38,4,6,12,21,44,94,93,81,63,64,56,16,550
+1411,Cafe and Restaurant Managers,15068,9158,7945,2177,186,764,1064,1486,4593,7113,6799,5068,2530,1874,1463,804,33558
+1412,Caravan Park and Camping Ground Managers,1230,825,577,174,13,55,115,132,482,634,451,357,180,152,119,55,2732
+1413,Hotel and Motel Managers,8590,4116,2080,895,68,314,439,573,1374,2286,3387,2633,1448,1265,1236,345,15300
+1414,Licensed Club Managers,4465,94,29,11,23,9,7,18,93,549,1121,1160,706,518,360,19,4560
+1419,Other Accommodation and Hospitality Managers,2296,614,882,339,12,132,122,176,433,538,594,641,463,491,356,68,4014
+1420,Retail Managers,94762,31288,24861,5869,787,2322,3053,4457,14811,34610,32199,24752,13385,12436,10055,2176,154256
+1490,"Miscellaneous Hospitality, Retail and Service Managers nfd",242,41,12,6,0,5,3,3,8,24,29,64,44,62,59,0,301
+1491,"Amusement, Fitness and Sports Centre Managers",4022,996,444,139,15,70,83,116,340,832,1088,1199,746,636,368,57,5535
+1492,Call or Contact Centre and Customer Service Managers,25387,1239,385,86,88,56,42,79,493,2022,3360,4863,4431,6175,5320,99,26940
+1493,Conference and Event Organisers,10237,823,574,76,31,57,65,128,461,1674,2646,2820,1739,1356,636,49,11631
+1494,Transport Services Managers,4942,4023,2336,301,69,80,109,187,687,1264,1535,2021,1624,1924,1849,104,11384
+1499,"Other Hospitality, Retail and Service Managers",37279,4661,2478,468,168,169,225,329,1190,2782,4401,6874,6879,9975,11451,217,44492
+2000,Professionals nfd,19574,1086,971,82,90,95,99,117,604,935,1744,3666,4587,5588,4064,80,21579
+2100,Arts and Media Professionals nfd,112,57,113,18,0,5,7,19,19,52,37,45,30,32,40,3,289
+2110,Arts Professionals nfd,244,93,585,36,6,65,81,86,178,151,122,80,56,59,47,12,937
+2111,"Actors, Dancers and Other Entertainers",1068,230,429,28,15,34,69,84,214,364,296,235,128,113,184,16,1737
+2112,Music Professionals,1116,303,1122,35,8,69,102,155,282,340,339,406,329,315,195,16,2548
+2113,Photographers,1699,883,2266,123,8,156,137,235,620,919,787,738,499,501,247,40,4879
+2114,Visual Arts and Crafts Professionals,567,236,1779,141,13,230,280,325,500,366,277,244,144,134,95,58,2653
+2120,Media Professionals nfd,922,132,209,13,6,6,13,26,55,154,141,211,192,257,215,4,1274
+2121,"Artistic Directors, and Media Producers and Presenters",5493,993,654,63,16,45,59,65,227,507,734,967,1034,1667,1809,30,7144
+2122,"Authors, and Book and Script Editors",1093,277,829,64,11,62,71,75,152,258,317,433,308,309,229,22,2236
+2123,"Film, Television, Radio and Stage Directors",4085,892,876,48,19,51,70,108,308,596,752,984,880,1209,874,24,5856
+2124,Journalists and Other Writers,11903,525,976,51,48,61,78,112,443,1285,1835,2312,2130,2760,2330,44,13390
+2200,"Business, Human Resource and Marketing Professionals nfd",1748,217,100,9,9,6,4,7,21,60,149,295,344,492,677,13,2068
+2210,"Accountants, Auditors and Company Secretaries nfd",320,17,13,0,0,0,0,0,4,13,42,55,48,84,104,0,350
+2211,Accountants,90496,9946,7675,286,369,251,281,502,2271,6906,11481,17031,16271,23653,28897,332,107876
+2212,"Auditors, Company Secretaries and Corporate Treasurers",12949,293,204,11,35,13,9,25,108,399,1129,1982,2280,3325,4111,23,13404
+2220,"Financial Brokers and Dealers, and Investment Advisers nfd",633,105,48,4,7,3,0,10,20,56,55,96,112,103,329,0,784
+2221,Financial Brokers,9236,5001,1458,133,71,87,99,163,566,1268,1911,2349,1915,2728,4515,101,15702
+2222,Financial Dealers,10799,920,748,107,53,73,69,68,207,381,794,1275,1296,2153,6038,85,12439
+2223,Financial Investment Advisers and Managers,17456,6021,1614,145,76,56,63,108,376,1083,1995,3123,2971,4498,10722,96,25091
+2230,Human Resource and Training Professionals nfd,449,25,17,0,0,0,5,0,5,46,118,123,78,76,40,0,491
+2231,Human Resource Professionals,39325,1826,723,73,139,81,64,106,559,2859,7342,9111,7585,8316,5562,148,41733
+2232,ICT Trainers,1406,136,119,4,4,8,5,12,42,90,177,286,341,413,271,8,1653
+2233,Training and Development Professionals,15272,906,608,26,57,29,33,53,230,868,1950,3548,3494,4054,2435,51,16745
+2240,Information and Organisation Professionals nfd,731,28,8,3,4,0,3,5,3,21,37,96,165,217,229,0,776
+2241,"Actuaries, Mathematicians and Statisticians",3363,77,41,0,8,4,3,3,12,52,148,461,580,994,1206,5,3468
+2242,"Archivists, Curators and Records Managers",3703,53,71,17,11,15,12,24,53,215,432,872,872,903,418,8,3824
+2243,Economists,2484,126,52,4,7,0,4,4,14,26,86,277,343,664,1233,7,2658
+2244,Intelligence and Policy Analysts,11771,76,71,4,30,0,5,6,21,90,452,1517,2672,4618,2520,12,11913
+2245,Land Economists and Valuers,6203,1891,387,125,23,22,13,33,131,365,563,980,1045,1800,3522,45,8519
+2246,Librarians,5884,11,10,0,20,6,8,25,99,278,694,1631,1563,1229,355,6,5894
+2247,Management and Organisation Analysts,29099,5284,2026,144,88,80,94,98,319,825,1860,3905,5332,9571,14151,119,36354
+2249,Other Information and Organisation Professionals,11675,522,373,32,34,42,37,59,219,641,1320,2403,2612,3111,2083,35,12562
+2250,"Sales, Marketing and Public Relations Professionals nfd",592,67,35,0,0,3,0,0,18,45,81,115,126,151,149,3,691
+2251,Advertising and Marketing Professionals,30569,2556,1470,172,114,125,128,183,773,2745,4543,6062,5332,6543,8001,144,34579
+2252,ICT Sales Professionals,10252,472,170,25,34,19,23,42,188,613,871,1113,1002,1854,5114,29,10868
+2253,Public Relations Professionals,9968,620,490,29,34,33,33,60,212,761,1260,2109,2108,2533,1934,29,11072
+2254,Technical Sales Representatives,20480,1106,469,75,62,50,38,73,361,1302,2329,3798,3987,5820,4122,87,21967
+2300,"Design, Engineering, Science and Transport Professionals nfd",561,79,36,5,3,0,9,0,11,26,34,87,96,183,232,0,678
+2310,Air and Marine Transport Professionals nfd,26,0,4,0,0,0,0,0,3,0,3,8,8,7,6,0,35
+2311,Air Transport Professionals,8094,274,137,29,15,11,19,37,185,556,563,728,816,1481,4069,23,8488
+2312,Marine Transport Professionals,4593,444,351,84,29,20,32,69,148,304,415,618,578,1028,2176,38,5426
+2320,"Architects, Designers, Planners and Surveyors nfd",2030,555,388,63,17,34,46,56,141,308,350,508,389,538,592,28,2990
+2321,Architects and Landscape Architects,9102,3163,1604,64,40,40,58,76,315,769,1645,2300,2323,3079,3168,53,13826
+2322,Surveyors and Spatial Scientists,8476,1059,404,6,25,19,14,16,128,375,811,1691,1888,2630,2300,24,9896
+2323,"Fashion, Industrial and Jewellery Designers",3326,698,930,116,16,101,124,142,374,606,732,876,685,728,555,75,4998
+2324,"Graphic and Web Designers, and Illustrators",17599,2452,4274,178,82,212,284,496,1433,3834,4626,5045,3729,3121,1439,115,24334
+2325,Interior Designers,3119,821,696,49,17,25,40,64,214,648,862,951,704,675,431,23,4637
+2326,Urban and Regional Planners,6953,509,153,0,17,6,11,3,39,128,423,1293,1682,2259,1740,17,7601
+2330,Engineering Professionals nfd,15965,1913,553,72,73,55,53,80,255,555,931,2047,2468,4483,7232,97,18256
+2331,Chemical and Materials Engineers,1944,121,20,6,6,4,6,3,15,56,80,191,257,497,964,8,2081
+2332,Civil Engineering Professionals,25046,2307,523,36,79,35,36,56,202,535,1089,3007,3940,7034,11820,69,27823
+2333,Electrical Engineers,10451,709,154,15,34,19,12,22,68,176,345,938,1422,3171,5084,28,11285
+2334,Electronics Engineers,2413,295,115,12,11,6,12,17,49,99,192,356,522,852,716,3,2824
+2335,"Industrial, Mechanical and Production Engineers",15291,1068,434,34,49,31,34,55,189,428,787,1976,2637,4820,5713,45,16715
+2336,Mining Engineers,7111,614,124,10,18,9,9,11,21,29,55,208,390,1167,5910,21,7830
+2339,Other Engineering Professionals,4687,332,126,16,10,7,5,11,55,120,255,649,942,1512,1569,9,5134
+2340,Natural and Physical Science Professionals nfd,5290,84,42,3,13,6,7,10,75,105,226,668,1120,1693,1452,11,5373
+2341,Agricultural and Forestry Scientists,3827,478,269,30,13,16,18,31,84,232,457,844,945,1258,670,12,4567
+2342,"Chemists, and Food and Wine Scientists",5220,345,174,69,14,30,28,56,123,295,721,1228,1107,1325,830,28,5771
+2343,Environmental Scientists,12263,560,305,20,31,40,47,70,250,698,1215,2491,2684,3313,2266,32,13106
+2344,Geologists and Geophysicists,6536,565,170,17,19,8,9,11,46,69,102,335,620,1794,4235,18,7247
+2345,Life Scientists,3792,99,104,12,6,12,8,7,62,161,360,812,942,1067,537,6,3974
+2346,Medical Laboratory Scientists,10839,41,18,0,21,3,10,23,108,302,739,2149,2920,3200,1403,10,10867
+2347,Veterinarians,2970,1165,794,22,9,9,15,34,85,277,568,719,775,1162,1248,14,4906
+2349,Other Natural and Physical Science Professionals,4337,208,191,3,13,13,5,18,80,133,323,660,807,1206,1467,6,4718
+2400,Education Professionals nfd,1943,126,154,10,18,21,19,20,88,181,252,387,419,555,236,12,2190
+2410,School Teachers nfd,10317,114,328,25,80,48,57,92,340,599,1020,2012,2097,3668,673,50,10656
+2411,Early Childhood (Pre-primary School) Teachers,9107,112,175,17,56,28,37,79,410,1606,1924,2159,1402,1604,105,24,9378
+2412,Primary School Teachers,80924,37,146,19,277,126,140,245,944,2413,6015,20617,19129,29624,1478,137,80868
+2413,Middle School Teachers (Aus) / Intermediate School Teachers (NZ),1232,0,0,0,5,0,0,0,8,18,69,306,307,475,51,3,1237
+2414,Secondary School Teachers,87537,27,88,16,307,104,101,163,510,1685,4373,17300,18180,40941,3999,147,87503
+2415,Special Education Teachers,8699,14,43,10,39,9,13,21,100,261,544,1729,1975,3843,238,9,8742
+2420,Tertiary Education Teachers nfd,594,14,21,0,4,3,3,7,10,29,57,95,154,194,71,0,623
+2421,University Lecturers and Tutors,25950,49,73,3,77,37,43,71,396,472,609,1384,2960,9682,10364,40,26058
+2422,Vocational Education Teachers (Aus) / Polytechnic Teachers (NZ),17160,578,621,37,82,54,53,79,298,875,1702,3459,4645,5805,1264,42,18276
+2490,Miscellaneous Education Professionals nfd,269,16,9,0,0,0,0,0,8,19,30,49,46,87,51,0,290
+2491,Education Advisers and Reviewers,5554,172,180,7,20,4,5,23,89,223,386,847,964,2189,1168,3,5901
+2492,Private Tutors and Teachers,3062,481,2104,88,34,125,157,244,679,875,878,914,689,865,202,41,5669
+2493,Teachers of English to Speakers of Other Languages,1982,8,22,3,6,3,3,7,31,124,299,444,459,592,41,3,2006
+2500,Health Professionals nfd,1125,84,91,3,3,4,5,10,48,85,129,177,212,332,297,0,1299
+2510,Health Diagnostic and Promotion Professionals nfd,84,3,0,0,0,0,0,0,0,8,10,15,12,24,23,0,92
+2511,Dietitians,1669,99,141,0,5,9,6,8,46,103,217,506,441,452,106,4,1898
+2512,Medical Imaging Professionals,8202,145,72,4,32,5,5,18,65,221,552,1244,1488,2931,1859,19,8407
+2513,Occupational and Environmental Health Professionals,14263,483,253,12,68,23,23,40,133,516,1149,2472,3126,4059,3338,39,14918
+2514,Optometrists and Orthoptists,1323,876,482,6,6,6,3,7,28,79,156,287,379,766,951,6,2668
+2515,Pharmacists,9734,1055,1938,27,40,18,26,53,330,992,800,1720,2246,3736,2732,39,12692
+2519,Other Health Diagnostic and Promotion Professionals,2994,95,79,9,11,8,9,13,64,188,417,731,730,757,243,4,3164
+2520,Health Therapy Professionals nfd,48,10,30,0,0,0,0,3,9,11,7,12,10,17,15,0,84
+2521,Chiropractors and Osteopaths,290,1052,914,6,6,13,14,24,84,166,192,316,344,486,582,5,2226
+2522,Complementary Health Therapists,471,399,1244,77,8,43,66,125,333,415,356,359,185,152,99,20,2153
+2523,Dental Practitioners,2630,2379,2033,21,21,4,6,17,50,83,121,214,360,1051,5091,16,7013
+2524,Occupational Therapists,4722,177,259,3,10,4,4,10,34,137,591,1555,1305,1254,246,9,5149
+2525,Physiotherapists,6658,1375,1254,11,22,10,16,23,61,230,857,2249,2112,2523,1142,22,9245
+2526,Podiatrists,804,399,522,3,5,0,3,7,25,68,127,375,318,483,302,5,1713
+2527,Speech Professionals and Audiologists,3051,182,369,4,9,3,6,10,40,106,359,1042,843,913,265,5,3592
+2530,Medical Practitioners nfd,793,174,130,0,5,0,0,0,3,9,12,34,39,230,766,5,1098
+2531,Generalist Medical Practitioners,19683,6990,5101,22,99,27,24,22,78,185,509,2450,3156,5523,19613,54,31641
+2532,Anaesthetists,1726,428,712,0,19,0,0,0,3,0,6,14,37,257,2547,9,2873
+2533,Specialist Physicians,2914,647,570,0,7,0,0,0,4,17,31,58,127,501,3370,8,4116
+2534,Psychiatrists,1105,301,303,0,9,0,0,0,0,3,3,28,43,208,1425,3,1713
+2535,Surgeons,1852,1055,1172,0,9,0,0,0,5,9,22,57,75,291,3599,4,4062
+2539,Other Medical Practitioners,4724,963,662,3,15,4,4,10,49,124,106,178,233,856,4753,12,6329
+2540,Midwifery and Nursing Professionals nfd,191,0,0,0,0,0,0,0,0,10,11,31,46,78,14,0,190
+2541,Midwives,4767,15,22,0,23,8,9,7,50,175,437,1096,1347,1398,249,9,4785
+2542,Nurse Educators and Researchers,2993,12,25,0,15,5,0,16,10,74,146,457,875,1265,167,3,3018
+2543,Nurse Managers,8708,34,9,0,34,4,0,9,22,109,282,810,1597,4724,1153,14,8724
+2544,Registered Nurses,94900,207,175,24,610,179,155,374,2514,7706,14388,23906,22588,19204,3475,286,94775
+2600,ICT Professionals nfd,18554,2351,747,51,68,60,74,79,277,679,1143,2179,2638,5012,9305,83,21529
+2610,"Business and Systems Analysts, and Programmers nfd",569,46,27,0,3,3,0,3,3,15,37,73,77,187,245,0,643
+2611,ICT Business and Systems Analysts,16371,1083,289,23,37,23,10,14,59,191,495,1295,2323,5193,8040,50,17693
+2612,Multimedia Specialists and Web Developers,4692,529,790,60,18,62,61,73,210,485,850,1220,1233,1275,532,33,6034
+2613,Software and Applications Programmers,47508,3830,1469,158,131,156,120,130,411,1182,2621,5799,8804,17028,16361,157,52769
+2620,"Database and Systems Administrators, and ICT Security Specialists",19354,534,236,14,42,22,25,31,131,653,1415,2997,3712,5966,5089,41,20082
+2630,ICT Network and Support Professionals nfd,544,14,10,0,3,0,3,0,13,13,55,71,97,154,165,0,571
+2631,Computer Network Professionals,14746,491,235,11,39,16,10,30,146,474,1120,2146,2729,4508,4206,33,15418
+2632,ICT Support and Test Engineers,5977,120,36,0,18,4,7,9,43,223,646,1159,1211,1635,1166,16,6119
+2633,Telecommunications Engineering Professionals,7340,327,154,10,28,23,10,15,91,158,388,877,1177,2390,2651,22,7802
+2700,"Legal, Social and Welfare Professionals nfd",99,11,7,0,0,0,0,0,0,5,10,19,20,29,31,0,114
+2710,Legal Professionals nfd,261,26,38,0,0,0,0,0,0,17,21,37,41,68,132,0,316
+2711,Barristers,1743,108,3432,6,15,15,5,12,43,55,140,273,445,815,3430,9,5242
+2712,Judicial and Other Legal Professionals,5109,104,267,4,24,4,3,5,38,115,273,604,657,842,2929,4,5474
+2713,Solicitors,27522,3165,8061,74,135,65,61,92,345,993,1871,3473,4409,7362,19734,101,38506
+2720,Social and Welfare Professionals nfd,426,6,18,0,3,3,0,0,18,31,84,126,95,77,15,4,453
+2721,Counsellors,7817,232,461,23,35,51,35,52,245,635,1398,2134,1648,1960,318,18,8494
+2722,Ministers of Religion,10803,119,226,38,85,212,446,971,1627,1754,1929,2118,1187,678,206,50,11178
+2723,Psychologists,6565,1029,2038,11,28,14,18,36,104,238,512,1391,1923,3354,1970,26,9586
+2724,Social Professionals,2845,226,538,18,9,27,48,55,196,337,501,682,617,694,433,12,3602
+2725,Social Workers,10050,50,100,0,49,15,10,25,139,574,1669,2774,2359,2287,299,17,10168
+2726,"Welfare, Recreation and Community Arts Workers",11858,49,79,9,78,16,30,62,380,1289,2560,3202,2136,1939,336,29,11979
+3000,Technicians and Trades Workers nfd,13991,816,971,68,100,93,191,341,880,1942,2535,3055,2316,2487,1610,93,15543
+3100,"Engineering, ICT and Science Technicians nfd",4107,27,16,0,27,7,4,19,115,498,767,1021,796,623,251,12,4113
+3110,"Agricultural, Medical and Science Technicians nfd",269,5,0,0,0,0,0,0,3,25,46,74,72,39,13,0,272
+3111,Agricultural Technicians,1377,24,34,5,0,3,3,7,58,241,376,401,198,118,22,4,1431
+3112,Medical Technicians,11552,90,62,8,44,33,41,116,965,3604,3010,2028,973,617,223,33,11643
+3113,Primary Products Inspectors,2487,5,22,0,4,0,0,5,33,130,337,849,591,441,91,6,2483
+3114,Science Technicians,9278,93,56,4,36,34,24,56,308,1496,2300,2178,1430,1161,378,29,9394
+3120,Building and Engineering Technicians nfd,5791,510,360,7,31,20,15,59,242,518,869,1283,1142,1365,1072,28,6613
+3121,"Architectural, Building and Surveying Technicians",35546,3725,2749,103,178,77,77,189,825,2386,4245,7232,7387,9798,9415,171,41802
+3122,Civil Engineering Draftspersons and Technicians,7915,516,261,5,32,13,5,38,250,679,1205,1693,1587,1821,1353,19,8663
+3123,Electrical Engineering Draftspersons and Technicians,6449,347,231,12,24,10,19,41,122,390,568,985,1096,1902,1843,25,7001
+3124,Electronic Engineering Draftspersons and Technicians,3617,145,102,10,12,8,16,19,112,377,548,822,759,822,351,10,3844
+3125,Mechanical Engineering Draftspersons and Technicians,3551,371,236,10,16,9,6,17,68,216,378,796,768,1011,866,8,4143
+3126,Safety Inspectors,2397,206,92,8,11,9,9,14,39,95,158,327,507,811,715,8,2692
+3129,Other Building and Engineering Technicians,16531,456,173,11,54,20,7,19,128,597,1034,1564,1860,3776,7989,51,17045
+3130,ICT and Telecommunications Technicians nfd,425,26,8,0,0,0,5,8,16,48,69,81,91,77,52,4,451
+3131,ICT Support Technicians,32064,1140,932,75,119,98,129,245,1024,3661,6264,8028,5691,5428,3402,116,34086
+3132,Telecommunications Technical Specialists,3592,99,74,6,9,7,10,14,61,146,292,601,922,1076,617,7,3753
+3200,Automotive and Engineering Trades Workers nfd,3414,262,305,7,28,29,60,127,295,446,552,683,560,563,571,21,3907
+3210,Automotive Electricians and Mechanics nfd,204,22,39,0,0,0,10,4,18,36,49,58,35,41,12,0,263
+3211,Automotive Electricians,4063,741,994,36,35,45,174,296,669,973,908,907,536,585,624,30,5747
+3212,Motor Mechanics,54681,6130,8691,536,457,542,2381,4127,8943,14576,14754,11983,5715,3712,1692,479,68904
+3220,Fabrication Engineering Trades Workers nfd,198,23,29,3,0,0,6,10,16,48,42,55,25,20,20,4,246
+3221,"Metal Casting, Forging and Finishing Trades Workers",1199,155,522,32,18,21,33,56,253,479,406,304,161,93,34,25,1865
+3222,Sheetmetal Trades Workers,5130,293,261,18,39,33,96,251,504,1093,1246,1158,593,428,189,31,5622
+3223,Structural Steel and Welding Trades Workers,50538,2826,3348,185,448,215,626,1669,4184,8473,10902,10927,6896,6782,5131,317,56122
+3230,Mechanical Engineering Trades Workers nfd,260,18,15,0,3,0,4,18,14,33,32,62,41,49,32,4,289
+3231,Aircraft Maintenance Engineers,12419,254,157,4,53,21,31,69,279,715,1095,2417,2621,3001,2478,40,12767
+3232,Metal Fitters and Machinists,71276,2662,2474,126,397,192,521,1421,3520,6189,9782,13827,10880,14223,14751,326,75632
+3233,Precision Metal Trades Workers,3924,527,808,40,25,41,101,225,577,984,1108,968,533,453,202,33,5225
+3234,Toolmakers and Engineering Patternmakers,4036,403,251,28,33,19,40,103,253,704,1074,1237,675,410,96,35,4646
+3240,"Panelbeaters, and Vehicle Body Builders, Trimmers and Painters nfd",415,334,316,14,7,12,28,47,115,205,169,171,115,103,76,10,1051
+3241,Panelbeaters,7509,1224,1419,97,89,84,337,565,1198,1963,2164,1909,917,599,241,71,10048
+3242,Vehicle Body Builders and Trimmers,3501,306,721,38,26,40,103,155,450,1176,1054,775,386,234,79,30,4482
+3243,Vehicle Painters,6843,461,924,29,68,41,258,433,992,1625,1900,1553,725,390,159,44,8120
+3300,Construction Trades Workers nfd,1031,297,464,19,16,19,57,145,255,261,242,295,186,191,107,21,1779
+3310,"Bricklayers, and Carpenters and Joiners nfd",1293,10,23,3,15,17,118,414,460,192,62,27,15,9,3,5,1322
+3311,Bricklayers and Stonemasons,9114,2030,6693,77,203,84,296,817,1902,2809,3353,3827,2243,1593,571,126,17621
+3312,Carpenters and Joiners,51046,7280,21498,293,567,391,1224,4449,9210,11345,12371,15145,11474,9443,3563,431,79046
+3320,Floor Finishers and Painting Trades Workers nfd,34,10,11,0,0,3,0,0,6,15,6,6,15,0,4,0,55
+3321,Floor Finishers,2155,915,2814,39,52,29,95,228,622,980,1042,997,678,696,465,35,5867
+3322,Painting Trades Workers,13823,3039,11507,171,249,131,364,1056,2983,5178,6162,6144,3051,1913,847,198,28027
+3330,"Glaziers, Plasterers and Tilers nfd",41,15,31,0,0,0,0,0,14,15,14,20,4,11,3,0,81
+3331,Glaziers,5167,736,818,62,54,18,89,234,613,1651,1568,1254,586,452,147,56,6668
+3332,Plasterers,9747,2468,6264,90,169,63,230,609,1766,2855,3417,3920,2562,2042,698,152,18314
+3333,Roof Tilers,2391,874,893,18,46,20,102,264,563,764,800,695,430,264,155,36,4093
+3334,Wall and Floor Tilers,3438,1300,5397,89,83,66,154,496,1243,1793,1912,1855,1194,874,370,94,10051
+3340,Plumbers,37005,8316,9814,195,415,264,1375,2827,5764,7088,8436,10494,7710,7163,3055,324,54500
+3400,Electrotechnology and Telecommunications Trades Workers nfd,2977,137,91,4,16,9,85,215,339,263,230,292,332,549,847,16,3177
+3410,Electricians,76848,9535,8450,240,454,325,1427,3819,7965,9327,11099,16293,14312,16762,12232,404,93965
+3420,Electronics and Telecommunications Trades Workers nfd,446,36,35,0,7,4,11,15,49,78,92,90,70,70,41,0,520
+3421,Airconditioning and Refrigeration Mechanics,11481,1714,1487,51,75,54,286,782,1454,1756,2250,3141,2198,1734,819,75,14549
+3422,Electrical Distribution Trades Workers,7661,73,38,0,31,14,12,27,183,433,768,1448,1524,2116,1134,24,7683
+3423,Electronics Trades Workers,18113,1614,2286,108,87,130,242,420,1631,3734,4500,4715,3017,2421,1043,101,21954
+3424,Telecommunications Trades Workers,10292,1915,1152,48,67,39,59,158,774,1402,2041,3320,2538,2176,754,56,13317
+3500,Food Trades Workers nfd,47,3,10,0,0,0,0,4,7,11,14,8,3,3,8,0,58
+3511,Bakers and Pastrycooks,13283,1415,1999,380,143,173,372,1065,2910,5080,3926,2064,583,306,166,182,16827
+3512,Butchers and Smallgoods Makers,11468,1043,1443,152,141,66,229,742,2024,4039,3462,2045,678,330,143,114,13872
+3513,Chefs,35089,2226,2980,605,322,268,446,1015,4242,10352,11323,7085,3118,1662,625,394,40530
+3514,Cooks,18322,1102,2100,691,262,347,756,2129,5837,6636,3446,1428,535,326,258,310,22008
+3600,Skilled Animal and Horticultural Workers nfd,13,0,5,0,0,0,0,0,0,5,5,0,0,5,0,0,15
+3610,"Animal Attendants and Trainers, and Shearers nfd",20,0,5,0,0,0,0,0,6,8,6,4,0,0,0,0,24
+3611,Animal Attendants and Trainers,3251,586,2494,397,46,201,297,446,1251,1680,992,769,379,268,144,121,6548
+3612,Shearers,1590,93,267,43,20,16,30,70,225,384,414,379,229,115,64,24,1950
+3613,Veterinary Nurses,3559,11,13,0,12,17,31,83,856,1670,603,206,41,20,14,12,3553
+3620,Horticultural Trades Workers nfd,281,19,48,7,0,3,11,6,37,84,94,57,26,21,3,3,345
+3621,Florists,1047,309,985,194,9,135,164,259,617,671,272,140,51,35,33,71,2448
+3622,Gardeners,20371,2466,7491,183,230,223,528,1296,3841,7848,7521,4760,2096,1310,563,162,30148
+3623,Greenkeepers,7893,120,215,19,62,37,62,363,936,2739,2217,1127,399,205,85,28,8198
+3624,Nurserypersons,1322,306,579,115,21,56,117,142,419,678,398,231,85,63,53,41,2283
+3900,Other Technicians and Trades Workers nfd,166,20,60,0,5,0,4,9,29,72,42,29,29,19,10,4,247
+3910,Hairdressers,17935,2008,7959,347,234,520,2062,3767,6599,8589,3146,1565,636,447,208,288,27827
+3920,Printing Trades Workers nfd,226,17,10,3,0,0,8,20,27,56,47,37,30,17,8,3,253
+3921,Print Finishers and Screen Printers,2413,166,211,17,22,16,23,75,346,885,660,464,165,89,32,12,2767
+3922,Graphic Pre-press Trades Workers,2372,61,76,4,3,7,7,28,103,407,536,634,401,292,73,12,2500
+3923,Printers,9289,704,457,85,70,40,70,164,733,2129,2315,2119,1248,1145,382,70,10415
+3930,"Textile, Clothing and Footwear Trades Workers nfd",13,0,8,0,0,0,0,0,5,9,0,3,3,0,0,0,20
+3931,Canvas and Leather Goods Makers,920,198,665,31,16,40,72,112,343,523,313,191,75,40,32,19,1760
+3932,Clothing Trades Workers,2038,245,991,80,26,83,142,220,708,1025,517,262,180,117,43,32,3329
+3933,Upholsterers,1240,167,693,27,24,33,61,99,410,674,424,239,82,41,13,15,2091
+3940,Wood Trades Workers nfd,51,0,17,0,4,3,3,3,11,18,18,8,4,3,0,0,71
+3941,Cabinetmakers,13155,1838,3106,141,128,157,536,1255,2599,4519,3928,2743,1190,701,218,134,17980
+3942,Wood Machinists and Other Wood Trades Workers,2504,303,717,71,27,61,99,178,563,1166,808,401,158,80,23,20,3557
+3990,Miscellaneous Technicians and Trades Workers nfd,87,10,6,0,0,0,3,3,13,14,17,16,16,9,13,0,104
+3991,Boat Builders and Shipwrights,2149,312,425,36,17,29,39,86,258,529,612,618,328,255,118,16,2888
+3992,"Chemical, Gas, Petroleum and Power Generation Plant Operators",7246,30,21,0,25,3,11,6,61,236,376,588,670,1438,3830,17,7236
+3993,"Gallery, Library and Museum Technicians",3167,6,22,0,11,10,12,20,137,510,1169,1080,175,55,7,6,3181
+3994,Jewellers,1141,522,933,55,12,42,84,151,415,607,462,345,202,159,94,35,2596
+3995,Performing Arts Technicians,4203,560,1070,40,22,51,85,132,499,926,1031,1082,820,832,340,32,5830
+3996,Signwriters,2351,762,1194,57,22,56,117,249,638,1046,885,684,289,213,85,28,4290
+3999,Other Miscellaneous Technicians and Trades Workers,8182,818,836,71,54,53,69,159,679,2135,2175,1844,1043,946,651,55,9809
+4000,Community and Personal Service Workers nfd,479,8,21,0,6,3,6,7,60,84,105,101,54,59,17,5,501
+4100,Health and Welfare Support Workers nfd,417,16,15,0,6,0,0,6,28,78,94,96,52,62,29,3,448
+4111,Ambulance Officers and Paramedics,9222,11,14,0,24,17,23,19,94,367,880,1564,1991,2815,1399,10,9179
+4112,"Dental Hygienists, Technicians and Therapists",2594,674,592,15,16,7,18,59,214,403,534,709,628,807,448,9,3836
+4113,Diversional Therapists,1536,0,11,0,12,7,3,21,291,630,333,147,51,35,4,3,1525
+4114,Enrolled and Mothercraft Nurses,7288,3,15,0,50,11,16,37,354,1398,2489,2023,621,284,27,16,7276
+4115,Indigenous Health Workers,998,0,0,0,11,6,4,16,80,231,256,219,97,65,14,3,991
+4116,Massage Therapists,616,251,1522,52,10,57,75,150,460,597,436,323,161,86,33,20,2398
+4117,Welfare Support Workers,30110,107,178,18,153,72,98,199,1071,4074,7585,8519,4846,3014,693,95,30266
+4200,Carers and Aides nfd,1628,46,76,35,107,41,61,143,288,478,321,219,92,76,68,12,1799
+4210,Child Carers,38066,766,7107,196,363,534,1056,2441,9849,19569,7731,2755,940,485,232,212,45804
+4220,Education Aides,13004,11,22,6,78,94,180,439,2453,5031,2728,1147,428,338,99,28,12965
+4230,Personal Carers and Assistants nfd,450,8,7,0,6,5,12,21,70,127,104,74,26,13,4,0,456
+4231,Aged and Disabled Carers,32627,122,300,79,425,203,351,1077,5414,10799,7476,4570,1846,911,204,171,33022
+4232,Dental Assistants,8980,17,14,6,60,30,66,269,1450,3440,2571,873,159,51,31,40,8980
+4233,Nursing Support and Personal Care Workers,25365,47,51,9,268,105,181,508,4090,10075,6530,2461,715,344,117,139,25265
+4234,Special Care Workers,1426,9,9,7,8,18,21,33,119,309,416,291,122,77,34,3,1443
+4300,Hospitality Workers nfd,2533,139,106,49,37,37,72,105,592,1042,481,229,90,56,39,32,2775
+4311,Bar Attendants and Baristas,17898,773,840,315,144,217,352,781,4233,7790,3914,1469,402,209,102,203,19672
+4312,Cafe Workers,4063,392,644,234,47,155,196,448,1609,1728,605,212,84,57,35,97,5226
+4313,Gaming Workers,3697,4,8,0,15,6,14,11,101,564,1032,1240,465,196,59,9,3697
+4314,Hotel Service Managers,4429,30,18,11,25,10,14,38,334,1538,1593,635,195,88,25,13,4483
+4315,Waiters,14505,440,532,268,151,308,459,1010,4265,5970,2375,725,213,131,70,146,15672
+4319,Other Hospitality Workers,1170,9,17,7,12,14,12,27,176,520,238,121,42,25,13,11,1199
+4400,Protective Service Workers nfd,103,0,0,0,0,0,0,0,3,3,10,20,27,27,16,0,106
+4410,"Defence Force Members, Fire Fighters and Police nfd",41,0,0,0,0,0,0,0,0,0,5,9,7,11,8,0,40
+4411,Defence Force Members - Other Ranks,12436,24,40,0,55,36,28,28,256,1397,2196,3866,2238,1849,519,39,12452
+4412,Fire and Emergency Workers,10260,21,19,4,33,15,10,12,62,231,615,1537,2999,3577,1142,36,10236
+4413,Police,40836,11,13,4,129,39,9,20,247,851,2300,6764,8815,16958,4604,82,40689
+4420,Prison and Security Officers nfd,33,0,0,0,0,0,0,0,0,3,7,6,5,3,7,0,31
+4421,Prison Officers,10229,0,5,0,47,5,4,5,61,417,1337,3019,2755,2178,364,28,10173
+4422,Security Officers and Guards,26523,751,625,42,188,78,121,223,1509,5614,7475,6474,2939,2136,879,195,27643
+4500,Sports and Personal Service Workers nfd,17,4,11,0,0,0,5,0,9,8,6,0,0,0,0,0,28
+4510,Personal Service and Travel Workers nfd,32,7,9,0,0,0,0,0,3,17,4,8,3,4,3,0,42
+4511,Beauty Therapists,4926,773,2700,203,74,212,426,626,1840,3021,1347,509,192,130,81,89,8473
+4512,Driving Instructors,830,197,743,15,5,15,17,48,173,268,325,379,246,177,99,4,1751
+4513,Funeral Workers,1731,329,119,24,6,8,14,16,105,439,572,515,228,157,111,12,2177
+4514,"Gallery, Museum and Tour Guides",1750,160,264,37,6,30,61,79,294,570,551,355,127,65,26,20,2178
+4515,Personal Care Consultants,403,107,369,30,7,23,46,82,188,246,146,68,35,26,27,9,896
+4516,Tourism and Travel Advisers,12483,1163,570,58,64,51,100,186,1448,3684,3580,2525,1164,879,536,53,14206
+4517,Travel Attendants,3882,3,0,0,22,13,3,21,136,685,870,909,556,498,167,10,3868
+4518,Other Personal Service Workers,2254,229,862,43,27,87,141,189,514,661,624,459,281,212,138,50,3356
+4520,Sports and Fitness Workers nfd,83,5,0,0,0,6,11,12,11,22,9,7,0,7,0,0,85
+4521,Fitness Instructors,2762,791,2259,116,34,110,146,244,878,1308,1074,939,502,377,174,74,5826
+4522,Outdoor Adventure Guides,924,37,90,20,0,13,38,62,150,165,178,183,93,153,14,6,1055
+4523,"Sports Coaches, Instructors and Officials",3933,592,978,75,23,120,130,202,630,994,975,872,562,537,428,60,5510
+4524,Sportspersons,2346,274,429,18,21,33,61,120,338,510,473,457,257,223,554,22,3048
+5000,Clerical and Administrative Workers nfd,6353,174,77,35,36,23,22,49,259,989,1409,1726,952,774,367,20,6590
+5100,Office Managers and Program Administrators nfd,346,19,4,0,0,0,0,0,5,18,45,72,63,75,90,0,368
+5110,"Contract, Program and Project Administrators",77470,2317,731,82,257,101,95,177,1115,4841,9474,14298,13032,17888,18976,193,80190
+5120,Office and Practice Managers nfd,70,8,0,0,0,0,0,0,4,4,11,28,8,17,7,0,79
+5121,Office Managers,57551,7925,1979,759,251,235,296,640,2958,10356,15400,16276,9363,7607,4275,293,67699
+5122,Practice Managers,7675,921,250,60,31,21,25,32,189,853,1578,2169,1597,1364,986,29,8843
+5200,Personal Assistants and Secretaries nfd,87,4,0,0,0,0,0,0,7,15,13,24,14,8,5,3,89
+5211,Personal Assistants,35733,196,136,39,123,63,55,124,856,3189,6340,11734,8253,4430,698,90,35832
+5212,Secretaries,22324,4433,1032,616,159,197,315,642,2845,5931,6464,6023,2874,1575,1020,190,28076
+5300,General Clerical Workers nfd,437,6,0,0,8,0,0,5,24,67,119,141,60,22,9,0,447
+5311,General Clerks,120216,4607,2156,934,796,627,878,2095,10261,30426,33188,26565,11324,7359,2946,716,126385
+5321,Keyboard Operators,24393,212,298,63,132,104,147,338,1953,7721,7624,4411,1344,787,259,116,24804
+5400,Inquiry Clerks and Receptionists nfd,222,0,3,0,3,0,3,0,23,53,59,60,15,10,3,0,226
+5410,Call or Contact Centre Information Clerks nfd,309,3,3,0,3,0,4,3,18,94,87,54,26,20,7,0,313
+5411,Call or Contact Centre Workers,16069,41,19,5,80,44,71,157,986,4497,4723,3445,1322,661,121,69,16096
+5412,Inquiry Clerks,35467,161,104,31,172,83,106,249,1748,8297,11041,8979,2997,1583,414,108,35605
+5500,Receptionists,60671,759,463,230,373,365,621,1947,10278,24364,15740,5903,1357,593,228,294,61690
+5410,Numerical Clerks nfd,779,15,7,3,5,7,3,3,26,131,193,218,98,65,51,3,798
+5511,Accounting Clerks and Bookkeepers nfd,419,22,7,7,0,3,4,5,16,76,112,113,59,33,25,3,449
+5510,Accounting Clerks,66234,2378,724,337,299,171,186,386,2659,12799,20842,17664,7274,4598,2436,280,69295
+5512,Bookkeepers,17936,3965,3998,1000,85,279,363,583,2098,4578,5792,6288,3096,2199,1079,209,26564
+5513,Payroll Clerks,16492,491,90,35,86,34,20,73,489,2166,3909,5153,2692,1794,658,42,17030
+5520,Financial and Insurance Clerks nfd,495,7,4,0,3,3,0,3,13,84,122,128,59,46,48,0,506
+5521,Bank Workers,33911,135,56,14,185,68,96,230,1212,6175,9639,6598,3376,2586,3822,132,33934
+5522,Credit and Loans Officers (Aus) / Finance Clerks (NZ),16878,399,130,12,76,27,24,34,257,1569,3560,4217,2883,2488,2272,48,17379
+5523,"Insurance, Money Market and Statistical Clerks",20483,222,129,11,90,30,22,72,521,3426,5910,5100,2625,1853,1124,68,20751
+5600,Clerical and Office Support Workers nfd,151,5,0,0,0,0,0,4,13,33,49,29,10,11,7,0,156
+5611,Betting Clerks,467,100,165,4,8,5,3,8,56,174,172,149,80,55,30,0,732
+5612,Couriers and Postal Deliverers,16076,3790,4718,104,211,97,191,461,2501,6021,6520,4944,1956,1246,443,133,24513
+5613,Filing and Registry Clerks,8592,73,42,16,54,31,34,101,555,1796,2387,2003,848,658,247,37,8697
+5614,Mail Sorters,6518,50,38,7,46,26,29,58,428,1700,2087,1558,449,183,45,22,6585
+5615,Survey Interviewers,460,14,13,0,3,12,20,33,92,104,71,70,19,37,28,4,490
+5616,Switchboard Operators,1776,14,21,7,23,9,9,45,205,557,522,308,87,40,14,10,1806
+5619,Other Clerical and Office Support Workers,7209,34,40,16,34,670,729,832,1161,1382,1064,732,281,143,71,183,7248
+5900,Other Clerical and Administrative Workers nfd,98,0,3,0,0,0,0,0,4,19,22,23,11,16,4,0,99
+5910,Logistics Clerks nfd,2135,59,28,5,13,4,4,16,86,309,490,526,300,257,200,10,2202
+5911,Purchasing and Supply Logistics Clerks,54062,954,414,93,231,89,110,235,1855,9649,13997,13359,7082,5549,3028,172,55125
+5912,Transport and Despatch Clerks,23120,756,244,41,143,42,55,116,908,3828,5435,5758,3618,2789,1403,86,24038
+5990,Miscellaneous Clerical and Administrative Workers nfd,136,4,3,0,0,0,0,3,3,13,23,50,26,19,3,0,140
+5991,Conveyancers and Legal Executives,5295,399,489,18,22,23,32,48,308,939,1463,1599,884,584,246,27,6153
+5992,Court and Legal Clerks,7273,47,73,13,27,23,34,78,351,1129,1747,2090,1054,632,217,12,7367
+5993,Debt Collectors,5616,179,136,0,37,17,15,46,238,1205,1771,1632,517,296,137,20,5894
+5994,Human Resource Clerks,5594,50,24,3,24,13,9,19,168,799,1285,1505,846,690,259,20,5613
+5995,Inspectors and Regulatory Officers,26173,221,159,6,111,28,27,38,220,1085,3104,9487,6134,4441,1837,69,26470
+5996,"Insurance Investigators, Loss Adjusters and Risk Surveyors",3013,261,147,3,16,12,3,9,33,163,395,728,834,670,531,7,3385
+5997,Library Assistants,2221,0,0,0,13,8,5,35,220,608,838,395,71,28,6,4,2218
+5999,Other Miscellaneous Clerical and Administrative Workers,10292,86,102,6,36,91,85,128,413,1665,2466,2618,1634,1000,266,49,10415
+6000,Sales Workers nfd,1916,212,128,22,25,16,21,43,145,334,429,410,274,292,280,9,2253
+6100,Sales Representatives and Agents nfd,160,64,23,4,0,0,4,3,15,26,33,32,38,35,56,3,245
+6110,Insurance Agents and Sales Representatives nfd,16,0,0,0,0,0,0,0,0,0,12,4,0,0,0,0,16
+6111,"Auctioneers, and Stock and Station Agents",1372,609,283,33,15,13,17,31,100,230,338,393,336,428,361,16,2263
+6112,Insurance Agents,7059,463,237,4,23,17,17,29,187,933,1446,1371,1025,1122,1536,24,7707
+6113,Sales Representatives,71378,5218,3151,397,437,281,315,568,2735,9375,13601,17749,13089,12587,8769,388,79457
+6121,Real Estate Sales Agents,34909,11479,3075,841,235,328,442,729,3822,8259,7873,7645,5229,6228,8715,429,49699
+6210,Sales Assistants and Salespersons nfd,6382,716,636,123,121,116,148,235,910,1661,1305,1116,680,678,696,87,7632
+6211,Sales Assistants (General),106779,7589,8253,2158,924,1802,2788,5793,25373,47151,21047,9677,3915,2816,1872,1140,123374
+6212,ICT Sales Assistants,7999,469,297,56,37,55,80,160,958,2478,1490,845,451,516,1681,57,8771
+6213,Motor Vehicle and Vehicle Parts Salespersons,21026,1926,1130,157,152,88,202,414,1861,5678,5069,4366,2760,2251,1180,134,24003
+6214,Pharmacy Sales Assistants,8824,23,34,3,53,80,157,448,2766,3891,999,263,94,48,43,33,8822
+6215,Retail Supervisors,17664,301,130,28,101,46,52,163,1319,4956,4688,4344,1417,609,356,70,18020
+6216,Service Station Attendants,2399,103,98,38,28,19,33,85,575,1118,462,142,71,41,37,35,2618
+6217,Street Vendors and Related Salespersons,1270,528,991,64,18,52,103,136,408,571,448,426,249,243,142,30,2808
+6219,Other Sales Assistants and Salespersons,5496,848,927,149,66,95,137,233,966,1988,1436,1042,585,490,295,71,7338
+6310,Sales Support Workers nfd,68,0,0,0,0,0,0,0,0,16,10,17,6,9,7,0,65
+6311,Checkout Operators and Office Cashiers,15115,313,295,132,131,241,378,863,3917,6668,2177,965,253,128,52,111,15753
+6390,Miscellaneous Sales Support Workers nfd,25,5,0,0,0,0,0,0,3,5,13,3,3,3,0,0,30
+6391,Models and Sales Demonstrators,1778,69,106,0,14,13,23,52,278,617,431,277,107,67,56,11,1932
+6392,Retail and Wool Buyers,3048,290,239,38,20,28,23,29,116,340,456,601,492,621,860,24,3590
+6393,Telemarketers,3328,80,115,13,27,37,48,91,508,1280,823,390,165,104,56,19,3521
+6394,Ticket Salespersons,7575,82,63,15,47,35,34,75,436,1781,1899,1755,1021,535,101,34,7706
+6395,Visual Merchandisers,1636,53,124,3,10,9,16,25,186,552,437,289,151,93,43,11,1812
+6399,Other Sales Support Workers,710,102,87,4,9,7,6,22,81,144,153,152,109,135,84,3,896
+7000,Machinery Operators and Drivers nfd,8368,288,317,38,91,35,42,100,501,1658,1826,1685,1088,1177,670,63,8845
+7100,Machine and Stationary Plant Operators nfd,4330,66,50,14,65,21,14,51,498,1515,1053,631,282,210,89,39,4403
+7110,Machine Operators nfd,14298,291,279,50,193,58,56,145,1275,4144,3339,2315,1397,1259,593,130,14711
+7111,"Clay, Concrete, Glass and Stone Processing Machine Operators",2701,57,61,8,25,10,16,17,111,597,606,547,355,404,125,16,2804
+7112,Industrial Spraypainters,4404,237,251,14,46,11,39,80,443,1331,1005,834,434,381,250,36,4844
+7113,Paper and Wood Processing Machine Operators,5282,124,205,30,40,34,40,71,543,1854,1217,844,490,384,80,34,5591
+7114,Photographic Developers and Printers,776,45,102,22,0,9,28,29,160,361,154,92,43,28,8,9,921
+7115,Plastics and Rubber Production Machine Operators,6956,196,194,14,71,21,20,72,643,2319,1739,1149,556,472,273,46,7310
+7116,Sewing Machinists,4730,324,841,86,78,78,165,259,1842,2442,731,247,67,42,19,49,5941
+7117,Textile and Footwear Production Machine Operators,2361,46,73,10,28,14,16,42,377,992,513,293,114,73,24,19,2477
+7119,Other Machine Operators,6256,129,173,29,59,24,34,82,467,1782,1892,1180,520,369,164,29,6543
+7120,Stationary Plant Operators nfd,270,0,0,0,0,0,0,0,3,27,25,46,43,70,49,0,263
+7121,"Crane, Hoist and Lift Operators",8315,318,148,17,49,16,23,49,223,627,957,1459,1331,2062,1890,51,8688
+7122,"Drillers, Miners and Shot Firers",39482,593,306,67,238,70,50,88,246,654,1287,2920,4579,11893,17820,251,39858
+7123,Engineering Production Workers,18341,322,286,22,150,43,64,115,830,3666,3733,3303,2446,3350,1230,102,18882
+7129,Other Stationary Plant Operators,15509,329,249,18,100,24,42,79,372,1444,2487,3266,2654,3366,2120,82,15936
+7200,Mobile Plant Operators nfd,4701,133,142,12,40,4,20,27,158,824,1337,1060,596,532,307,25,4890
+7211,"Agricultural, Forestry and Horticultural Plant Operators",5553,352,631,127,59,52,86,163,683,1750,1714,1116,485,369,118,35,6571
+7212,Earthmoving Plant Operators,23136,3887,4025,295,204,131,179,397,1354,3557,6124,6861,4570,4270,3089,225,30757
+7213,Forklift Drivers,36213,80,62,17,361,69,100,202,2335,12156,11011,6253,2342,1148,241,251,36108
+7219,Other Mobile Plant Operators,6262,147,67,6,38,9,14,25,195,984,1480,1629,932,699,414,32,6413
+7300,Road and Rail Drivers nfd,5808,449,567,48,107,47,81,179,787,1941,1599,1012,513,345,145,57,6706
+7310,"Automobile, Bus and Rail Drivers nfd",150,8,17,0,0,0,3,3,25,54,32,22,14,7,5,3,168
+7311,Automobile Drivers,6290,1636,10175,141,261,225,791,2054,5778,4515,2251,1267,530,319,191,222,18143
+7312,Bus and Coach Drivers,18285,325,645,66,145,56,89,202,914,3175,5229,5648,2773,770,207,85,19148
+7313,Train and Tram Drivers,9474,10,16,0,65,7,8,12,114,290,636,1330,1683,3263,2042,31,9416
+7321,Delivery Drivers,15344,1430,1850,103,113,87,128,336,2411,6859,4387,2413,968,597,273,115,18574
+7331,Truck Drivers,98468,10495,8282,642,1046,362,576,1118,5981,20488,26347,26036,15828,13014,5759,698,116207
+7411,Storepersons,73844,223,162,55,614,230,306,852,7370,28154,19525,10478,3791,2017,699,376,73798
+8000,Labourers nfd,13128,235,551,87,220,165,281,476,2015,4228,3002,1760,752,535,284,159,13657
+8100,Cleaners and Laundry Workers nfd,5745,795,1686,122,164,108,158,362,1640,2652,1452,874,426,271,180,105,8228
+8111,Car Detailers,6920,284,876,43,84,52,132,286,2293,3314,1059,483,181,117,60,64,8041
+8112,Commercial Cleaners,29706,1777,3754,232,409,258,435,1064,6548,13638,6641,3400,1491,992,579,243,35289
+8113,Domestic Cleaners,927,200,1145,170,31,55,93,176,573,620,378,253,129,49,49,46,2421
+8114,Housekeepers,5625,41,155,96,79,68,110,263,1582,2433,712,374,151,66,48,58,5865
+8115,Laundry Workers,6442,347,674,95,72,109,142,283,2083,3074,1042,421,141,93,44,53,7485
+8116,Other Cleaners,2680,558,1475,65,32,37,55,112,561,1322,1030,750,389,296,135,34,4721
+8200,Construction and Mining Labourers nfd,964,111,133,8,13,5,13,14,86,191,223,221,175,150,96,10,1184
+8211,Building and Plumbing Labourers,27038,1267,2022,119,290,201,333,644,2292,5445,6475,5929,3686,3163,1656,229,30053
+8212,Concreters,12788,2735,3706,97,171,82,115,253,1192,2906,3933,4205,2793,2308,1070,132,18989
+8213,Fencers,2172,692,2655,99,44,61,136,236,791,1272,1085,857,444,345,212,59,5498
+8214,Insulation and Home Improvement Installers,5175,2019,3140,97,71,46,86,185,897,2115,2150,2068,1247,977,430,58,10259
+8215,Paving and Surfacing Labourers,6227,174,103,7,67,16,39,61,349,1450,1862,1275,657,542,166,40,6457
+8216,Railway Track Workers,3390,19,12,0,35,10,5,12,75,336,607,700,580,627,400,36,3388
+8217,Structural Steel Construction Workers,13676,643,450,29,110,31,42,68,311,1052,1917,2807,2391,3042,2838,118,14617
+8219,Other Construction and Mining Labourers,6196,64,67,11,33,14,35,47,220,725,826,1192,1061,1292,806,45,6263
+8300,Factory Process Workers nfd,7873,49,46,10,185,55,111,189,1553,3231,1398,693,308,198,74,74,7884
+8310,Food Process Workers nfd,474,0,3,0,6,0,6,3,64,174,113,56,32,15,0,3,466
+8311,Food and Drink Factory Workers,18977,282,217,81,172,81,104,234,1805,5344,4349,3561,2055,1456,281,145,19415
+8312,"Meat Boners and Slicers, and Slaughterers",5568,24,48,0,61,16,22,48,424,1776,1832,1036,271,92,23,43,5583
+8313,"Meat, Poultry and Seafood Process Workers",11581,130,106,20,147,51,77,166,1536,5551,2746,1055,284,117,50,99,11732
+8320,Packers and Product Assemblers nfd,182,0,0,0,0,3,8,15,38,81,24,5,6,0,0,0,180
+8321,Packers,25500,186,140,47,336,396,459,861,5608,11017,4338,1735,665,370,113,199,25761
+8322,Product Assemblers,19605,83,167,24,178,88,121,251,2578,8433,4573,2488,664,320,115,146,19777
+8390,Miscellaneous Factory Process Workers nfd,813,6,12,0,11,8,7,18,128,347,162,68,38,28,18,6,828
+8391,Metal Engineering Process Workers,8283,108,142,15,69,38,58,146,917,2585,1864,1278,646,604,270,44,8450
+8392,Plastics and Rubber Factory Workers,1770,10,14,0,15,3,11,38,371,768,314,137,63,31,15,18,1769
+8393,Product Quality Controllers,7554,119,84,8,61,18,32,93,639,2002,1787,1492,775,551,286,42,7717
+8394,Timber and Wood Process Workers,4257,51,62,13,54,28,44,121,787,1886,760,303,143,197,42,36,4347
+8399,Other Factory Process Workers,6230,61,80,18,85,108,150,210,1080,2263,1202,653,335,255,54,43,6353
+8400,"Farm, Forestry and Garden Workers nfd",932,42,141,73,18,45,39,64,238,359,198,107,43,20,7,23,1143
+8411,Aquaculture Workers,323,13,4,4,0,3,8,8,61,116,75,43,13,11,0,3,341
+8412,Crop Farm Workers,10494,145,383,255,103,180,319,576,2663,4201,1873,810,231,103,63,91,11110
+8413,Forestry and Logging Workers,1391,174,205,28,15,13,30,46,180,406,464,303,149,118,36,14,1759
+8414,Garden and Nursery Labourers,9049,541,2423,120,114,153,364,479,2120,4094,2715,1175,427,249,132,89,11997
+8415,Livestock Farm Workers,13054,181,823,563,139,308,464,798,3259,5155,2484,1135,335,165,89,177,14369
+8416,Mixed Crop and Livestock Farm Workers,2156,23,104,140,10,29,67,124,456,724,501,298,83,28,22,36,2368
+8419,"Other Farm, Forestry and Garden Workers",3943,857,1122,71,36,42,53,115,511,1531,1525,1087,487,356,168,40,5915
+8510,Food Preparation Assistants nfd,102,14,44,7,0,6,9,15,52,48,18,5,4,0,3,3,163
+8511,Fast Food Cooks,3301,683,1776,417,55,248,398,685,1801,1622,668,287,91,60,41,144,6045
+8512,Food Trades Assistants,1480,14,31,11,13,16,21,57,337,725,239,74,14,7,7,15,1512
+8513,Kitchenhands,17344,375,688,290,197,266,515,1196,4945,6648,2737,1333,381,193,122,181,18517
+8900,Other Labourers nfd,69,0,8,0,0,0,0,3,10,13,13,19,5,7,0,0,70
+8910,Freight Handlers and Shelf Fillers nfd,89,0,0,0,0,0,0,4,14,26,18,15,5,3,3,0,88
+8911,Freight and Furniture Handlers,7085,76,56,19,62,31,42,77,540,1536,1430,1152,756,1054,502,46,7166
+8912,Shelf Fillers,8640,73,63,22,61,61,143,339,1644,4041,1535,650,174,85,45,27,8744
+8990,Miscellaneous Labourers nfd,125,8,8,0,0,0,0,5,18,39,39,19,14,5,0,0,139
+8991,Caretakers,3251,133,266,47,21,28,33,83,361,1111,1105,506,222,138,50,20,3657
+8992,Deck and Fishing Hands,2546,250,841,108,28,39,82,133,380,509,422,428,438,559,628,25,3643
+8993,Handypersons,8602,1002,4874,216,97,124,202,412,1699,3933,3520,2375,1162,695,255,118,14495
+8994,Motor Vehicle Parts and Accessories Fitters,7741,523,847,62,67,55,103,233,1320,3331,2025,1006,365,317,199,82,9036
+8995,Printing Assistants and Table Workers,2680,22,12,3,27,13,19,46,406,1130,569,292,136,73,15,12,2711
+8996,Recycling and Rubbish Collectors,1083,126,175,11,11,15,26,36,113,334,330,269,131,75,34,16,1379
+8997,Vending Machine Attendants,1934,235,124,20,8,16,13,50,251,961,611,232,74,42,20,8,2278
+8999,Other Miscellaneous Labourers,22521,716,1228,100,202,252,372,638,2359,5555,5290,4348,2384,2137,836,147,24318
