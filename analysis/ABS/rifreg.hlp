@@ -1,0 +1,185 @@
+{smcl}
+{* *! version 0.1  Sept10/07 - Mike Gevaert}{...}
+{cmd:help rifreg}, {right:dialogs:  {bf:{dialog rifreg}} }
+{hline}
+
+{title:Title}
+
+{p2colset 5 17 19 2}{...}
+{p2col :{hi:[R] rifreg} {hline 2}}Recentered Influence Function (RIF) regression{p_end}
+{p2colreset}{...}
+
+{title:Syntax}
+
+{phang}
+Recentered Influence Function (RIF) regression
+
+{p 8 13 2}
+{cmd:rifreg} {depvar} [{indepvars}] {ifin} {weight}
+	[{cmd:,} {it:{help rifreg##rifreg_options:rifreg_options}}]
+
+{synoptset 25 tabbed}{...}
+{marker rifreg_options}{...}
+{synopthdr :rifreg_options}
+{synoptline}
+{syntab :Model}
+{synopt :{opt q:uantile(#)}} specifies the {it:#} quantile; default is {cmd:quantile(.5)}, it can also be 50 (equivalent to 0.5), or 50.5 (equivalent to 0.505){p_end}
+{synopt :{opt g:ini}} specifies the GINI{p_end}
+{synopt :{opt me:an}} specifies the mean{p_end}
+{synopt :{opt v:ariance}} specifies the variance{p_end}
+
+{syntab :Quantile Options}
+{synopt :{opt ke:rnop(string)}} kernel function used with {help kdensity}, one of {opt epanechnikov}, {opt epan2}, {opt biweight}, {opt cosine}, {opt gaussian},
+{opt parzen}, {opt rectangle}, and {opt triangle}; default is {opt gaussian}{p_end}
+{synopt :{opt w:idth(#)}} halfwidth of kernel; default is {cmd:width(0.0)}; which calculates the 'optimal' value{p_end}
+{synopt :{opt re:tain(string)}}Retain RIF column: save the calculated values into variable {it:string}, but only for values conditioned by {it:[if]} and {it:[in]}{p_end}
+{synopt :{opt nor:obust}} Do not use robust standard error estimation{p_end}
+{synopt :{opt gen:erate(string string)}}Save the values from the kernel density estimation so they do not need to be recomputed.{p_end}
+
+{syntab :Estimated Standard error options}
+{synopt :{opt estw:gt(string)}} estimated weights that will be used to adjust standard error{p_end}
+{synopt :{opt estn:ame(string)}} name of saved dependent variable, to be used to adjust standard error{p_end}
+
+{syntab :Reporting}
+{synopt :{opt l:evel(#)}} Set the confidence level to #{p_end}
+{synopt :{opt bo:otstrap}} Generate bootstrapped standard errors, with a default of 50 repetitions{p_end}
+{synopt :{opt reps}} Number of repetitions used for boostrapping must be less than the maximum matrix size {help matsize} {p_end}
+
+{synoptline}
+{p2colreset}{...}
+{pstd}
+{cmd:fweight}s, {cmd:aweight}s, and {cmd:iweight}s are allowed; see {help weight}.
+
+
+{title:Description}
+
+{pstd}
+{cmd:rifreg}  fits a regression model of the re-centered  influence function (RIF) of a distributional statistic of interest (quantile, variance or gini)
+ of the marginal distribution of {depvar} on {indepvars}. In the case of quantiles, RIF-regressions can be thought of as unconditional quantile regressions. The influence
+ function is a widely used tool in robust estimation; here it is recentered so the mean of the recentered influence function corresponds to the statistic of interest.
+ In RIF-regressions, the {depvar} is replaced by the corresponding RIF of the statistic of interest.
+
+{title:Options for rifreg}
+
+{dlgtab:Model}
+
+{phang}{opt quantile(#)} specifies the quantile for which the RIF is computed; should be
+a number between 0 and 1, exclusive.  The default value of 0.5 corresponds to the median.  Syntactically, 50 is equivalent to 0.5, and 50.5 is equivalent to 0.505.  The number of steps is computed based on the number of significant decimal places, with more taking longer to compute, and requiring more memory.
+
+{phang}{opt g:ini} specifies the Gini as the distributional statistic of interest
+
+{phang}{opt me:an} specifies the 'mean' model which is equivalent to the {help reg}, but with the ability to obtain updated standard errors when reweighing
+
+{phang}{opt v:ariance} specifie variance  as the distributional statistic of interest
+
+{dlgtab:Quantile Options}
+
+{phang}{opt ke:rnop(string)} specifies the kernel function used to estimate the density of the dependent variable , one of {opt epanechnikov}, {opt epan2}, {opt biweight}, {opt cosine}, {opt gaussian}, {opt parzen}, {opt rectangle}, and {opt triangle}; default is {opt gaussian}.
+See {help kdensity} for further information.
+
+{phang}{opt w:idth(#)} Halfwidth of kernel; default is {cmd:width(0.0)}; which calculates the optimal value.
+See {help kdensity} for further information.
+
+{phang}{opt nor:obust} Do not use robust standard error estimation
+
+{phang}{opt gen:erate(string string)} Save the values from the kernel density estimation so they do not need to be recomputed.  If the variables named by '{it:string string}' do not have values, they will be computed and saved.  
+If they do contain values, those values are used, if there are sufficient observations.
+
+{phang}{opt re:tain(string)} Retain RIF column: save the calculated values into variable {it:string}, but only for values conditioned by {it:[if]} and {it:[in]}, with others set to '.'.
+
+{dlgtab:Estimated Standard error options}
+
+{pstd}
+Currently, the 'mean' and 'quantile' options support the computation of standard errors corrected for the use of estimated weights resulting from a reweighing procedure
+
+{phang}{opt estw:gt} Name of a variable that contains the estimated weights, as produced by dflweight, or some other weighting procedure. Must be used in conjunction with estname.
+
+{phang}{opt estn:ame} The '{help estimates} store {it:string}' of the procedure that calculated the weights as named in estwgt({it:string}).  Must be used in conjunction with estwgt.{p_end}
+
+{dlgtab:Reporting}
+
+{phang}{opt l:evel} Set the confidence interval for output
+
+{phang}{opt bo:otstrap} Generate bootstrapped standard errors, with a default of 50 repetitions{p_end}
+
+{phang}{opt reps} Number of repetitions used for boostrapping, must be less than the maximum matrix size {help matsize} {p_end}
+
+{title:Examples}
+
+{p 4 4 2} {ul:Single RIF-regressions}
+
+{phang}{cmd:. rifreg y x1 x2 x3, quantile(0.9) }
+
+{phang}{cmd:. rifreg lwage educ exp expsq union, variance}
+
+{phang}{cmd:. rifreg income x1 x2 x3 , gini}{p_end}
+{phang}{cmd:. display "Gini: `e(gini)'} {p_end}
+
+
+{p 4 4 2} {ul:Using bootstrapping }
+
+{phang}{cmd:. rifreg y x1 x2 x3, quantile(0.9) bootstrap reps(100)}{p_end}
+{phang}{cmd:. rifreg y x1 x2 x3, gini bootstrap reps(100)} {p_end}
+
+
+{p 4 4 2} {ul:Multiple RIF-regressions}
+
+{p 4 4 2} When one wants to estimate more than one quantile, the following loop can be used  {p_end}
+
+{phang}{cmd:. local quartile 0.25 0.5 0.75}{p_end}
+{phang}{cmd:. foreach q of local quartile}  {cmd:{c -(}} {p_end}
+{phang}{cmd:.	  rifreg lwage educ exp expsq union, quantile(`q') w(0.06)} {p_end}
+{phang}{cmd:.} {cmd:{c )-}} {p_end}
+
+
+{p 4 4 2} {ul:Sweeping a range of quantiles / using generate}
+
+{p 4 4 2} It is often useful to compute the regression for multiple quantiles, 
+in a certain range, to create a graph, or to see all the different values.  
+This can be calculated more quickly by using the generate option, to reduce the 
+number of times the influence function has to be recalculated. {p_end}
+
+{phang}{cmd:. forvalues q = 0.1(0.1)0.9 } {cmd:{c -(}}{p_end}
+{phang}{cmd:.	  rifreg lwage educ exp expsq union, quantile(`q') w(0.06) generate(eval dens)} {p_end}
+{phang}{cmd:.} {cmd:{c )-}} {p_end}
+
+
+{p 4 4 2} {ul:RIF-regression decompositions}
+
+{p 4 4 2} The quantile RIF-regressions can be used to perform an Oaxaca decomposition using the
+{cmd:oaxaca} command, but the option {opt re:tain(string)} must be used to store the estimates
+of the RIF: {p_end}
+
+
+{p 4 4 2} {ul:Without reweighing as in standard Oaxaca decomposition}
+
+{p 6 8 2}Step 1: Obtain and retain values for the RIF for each group
+
+{phang2}{cmd:. gen rif_50=.}{p_end}
+{phang2}{cmd:. rifreg lwage age schooling  if female==0 [weight=wgt], q(0.5) w(0.06) re(rif_50m)}{p_end}
+{phang2}{cmd:. replace rif_50=rif_50m if female==0}{p_end}
+{phang2}{cmd:. rifreg lwage age schooling if female==1 [weight=wgt], q(0.5) w(0.06) re(rif_50f)} {p_end}
+{phang2}{cmd:. replace rif_50=rif_50f if female==1}{p_end}
+
+{p 6 8 2}Step 2: Use {help oaxaca} to compute the decomposition
+
+{phang2}{cmd:. oaxaca rif_50 age schooling, by(female) weight(1) detail notf}{p_end}
+
+
+{pstd}
+
+{title:References}
+
+{p 4 8 2} Firpo, Sergio, Nicole Fortin and Thomas Lemieux, Unconditional Quantiles Regressions," NBER Technical Paper T339, July 2007.
+ Published as in {it: Econometrica,} 77 (May 2009):  953–973.
+ {p_end}
+{p 4 8 2} Fortin, Nicole, Thomas Lemieux and Sergio Firpo, “Decomposition Methods,” (with T. Lemieux and S. Firpo),  in O. Ashenfelter and D. Card (eds.) 
+Handbook of Labor Economics, Vol. 4A, Amsterdam: North-Holland , 2011, 1-102.  
+
+
+{title:Also see}
+
+{psee}
+Online:  {helpb regress}
+{p_end}
+{* $Id: rifreg.hlp,v 1.5 2009/04/09 15:56:28 mgevaert Exp mgevaert $ }
