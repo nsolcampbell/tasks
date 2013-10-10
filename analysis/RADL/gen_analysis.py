@@ -32,7 +32,6 @@ keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
     FTPTSTAT SECEDQL OCC6DIG AGEEC PSRC4PP PSRCSCP IWSSUCP8 IWSUCP SIHPSWT ///
     WPS0101-WPS0160
 
-* stone age STATA means we need a workaround for merge
 sort OCC6DIG
 joinby OCC6DIG using "`SAVED'Combined2Map", unmatched(both)
 
@@ -68,7 +67,6 @@ keep ABSHID ABSFID ABSIID ABSIID ABSPID ///
     PSRCCP FTPTSTAT OCCCP IWSUCP WTPSN ///
     REPWT1-REPWT30
 
-* stone age STATA means we need a workaround for merge
 sort OCCCP
 joinby OCCCP using "`SAVED'AscoCombined2Map", unmatched(both)
 
@@ -93,15 +91,14 @@ generate L_IWSTPP = log(IWSUCP)
 
 # ***********************
 
-make_script('combinedi_2010.do', "L_IWSTPP", "COMBINEDI", "SIHPSWT", 28, """
+TEMPLATE1 = """
 * EXPANDED CURF
-use "`SIH10EP'"
+use "`%s'"
 
 keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
     FTPTSTAT SECEDQL OCC6DIG AGEEC PSRC4PP PSRCSCP IWSSUCP8 IWSUCP SIHPSWT ///
     WPS0101-WPS0160
 
-* stone age STATA means we need a workaround for merge
 sort OCC6DIG
 joinby OCC6DIG using "`SAVED'AnzscoCombined1Map", unmatched(both)
 
@@ -122,4 +119,45 @@ table COMBINEDI
 
 * Log income
 generate L_IWSTPP = log(IWSSUCP8) 
-""")
+"""
+
+TEMPLATE2 = """
+* EXPANDED CURF
+use "`%s'"
+
+keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
+    FTPTSTAT SECEDQL OCC6DIG AGEEC PSRCSCP IWSSUCP8 IWSUCP SIHPSWT ///
+    WPS0101-WPS0160
+
+sort OCC6DIG
+joinby OCC6DIG using "`SAVED'Combined2Map", unmatched(both)
+
+sort COMBINEDII
+
+svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
+
+* keep only full-time Wage & Salary records
+drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
+
+* remove "Not Applicable" or "Inadequately Described" records
+drop if (OCC6DIG == 0) | (OCC6DIG == 99)
+
+svrmean IWSSUCP8, by(OCC6DIG)
+svrmean IWSSUCP8, by(COMBINEDII)
+
+table COMBINEDII
+* tab OCC6DIG
+* svrtab OCC6DIG
+
+* Log income
+generate L_IWSTPP = log(IWSSUCP8) 
+"""
+
+make_script('combinedi_2010.do', "L_IWSTPP", "COMBINEDI", "SIHPSWT", 28, 
+            TEMPLATE1 % "SIH10EP")
+make_script('combinedi_2012.do', "L_IWSTPP", "COMBINEDI", "SIHPSWT", 28, 
+            TEMPLATE1 % "SIH11EP")
+make_script('combinedii_2010.do', "L_IWSTPP", "COMBINEDII", "SIHPSWT", 29, 
+            TEMPLATE2 % "SIH10EP")
+make_script('combinedii_2012.do', "L_IWSTPP", "COMBINEDII", "SIHPSWT", 29, 
+            TEMPLATE2 % "SIH11EP")
