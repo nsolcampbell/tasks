@@ -8,21 +8,21 @@ pdf("figure/quantile_changes_by_occupation.pdf", paper="a4r", width=12, height=8
 for (grouping in c(1,2)) {
 if (grouping == 2) {
     start_w <- read.csv("data/quantiles/2001_combined2.csv")[,-1]
-    start_w <- start_w - log(centered_cpi(2001)) + log(centered_cpi(2010))
-    end_w <- read.csv("data/quantiles/2010_combined2.csv")[,-1]
+    start_w <- start_w - log(centered_cpi(2001)) + log(centered_cpi(2012))
+    end_w <- read.csv("data/quantiles/2012_combined2.csv")[,-1]
     load("data/tasks.combinedii.rda")
     titles <- tasks.combinedii$CombinedII.Title
     load("data/lambdas/combinedii.rda")
-    plot_title <- "Occupation Group #2: Log Wage Quantiles, 2000/01 - 2009/10"
+    plot_title <- "Occupation Group #2: Log Wage Quantiles, 2000/01 - 2011/12"
 } else {
     start_w <- read.csv("data/quantiles/1982_combined1.csv")[,-1]
-    start_w <- start_w - log(centered_cpi(1982)) + log(centered_cpi(2010))
-    end_w <- read.csv("data/quantiles/2010_combined1.csv")[,-1]
+    start_w <- start_w - log(centered_cpi(1982)) + log(centered_cpi(2012))
+    end_w <- read.csv("data/quantiles/2012_combined1.csv")[,-1]
     end_w <- end_w
     load("data/tasks.combinedi.rda")
     titles <- tasks.combinedi$Title
     load("data/lambdas/combinedi.rda")
-    plot_title <- "Occupation Group #1: Log Wage Quantiles, 1981/82 - 2009/10"
+    plot_title <- "Occupation Group #1: Log Wage Quantiles, 1981/82 - 2011/12"
 }
 
 lambda_matrix <- matrix(rep(Lambda, nrow(end_w)), ncol=9, nrow=nrow(end_w), byrow=T)
