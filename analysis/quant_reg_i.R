@@ -5,8 +5,8 @@ source('lib/centered_cpi.R')
 
 start_w <- read.csv("data/quantiles/1982_combined1.csv")[,-1]
 start_w <- start_w - log(centered_cpi(1982))
-end_w <- read.csv("data/quantiles/2010_combined1.csv")[,-1]
-end_w <- end_w - log(centered_cpi(2010))
+end_w <- read.csv("data/quantiles/2012_combined1.csv")[,-1]
+end_w <- end_w - log(centered_cpi(2012))
 diff_w = end_w - start_w
 nocc <- ncol(diff_w)
 colnames(diff_w) <- 1:nocc
@@ -26,7 +26,7 @@ dset$occupation <- as.numeric(gsub('X', '', dset$occupation))
 dset$occupation <- factor(dset$occupation)
 
 # load 1982 population weights
-pop82 <- read.csv("data/Population/1982_combinedi.csv")
+pop82 <- read.csv("data/population/1982_combinedi.csv")
 dset2 <- merge(x=dset, y=pop82, by.x="occupation", by.y="COMBINEDI")
 
 library(nlme)
@@ -49,6 +49,6 @@ B <- cbind(B, occupation=1:nrow(B))
 names(B) <- c("B", "occupation")
 B.tasks <- merge(x=B, y=tasks.combinedi, by.x='occupation', by.y='COMBINED1')
 
-quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 1981/2 - 2009/10", 
+quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 1981/2 - 2011/12", 
                      notes="Occupational grouping #1 used, with 28 occupational groups.",
                      out="analysis/quant_reg_i")

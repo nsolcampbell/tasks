@@ -24,14 +24,10 @@ combined.sub      <- merge(x=census.unmatched, y=anzsco_onet.unmatched, by.x='AN
 matched.sub       <- combined.sub[!is.na(combined.sub$Population),]
 unmatched.sub     <- anzsco_onet.unmatched[is.na(combined.sub$Population),]
 
-# match at minor group (3 digit) level
-# combined.maj   <- merge(x=census, y=unmatched.sub, by.x='ANZSCO2', by.y='ANZSCO2',all.y=T)
-# matched.maj    <- combined.sub[!is.na(combined.maj$Population),]
-# unmatched      <- unmatched[is.na(combined.maj$Population),]
-
 cols <- c("ANZSCO", "Title.x", "Employees", "Incorporated", "Unincorporated", 
           "ContribFamily", "Not.Stated", "Population", "ANZSCO2", "Title2", 
-          "Information.Content", "Automation.Routinization", "Face.to.Face", "On.Site.Job", "Decision.Making"
+          "Information.Content", "Automation.Routinization", "No.Face.to.Face",
+          "No.On.Site.Work", "No.Decision.Making"
 )
 
 combined <- rbind(matched[,cols], matched.sub[,cols])
@@ -42,16 +38,16 @@ to_two_digit <- function(four_digit, col) {
     ddply(four_digit, col, summarise, 
           Information.Content=weighted.mean(Information.Content, Population),
           Automation.Routinization=weighted.mean(Automation.Routinization, Population),
-          Face.to.Face=weighted.mean(Face.to.Face, Population),
-          On.Site.Job=weighted.mean(On.Site.Job, Population),
-          Decision.Making=weighted.mean(Decision.Making, Population),
+          No.Face.to.Face=weighted.mean(No.Face.to.Face, Population),
+          No.On.Site.Work=weighted.mean(No.On.Site.Work, Population),
+          No.Decision.Making=weighted.mean(No.Decision.Making, Population),
           Population=sum(Population))
 }
 
 # normalize columns to unit standard deviation and zero mean
 scale_tasks <- function(task_measures) {
 #     cols <- c("Information.Content", "Automation.Routinization",
-#                 "Face.to.Face", "On.Site.Job", "Decision.Making")
+#                 "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making")
 #     for (col in cols) {
 #         xbar <- mean(task_measures[,col])
 #         s    <- sd(task_measures[,col])

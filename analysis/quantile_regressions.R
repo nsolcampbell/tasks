@@ -1,24 +1,24 @@
 quantile_regressions <- function(A.tasks, B.tasks, notes, title, outfile) {
     
-    A.lm <- lm(A ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+    A.lm <- lm(A ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                 data=A.tasks, weights = Population)
     
-    A.lm.nooutsrc <- lm(A ~ Automation.Routinization + Decision.Making,
+    A.lm.nooutsrc <- lm(A ~ Automation.Routinization + No.Decision.Making,
                data=A.tasks, weights = Population)
     
-    A.lm.noroutine <- lm(A ~ Information.Content + Face.to.Face + On.Site.Job,
+    A.lm.noroutine <- lm(A ~ Information.Content + No.Face.to.Face + No.On.Site.Work,
                           data=A.tasks, weights = Population)
     
-    B.lm.unweighted <- lm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+    B.lm.unweighted <- lm(B ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                           data=B.tasks)
     
-    B.lm <- lm(B ~ Information.Content + Automation.Routinization + Face.to.Face + On.Site.Job + Decision.Making,
+    B.lm <- lm(B ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                           data=B.tasks, weights = Population)
     
-    B.lm.noroutine <- lm(B ~ Information.Content + Face.to.Face + On.Site.Job,
+    B.lm.noroutine <- lm(B ~ Information.Content + No.Face.to.Face + No.On.Site.Work,
                           data=B.tasks, weights = Population)
     
-    B.lm.nooutsrc <- lm(B ~ Automation.Routinization + Decision.Making,
+    B.lm.nooutsrc <- lm(B ~ Automation.Routinization + No.Decision.Making,
                         data=B.tasks, weights = Population)
     
     library(stargazer)

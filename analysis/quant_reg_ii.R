@@ -3,13 +3,13 @@ library(reshape2)
 source('analysis/quantile_regressions.R')
 source('lib/centered_cpi.R')
 
-# log factor to inflate 2001 prices to 2010 prices
-cpi_factor <- log(centered_cpi(2010)) - log(centered_cpi(2001))
+# log factor to inflate 2001 prices to 2012 prices
+cpi_factor <- log(centered_cpi(2012)) - log(centered_cpi(2001))
 
 # quantiles are in logarithms
 start_w <- read.csv("data/quantiles/2001_combined2.csv")[,-1]
 start_w <- start_w #+ cpi_factor
-end_w <- read.csv("data/quantiles/2010_combined2.csv")[,-1]
+end_w <- read.csv("data/quantiles/2012_combined2.csv")[,-1]
 diff_w = end_w - start_w
 nocc <- ncol(diff_w)
 colnames(diff_w) <- 1:nocc
@@ -29,7 +29,7 @@ dset$occupation <- as.numeric(gsub('X', '', dset$occupation))
 dset$occupation <- factor(dset$occupation)
 
 # load base period (2000-01) population weights
-pop01 <- read.csv("data/Population/2001_combinedii.csv")
+pop01 <- read.csv("data/population/2001_combinedii.csv")
 dset2 <- merge(x=dset, y=pop01, by.x="occupation", by.y="COMBINEDII")
 
 library(nlme)
@@ -54,6 +54,6 @@ names(B) <- c("B", "occupation")
 B.tasks <- merge(x=B, y=tasks.combinedii, by.x='occupation', by.y='COMBINEDII')
 B.tasks$Population <- pop01$Population
 
-quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 2000/01 - 2009/10", 
+quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 2000/01 - 2011/12", 
                      notes="Occupational grouping #2 used, with 29 occupational groups.",
                      out="analysis/quant_reg_ii")

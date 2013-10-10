@@ -1,5 +1,9 @@
+# Weight the O*NET mappings onto ANZSCO two- and three-digit codes
+
+# Note: getting an error in this file? Make sure you've downloaded
+#       the O*NET database using the data/get_onet.sh script.
+
 rm(list=ls())
-# weight the O*NET mappings onto ANZSCO two- and three-digit codes
 require(reshape2)
 
 # Scales with "frequency" are given by their coded value, multiplied by
@@ -49,10 +53,10 @@ load.level.importance <- function(filename) {
 
 
 # First load and merge ONET abilities, knowledge and work activities
-abilities <- load.level.importance("data/onet/db_17_0/Abilities.txt")
-knowledge <- load.level.importance("data/onet/db_17_0/Knowledge.txt")
-tasks     <- load.level.importance("data/onet/db_17_0/Work Activities.txt")
-context   <- load.frequency('data/onet/db_17_0/Work Context.txt')
+abilities <- load.level.importance("data/onet/csv/Abilities.txt")
+knowledge <- load.level.importance("data/onet/csv/Knowledge.txt")
+tasks     <- load.level.importance("data/onet/csv/Work Activities.txt")
+context   <- load.frequency('data/onet/csv/Work Context.txt')
 
 # Context is missing some (very rare) values. We'll plug with zeros.
 dummy_index <- data.frame(onet=rownames(tasks$scaled_values))
@@ -80,21 +84,21 @@ onet_tasks <- with(all_scales,
                         (1- Structured.versus.Unstructured.Work) +
                         Pace.Determined.by.Speed.of.Equipment +
                         Spend.Time.Making.Repetitive.Motions) / 5,
-                   Face.to.Face =
-                       (Face.to.Face.Discussions +
+                   No.Face.to.Face =
+                       1 - (Face.to.Face.Discussions +
                         Establishing.and.Maintaining.Interpersonal.Relationships +
                         Assisting.and.Caring.for.Others +
                         Performing.for.or.Working.Directly.with.the.Public +
                         Coaching.and.Developing.Others) / 5,
-                   On.Site.Job =
-                       (Inspecting.Equipment..Structures..or.Material +
+                   No.On.Site.Work =
+                       1 - (Inspecting.Equipment..Structures..or.Material +
                         Handling.and.Moving.Objects +
                         Controlling.Machines.and.Processes +
                         Operating.Vehicles..Mechanized.Devices..or.Equipment +
                         Repairing.and.Maintaining.Electronic.Equipment * 0.5 +
                         Repairing.and.Maintaining.Mechanical.Equipment * 0.5) / 5,
-                   Decision.Making = 
-                       (Making.Decisions.and.Solving.Problems + 
+                   No.Decision.Making = 
+                       1 - (Making.Decisions.and.Solving.Problems + 
                         Thinking.Creatively +
                         Developing.Objectives.and.Strategies +
                         Responsibility.for.Outcomes.and.Results +
