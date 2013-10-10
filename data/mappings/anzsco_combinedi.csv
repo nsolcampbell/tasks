@@ -1,52 +1,52 @@
 ANZSCO,Description,COMBINED1,COMBINED1 Title
-10,Other managers,1,Other managers
-11,"Business professionals - CEOs, GMs, Legislators",2,"Business professionals - CEOs, GMs, Legislators"
-12,Farmers/farm managers,12,Farmers/farm managers
-13,Other managers,1,Other managers
-14,Hospitality workers,19,Hospitality workers
-20,Professionals NFD,4,Professionals NFD
-21,Arts and media professionals,18,Arts and media professionals
-22,"Business professionals - CEOs, GMs, Legislators",2,"Business professionals - CEOs, GMs, Legislators"
-23,"Designers, Engineers, Scientists, Transport Professionals",7,"Designers, Engineers, Scientists, Transport Professionals"
-24,Teachers,5,Teachers
-25,Health professionals,3,Health professionals
-26,"Business professionals - CEOs, GMs, Legislators",2,"Business professionals - CEOs, GMs, Legislators"
-27,Legal Professionals,6,Legal Professionals
-30,Technicians,8,Technicians
-31,Technicians,8,Technicians
-32,Automotive and Engineering trades workers,23,Automotive and Engineering trades workers
-33,Construction trades workers,16,Construction trades workers
-34,Electrotechnology and Telecommunications trades workers,10,Electrotechnology and Telecommunications trades workers
-35,Food trades workers,17,Food trades workers
-36,Other technicians and trades workers,20,Other technicians and trades workers
-39,Other technicians and trades workers,20,Other technicians and trades workers
-40,Sports and personal service workers,25,Sports and personal service workers
-41,Health professionals,3,Health professionals
-42,Cleaners and caretakers,24,Cleaners and caretakers
-43,Hospitality workers,19,Hospitality workers
-44,Protective service workers,27,Protective service workers
-45,Sports and personal service workers,25,Sports and personal service workers
-50,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-51,Other managers,1,Other managers
-52,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-53,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-54,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-55,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-56,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-59,"Office support, clerical and postal workers",11,"Office support, clerical and postal workers"
-60,Sales assistants and support workers,22,Sales assistants and support workers
-61,Sales representatives and agents,21,Sales representatives and agents
-62,Sales assistants and support workers,22,Sales assistants and support workers
-63,Sales assistants and support workers,22,Sales assistants and support workers
-70,Machine operators,28,Machine operators
-71,Machine operators,28,Machine operators
-72,Machine operators,28,Machine operators
-73,Road transport & railway workers,9,Road transport & railway workers
-74,"Storepersons, freight handlers",14,"Storepersons, freight handlers"
-80,Labourers,15,Labourers
-81,Cleaners and caretakers,24,Cleaners and caretakers
-82,Labourers,15,Labourers
-83,Factory process workers,26,Factory process workers
-84,Farm/rural/garden workers,13,Farm/rural/garden workers
-85,Food trades workers,17,Food trades workers
-89,Labourers,15,Labourers
+10, Managers nfd,1,Other managers
+11," Chief Executives, General Managers and Legislators",2,"Managers - CEOs, GMs, Legislators"
+12, Farmers and Farm Managers,12,Farmers/farm managers
+13, Specialist Managers,1,Other managers
+14," Hospitality, Retail and Service Managers",19,Hospitality workers
+20, Professionals nfd,4,Professionals NFD
+21, Arts and Media Professionals,18,Arts and media professionals
+22," Business, Human Resource and Marketing Professionals",1,Other managers
+23," Design, Engineering, Science and Transport Professionals",7,"Designers, Engineers, Scientists, Transport Professionals"
+24, Education Professionals,5,Teachers
+25, Health Professionals,3,Health professionals
+26, ICT Professionals,4,Professionals NFD
+27," Legal, Social and Welfare Professionals",6,Legal Professionals
+30, Technicians and Trades Workers nfd,8,Technicians
+31," Engineering, ICT and Science Technicians",8,Technicians
+32, Automotive and Engineering Trades Workers,23,Automotive and Engineering trades workers
+33, Construction Trades Workers,16,Construction trades workers
+34, Electro technology and Telecommunications Trades Workers,10,Electrotechnology and Telecommunications trades workers
+35, Food Trades Workers,17,Food trades workers
+36, Skilled Animal and Horticultural Workers,20,Other technicians and trades workers
+39, Other Technicians and Trades Workers,20,Other technicians and trades workers
+40, Community and Personal Service Workers nfd,25,Sports and personal service workers
+41, Health and Welfare Support Workers,3,Health professionals
+42, Carers and Aides,24,Cleaners and caretakers
+43, Hospitality Workers,19,Hospitality workers
+44, Protective Service Workers,27,Protective service workers
+45, Sports and Personal Service Workers,25,Sports and personal service workers
+50, Clerical and Administrative Workers nfd,11,"Office support, clerical and postal workers"
+51, Office Managers and Program Administrators,1,Other managers
+52, Personal Assistants and Secretaries,11,"Office support, clerical and postal workers"
+53, General Clerical Workers,11,"Office support, clerical and postal workers"
+54, Inquiry Clerks and Receptionists,11,"Office support, clerical and postal workers"
+55, Numerical Clerks,11,"Office support, clerical and postal workers"
+56, Clerical and Office Support Workers,11,"Office support, clerical and postal workers"
+59, Other Clerical and Administrative Workers,11,"Office support, clerical and postal workers"
+60, Sales Workers nfd                     ,22,Sales assistants and support workers
+61, Sales Representatives and Agents      ,21,Sales representatives and agents
+62, Sales Assistants and Salespersons     ,22,Sales assistants and support workers
+63, Sales Support Workers                 ,22,Sales assistants and support workers
+70, Machinery Operators and Drivers nfd   ,28,Machine operators
+71, Machine and Stationary Plant Operators,28,Machine operators
+72, Mobile Plant Operators                ,28,Machine operators
+73, Road and Rail Drivers                 ,9,Road transport & railway workers
+74, Store persons                          ,14,"Storepersons, freight handlers"
+80, Labourers nfd                         ,15,Labourers
+81, Cleaners and Laundry Workers          ,24,Cleaners and caretakers
+82, Construction and Mining Labourers     ,15,Labourers
+83, Factory Process Workers               ,26,Factory process workers
+84," Farm, Forestry and Garden Workers     ",13,Farm/rural/garden workers
+85, Food Preparation Assistants           ,17,Food trades workers
+89, Other Labourers                       ,15,Labourers

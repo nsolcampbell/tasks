@@ -30,7 +30,8 @@ pop82 <- read.csv("data/population/1982_combinedi.csv")
 dset2 <- merge(x=dset, y=pop82, by.x="occupation", by.y="COMBINEDI")
 
 library(nlme)
-mdl <- lme(diff ~ 0 + occupation + quantile, random = ~ 0 + start|occupation, 
+mdl <- lme(diff ~ 0 + occupation + quantile,
+           random = ~ 0 + start|occupation, 
            data=dset2, weights=dset$population)
 
 A      <- fixef(mdl)[grep('occupation', names(fixef(mdl)))]
@@ -49,6 +50,16 @@ B <- cbind(B, occupation=1:nrow(B))
 names(B) <- c("B", "occupation")
 B.tasks <- merge(x=B, y=tasks.combinedi, by.x='occupation', by.y='COMBINED1')
 
-quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 1981/2 - 2011/12", 
+quantile_regressions(A.tasks, B.tasks,
+                     "Intercept and Slope of Change in Wage Quantiles, 1981/2 - 2011/12", 
                      notes="Occupational grouping #1 used, with 28 occupational groups.",
                      out="analysis/quant_reg_i")
+
+if (FALSE) {
+  library(ggplot2)
+  load("data/tasks.combinedi.rda")
+  # diagnostic sanity checks
+  qplot(1:9, Lambda, geom="line")
+  tab <- cbind(A, B[,1], tasks.combinedi)
+  View(tab)
+}
