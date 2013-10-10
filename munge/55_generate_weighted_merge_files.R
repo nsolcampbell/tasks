@@ -10,14 +10,14 @@ load("data/tasks.combinedi.rda")
 map.i <- read.csv("data/mappings/cclo_combinedi.csv")
 merged.i <- merge(x=tasks.combinedi, y=map.i, by="COMBINED1")
 cols.i <- c("CCLO", "COMBINED1", "Information.Content", "Automation.Routinization", 
-            "Face.to.Face", "On.Site.Job", "Decision.Making", "Population", 
+            "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making", "Population", 
             "COMBINED1.Title")
 write.csv(merged.i[,cols.i], file="data/mappings/tasks_mapped_cclo_i.csv")
 
 map.i <- read.csv("data/mappings/anzsco_combinedi.csv")
 merged.i <- merge(x=tasks.combinedi, y=map.i, by="COMBINED1")
 cols.i <- c("ANZSCO", "COMBINED1", "Information.Content", "Automation.Routinization",
-          "Face.to.Face", "On.Site.Job", "Decision.Making", "Population", "Title")
+          "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making", "Population", "Title")
 write.csv(merged.i[,cols.i], file="data/mappings/tasks_mapped_anzsco_i.csv")
 
 # ### COMBINED II mapping ###
@@ -27,7 +27,7 @@ load("data/tasks.combinedii.rda")
 map.ii <- read.csv("data/mappings/ascoii_combinedii.csv")
 merged.ii <- merge(map.ii, tasks.combinedii)
 cols.ii <- c("ASCO2", "COMBINEDII", "Information.Content", 
-             "Automation.Routinization", "Face.to.Face", "On.Site.Job", "Decision.Making", 
+             "Automation.Routinization", "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making", 
              "Population", "CombinedII.Title")
 write.csv(merged.ii[,cols.ii], file="data/mappings/tasks_mapped_ascoii_ii.csv")
 
@@ -36,7 +36,7 @@ write.csv(merged.ii[,cols.ii], file="data/mappings/tasks_mapped_ascoii_ii.csv")
 map.ii <- read.csv("data/mappings/anzsco_combinedii.csv")
 merged.ii <- merge(x=tasks.combinedii, y=map.ii, by="COMBINEDII")
 cols.ii <- c("ANZSCO", "COMBINEDII", "Information.Content", "Automation.Routinization", 
-             "Face.to.Face", "On.Site.Job", "Decision.Making", "Population", 
+             "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making", "Population", 
              "CombinedII.Title")
 write.csv(merged.ii[,cols.ii], file="data/mappings/tasks_mapped_anzsco_ii.csv")
 
