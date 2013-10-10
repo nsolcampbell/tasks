@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import csv
 
 def make_dofile(serverfile, csvfile, dofile, var1, var2):
