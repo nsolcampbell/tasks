@@ -51,7 +51,6 @@ load.level.importance <- function(filename) {
     return(list(scaled_values=scaled, elements=unique(longfmt$element)))
 }
 
-
 # First load and merge ONET abilities, knowledge and work activities
 abilities <- load.level.importance("data/onet/csv/Abilities.txt")
 knowledge <- load.level.importance("data/onet/csv/Knowledge.txt")
@@ -148,3 +147,11 @@ save(anzsco_onet,
 
 # also write out CSV copies for easy access
 write.csv(task_content, 'data/anzsco_onet_combined.csv')
+
+# and, because it will be useful for the PCA analysis, we
+# now compute the same but for all the task inputs, rather
+# than just summary indexes
+
+all_scales$ONET <- rownames(all_scales)
+all_content <- merge(x=map, y=all_scales, by="ONET")
+save(all_scales, all_content, file='data/anzsco_onet_all.rda')
