@@ -1,4 +1,5 @@
 cd "/Users/acooper/Documents/School/polarization"
+set more off
 
 * ************************* 1982 ****************************
 
@@ -7,12 +8,12 @@ use "data/curf/1982/IDS82.dta"
 
 keep IncomeWages CurrentOccup PrincipalSource FulltimeParttime PERS_WT
 
-generate OCC = CurrentOccup
+generate OCC6DIG = CurrentOccup
 
 drop if PrincipalSource != 1
 drop if FulltimeParttime != 1
 
-quietly merge m:1 OCC using "data/curf/1982/CcloCombined1Map.dta"
+quietly merge m:1 OCC6DIG using "data/curf/1982/CcloCombined1Map.dta"
 drop if missing(COMBINEDI)
 
 * Log income
