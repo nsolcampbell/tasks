@@ -1,4 +1,3 @@
-\setcounter{page}{32}
 \chapter{Tasks and wages}
 
 In the previous two chapters, we have seen that the `canonical' model of skill-biased technical change does a poor job of explaining the evolution of wage inequality in Australia. In particular, while growing inequality the Australian labour market has mirrored that of overseas economies, there is no empirical evidence that this has been driven by a premium paid to `educated' workers, relative to less educated workers. 
@@ -51,7 +50,7 @@ This intuitive comparative static prediction forms the basis for the empirical a
 
 %As shall be discussed below, the key challenges arising out of empirical implementations of model of this type is identification. If the profit maximization and log-normality assumptions can be maintained, and if wages are observable in each sector, then the model is identified. However, when a Roy model is used to analyze a labour supply decision, where wages for the household sector are {\em not} observable, and nor are the talents of individuals, then the parameters in \eqref{eq:sr} are not identified. In this case, variations {\em across } markets, or variations {\em within } markets (ie across individuals) are used to identify the model.
 
-\section{Emprical Approach}\label{sec:emp}
+\section{Empirical Approach}\label{sec:emp}
 
 The desired decomposition is a relationship between occupations and their constituent tasks. Roy-type models posit that the wage an individual is paid depends on the skills demanded by that occupation, and the returns to the skills in question. One simple approach to identifying the contribution of each one of a worker's skills to the overall wage, considered by \citet{Firpo2011}, is to adapt the simple linearly additive functional form of \citet{Welch1969}. Welch assumed that an individual's wage is determined linearly by the individual skills that worker possessed.
 \begin{assumption}[Linear additivity of returns to skills] \label{ass:linear}
@@ -177,6 +176,15 @@ Using re-weighted data, we can estimate the means of the counterfactual distribu
 This decomposition can be performed on income surveys of repeated cross-sections of the same markets over time.
 
 \section{Results}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../figure/wages_indexes_4digit.pdf}
+  \caption{Mean occupational wage and task measure index values, at ANZSCO unit group (4-digit) level. Census respondents reporting full-time work are shown. The loess regression line is weighted by population; circle areas are proportional to population for each occupation. Notice that, when occupations are reduced to combined groupings, almost identical trends are observed: see Figure~\ref{fig:meanocc2}. Sources: ABS cat 2072.0, O*NET, US Dept of Labor.}
+  \label{fig:meanocc4dig}
+\end{figure}
+\input{quant_reg_i}
+\input{quant_reg_ii}
 
 %%% Local Variables: 
 %%% mode: latex

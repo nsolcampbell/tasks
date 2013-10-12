@@ -1,5 +1,9 @@
 rm(list=ls())
 library(plyr)
+library(reshape2)
+library(ggplot2)
+source('lib/plot_theme.R')
+source('lib/footnote.R')
 
 cols <- c("ANZSCO", "X1.199", "X200.299", "X300.399", 
           "X400.599", "X600.799", "X800.999", "X1000.1249", "X1250.1500", 
@@ -60,15 +64,16 @@ tasks.long <- melt(tasks[,keep.cols],
                    variable.name='index')
 tasks.long$lpop <- with(tasks.long, log(pop))
 
-pdf("figure/wages_indexes_4digit.pdf", height=8, width=12, paper="a4r")
+pdf("figure/wages_indexes_4digit.pdf", height=8, width=12)
 ggplot(tasks.long, aes(x=mean, y=value, group=index, weight=weight)) + 
     geom_point(shape='o',alpha=0.5, aes(size=lpop*4)) +
-    geom_smooth(method='loess', fill=NA) +
+    geom_smooth(method='loess',fill=NA) +
     facet_wrap(~index) +
     scale_x_log10(breaks=c(0.5,1,2,3,4)*1000) +
     geom_hline(y=0, alpha=0.3) +
     xlab("Occupational group weekly mean wage (log scale)") +
     ylab("Index value") +
-    ggtitle("Task Indexes and Mean Wages, 2009/10") +
+    ggtitle("Task Indexes and Mean Reported Weekly Wages, 2011 Census") +
     theme(legend.position='none')
+makeFootnote('Full-time workers. Source: ABS cat no 2072.0')
 dev.off()
