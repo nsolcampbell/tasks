@@ -2,19 +2,19 @@
 
 \section{Income Surveys}
 
-\subsection{Survey of Income and Housing, 1981-2010}
+Measures of income are drawn from two principal data sources, both provided by the ABS. The first is the Survey of Income and Housing, a detailed sample survey of household income dynamics, and the second is the Census of Population and Housing, a five-yearly survey of the full Australian population. 
+
+\subsection{Survey of Income and Housing, 1981-2012}
 
 The Survey of Income and Housing (SIH) is a hierarchical, clustered sample survey of income and expenditure patterns of the the Australian population, periodically conducted by the Australian Bureau of Statistics. It was first conducted in the 1981-2 fiscal year, followed by 1985-6, and then every two or three years from 1994-5. Microdata files were obtained as confidentialized unit record files (CURFs) for the surveys performed in 1981-2, 1985-6, 1994-5, 1995-6, 1996-7, 1997-8, 2000-1, 2002-3, 2005-6, 2007-8 and 2009-10.
 
-Unlike the Census, which is a population survey, the SIH is conducted on just a sample of the population, and unit records are weighted by demographic variables in order to create a representative sample. Weights are produced at three levels of the survey hierarchy: household, income unit and person. (In addition, the SIH is occasionally produced simultaneously with the Housing Expenditure Survey, or HES, in which case further expenditure levels are recorded.) For the purposes of this project, only individual-level records are of interest, and so results are weighted by person weight, $PERS\_WT$.
+Unlike the Census of Population and Housing, a population survey, the SIH is conducted on just a sample of the population, and unit records are weighted by demographic variables in order to create a representative sample. Weights are produced at three levels of the survey hierarchy: household, income unit and person. (In addition, the SIH is occasionally produced simultaneously with the Housing Expenditure Survey, or HES, in which case further expenditure levels are recorded.) For the purposes of this project, only individual-level records are of interest, and so all estimators are weighted by person weight.
 
 \subsubsection{Survey Weights}
 
-In all versions of the SIH, the $PERS\_WT$ variable for the $i$th record is computed as the reciprocal of that individual's probability of selection $\pi_i$:
-$$ PERS\_WT_i = \frac{1}{\pi_i}, $$
-$PERS\_WT_i$ can be interpreted as the number of individuals `represented' by record $i$. Note that the selection probabilities $\pi_i$, $i=1,\cdots,n$, need not sum to 1.
+In all versions of the SIH, the $PERS\_WT$ variable for the $i$th record is computed as the reciprocal of that individual's probability of selection $\pi_i$, where $PERS\_WT_i = 1/\pi_i.$ $PERS\_WT_i$ can be interpreted as the number of individuals in the whole population `represented' by record $i$. The sum of the inverse selection probabilities is therefore identically equal to the size of the population. Note that, since the $\pi_i$ refers to the probability of individual $i$ being drawn from the overall population (and not from the sample), the selection probabilities $\pi_i$, $i=1,\cdots,n$, will not sum to 1.
 
-The survey data are weighted so as to be a representative sample of the Australian population. Weights are given in survey data as `person weights', an inverse selection probability for each individual in the population. 
+
 
 \subsubsection{Occupational Coding}
 
@@ -111,6 +111,13 @@ We have mapped the ANZSCO (and its predecessors, various editions of ASCO and th
 \end{itemize}
 \end{enumerate}
 \end{enumerate}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../figure/wages_indexes.pdf}
+  \caption{Mean occupational wage and task measure index values, using second combined grouping. Note the similarity of the observed trend to Figure~\ref{fig:meanocc4dig}, in which occupations have not been grouped. Census respondents reporting full-time work are shown. The loess regression line is weighted by population; circle areas are proportional to population for each occupation. Sources: ABS cat 2072.0, O*NET, US Dept of Labor.}
+  \label{fig:meanocc2}
+\end{figure}
 
 \begin{figure}
   \centering
