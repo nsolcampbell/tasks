@@ -55,5 +55,5 @@ B.tasks <- merge(x=B, y=tasks.combinedii, by.x='occupation', by.y='COMBINEDII')
 B.tasks$Population <- pop01$Population
 
 quantile_regressions(A.tasks, B.tasks, "Intercept and Slope of Change in Wage Quantiles, 2000/01 - 2011/12", 
-                     notes="Occupational grouping #2 used, with 29 occupational groups.",
+                     notes="Occupational grouping 2 used, with 29 occupational groups.",
                      out="analysis/quant_reg_ii")

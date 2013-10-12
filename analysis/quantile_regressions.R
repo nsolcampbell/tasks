@@ -26,5 +26,14 @@ quantile_regressions <- function(A.tasks, B.tasks, notes, title, outfile) {
               B.lm, B.lm.noroutine, B.lm.nooutsrc,
               dep.var.labels=c("A (intercepts)", "B (slopes)"),
               digits=2, notes=notes, t.auto=T,
-              type="text", title=title, out=paste0(outfile, c(".txt", ".tex")))
+              float.env="sidewaystable",
+              column.sep.width='0pt',
+              type="text", title=title,
+              omit='Constant',
+              out=paste0(outfile, c(".txt", ".tex")),
+              covariate.labels=c("Information content",
+                "Automation/routinization",
+                "No face-to-face contact",
+                "No on-site work",
+                "No decision-making"))
 }
