@@ -1,0 +1,30 @@
+"Group","Hybrid Occupation Group Title","ASCO II Code","ANZSCO Code"
+1,"General Managers, Legislators","10, 11","10, 11"
+2,"Farm Managers",13,12
+3,"Specialist Managers",12,13
+4,"Hospitality and Service Managers and Workers",33,14
+5,"Other Professionals",20,"20, 21"
+6,"Business, ICT Professionals",22,"22, 26"
+7,"STEM Professionals",21,23
+8,"Education Professionals",8,24
+9,"Health Professionals",9,25
+10,"Sales supervisors and agents","40, 49",61
+11,"Legal Professionals",25,27
+12,"Technicians",31,"30, 31"
+13,"Auto and engineering tradespersons","41, 42",32
+14,"Construction tradesworkers",44,33
+15,"Electricians and telecom tradesworkers",43,34
+16,"Food trades workers",45,35
+17,"Skilled Animal and Horticultural Workers",46,36
+18,"Associate Professionals","30, 39, 63, 83","39, 44, 45"
+19,"Clerical Workers","50, 60, 61, 81","50, 53, 54, 55, 56"
+20,"Business and Administration Associate Professionals",32,"42, 51"
+21,"Personal Assistants and Secretaries",51,52
+22,"Other Clerical and Administrative Workers",59,59
+23,"Sales workers","80, 82","60, 62, 63"
+24,"Plant operators",70,"70, 71, 72"
+25,"Road and rail drivers","70-72",73
+26,"Other production workers",79,"74, 83"
+27,"Labourers","90,92,99","80, 82, 84, 85, 89"
+28,"Cleaners",91,81
+29,"Health and Welfare Support Workers",34,"40, 41"

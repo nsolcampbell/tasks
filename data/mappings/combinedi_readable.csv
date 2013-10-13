@@ -1,0 +1,29 @@
+"Group","Occupation Title","CCLO Codes","ANZSCO Codes"
+1,"Other managers",12,"10, 13, 22, 51"
+2,"Managers - CEOs, GMs, Legislators",2,11
+3,"Health professionals","3—5","25, 41"
+4,"Professionals NFD",10,"20, 26"
+5,"Teachers",6,24
+6,"Legal Professionals",7,6
+7,"Designers, Engineers, Scientists, Transport Professionals","1, 2, 23, 37",23
+8,"Technicians",9,"30, 31"
+9,"Road transport & railway workers","24, 28-30, 32",73
+10,"Electrotechnology and Telecommunications trades workers","31,39",34
+11,"Office support, clerical and postal workers","14, 15, 25, 26","50, 52—56, 59 "
+12,"Farmers/farm managers",19,12
+13,"Farm/rural/garden workers","20, 21",84
+14,"Storepersons, freight handlers",50,74
+15,"Labourers",51,"80, 82, 89"
+16,"Construction trades workers","41, 43",33
+17,"Food trades workers",45,"35, 85"
+18,"Arts and media professionals","8, 42, 59",21
+19,"Hospitality workers",54,"14, 43"
+20,"Other technicians and trades workers","33-35, 44, 46, 47, 56","36, 39"
+21,"Sales representatives and agents","16, 17",61
+22,"Sales assistants and support workers","13, 18","60, 62, 63"
+23,"Automotive and Engineering trades workers","36, 38, 40",32
+24,"Cleaners and caretakers","53, 55, 57","42, 81"
+25,"Sports and personal service workers","58, 60","40, 45"
+26,"Factory process workers",48,83
+27,"Protective service workers",52,44
+28,"Machine operators",49,"70, 71, 72"
