@@ -64,13 +64,16 @@ tasks.long <- melt(tasks[,keep.cols],
                    variable.name='index')
 tasks.long$lpop <- with(tasks.long, log(pop))
 
+# where to draw the vertical line for minimum wage
+min.wage <- 589.30
+
 pdf("figure/wages_indexes_4digit.pdf", height=8, width=12)
 ggplot(tasks.long, aes(x=mean, y=value, group=index, weight=weight)) + 
     geom_point(shape='o',alpha=0.5, aes(size=lpop*4)) +
     geom_smooth(method='loess',fill=NA) +
     facet_wrap(~index) +
     scale_x_log10(breaks=c(0.5,1,2,3,4)*1000) +
-    geom_hline(y=0, alpha=0.3) +
+    geom_vline(x=min.wage, linetype='dashed') +
     xlab("Occupational group weekly mean wage (log scale)") +
     ylab("Index value") +
     ggtitle("Task Indexes and Mean Reported Weekly Wages, 2011 Census") +
