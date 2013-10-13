@@ -1,60 +1,60 @@
 CCLO,CCLO Title,COMBINED1,COMBINED1 Title
-1,"Architects,Engineers,Surveyors,Professional",7,"Designers, Engineers, Scientists, Transport Professionals"
-2,"Chemists,Physicists,Geologists & Other Physical Scientists",7,"Designers, Engineers, Scientists, Transport Professionals"
+12,"Employers,Workers on own Account,Directors,Managers, n.e.c.",1,Other managers
+11,"Administrative and Executive Officials, Government, nec",2,"Managers - CEOs, GMs, Legislators"
 3,Medical Practitioners & Dentists,3,Health professionals
 4,"Nurses, including Probationers and Trainees",3,Health professionals
 5,Professional Medical Workers n.e.c.,3,Health professionals
+10,"Other Professional,Technical and Related Workers",4,Professionals NFD
 6,Teachers,5,Teachers
 7,Law Professionals,6,Legal Professionals
-8,"Artists,Entertainers,Writers & Related Workers",18,Arts and media professionals
+23,"Pilots, Navigators and Ships Officers",7,"Designers, Engineers, Scientists, Transport Professionals"
+1,"Architects,Engineers,Surveyors,Professional",7,"Designers, Engineers, Scientists, Transport Professionals"
+2,"Chemists,Physicists,Geologists & Other Physical Scientists",7,"Designers, Engineers, Scientists, Transport Professionals"
+37,"Watchmakers,Jewellers & Related Workers",7,"Designers, Engineers, Scientists, Transport Professionals"
 9,"Draftsmen and Technicians, n.e.c.",8,Technicians
-10,"Other Professional,Technical and Related Workers",4,Professionals NFD
-11,"Administrative and Executive Officials, Government, nec",2,"Managers - CEOs, GMs, Legislators"
-12,"Employers,Workers on own Account,Directors,Managers, n.e.c.",1,Other managers
-13,Book-keepers and Cashiers,22,Sales assistants and support workers
-14,Stenographers and Typists,11,"Office support, clerical and postal workers"
-15,Other Clerical Workers,11,"Office support, clerical and postal workers"
-16,"Insurance,Real Estate Salesmen,Auctioneers and Valuers",21,Sales representatives and agents
-17,Commercial Travellers and Manufacturers Agents,21,Sales representatives and agents
-18,"Proprietors,Shopkeepers,Trade,Salesmen,Shop Assistants etc",22,Sales assistants and support workers
-19,Farmers and Farm Managers,12,Farmers/farm managers
-20,Farm Workers including Farm Foremen,13,Farm/rural/garden workers
-21,Other Rural Workers,13,Farm/rural/garden workers
-22,"Miners,Mineral Prospectors, Quarrymen & Related Workers",28,Machine operators
-23,"Pilots, Navigators and Ships Officers",1,Other managers
 24,Railway Firemen and Drivers,9,Road transport & railway workers
-25,Postmasters,1,Other managers
-26,Postmen & Messengers,11,"Office support, clerical and postal workers"
 28,"Guards and Conductors, Railway",9,Road transport & railway workers
 29,"Stationmasters, Inspectors and Supervisors, Transport",9,Road transport & railway workers
 30,Other Railway Workers and Traffic Controllers,9,Road transport & railway workers
-31,Telecommunication Workers,10,Electrotechnology and Telecommunications trades workers
 32,Other Transport & Communication Workers,9,Road transport & railway workers
+31,Telecommunication Workers,10,Electrotechnology and Telecommunications trades workers
+39,Electricians & Related Electrical & Electronic Workers,10,Electrotechnology and Telecommunications trades workers
+25,Postmasters,11,"Office support, clerical and postal workers"
+14,Stenographers and Typists,11,"Office support, clerical and postal workers"
+15,Other Clerical Workers,11,"Office support, clerical and postal workers"
+26,Postmen & Messengers,11,"Office support, clerical and postal workers"
+19,Farmers and Farm Managers,12,Farmers/farm managers
+20,Farm Workers including Farm Foremen,13,Farm/rural/garden workers
+21,Other Rural Workers,13,Farm/rural/garden workers
+50,Storemen & Freight Handlers,14,"Storepersons, freight handlers"
+51,Labourers n.e.c.,15,Labourers
+41,"Carpenters,Cabinet Makers & Related Workers",16,Construction trades workers
+43,"Bricklayers,Plasterers and Construction Workers n.e.c.",16,Construction trades workers
+45,"Millers,Bakers,Butchers,Brewers & Related Workers",17,Food trades workers
+8,"Artists,Entertainers,Writers & Related Workers",18,Arts and media professionals
+42,Painters & Decorators,18,Arts and media professionals
+59,Photographers,18,Arts and media professionals
+54,"Waiters,Bartenders",19,Hospitality workers
 33,"Spinners,Weavers,Knitters,Dyers and Related Workers",20,Other technicians and trades workers
 34,"Tailors,Cutters,Furriers and Related Workers",20,Other technicians and trades workers
 35,"Leather Cutters,Sewers & Related Workers",20,Other technicians and trades workers
-36,"Furnacemen,Rollers,Drawers & Related Metal",23,Automotive and Engineering trades workers
-37,"Watchmakers,Jewellers & Related Workers",7,"Designers, Engineers, Scientists, Transport Professionals"
-38,"Mechanics,Plumbers,Metal Machinists & Related Metal Workers",23,Automotive and Engineering trades workers
-39,Electricians & Related Electrical & Electronic Workers,10,Electrotechnology and Telecommunications trades workers
-40,"Metal Workers,Metal & Electrical Production-Process Workers",23,Automotive and Engineering trades workers
-41,"Carpenters,Cabinet Makers & Related Workers",16,Construction trades workers
-42,Painters & Decorators,18,Arts and media professionals
-43,"Bricklayers,Plasterers and Construction Workers n.e.c.",16,Construction trades workers
 44,"Compositors,Printing Machinists,Engravers & Related Workers",20,Other technicians and trades workers
-45,"Millers,Bakers,Butchers,Brewers & Related Workers",17,Food trades workers
 46,"Potters,Tobacco,Chemical,Sugar & Paper Production Workers",20,Other technicians and trades workers
 47,"Paper Products,Rubber,Plastic and Production Workers",20,Other technicians and trades workers
-48,"Packers,Wrappers & Labellers",26,Factory process workers
-49,"Stationary Engines,Excavating & Lifting Equipment Operators",28,Machine operators
-50,Storemen & Freight Handlers,14,"Storepersons, freight handlers"
-51,Labourers n.e.c.,15,Labourers
-52,"Fire Brigade,Police & Other Protective Service Workers",27,Protective service workers
-53,"Housekeepers,Cooks,Maids & Related Workers",24,Cleaners and caretakers
-54,"Waiters,Bartenders",19,Hospitality workers
-55,"Caretakers,Cleaners,Buildings",24,Cleaners and caretakers
 56,"Barbers,Hairdressers & Beauticians",20,Other technicians and trades workers
+16,"Insurance,Real Estate Salesmen,Auctioneers and Valuers",21,Sales representatives and agents
+17,Commercial Travellers and Manufacturers Agents,21,Sales representatives and agents
+13,Book-keepers and Cashiers,22,Sales assistants and support workers
+18,"Proprietors,Shopkeepers,Trade,Salesmen,Shop Assistants etc",22,Sales assistants and support workers
+36,"Furnacemen,Rollers,Drawers & Related Metal",23,Automotive and Engineering trades workers
+38,"Mechanics,Plumbers,Metal Machinists & Related Metal Workers",23,Automotive and Engineering trades workers
+40,"Metal Workers,Metal & Electrical Production-Process Workers",23,Automotive and Engineering trades workers
+53,"Housekeepers,Cooks,Maids & Related Workers",24,Cleaners and caretakers
+55,"Caretakers,Cleaners,Buildings",24,Cleaners and caretakers
 57,"Launderers,Dry Cleaners & Pressers",24,Cleaners and caretakers
 58,"Athletes, Sportspersons and Undertakers",25,Sports and personal service workers
-59,Photographers,18,Arts and media professionals
 60,"Service,Sport,Recreation Workers n.e.c.",25,Sports and personal service workers
+48,"Packers,Wrappers & Labellers",26,Factory process workers
+52,"Fire Brigade,Police & Other Protective Service Workers",27,Protective service workers
+22,"Miners,Mineral Prospectors, Quarrymen & Related Workers",28,Machine operators
+49,"Stationary Engines,Excavating & Lifting Equipment Operators",28,Machine operators
