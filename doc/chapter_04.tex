@@ -175,12 +175,32 @@ Using re-weighted data, we can estimate the means of the counterfactual distribu
 
 This decomposition can be performed on income surveys of repeated cross-sections of the same markets over time.
 
+\section{Data}
+
+To test the theory of changes in the occupational wage profiles outlined above, we require survey data on real wages, as well as detailed measures of the tasks performed by participants of each occupation. For this analysis, we obtained microdata for the Survey of Income and Housing (SIH) for 1981/82, 2000/01 and 2011/12, as well as measures contained in O*NET database, published by the US Department of Labor. Details of both the task measures and SIH are discussed in detail in Sections~\ref{sec:SIH}~and~\ref{sec:onet} of the data appendix. We shall therefore only briefly review the salient features of the data sources as they relate to this analysis. For further details, refer to Appendix~\ref{app:data}.
+
+\subsection{Survey of Income and Housing}
+
+Repeated cross-sectional measures of the income distribution for full-time salaried workers in Australia are computed using data from the SIH. Consistent with previous work, we consider only the subset of respondents who report working full-time, and whose primary source of income are either employer wages and salaries, or who receive income from an unincorporated business. In order to compare the `market value' of skills, we record employee take-home wages (or revenue from an unincorporated business, after tax), including any additional payments such as entitlements, tips, bonuses. Revenue from government payments, investments and so on are ignored. Real incomes are Nominal incomes deflated by the average CPI for the four quarters of the fiscal year spanning the survey.
+
+Changes in the occupational coding schemes pose a challenge. In each of the three surveys considered, the occupational coding schemes are different, and cannot be compared directly. In the 1981/82 survey, occupations are recorded using the 1976 Census Classification and Classified List of Occupations (CCLO) codes. Occupations in the 2000/01 SIH are coded using the 1996 Australian Standard Classification of Occupations (ASCO), second edition. And the 2011/12 survey is encoded using the 2006 Australian and New Zealand Standard Classification of Occupations. (A more detailed discussion of the coding systems employed can be found in Appendix Section~\ref{sec:occcoding}). 
+
+For the purposes of this analysis, the income distribution within occupations (or groups of occupations) of different time periods must be comparable. But in the absence of a classification scheme that permits comparison between periods, it is not possible to analyze changes in subsets of the wage distribution. This challenge is not unique to Australian data: occupational coding systems have changed several times in the post-war era in the United States, for example (see \cite{Autor2012,Meyer2005}).
+
+To facilitate comparison, hybrid classification schemes that merged occupations into comparable groups were developed, and are described in detail in the Appendix. There are two such schemes: {\tt COMBINEDI}, comprising 29 hybrid occupations, for comparing the 1981/82 survey with 2011/12, and {\tt COMBINEDII}, with 28 hybrid occupations, for 2000/01 and 2011/12 (see Tables~\ref{tab:combined1} and~\ref{tab:combined2}). \citet{Firpo2011} employ a similiar number of hybrid groups (40) in their study of occupational wage changes in the United States between 1988 and 2003.
+
+\subsection{Occupational Tasks}
+
+
+
 \section{Results}
+
+
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../figure/wages_indexes_4digit.pdf}
-  \caption{Mean occupational wage and task measure index values, at ANZSCO unit group (4-digit) level. Census respondents reporting full-time work are shown. The loess regression line is weighted by population; circle areas are proportional to population for each occupation. Notice that, when occupations are reduced to combined groupings, almost identical trends are observed: see Figure~\ref{fig:meanocc2}. Sources: ABS cat 2072.0, O*NET, US Dept of Labor.}
+  \caption{Mean occupational weekly wage and task measure index values, at ANZSCO unit group (4-digit) level. The vertical dashed line is drawn at the level of the National Minimum Wage, of \$589.30 per week. Census respondents reporting full-time work are shown. The loess regression line is weighted by population; circle areas are proportional to population for each occupation. Notice that, when occupations are reduced to combined groupings, almost identical trends are observed (c.f. Figure~\ref{fig:meanocc2}). Sources: ABS cat 2072.0, O*NET, US Dept of Labor.}
   \label{fig:meanocc4dig}
 \end{figure}
 \input{quant_reg_i}

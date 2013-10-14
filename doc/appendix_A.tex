@@ -1,10 +1,12 @@
 \chapter{Data}
+\label{app:data}
 
 \section{Income Surveys}
 
 Measures of income are drawn from two principal data sources, both provided by the ABS. The first is the Survey of Income and Housing, a detailed sample survey of household income dynamics, and the second is the Census of Population and Housing, a five-yearly survey of the full Australian population. 
 
 \subsection{Survey of Income and Housing, 1981-2012}
+\label{sec:SIH}
 
 The Survey of Income and Housing (SIH) is a hierarchical, clustered sample survey of income and expenditure patterns of the the Australian population, periodically conducted by the Australian Bureau of Statistics. It was first conducted in the 1981-2 fiscal year, followed by 1985-6, and then every two or three years from 1994-5. Microdata files were obtained as confidentialized unit record files (CURFs) for the surveys performed in 1981-2, 1985-6, 1994-5, 1995-6, 1996-7, 1997-8, 2000-1, 2002-3, 2005-6, 2007-8 and 2009-10.
 
@@ -16,16 +18,103 @@ In all versions of the SIH, the $PERS\_WT$ variable for the $i$th record is comp
 
 
 
-\subsubsection{Occupational Coding}
+\subsubsection{Occupational Coding Schemes}
+\label{sec:occcoding}
 
-A major drawback of using the SIH is that several different occupational codings are used, in different editions of the survey. 
+In major surveys such as the SIH and Census, respondents' occupations are coded according to standard occupational classification schemes. One major drawback of the SIH is that, over its 30 year history, several distinct and incompatible occupational coding schemes have been used. In particular, the classification schemes for the available editions of the survey are:
 \begin{enumerate}
-\item 1981-82: occupations are coded using the three-digit 1976 Census coding standard (CCLO).
-\item 1985-6, 1994-5: occupations are coded at the one-digit level using the ANSCO version 1 coding scheme.
-\item 1995-6 to 1997-8: occupations are coded at the one-digit level using the ANSCO version 2 coding scheme.
-\item 2007-8 and 2009-10: occupations are coded at the two-digit level using the ANZSCO conding scheme.
+\item 1981/82: occupations are coded using the CCLO.
+\item 1985/86, 1994/95: occupations are coded using ASCO version 1, at the major group level.
+\item 1995/96 to 1997/98: occupations are coded using ASCO version 2, at the major group level.
+\item 2000/01 to 2002/03: occupations are coded using ASCO version 2, at the minor group level.
+\item 2007-8 to 2011-12: occupations are coded using ANZSCO, at the minor group level.
 \end{enumerate}
-To facilitate a comparison, civilian occupations are aligned to equivalent groups wherever possible. Military occupations are deemed non-comparable, and are discarded.
+Revisions to occupational classification schemes are conducted from time to time by statistics bureaus in response to changing reporting requirements, and also to keep with changes in the composition of the work force over time. As new schemes are introduced, such as the ASCO II \citep{Castles1986} and the ANZSCO \citep{Trewin2006}, link tables are usually produced in order to convert statistical data tabulated using the previous coding scheme to the new scheme. Indeed, detailed link tables are available for both the ANZSCO and ASCO II, and provide a detailed mapping between both schemes. Unfortunately, however, link tables are generally constructed at the finest-grained level of the occupational classfication. In the case of the ANZSCO and both editions of the ASCO, occupational groupings at the minor group (two-digit) level cannot be cleanly mapped from one classification scheme to the other. One occupational group in the ANZSCO might map to several occupational groups in the ASCO II, and vice-versa.
+
+One solution to the problem of incompatible groupings is to create a hybrid classification scheme by pooling occupational super-groups. Although this approach is not perfect---occupational groupings are complex, and a perfect hybrid classification scheme is unlikely to be possible---it does allow a good approximate comparison of occupational wage profiles over time. In this project, a comparison was required between two pairs of periods: 1981/82 and 2011/12 and 2000/01 and 2011/12. Unfortunately, the CCLO, ASCO II and ANZSCO are all sufficiently different, that a hybrid scheme that could accommodate all three periods would have to include very few, very large groups of occupations, reducing the sensitivity of the analysis considerably. Therefore, two schemes were designed, {\tt COMBINEDI} for comparing 1981/82 and 2011/12 (Table~\ref{tab:combined1}), and {\tt COMBINEDII} for comparing 2000/01 and 2011/12 (Table~\ref{tab:combined2}). One advantage of maintaining two separate hybrid classification schemes, is that the different schemes serve as an empirical check on the analysis procedure. Despite the different aggregation schemes, similar results should be obtained from both schemes.
+
+The schemes were manually compiled using an iterative procedure. First, fine-grained occupations which comprise each occupational group code in each classification scheme were obtained from \citep{Castles1986} and \citep{Trewin2006}. Then, the corresponding occupational group in the other scheme was identified, by going through its occupations. If a group in one scheme mapped to multiple groups in the other, then the groups were deemed to be inseperable, and were merged together in the hybrid classification. Records with no or unknown occupations were simply dropped, as were occupations within the armed forces.
+
+\begin{sidewaystable}[ht]
+\centering
+\begin{tabular}{clll}
+  \hline
+{\bf Group} & {\bf Occupation Title} & {\bf CCLO Codes} & {\bf ANZSCO Codes} \\ 
+  \hline
+   1 & Other managers & 12 & 10, 13, 22, 51 \\ 
+   2 & CEOs, general managers, Legislators & 2 & 11 \\ 
+   3 & Health professionals & 3--5 & 25, 41 \\ 
+   4 & Professionals NFD & 10 & 20, 26 \\ 
+   5 & Teachers & 6 & 24 \\ 
+   6 & Legal Professionals & 7 & 6 \\ 
+   7 & Designers, Engineers, Scientists, Transport Professionals & 1, 2, 23, 37 & 23 \\ 
+   8 & Technicians & 9 & 30, 31 \\ 
+   9 & Road transport \& railway workers & 24, 28-30, 32 & 73 \\ 
+  10 & Electrotechnology and Telecommunications trades workers & 31,39 & 34 \\ 
+  11 & Office support, clerical and postal workers & 14, 15, 25, 26 & 50, 52--56, 59  \\ 
+  12 & Farmers/farm managers & 19 & 12 \\ 
+  13 & Farm/rural/garden workers & 20, 21 & 84 \\ 
+  14 & Storepersons, freight handlers & 50 & 74 \\ 
+  15 & Labourers & 51 & 80, 82, 89 \\ 
+  16 & Construction trades workers & 41, 43 & 33 \\ 
+  17 & Food trades workers & 45 & 35, 85 \\ 
+  18 & Arts and media professionals & 8, 42, 59 & 21 \\ 
+  19 & Hospitality workers & 54 & 14, 43 \\ 
+  20 & Other technicians and trades workers & 33--35, 44, 46, 47, 56 & 36, 39 \\ 
+  21 & Sales representatives and agents & 16, 17 & 61 \\ 
+  22 & Sales assistants and support workers & 13, 18 & 60, 62, 63 \\ 
+  23 & Automotive and Engineering trades workers & 36, 38, 40 & 32 \\ 
+  24 & Cleaners and caretakers & 53, 55, 57 & 42, 81 \\ 
+  25 & Sports and personal service workers & 58, 60 & 40, 45 \\ 
+  26 & Factory process workers & 48 & 83 \\ 
+  27 & Protective service workers & 52 & 44 \\ 
+  28 & Machine operators & 49 & 70, 71, 72 \\ 
+   \hline
+\end{tabular}
+\caption{The {\tt COMBINEDI} mapping, at the two-digit level, between the 1976 Census Classification and Classified List of Occupations (CCLO) and the 2006 Australian and New Zealand Standard Classification of Occupations (ANZSCO). This classification is used to compare the 2000/01 and 2011/12 ABS surveys of income and housing.}
+\label{tab:combined1}
+\end{sidewaystable}
+
+\begin{sidewaystable}[ht]
+\centering
+\begin{tabular}{clll}
+  \hline
+{\bf Group} & {\bf Hybrid Occupation Group Title} & {\bf ASCO II Codes} & {\bf ANZSCO Codes} \\ 
+  \hline
+  1 & General Managers, Legislators & 10, 11 & 10, 11 \\ 
+  2 & Farm Managers & 13 & 12 \\ 
+  3 & Specialist Managers & 12 & 13 \\ 
+  4 & Hospitality and Service Managers and Workers & 33 & 14 \\ 
+  5 & Other Professionals & 20 & 20, 21 \\ 
+  6 & Business, ICT Professionals & 22 & 22, 26 \\ 
+  7 & STEM Professionals & 21 & 23 \\ 
+  8 & Education Professionals & 8 & 24 \\ 
+  9 & Health Professionals & 9 & 25 \\ 
+  10 & Sales supervisors and agents & 40, 49 & 61 \\ 
+  11 & Legal Professionals & 25 & 27 \\ 
+  12 & Technicians & 31 & 30, 31 \\ 
+  13 & Auto and engineering tradespersons & 41, 42 & 32 \\ 
+  14 & Construction tradesworkers & 44 & 33 \\ 
+  15 & Electricians and telecom tradesworkers & 43 & 34 \\ 
+  16 & Food trades workers & 45 & 35 \\ 
+  17 & Skilled Animal and Horticultural Workers & 46 & 36 \\ 
+  18 & Associate Professionals & 30, 39, 63, 83 & 39, 44, 45 \\ 
+  19 & Clerical Workers & 50, 60, 61, 81 & 50, 53--56 \\ 
+  20 & Business and Administration Associate Professionals & 32 & 42, 51 \\ 
+  21 & Personal Assistants and Secretaries & 51 & 52 \\ 
+  22 & Other Clerical and Administrative Workers & 59 & 59 \\ 
+  23 & Sales workers & 80, 82 & 60, 62, 63 \\ 
+  24 & Plant operators & 70 & 70, 71, 72 \\ 
+  25 & Road and rail drivers & 70--72 & 73 \\ 
+  26 & Other production workers & 79 & 74, 83 \\ 
+  27 & Labourers & 90,92,99 & 80, 82, 84, 85, 89 \\ 
+  28 & Cleaners & 91 & 81 \\ 
+  29 & Health and Welfare Support Workers & 34 & 40, 41 \\ 
+   \hline
+\end{tabular}
+\caption{The {\tt COMBINEDII} mapping, at the two-digit level, between the 1996 Australian Standard Classification of Occupations, 2nd Edition (ASCO II) and the 2006 Australian and New Zealand Standard Classification of Occupations (ANZSCO). This classification is used to compare the 1981/82 and 2011/12 ABS surveys of income and housing.}
+\label{tab:combined2}
+\end{sidewaystable}
 
 \subsubsection{Educational Attainment}
 
