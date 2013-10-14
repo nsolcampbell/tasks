@@ -53,7 +53,8 @@ B.tasks <- merge(x=B, y=tasks.combinedi, by.x='occupation', by.y='COMBINED1')
 quantile_regressions(A.tasks, B.tasks,
                      "Intercept and Slope of Change in Wage Quantiles, 1981/2 - 2011/12", 
                      notes="Occupational grouping 1 used, with 28 occupational groups.",
-                     out="analysis/quant_reg_i"
+                     out="analysis/quant_reg_i",
+                     label="tab:quantreg1"
                      )
 
 if (FALSE) {

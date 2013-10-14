@@ -1,4 +1,5 @@
-quantile_regressions <- function(A.tasks, B.tasks, notes, title, outfile) {
+quantile_regressions <- function(A.tasks, B.tasks, notes,
+                                 title, outfile, label) {
     
     A.lm <- lm(A ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                 data=A.tasks, weights = Population)
@@ -31,6 +32,7 @@ quantile_regressions <- function(A.tasks, B.tasks, notes, title, outfile) {
               type="text", title=title,
               omit='Constant',
               out=paste0(outfile, c(".txt", ".tex")),
+              label=label,
               covariate.labels=c("Information content",
                 "Automation/routinization",
                 "No face-to-face contact",
