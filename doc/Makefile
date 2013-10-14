@@ -13,7 +13,7 @@ VPATH = Figs
 all: paper bib slides
 
 wc: 
-	echo `cat chapter*tex | detex | wc -w` words.
+	echo `cat chapter*tex appendix*tex | detex | wc -w` words.
 
 paper: $(paperfile).pdf
 
