@@ -20,8 +20,8 @@ subs <- curf[,c("ID",
               "INDBC",   # Industry of main job
               "OCCBASC", # Occupation of main job
               "AGEBC",   # Person's age
-              "PSRC4CP", # Principal source of income, 2003-04 basis
-              "PSRC4PP", # Principal source of PFY income, 2003-04 basis
+              "PSRC8CP", # Principal source of income, 2003-04 basis
+              "PSRC8PP", # Principal source of PFY income, 2003-04 basis
               "FTPTSTAT",# Full-time/part-time status
               "SIHPSWT", # Person weight
               sprintf("WPS%04d",101:160) # replication weights
@@ -39,8 +39,8 @@ recodeSource <- function(src) {
              )
 }
 
-subs$CPrincipalSource <- recodeSource(subs$PSRC4CP)
-subs$PFYPrincipalSource <- recodeSource(subs$PSRC4PP)
+subs$CPrincipalSource <- recodeSource(subs$PSRC8CP)
+subs$PFYPrincipalSource <- recodeSource(subs$PSRC8PP)
 
 subs$EducA <- 
     recodeVar(as.character(subs$HQUALBC),
@@ -83,9 +83,9 @@ subs$CFullTime <- recodeVar(as.character(subs$FTPTSTAT),
 subs$PFYFullTime <- subs$CFullTime # Hackity hack (TODO)
 subs$FullYear <- "Full Year" # Hackity hack (TODO)
 
-subs$Year <- 2008
+subs$Year <- 2012
 
-subset_2008 <- subs[,c("ID", "Year", "SEXP", "Age4",
+subset_2012 <- subs[,c("ID", "Year", "SEXP", "Age4",
                        "IWSSUCP8","IWSTPP8",
                        "INDBC", "INDBC", "INDBC", "INDBC",
                        "OCCBASC", "OCCBASC", "OCCBASC", "OCCBASC",
@@ -93,6 +93,6 @@ subset_2008 <- subs[,c("ID", "Year", "SEXP", "Age4",
                        "CFullTime", "PFYFullTime", "FullYear",
                        "CPrincipalSource", "PFYPrincipalSource",
                        "Weight")]
-colnames(subset_2008) <- standard_column_list
+colnames(subset_2012) <- standard_column_list
 
-save(subset_2008, file='data/curf/2008.rda')
+save(subset_2012, file='data/curf/2012.rda')

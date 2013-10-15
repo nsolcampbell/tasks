@@ -8,7 +8,7 @@ combined$Age4 <- factor(combined$Age4, ordered=T,
                         levels=c("15-34", "35-54", "55-74"))
 dat <- combined
 
-strat_year <- 2010
+strat_year <- 2012
 
 referencecells <- xtabs(Weight ~ EducB + Sex + Age4, 
                    data=subset(dat, Year == strat_year))

@@ -11,12 +11,14 @@ load('data/curf/2003.rda')
 load('data/curf/2006.rda')
 load('data/curf/2008.rda')
 load('data/curf/2010.rda')
+load('data/curf/2012.rda')
 
 source("lib/curfmunge.R")
 
 combined <- rbind(subset_1982, subset_1986,
               subset_1995, subset_1996, subset_1997, subset_1998,
-              subset_2001, subset_2003, subset_2006, subset_2008, subset_2010)
+              subset_2001, subset_2003, subset_2006, subset_2008, 
+	      subset_2010, subset_2012)
 year_list <- sort(unique(combined$Year))
 combined$Year <- factor(combined$Year, ordered=TRUE, levels=as.character(year_list))
 
