@@ -145,7 +145,7 @@ cols <- c("Information.Content", "Automation.Routinization",
 for (col in cols) {
   xbar <- mean(anzsco_onet[,col])
   s    <- sd(anzsco_onet[,col])
-  anzsco_onet[,col] <- (anzsco_onet[,col] - xbar) / s + 1
+  anzsco_onet[,col] <- (anzsco_onet[,col] - xbar) / s
 }
 
 save(anzsco_onet, 
