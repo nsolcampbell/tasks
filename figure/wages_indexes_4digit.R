@@ -16,48 +16,43 @@ census.inc <- data.frame(ANZSCO=census$ANZSCO,
                          total=as.matrix(census[,-1]) %*% inc.weights,
                          pop=as.matrix(census[,-1]) %*% sum.weights)
 
-load("data/anzsco_onet.dta")
-task_content.4 <- task_content[,c("ANZSCO4", "Information.Content", "Automation.Routinization", 
-                                  "Face.to.Face", "On.Site.Job", "Decision.Making")]
-task_content.4$ANZSCO <- task_content.4$ANZSCO4
-census.merged.4 <- merge(x=census, y=task_content.4, by="ANZSCO")
+load("data/anzsco_onet.rda")
+measures <- c("Information.Content", "Automation.Routinization", 
+                                  "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making")
+anzsco_onet.4 <- anzsco_onet[,c("ANZSCO4", measures)]
+anzsco_onet.4$ANZSCO <- anzsco_onet.4$ANZSCO4
+census.merged.4 <- merge(x=census, y=anzsco_onet.4, by="ANZSCO")
 
-task_content.3 <- task_content[,c("ANZSCO3", "Information.Content", "Automation.Routinization", 
-                                  "Face.to.Face", "On.Site.Job", "Decision.Making")]
-task_content.3$ANZSCO <- as.numeric(task_content.3$ANZSCO3) * 10
-census.merged.3 <- merge(x=census, y=task_content.3, by="ANZSCO")
+anzsco_onet.3 <- anzsco_onet[,c("ANZSCO3", measures)]
+anzsco_onet.3$ANZSCO <- as.numeric(anzsco_onet.3$ANZSCO3) * 10
+census.merged.3 <- merge(x=census, y=anzsco_onet.3, by="ANZSCO")
 
-task_content.2 <- task_content[,c("ANZSCO2", "Information.Content", "Automation.Routinization", 
-                                  "Face.to.Face", "On.Site.Job", "Decision.Making")]
-task_content.2$ANZSCO <- as.numeric(task_content.2$ANZSCO2) * 100
-census.merged.2 <- merge(x=census, y=task_content.2, by="ANZSCO")
+anzsco_onet.2 <- anzsco_onet[,c("ANZSCO2", measures)]
+anzsco_onet.2$ANZSCO <- as.numeric(anzsco_onet.2$ANZSCO2) * 100
+census.merged.2 <- merge(x=census, y=anzsco_onet.2, by="ANZSCO")
 
-task_content.1 <- task_content[,c("ANZSCO1", "Information.Content", "Automation.Routinization", 
-                                  "Face.to.Face", "On.Site.Job", "Decision.Making")]
-task_content.1$ANZSCO <- as.numeric(task_content.1$ANZSCO1) * 1000
-census.merged.1 <- merge(x=census, y=task_content.1, by="ANZSCO")
+anzsco_onet.1 <- anzsco_onet[,c("ANZSCO1", measures)]
+anzsco_onet.1$ANZSCO <- as.numeric(anzsco_onet.1$ANZSCO1) * 1000
+census.merged.1 <- merge(x=census, y=anzsco_onet.1, by="ANZSCO")
 
-task_content.merged <- rbind(task_content.1[,-1], 
-                             task_content.2[,-1], 
-                             task_content.3[,-1], 
-                             task_content.4[,-1])
-census.merged <- merge(task_content.merged, census.inc)
+anzsco_onet.merged <- rbind(anzsco_onet.1[,-1], 
+                             anzsco_onet.2[,-1], 
+                             anzsco_onet.3[,-1], 
+                             anzsco_onet.4[,-1])
+census.merged <- merge(anzsco_onet.merged, census.inc)
 tasks <- ddply(census.merged, .(ANZSCO), summarise, 
                Information.Content = mean(Information.Content),
                Automation.Routinization = mean(Automation.Routinization),
-               Face.to.Face = mean(Face.to.Face),
-               On.Site.Job = mean(On.Site.Job),
-               Decision.Making = mean(Decision.Making),
+               No.Face.to.Face = mean(No.Face.to.Face),
+               No.On.Site.Work = mean(No.On.Site.Work),
+               No.Decision.Making = mean(No.Decision.Making),
                total = sum(total),
                pop = sum(pop)
                )
 tasks$mean <- with(tasks, total/pop)
 tasks$weight <- with(tasks, pop / sum(tasks$pop))
 
-keep.cols <- c("mean", 'pop', 'weight',
-               "Information.Content", "Automation.Routinization", 
-               "Face.to.Face", "On.Site.Job", "Decision.Making"
-               )
+keep.cols <- c("mean", 'pop', 'weight', measures)
 tasks.long <- melt(tasks[,keep.cols], 
                    id.vars=c('mean', 'pop', 'weight'),
                    value.name='value',

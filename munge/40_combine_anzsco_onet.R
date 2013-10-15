@@ -138,6 +138,16 @@ knowledge_list=knowledge$elements
 context_list=context$elements
 
 anzsco_onet <- task_content
+
+# scale to ~ (0,1)
+cols <- c("Information.Content", "Automation.Routinization",
+          "No.Face.to.Face", "No.On.Site.Work", "No.Decision.Making")
+for (col in cols) {
+  xbar <- mean(anzsco_onet[,col])
+  s    <- sd(anzsco_onet[,col])
+  anzsco_onet[,col] <- (anzsco_onet[,col] - xbar) / s + 1
+}
+
 save(anzsco_onet, 
      ability_list, 
      task_list, 

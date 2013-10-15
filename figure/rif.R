@@ -50,7 +50,7 @@ p <- ggplot(rifl_all,
     geom_ribbon(alpha=0.3, aes(ymin=low, ymax=up, fill=variable, colour=NA, linetype=NA)) +
     ggtitle("Occupational Task Measures and Log Wage Quantiles") +
     xlab("Log Wage Quantile") +
-    ylab("Wage Impact (log points per scale unit)") +
+    ylab("Marginal Effect on Wage Quantile (log pts/index unit)") +
     geom_hline(y=0, alpha=0.5, color="black") +
     facet_wrap(~panel)
 print(p)
@@ -64,7 +64,7 @@ p <- ggplot(within(rifl_all, scheme_name <- paste("Scheme",scheme)),
                 aes(ymin=low, ymax=up, fill=year, colour=NA, linetype=NA)) +
     ggtitle("Occupational Task Measures and Log Wage Quantiles") +
     xlab("Log Wage Quantile") +
-    ylab("Wage Impact (log points per scale unit)") +
+    ylab("Marginal Effect on Wage Quantile (log pts/index unit)") +
     scale_y_continuous(limits=c(-0.17,0.41)) +
     geom_hline(y=0, alpha=0.5, color="black") +
     facet_grid(scheme_name~variable)
