@@ -1,5 +1,12 @@
 \chapter{Skill-biased technical change}
 
+% \cite{Acemoglu2003} - wage compression gone, so ineq up, b/c unions down
+
+% \cite{Leigh2013} - three causes
+
+% \cite{Adermon2011} - Sweden.
+
+
 % Wage inequality rising since 1960s, especially in the top half of the earnings distribution. In the United States, where real wages for unskilled workers have declined, on average, since 1970, the skill premium for college graduates has grown significantly. But changing distribution of education doesn't explain the rise in inequality. Robust to industry (shown with census data.)
 
 % Causes of SBTC include (a) cheaper capital/computers, (b) institutional changes. Skills can be considered (a) complement physical+computer capital, or (b) particular skills needed for rapid change. Other explanations incude international openness and trade, increasing competition for jobs at low end of spectrum. Further, labor institutions are changing, especially weaker unions.
@@ -18,21 +25,11 @@
         
 % Further, orthogonal category: "offshorability."
 
-
-\section{Motivation}
-The income distribution for Australian workers has widened over the past 30 years. Although there are many possible developments that explain this trend, we focus on just one: the rapid rise of technology in the work force. We first consider the standard model of skill-biased technical change, and show that it explains some, but not all, of the trends observed in the data. We then consider an alternative approach, following \citet{Levy2003}, which has been used with success in foreign labor markets, and perform a simple preliminary test of the relationship between investment and polarization.
-
-The second half of the 20th century has witnessed tremendous change for Australian workers. Since 1973, average real per capita incomes have approximately doubled \citep{NA20124}, and the number of jobs has increased by over three million \citep{LFSApr2013}. During the same period, top percentile wage growth has far outstripped that of lower-wage earners \citep{Atkinson1997,Borland1999}. And although income inequality in Australia fell somewhat between the 1950's and 1970's, it has since risen consistently for the last 30 years \citep{Leigh2005,Gaston2009}.
-
-There is a large literature studying the rise of wage inequality in Australia. Empirical studies have confirmed that both individual-level and household-level inequality have been rising since the 1980s \citep{Borland1999,Leigh2005,Gaston2009}. A number of studies exist on the task content of Australian jobs \citep{Esposto2012a}, and the change over time of the skill intensity of various professions \citep{Esposto2012, Esposto2012a}. Although ICT use and globalization have been found to Granger (non-)cause rising inequality \citep{Gaston2009}, no studies have tested whether workers' skill allocation is the channel through which this change has occurred.
-
-Although mechanical computers and computation aids (the abacus, for instance), have been available for centuries, it was only in the post-war era, with the arrival of electronic computation, that the price of computation began to fall dramatically. \citet{Nordhaus2007} estimates that, between 1946 and 2006, the cost per computation decreased by a factor of {\em seven trillion,} and over the same period, the cost of data storage fell at a comparable rate. The falling cost of computation opened up new avenues for research in information technology, so that even as computation became cheaper, new and improved algorithms were developed which made more efficient use of, and found novel uses for, computing power. And as computers have become cheaper and more useful, firms have made greater use of them. Between 1981 and 2012, Australian firms' real annual investment in computers has grown from \$26M to \$14B.\footnote{ABS National Accounts, cat. no. 5204.0. 2012 dollars.}
-
-\section{Skill-biased technical change}
-
 A leading explanation for this divergence of incomes is that skilled work and new technologies are complements in production, or factor augmenting. This idea, developed by \citet{Tinbergen1974}, \citet{Katz1992} and others, suggests that new workplace technologies disproportionately complement highly-skilled technical and managerial jobs, relative to low-skilled manual and service jobs. Under this explanation, the premium paid to high-skilled labor increases for two reasons: first, since high-skilled workers become relatively more productive, wages to high-skilled occupations are higher at the margin. There is also evidence that, in the United States at least, an increase in the demand for skilled labor, relative to its supply, has resulted in higher wages for skilled occupations. In the jargon, such technologies are said to exhibit \emph{skill bias} \citep{Autor2006}.
 
 We will take as a point of departure the standard model for analyzing skill-based technical change (SBTC). This model, dubbed the `canonical' model by \citet{Acemoglu2011} and which has sparked a voluminous literature, has enjoyed considerable empirical success explaining rising wages for high-skill managerial and professional jobs in the United States and Europe \citep{Katz1992}. Since the canonical model includes \emph{factor-augmenting} capital, it predicts a uniform skill upgrading of the work force at all education levels \citep{Levy2003}. Skill upgrading has been confirmed by a number of authors, both in Australia \citep{Esposto2012, Wooden2000, Cully1999} and overseas \citep{Autor2008}. 
+
+\section{Model}
 
 Consider a competitive economy with two different, imperfectly substitutable types of labor: high-skilled and low-skilled.\footnote{This section follows the notation employed by \citet{Acemoglu2011}.} Workers are heterogeneous, with different levels of efficiency within each skill group. Let the total supply of high-skilled labor be $H$, and the total supply of low-skilled labor be $L$, and both types are paid the same wage, respectively $w_h$ and $w_\ell$. Production in this economy is governed by a CES aggregate production function, with elasticity of substitution $\sigma$, where $\sigma>1$:
 \begin{equation}  \label{eq:prod}
@@ -67,7 +64,7 @@ $\partial \log\omega / \partial(H/L) < 0$.} In this model, a rising skill premiu
 
 To review, the SBTC model claims that unless there is technical regress, wages for all skill types will always increase, and never decrease (wages should follow a monotonic path.) Second, in the presence of an increasing proportion of workers conducting skilled work, the model is consistent with either a rising or a falling log skill premium.
 
-\subsection{Data}
+\section{Data}
 
 To bring the SBTC model to the data, we employ the Survey of Income and Housing, a hierarchical clustered household survey conducted by the ABS every 2-3 years since 1995, and also for the fiscal years 1985-6 and 1981-2. The survey provides detailed  information about respondents' labor and non-labor income sources, as well as data on age, educational attainment, hours worked and industry and occupation. For the surveys conducted between 2000 and 2010, as well as the 1981-2 survey, the data include detailed occupational data, which will become important later. The other surveys include occupation only at the one-digit level. We obtain survey micro-data as confidentialized unit record files (CURFs).
 
@@ -80,7 +77,7 @@ To facilitate inter-temporal comparisons, we must eliminate effects which arise 
   \label{fig:banana}
 \end{figure}
 
-\subsection{Does SBTC fit the Australian data?}
+\section{Results}
 
 If SBTC explained the widening of the income distribution, we would expect to observe the premium accruing to `skilled' labor increasing with time. Figure~\ref{fig:banana} shows the composition-adjusted changes in log real wage by percentile, for males and females, between 1981-82 and 2009-10. If the 1981-82 income percentile can be considered a proxy for skill, then it is apparent that, over this period, wages more grew for high-skill individuals much faster than for low-skill individuals. It would therefore be expected that the premium accruing to higher educational attainment would show a similar trend.
 
