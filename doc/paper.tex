@@ -39,6 +39,9 @@
   \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
 \DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
 \DeclareFieldFormat[article]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+\DefineBibliographyStrings{english}{%
+  bibliography = {References},
+}
 
 \numberwithin{equation}{chapter}
 \usepackage[font={small,it}]{caption}
@@ -55,7 +58,7 @@
 \include{chapter_05}
 \include{chapter_06}
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \appendix
 \include{appendix_A}
