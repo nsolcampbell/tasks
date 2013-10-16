@@ -2,12 +2,12 @@ library(ggplot2)
 library(plyr)
 library(isotone) # for weighted median
 library(doBy)
+library(reshape2)
 source('lib/footnote.R')
 source('lib/plot_theme.R')
 load('data/curf/ftwswaw.rda')
 # Standard footnote for figures
 footnote <- function() { makeFootnote("Full-time wage/salary earners. 2013 AUD, CPI deflator. Source: ABS cat. 6543.0, 6541.0, 6503.0.")}
-
 
 log_chg <- ddply(ftwswaw, ~Sex + Year, summarise, 
                  perc95 = weighted.fractile(log(CRInc), SexYearWeight, 0.95), 
@@ -33,3 +33,4 @@ p <- ggplot(long_data, aes(x = as.numeric(as.character(Year)), y = value, group 
 print(p)
 footnote()
 dev.off()
+
