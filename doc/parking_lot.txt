@@ -1,0 +1,33 @@
+
+% Wage inequality rising since 1960s, especially in the top half of the earnings distribution. In the United States, where real wages for unskilled workers have declined, on average, since 1970, the skill premium for college graduates has grown significantly. But changing distribution of education doesn't explain the rise in inequality. Robust to industry (shown with census data.)
+
+% Causes of SBTC include (a) cheaper capital/computers, (b) institutional changes. Skills can be considered (a) complement physical+computer capital, or (b) particular skills needed for rapid change. Other explanations incude international openness and trade, increasing competition for jobs at low end of spectrum. Further, labor institutions are changing, especially weaker unions.
+                
+%US, Canadian and British experience particularly pronounced. Europe experienced similar increase in inequality; borne out more in unemployment than wage (institutional explanation.) The key explanation has been skill-based technical change, which is increasingly rapid due to the pace of technical advances. Supply of skilled workers sped up in 1970s, slowed in 1980s; under this explanation, excess of demand gives wage increase.
+
+% Industry-level evidence: all industries increase in skill demand, skill premium. Change more rapid in industries with increasing computerization.
+
+% In a study of the Australian workforce, \citet{Esposto2012} decomposed the Australian workforce by type of labour, and found that, over time, the labour force is upskilling, but that the trend depends on the category of work being performed. Between XXXX and XXXX, the demand for managerial and professional tasks increased, but over the same period, 
+
+% The task-assignment model allocates high (H), medium (M) and low (L) skilled inputs on a unit interval. Computerisation, due to decr in cost of computing power, in routine tasks displaces the H/M and M/L boundary. Wage of M decreases, wage of H and L increase due to q-complementarity.
+
+% Major within-data limitations. Key: changing composition of tasks within jobs. Subject to continual optimisation. More recent literature considers actual tasks in jobs through surveys.
+        
+% Also, endogenous task choice not considered by literature; should not assume assignment to skills are predetermined.
+        
+% Further, orthogonal category: "offshorability."
+
+
+
+% ***********************
+
+
+SBTC empirical studies, Australia
+
+ * Crag de Laine - 2000 - Productivity commission
+   - study period, 1980 - 2000
+   - used link tables to compare income tablesn
+   - found evidence of upskilling
+   - tested SBTC against alternative of trade with low-income countries
+
+ * 
