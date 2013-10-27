@@ -29,7 +29,8 @@ premium$Ratio <- recodeVar(as.character(premium$Ratio),
                            c("Trade/associate degree vs none","Bachelor degree or higher vs none"))
 
 pdf("figure/ed_premium_time.pdf", width=9, height=5)
-p <- ggplot(premium, aes(x = Year, y = Premium, group = Ratio, color = Ratio, shape = Ratio)) + 
+p <- ggplot(premium, aes(x = Year, y = Premium, group = Ratio,
+                         color = Ratio, shape = Ratio)) + 
      geom_point() + geom_line() + #facet_grid(. ~ Sex) + 
         scale_x_continuous() + xlab("Year") + ylab("Log points") + 
         ggtitle("Education Wage Premium 1981-2010")
@@ -45,11 +46,11 @@ log_median <- ddply(mydata, .(Year, Group2), summarise,
                     mean = weighted.mean(log(CRInc), Weight))
 wide_median <- acast(log_median, Year ~ Group2, value.var="mean")
 wide_median[,"H"] <- wide_median[,"H"] - wide_median[,"L"]
-premium <- data.frame(Year=as.numeric(rownames(wide_median)), Premium=wide_median[,"H"])
+premium <- data.frame(Year=as.numeric(rownames(wide_median)),
+                      Premium=wide_median[,"H"])
 premium$Country <- "Australia"
 
-autor_fig_01 <- read.csv("data/autor_fig_01.csv",
-                         col.names=c("Year","Premium"))
+autor_fig_01 <- read.csv("data/autor_fig_01.csv")
 autor_fig_01$Country <- "USA"
 premium_us <- autor_fig_01[,c("year", "clphsg_exp1", "Country")]
 names(premium_us) <- c("Year", "Premium", "Country")
@@ -59,7 +60,8 @@ prem_combo <- rbind(premium, premium_us)
 pdf("figure/ed_premium_time_two.pdf", width=9, height=5)
 p <- ggplot(prem_combo, aes(x = Year, y = Premium, color=Country, group=Country)) + 
         geom_point() + geom_line() + 
-        scale_x_continuous(limit=c(1982,2010)) + xlab("Year") + ylab("Log points") + 
+        scale_x_continuous(limit=c(1982,2012)) +
+        xlab("Year") + ylab("Log points") + 
         ggtitle("Education Wage Premium 1981-2010")
 print(p)
 footnote()
