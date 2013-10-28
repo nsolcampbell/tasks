@@ -6,7 +6,8 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{dcolumn}
-\usepackage{fullpage}
+%\usepackage{fullpage}
+\usepackage{fancyhdr}
 \usepackage{enumerate}
 \usepackage{rotating}
 \usepackage{setspace}
@@ -16,6 +17,9 @@
 \newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
 \newcommand{\vbeta}{\boldsymbol{\beta}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\sH}{\mathcal{H}}% 's' means 'set'
+\newcommand{\sM}{\mathcal{M}}
+\newcommand{\sL}{\mathcal{L}}
 
 \usepackage[american]{babel}
 \usepackage{csquotes}
@@ -51,6 +55,7 @@
 \include{abstract}
 \tableofcontents{}
 
+\pagestyle{headings}
 \include{chapter_01}
 \include{chapter_02}
 \include{chapter_03}
