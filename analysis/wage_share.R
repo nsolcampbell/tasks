@@ -22,7 +22,7 @@ mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
                            c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
                            c("L","M","H"))
 
-mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2012"))
+mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998", "2003", "2008"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998")) #, "2003", "2008"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
@@ -228,20 +228,25 @@ soft.l <- lm(share.l ~ exp(l_soft) + exp(l_valadd), data=gdata)
 stargazer(full.h, equip.h, soft.h,
           full.m, equip.m, soft.m,
           full.l, equip.l, soft.l,
-#           covariate.labels=c("$\\Delta$log {\\em equipment}",
-#                             "$\\Delta$log {\\em software}",
-#                             "$\\Delta$log {\\em other capital}",
-#                             "$\\Delta$log {\\em value added}",
-#                             "Constant"),
+          covariate.labels=c("$\\Delta$ {\\em ICT capital}",
+                             "$\\Delta$ {\\em Non-ICT capital}",
+                             "$\\Delta$ {\\em equipment}",
+                             "$\\Delta$ {\\em software}",
+                             "$\\Delta$ {\\em value added}"),
           dep.var.labels=c("$\\Delta SHARE^H$", "$\\Delta SHARE^M$",
                            "$\\Delta SHARE^L$"),
           align=TRUE,
-          title="Wage Share Change Estimation Results: 1996-2010",
+          title="Wage Share Change Estimation Results: 1996-2012",
           label="tbl:reg",
-          out='doc/conference_table_2.tex', 
+          out=paste0('analysis/share_table.',c('tex','txt')),
           float.env="sidewaystable",
+          omit="(Intercept)",
           omit.stat=c("ser","f"),
-          column.sep.width="0.5pt"
+          column.sep.width="0.5pt",
+          float=F,
+          star.cutoffs=c(0.05,0.01),
+          notes="*p<0.05; **p<0.01",
+          notes.append=F
           )
 
 share <- melt(share_arr)

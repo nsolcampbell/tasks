@@ -35,13 +35,6 @@ table COMBINEDI
 
 generate lwage = log(IWSSUCP8)
 
-* [commented out below, is this what's upsetting the RADL??]
-* find percentiles, as 19*0.05 increments
-**** BEGIN OVERALL DISTRIBUTION
-pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
-list pc_lwage in 1/19
-**** END OVERALL DISTRIBUTION
-
 generate female = 0
 replace  female = 1 if (SEXP == 2)
 
@@ -69,6 +62,26 @@ tabulate educ, generate(educ)
 * (for this one we deem experience to start at 15)
 egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,110) label
 tabulate potexp, generate(expdum)
+
+* compute probability of being in period 1, based on pre-computed probit model
+* computed in RADL
+generate tstar_i = -1.004331 * expdum1 -.5248388 * expdum2  ///
+	-.3575683 * expdum3 -.3559735 * expdum5 -.2295657 * expdum6 ///
+	-.1990033 * expdum7 -.6299797 * expdum8 + .1662448 * female ///
+	-.110938 * married + 1.877307 * educ1 + -.5473764 * educ2 ///
+	+ .790891 * educ4 + 1.005428 * educ5 + .261753
+
+generate pr1 = normal(tstar)
+
+* now reweight person weight based on pr1
+replace SIHPSWT = pr1/(1-pr1)
+
+* find percentiles, as 19*0.05 increments
+**** BEGIN OVERALL DISTRIBUTION
+pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
+list pc_lwage in 1/19
+**** END OVERALL DISTRIBUTION
+
 
 
 *** BEGIN EXPECTED VALUE OF X

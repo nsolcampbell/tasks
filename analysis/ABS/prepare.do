@@ -49,6 +49,8 @@ tabulate AgeGrp, generate(expdum)
 
 generate T = 0
 
+
+
 save "1982_i", replace
 
 clear
@@ -58,7 +60,7 @@ clear
 ***********************************************
 
 * EXPANDED CURF
-use "`IDS00PTP'"
+use "data/curf/2001/IDS00"
 
 keep ABSHID ABSFID ABSIID ABSIID ABSPID ///
     PSRCCP FTPTSTAT OCCCP IWSUCP WTPSN ///
@@ -149,7 +151,7 @@ keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
 
 * stone age STATA means we need a workaround for merge
 sort OCC6DIG
-joinby OCC6DIG using "`SAVED'AnzscoCombined1Map", unmatched(both)
+joinby OCC6DIG using "data/curf/2010/AnzscoCombined1Map", unmatched(both)
 
 sort COMBINEDI
 
@@ -286,3 +288,11 @@ replace potexpy = max(potexpy, 0)
 * now cut into 5 year bands, make dummy variables
 egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,99) label
 tabulate potexp, generate(expdum)
+
+generate tstar = -1.004331 * expdum1 -.5248388 * expdum2  \\\
+	-.3575683 * expdum3 -.3559735 * expdum5 -.2295657 * expdum6 \\\
+	-.1990033 * expdum7 -.6299797 * expdum8 + .1662448 * female \\\
+	-.110938 * married + 1.877307 * educ1 + -.5473764 * educ2 \\\
+	.790891 * educ4 + 1.005428 * educ5 + .261753
+
+generate tstar

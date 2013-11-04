@@ -28,8 +28,6 @@ drop if (PSRCCP != 1) | (FTPTSTAT != 1)
 * remove "Not Applicable" or "Inadequately Described" records
 drop if (OCCCP == 0) | (OCCCP == 99)
 
-generate T = 0
-
 svrmean IWSUCP, by (OCCCP)
 svrmean IWSUCP, by (COMBINEDII)
 

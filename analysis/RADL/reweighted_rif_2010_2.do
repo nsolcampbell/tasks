@@ -16,9 +16,9 @@ keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
 
 * stone age STATA means we need a workaround for merge
 sort OCC6DIG
-joinby OCC6DIG using "`SAVED'AnzscoCombined1Map", unmatched(both)
+joinby OCC6DIG using "`SAVED'Combined2Map", unmatched(both)
 
-sort COMBINEDI
+sort COMBINEDII
 
 * keep only full-time Wage & Salary records
 drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
@@ -29,18 +29,11 @@ drop if (OCC6DIG == 0) | (OCC6DIG == 99)
 * see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D000F7C5D?opendocument
 svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
 
-svrmean IWSSUCP8, by(COMBINEDI)
+svrmean IWSSUCP8, by(COMBINEDII)
 
-table COMBINEDI
+table COMBINEDII
 
 generate lwage = log(IWSSUCP8)
-
-* [commented out below, is this what's upsetting the RADL??]
-* find percentiles, as 19*0.05 increments
-**** BEGIN OVERALL DISTRIBUTION
-pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
-list pc_lwage in 1/19
-**** END OVERALL DISTRIBUTION
 
 generate female = 0
 replace  female = 1 if (SEXP == 2)
@@ -65,10 +58,40 @@ replace educ = 5 if (LVLEDUA == 1)
 tabulate educ, generate(educ)
 
 
-* generate potential experience flags
-* (for this one we deem experience to start at 15)
-egen potexp = cut(AGEEC), at(15,20,25,30,35,40,45,50,55,110) label
+* generate potential experience, in years,
+* which we then cut according to five-yearly bands
+* we don't have year left school for everyone in 2000-1, 
+* so assume experience starts at 18
+gen potexpy = AGEEC - 18
+* reduce by years of postgraduate education
+replace potexpy = potexpy - 5 if educ == 5
+replace potexpy = potexpy - 3 if educ == 4
+replace potexpy = potexpy - 2 if educ == 3
+replace potexpy = max(potexpy, 0)
+
+* now cut into 5 year bands, make dummy variables
+egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,99) label
 tabulate potexp, generate(expdum)
+
+* compute probability of being in period 1, based on pre-computed probit model
+* computed in RADL
+generate tstar_ii = .0739616 * expdum1 + .1186636 * expdum2 ///
+	-.0161698 * expdum3 -.0524342 * expdum5 -.0554294 * expdum6 ///
+	-.0548529 * expdum7 + .2130425 * expdum8 -.0154804 * female ///
+	+ .0638069 * married + 1.790752 * educ1 -.4936368 * educ2 ///
+	+ .1572193 * educ4 + .3921953 * educ5 -.1170403
+
+generate pr1 = normal(tstar)
+
+* now reweight person weight based on pr1
+replace SIHPSWT = pr1/(1-pr1)
+
+* find percentiles, as 19*0.05 increments
+**** BEGIN OVERALL DISTRIBUTION
+pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
+list pc_lwage in 1/19
+**** END OVERALL DISTRIBUTION
+
 
 
 *** BEGIN EXPECTED VALUE OF X

@@ -1,0 +1,1200 @@
+/**********************************************************************/
+     Australian Bureau of Statistics Remote Access Data Laboratory
+     
+ The following specifies the details of this file and the job that
+ produced it as originally written by the RADL.
+ 
+ User Id        : COOPAL
+ Job Identifier : 0095
+ File Name      : output0095.txt
+ Date/Time      : 05 Nov 2013  01:37:48
+  
+/**********************************************************************/
+
+
+
+. * Perform a RIF regression on the 2010 CURF with the 1st combined grouping
+. *
+. * NB: All loops are unrolled, quantiles/densities are hard-coded and matrixes
+>  are
+. *     not used because of RADL restrictions. Results are computer-processed f
+> rom 
+. *     output log files using the script analysis/parse_rif_2010.py
+. *
+. * This is a generated file -- do not edit. Edit analysis/make_rif_2010.py ins
+> tead.
+. *
+. * USE EXPANDED CURF
+. use "`SIH10EP'"
+
+. 
+. keep ABSHID ABSFID ABSIID ABSLID ABSPID ///
+>     FTPTSTAT SECEDQL OCC6DIG AGEEC PSRC4PP PSRCSCP IWSSUCP8 IWSUCP SIHPSWT //
+> /
+>     SEXP LVLEDUA MSTATP ///
+>     WPS0101-WPS0160
+. 
+. * stone age STATA means we need a workaround for merge
+. sort OCC6DIG
+
+. joinby OCC6DIG using "`SAVED'Combined2Map", unmatched(both)
+
+. 
+. sort COMBINEDII
+
+. 
+. * keep only full-time Wage & Salary records
+. drop if (PSRCSCP != 1) | (FTPTSTAT != 1)
+(22903 observations deleted)
+. 
+. * remove "Not Applicable" or "Inadequately Described" records
+. drop if (OCC6DIG == 0) | (OCC6DIG == 99)
+(27 observations deleted)
+. 
+. * see http://www.abs.gov.au/ausstats/abs@.nsf/Lookup/3607C2551414E995CA257A5D
+> 000F7C5D?opendocument
+. svrset set meth jk1 pw SIHPSWT rw WPS0101-WPS0160 dof 59
+
+. 
+. svrmean IWSSUCP8, by(COMBINEDII)
+dropping IWSSUCP8
+*ABSTABLE_START*
+*ABSTABLE_UR*1
+*ABSTABLE_NSTATVAR*1
+*ABSTABLE_CONTRIB*11064
+*ABSTABLE_SINGLE*0
+*ABSTABLE_NONZERO*29
+*ABSTABLE_VSINGLE*0
+*ABSTABLE_VSINGMAX*0
+
+Survey mean estimation, replication (jk1) variance method
+
+Analysis weight:      SIHPSWT                  Number of obs       =     11064
+Replicate weights:    WPS0101...               Population size     = 6567248.8
+Number of replicates: 60                       Degrees of freedom  =        59
+
+------------------------------------------------------------------------------
+Mean   Subpop. |   Estimate    Std. Err.   [95% Conf. Interval]        Deff
+---------------+--------------------------------------------------------------
+IWSSUCP8       |
+ COMBINEDII==1 |   3059.874    266.8936    2525.821    3593.926    1.583317
+ COMBINEDII==2 |   1093.027    72.21134    948.5322    1237.521    1.040478
+ COMBINEDII==3 |   2014.458    56.78456    1900.832    2128.083    2.299623
+ COMBINEDII==4 |   1107.671    32.46548    1042.707    1172.634    1.564591
+ COMBINEDII==5 |    1414.15    147.3372    1119.329    1708.971    2.148295
+ COMBINEDII==6 |   1671.275    40.21594    1590.803    1751.747    1.696954
+ COMBINEDII==7 |   1768.558     82.0167    1604.443    1932.673    1.727634
+ COMBINEDII==8 |   1382.512    19.18101    1344.131    1420.893    1.460537
+ COMBINEDII==9 |   1875.402     90.9586    1693.394     2057.41    1.540409
+COMBINEDII==10 |   1420.794    47.47975    1325.788    1515.801    1.456732
+COMBINEDII==11 |   1729.153    215.4118    1298.115    2160.191    1.591898
+COMBINEDII==12 |   1515.852    65.97049    1383.845    1647.859    1.373173
+COMBINEDII==13 |   1232.687    41.87347    1148.898    1316.475    1.960116
+COMBINEDII==14 |   1031.306    37.70011    955.8679    1106.743    1.618618
+COMBINEDII==15 |   1205.853    52.01526    1101.771    1309.935    1.360673
+COMBINEDII==16 |   891.2404    45.12293    800.9496    981.5311    2.549276
+COMBINEDII==17 |   879.4981    32.72169    814.0221     944.974    1.026727
+COMBINEDII==18 |   1081.958    31.69713    1018.532    1145.384    1.438872
+COMBINEDII==19 |   952.9622    22.24412    908.4518    997.4725    2.022693
+COMBINEDII==20 |   1146.522    47.60424    1051.266    1241.777    1.596913
+COMBINEDII==21 |   1034.539    37.58823    959.3256    1109.753    1.450066
+COMBINEDII==22 |   1095.345    27.01417    1041.289      1149.4    1.433916
+COMBINEDII==23 |   856.6781    20.60162    815.4544    897.9019    1.289817
+COMBINEDII==24 |   1240.915    35.78614    1169.307    1312.523    1.241708
+COMBINEDII==25 |   1143.199    33.56613    1076.034    1210.365    1.751464
+COMBINEDII==26 |   872.3071    25.35634    821.5692     923.045    2.081751
+COMBINEDII==27 |   979.0735    34.46159     910.116    1048.031    1.941163
+COMBINEDII==28 |   805.6199     50.5703     704.429    906.8109     1.68401
+COMBINEDII==29 |   1230.894    53.82997    1123.181    1338.608    1.387322
+------------------------------------------------------------------------------
+*ABSTABLE_END*
+
+. 
+. *ABS Change: table COMBINEDII
+. XABSTABLE COMBINEDII
+*ABSTABLE_START*
+*ABSTABLE_UR*1
+*ABSTABLE_NSTATVAR*0
+*ABSTABLE_CONTRIB*11064
+*ABSTABLE_SINGLE*0
+*ABSTABLE_NONZERO*29
+*ABSTABLE_VSINGLE*0
+*ABSTABLE_VSINGMAX*0
+
+----------------------
+COMBINEDI |
+I         |      Freq.
+----------+-----------
+        1 |        186
+        2 |         74
+        3 |        991
+        4 |        548
+        5 |         76
+        6 |      1,030
+        7 |        433
+        8 |        537
+        9 |        438
+       10 |        227
+       11 |        174
+       12 |        302
+       13 |        608
+       14 |        298
+       15 |        274
+       16 |        151
+       17 |         77
+       18 |        470
+       19 |        819
+       20 |        501
+       21 |        135
+       22 |        300
+       23 |        410
+       24 |        494
+       25 |        356
+       26 |        385
+       27 |        528
+       28 |        103
+       29 |        139
+----------------------
+*ABSTABLE_END*
+
+. 
+. generate lwage = log(IWSSUCP8)
+
+. 
+. generate female = 0
+
+. replace  female = 1 if (SEXP == 2)
+(4046 real changes made)
+
+. 
+. generate married = 0
+
+. replace  married = 1 if (MSTATP == 1)
+(7545 real changes made)
+
+. 
+. generate educ = .
+(11064 missing values generated)
+
+. * 1 = some high school or undetermined
+. replace educ = 1 if (LVLEDUA == 0 | LVLEDUA == 13 | LVLEDUA == 12 | ///
+>          LVLEDUA == 11 | LVLEDUA == 10 | LVLEDUA == 9)
+(2494 real changes made)
+
+. * 2 = high school
+. replace educ = 2 if (LVLEDUA == 8)
+(1708 real changes made)
+
+. * 3 = non-bachelor tertiary qualification
+. replace educ = 3 if (LVLEDUA == 7 | LVLEDUA == 6 | LVLEDUA == 5 | LVLEDUA == 
+> 4)
+(3676 real changes made)
+
+. * 4 = bachelor degree or grad dip/cert
+. replace educ = 4 if (LVLEDUA == 3 | LVLEDUA == 2)
+(2557 real changes made)
+
+. * 5 = postgrad degree (master or higher)
+. replace educ = 5 if (LVLEDUA == 1)
+(629 real changes made)
+
+. 
+. * now create education dummies
+. *ABS Change: tabulate educ, generate(educ)
+. XABSTABULATE educ, generate(educ)
+*ABSTABLE_START*
+*ABSTABLE_UR*1
+*ABSTABLE_NSTATVAR*0
+*ABSTABLE_CONTRIB*11064
+*ABSTABLE_SINGLE*0
+*ABSTABLE_NONZERO*5
+*ABSTABLE_VSINGLE*0
+*ABSTABLE_VSINGMAX*0
+
+       educ |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      2,494       22.54       22.54
+          2 |      1,708       15.44       37.98
+          3 |      3,676       33.22       71.20
+          4 |      2,557       23.11       94.31
+          5 |        629        5.69      100.00
+------------+-----------------------------------
+      Total |     11,064      100.00
+*ABSTABLE_END*
+
+. 
+. 
+. * generate potential experience, in years,
+. * which we then cut according to five-yearly bands
+. * we don't have year left school for everyone in 2000-1, 
+. * so assume experience starts at 18
+. gen potexpy = AGEEC - 18
+
+. * reduce by years of postgraduate education
+. replace potexpy = potexpy - 5 if educ == 5
+(629 real changes made)
+
+. replace potexpy = potexpy - 3 if educ == 4
+(2557 real changes made)
+
+. replace potexpy = potexpy - 2 if educ == 3
+(3676 real changes made)
+
+. replace potexpy = max(potexpy, 0)
+(142 real changes made)
+
+. 
+. * now cut into 5 year bands, make dummy variables
+. egen potexp = cut(potexpy), at (0,5,10,15,20,25,30,35,99) label
+
+. *ABS Change: tabulate potexp, generate(expdum)
+. XABSTABULATE potexp, generate(expdum)
+*ABSTABLE_START*
+*ABSTABLE_UR*1
+*ABSTABLE_NSTATVAR*0
+*ABSTABLE_CONTRIB*11064
+*ABSTABLE_SINGLE*0
+*ABSTABLE_NONZERO*8
+*ABSTABLE_VSINGLE*0
+*ABSTABLE_VSINGMAX*0
+
+     potexp |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         0- |      1,340       12.11       12.11
+         5- |      1,442       13.03       25.14
+        10- |      1,333       12.05       37.19
+        15- |      1,281       11.58       48.77
+        20- |      1,359       12.28       61.05
+        25- |      1,391       12.57       73.63
+        30- |      1,269       11.47       85.10
+        35- |      1,649       14.90      100.00
+------------+-----------------------------------
+      Total |     11,064      100.00
+*ABSTABLE_END*
+
+. 
+. * compute probability of being in period 1, based on pre-computed probit mode
+> l
+. * computed in RADL
+. generate tstar_ii = .0739616 * expdum1 + .1186636 * expdum2 ///
+>         -.0161698 * expdum3 -.0524342 * expdum5 -.0554294 * expdum6 ///
+>         -.0548529 * expdum7 + .2130425 * expdum8 -.0154804 * female ///
+>         + .0638069 * married + 1.790752 * educ1 -.4936368 * educ2 ///
+>         + .1572193 * educ4 + .3921953 * educ5 -.1170403
+
+. 
+. generate pr1 = normal(tstar)
+
+. 
+. * now reweight person weight based on pr1
+. replace SIHPSWT = pr1/(1-pr1)
+(11064 real changes made)
+
+. 
+. * find percentiles, as 19*0.05 increments
+. **** BEGIN OVERALL DISTRIBUTION
+. pctile pc_lwage = lwage [aweight = SIHPSWT] , nq(20)
+
+. *ABS Change: list pc_lwage in 1/19
+. XABSLIST pc_lwage in 1/19
+*ABSLIST_START*
+*ABSLIST_UR*1
+*ABSLIST_VARCOUNT*1
+*ABSLIST_RECCOUNT*19
+*ABSLIST_IDFIELDS_START*
+ABSHID
+ABSFID
+ABSIID
+ABSLID
+ABSPID
+*ABSLIST_IDFIELDS_END*
+*ABSLIST_FIELDS_START*
+pc_lwage
+*ABSLIST_FIELDS_END*
+*ABSLIST_RECS_START*
+    SIH10E8992571        1        2        0        1  
+    SIH10E8988966        1        1        0        1  
+    SIH10E8991309        1        1        0        2  
+    SIH10E8997961        1        1        0        1  
+    SIH10E8998654        1        1        0        2  
+    SIH10E8991253        1        1        0        2  
+    SIH10E8995007        1        1        0        1  
+    SIH10E8986232        1        1        0        1  
+    SIH10E8982087        1        1        0        1  
+    SIH10E8996316        1        1        0        1  
+    SIH10E8988734        1        1        0        1  
+    SIH10E8996997        1        1        0        1  
+    SIH10E8982728        1        2        0        1  
+    SIH10E8992138        1        2        0        1  
+    SIH10E8998333        1        1        0        1  
+    SIH10E8982069        1        1        0        1  
+    SIH10E8999815        1        1        0        2  
+    SIH10E8991072        1        1        0        2  
+    SIH10E8989069        1        3        0        1  
+*ABSLIST_RECS_END*
+
+     +----------+
+     | pc_lwage |
+     |----------|
+  1. | 6.120297 |
+  2. | 6.386879 |
+  3. | 6.461468 |
+  4. | 6.533789 |
+  5. | 6.579251 |
+     |----------|
+  6. | 6.637258 |
+  7. | 6.689599 |
+  8. | 6.745236 |
+  9. | 6.802395 |
+ 10. | 6.848005 |
+     |----------|
+ 11. | 6.907755 |
+ 12. | 6.964136 |
+ 13. | 7.032624 |
+ 14. | 7.097549 |
+ 15. |  7.17012 |
+     |----------|
+ 16. | 7.273787 |
+ 17. | 7.379632 |
+ 18. | 7.518064 |
+ 19. | 7.758334 |
+     +----------+
+*ABSLIST_END*
+
+. **** END OVERALL DISTRIBUTION
+. 
+. 
+. 
+. *** BEGIN EXPECTED VALUE OF X
+. *ABS Change: summarize expdum1-expdum8 female married ///
+>       educ1-educ5 inform routine face site decision [aweight = SIHPSWT]
+. XABSSUMMARIZE expdum1-expdum8 female married ///
+>       educ1-educ5 inform routine face site decision [aweight = SIHPSWT]
+*ABSTABLE_START*
+*ABSTABLE_UR*1
+*ABSTABLE_NSTATVAR*20
+*ABSTABLE_CONTRIB*11064
+*ABSTABLE_SINGLE*0
+*ABSTABLE_NONZERO*1
+*ABSTABLE_VSINGLE*0
+*ABSTABLE_VSINGMAX*0
+
+    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
+-------------+-----------------------------------------------------------------
+     expdum1 |   11064  71729.6225      .11512   .3191812          0          1
+     expdum2 |   11064  71729.6225    .0797409   .2709039          0          1
+     expdum3 |   11064  71729.6225    .0650469   .2466197          0          1
+     expdum4 |   11064  71729.6225    .0785911   .2691117          0          1
+     expdum5 |   11064  71729.6225    .0996837   .2995913          0          1
+-------------+-----------------------------------------------------------------
+     expdum6 |   11064  71729.6225     .109728   .3125646          0          1
+     expdum7 |   11064  71729.6225    .1096486   .3124654          0          1
+     expdum8 |   11064  71729.6225    .3424407   .4745476          0          1
+      female |   11064  71729.6225    .3169272   .4652998          0          1
+     married |   11064  71729.6225    .6997522   .4583863          0          1
+-------------+-----------------------------------------------------------------
+       educ1 |   11064  71729.6225    .8838119   .3204648          0          1
+       educ2 |   11064  71729.6225    .0100412   .0997059          0          1
+       educ3 |   11064  71729.6225    .0481075    .214003          0          1
+       educ4 |   11064  71729.6225     .042843   .2025123          0          1
+       educ5 |   11064  71729.6225    .0151964    .122339          0          1
+-------------+-----------------------------------------------------------------
+      inform |   11064  71729.6225   -.2704099   .8735715  -2.387076   1.499832
+     routine |   11064  71729.6225     .427761   .8463357   -2.03431   1.597249
+        face |   11064  71729.6225    .4077297   .8708472  -2.287972   1.364165
+        site |   11064  71729.6225   -.2382983   1.023309  -1.642092   1.382305
+    decision |   11064  71729.6225    .3463307   .8794839  -2.043941   1.990205
+*ABSTABLE_END*
+
+. *** END EXPECTED VALUE OF X
+. 
+. 
+. * manual RIF regression 1
+. generate rif_01 = 6.253829 + (6.253829 - (lwage < 6.253829))/0.156011
+
+. reg rif_01 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   19.26
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1936
+                                                       Root MSE      =  1.5134
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_01 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -2.163399   .1655998   -13.06   0.000    -2.488004   -1.838794
+     expdum2 |  -.2539067   .1094957    -2.32   0.020    -.4685378   -.0392756
+     expdum3 |  -.1577699   .0931461    -1.69   0.090     -.340353    .0248132
+     expdum5 |  -.1273894   .0772377    -1.65   0.099    -.2787892    .0240103
+     expdum6 |  -.1226811    .074368    -1.65   0.099    -.2684556    .0230935
+     expdum7 |  -.1013325   .0736667    -1.38   0.169    -.2457324    .0430674
+     expdum8 |  -.0707208   .0614576    -1.15   0.250    -.1911887     .049747
+      female |  -.2714033   .0728151    -3.73   0.000    -.4141339   -.1286728
+     married |   .2076321   .0644856     3.22   0.001     .0812287    .3340354
+       educ1 |  -.3416924   .0441103    -7.75   0.000    -.4281564   -.2552283
+       educ2 |   -.175325   .0495468    -3.54   0.000    -.2724455   -.0782044
+       educ4 |   .1283357    .043128     2.98   0.003     .0437971    .2128743
+       educ5 |   .0309029    .054992     0.56   0.574    -.0768912     .138697
+      inform |  -.0431226   .0773825    -0.56   0.577    -.1948061    .1085609
+     routine |   .0806308   .0733958     1.10   0.272    -.0632381    .2244997
+        face |    .004077   .0739924     0.06   0.956    -.1409613    .1491154
+        site |   .2050296   .0628344     3.26   0.001     .0818629    .3281962
+    decision |   .0751897   .0603947     1.24   0.213    -.0431948    .1935741
+       _cons |   46.41625   .0851231   545.28   0.000      46.2494    46.58311
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 2
+. generate rif_02 = 6.458777 + (6.458777 - (lwage < 6.458777))/0.430942
+
+. reg rif_02 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   40.81
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.2063
+                                                       Root MSE      =  .73822
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_02 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -1.014614   .0734589   -13.81   0.000    -1.158606   -.8706211
+     expdum2 |  -.0906213   .0653284    -1.39   0.165    -.2186765     .037434
+     expdum3 |  -.0191708    .057673    -0.33   0.740    -.1322202    .0938785
+     expdum5 |   .0466222   .0500989     0.93   0.352    -.0515805    .1448249
+     expdum6 |   .0172402   .0510047     0.34   0.735    -.0827382    .1172186
+     expdum7 |   .0143026   .0514763     0.28   0.781    -.0866001    .1152052
+     expdum8 |   .0255211   .0472756     0.54   0.589    -.0671475    .1181897
+      female |  -.2446477   .0375627    -6.51   0.000    -.3182772   -.1710181
+     married |   .0438528   .0328851     1.33   0.182    -.0206079    .1083136
+       educ1 |  -.1611038   .0208989    -7.71   0.000    -.2020694   -.1201381
+       educ2 |  -.0887273   .0232497    -3.82   0.000    -.1343009   -.0431537
+       educ4 |   .0619462   .0220183     2.81   0.005     .0187864    .1051059
+       educ5 |   .0149578    .027341     0.55   0.584    -.0386355     .068551
+      inform |   .0927204   .0323332     2.87   0.004     .0293415    .1560993
+     routine |   .0496153   .0359723     1.38   0.168    -.0208968    .1201273
+        face |   .0102136   .0328625     0.31   0.756    -.0542028    .0746299
+        site |   .0687419   .0252837     2.72   0.007     .0191813    .1183024
+    decision |   .0060421   .0278362     0.22   0.828    -.0485218    .0606059
+       _cons |   21.40861   .0517976   413.31   0.000     21.30708    21.51015
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 3
+. generate rif_03 = 6.551080 + (6.551080 - (lwage < 6.551080))/0.583479
+
+. reg rif_03 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   52.83
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1850
+                                                       Root MSE      =  .63318
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_03 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.7257458   .0589933   -12.30   0.000    -.8413831   -.6101084
+     expdum2 |  -.0665821    .057165    -1.16   0.244    -.1786357    .0454715
+     expdum3 |   -.005026   .0535015    -0.09   0.925    -.1098985    .0998465
+     expdum5 |   .0681303   .0464724     1.47   0.143     -.022964    .1592245
+     expdum6 |   .0712656    .046143     1.54   0.123    -.0191828     .161714
+     expdum7 |   .0199432   .0475987     0.42   0.675    -.0733589    .1132452
+     expdum8 |   .0345689   .0441589     0.78   0.434    -.0519904    .1211283
+      female |  -.2620561    .031915    -8.21   0.000    -.3246153    -.199497
+     married |   .0327666   .0288102     1.14   0.255    -.0237066    .0892398
+       educ1 |  -.1474177   .0177022    -8.33   0.000    -.1821172   -.1127183
+       educ2 |  -.0624386   .0188978    -3.30   0.001    -.0994817   -.0253954
+       educ4 |   .0680168   .0191276     3.56   0.000     .0305233    .1055103
+       educ5 |   .0248863   .0240302     1.04   0.300    -.0222171    .0719898
+      inform |   .1210415   .0257831     4.69   0.000      .070502    .1715811
+     routine |   .0242251   .0309434     0.78   0.434    -.0364296    .0848797
+        face |   .0215994   .0279362     0.77   0.439    -.0331604    .0763593
+        site |   .0370305   .0204698     1.81   0.070    -.0030939    .0771549
+    decision |   .0023698   .0236082     0.10   0.920    -.0439066    .0486461
+       _cons |   17.68483   .0456948   387.02   0.000     17.59526     17.7744
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 4
+. generate rif_04 = 6.630683 + (6.630683 - (lwage < 6.630683))/0.705411
+
+. reg rif_04 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   79.44
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1898
+                                                       Root MSE      =  .58198
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_04 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.6076794   .0502805   -12.09   0.000    -.7062382   -.5091205
+     expdum2 |  -.0536521   .0530024    -1.01   0.311    -.1575463    .0502421
+     expdum3 |   -.029772   .0507697    -0.59   0.558    -.1292896    .0697457
+     expdum5 |   .0510496   .0442752     1.15   0.249    -.0357377    .1378369
+     expdum6 |   .0551746    .043632     1.26   0.206    -.0303519     .140701
+     expdum7 |  -.0167532    .044926    -0.37   0.709    -.1048163    .0713098
+     expdum8 |   .0217544   .0414676     0.52   0.600    -.0595295    .1030383
+      female |  -.2792717   .0285383    -9.79   0.000    -.3352118   -.2233316
+     married |   .0638276   .0268713     2.38   0.018     .0111551    .1165002
+       educ1 |  -.1586884   .0163623    -9.70   0.000    -.1907615   -.1266154
+       educ2 |  -.0673077   .0173017    -3.89   0.000    -.1012222   -.0333933
+       educ4 |    .085942   .0180174     4.77   0.000     .0506247    .1212593
+       educ5 |   .0387358   .0226662     1.71   0.087    -.0056939    .0831655
+      inform |   .1004974   .0225198     4.46   0.000     .0563546    .1446402
+     routine |   .0263595    .028241     0.93   0.351     -.028998     .081717
+        face |   .0432225   .0257951     1.68   0.094    -.0073406    .0937856
+        site |   .0482417   .0191899     2.51   0.012     .0106261    .0858573
+    decision |  -.0458628   .0218721    -2.10   0.036     -.088736   -.0029896
+       _cons |   15.87885     .04285   370.57   0.000     15.79486    15.96284
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 5
+. generate rif_05 = 6.684612 + (6.684612 - (lwage < 6.684612))/0.759589
+
+. reg rif_05 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   94.75
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1844
+                                                       Root MSE      =  .56698
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_05 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.5374152   .0471084   -11.41   0.000    -.6297561   -.4450743
+     expdum2 |  -.0517413   .0513569    -1.01   0.314    -.1524101    .0489275
+     expdum3 |  -.0451346   .0499101    -0.90   0.366    -.1429674    .0526981
+     expdum5 |   .0007852   .0440497     0.02   0.986    -.0855602    .0871305
+     expdum6 |   -.000416   .0436066    -0.01   0.992    -.0858929    .0850608
+     expdum7 |  -.0164417   .0437202    -0.38   0.707    -.1021411    .0692577
+     expdum8 |   .0197037   .0405191     0.49   0.627    -.0597209    .0991284
+      female |  -.2715031   .0270082   -10.05   0.000     -.324444   -.2185622
+     married |   .0853969   .0259001     3.30   0.001     .0346281    .1361656
+       educ1 |  -.1503496   .0160984    -9.34   0.000    -.1819054   -.1187939
+       educ2 |  -.0806844   .0171289    -4.71   0.000    -.1142602   -.0471087
+       educ4 |    .099225   .0179847     5.52   0.000     .0639719    .1344782
+       educ5 |   .0553553   .0229783     2.41   0.016     .0103137    .1003969
+      inform |   .1032886   .0220712     4.68   0.000     .0600251     .146552
+     routine |   .0118729    .027566     0.43   0.667    -.0421614    .0659072
+        face |   .0698381   .0251327     2.78   0.005     .0205734    .1191027
+        site |   .0525539    .019085     2.75   0.006     .0151439    .0899638
+    decision |  -.0608851   .0215648    -2.82   0.005     -.103156   -.0186143
+       _cons |   15.27307   .0412953   369.85   0.000     15.19212    15.35401
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 6
+. generate rif_06 = 6.756932 + (6.756932 - (lwage < 6.756932))/0.788736
+
+. reg rif_06 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  112.57
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1831
+                                                       Root MSE      =  .56402
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_06 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.4980037   .0456801   -10.90   0.000     -.587545   -.4084625
+     expdum2 |  -.0670282   .0514954    -1.30   0.193    -.1679683     .033912
+     expdum3 |  -.0837427   .0508364    -1.65   0.100    -.1833912    .0159058
+     expdum5 |  -.0117833   .0447041    -0.26   0.792    -.0994113    .0758447
+     expdum6 |   .0053887   .0441559     0.12   0.903    -.0811648    .0919422
+     expdum7 |  -.0257768   .0445097    -0.58   0.563    -.1130238    .0614702
+     expdum8 |   .0069725   .0412559     0.17   0.866    -.0738964    .0878414
+      female |   -.285368   .0258929   -11.02   0.000    -.3361228   -.2346132
+     married |   .0732834   .0252714     2.90   0.004     .0237471    .1228198
+       educ1 |  -.1525651   .0161926    -9.42   0.000    -.1843055   -.1208248
+       educ2 |  -.0865977   .0170531    -5.08   0.000    -.1200247   -.0531706
+       educ4 |   .1053928   .0182203     5.78   0.000     .0696777    .1411078
+       educ5 |   .0749327   .0232108     3.23   0.001     .0294355    .1204299
+      inform |   .1064147   .0216682     4.91   0.000     .0639412    .1488882
+     routine |  -.0083236   .0271569    -0.31   0.759    -.0615559    .0449088
+        face |   .0681103   .0249972     2.72   0.006     .0191113    .1171093
+        site |   .0470964   .0191057     2.47   0.014     .0096458    .0845471
+    decision |   -.066133   .0214159    -3.09   0.002     -.108112   -.0241541
+       _cons |   15.08136   .0409603   368.19   0.000     15.00107    15.16165
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 7
+. generate rif_07 = 6.819470 + (6.819470 - (lwage < 6.819470))/0.793478
+
+. reg rif_07 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  137.46
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1864
+                                                       Root MSE      =  .56808
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_07 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |   -.486502   .0444153   -10.95   0.000    -.5735638   -.3994401
+     expdum2 |  -.0811271   .0518876    -1.56   0.118    -.1828361    .0205819
+     expdum3 |  -.1088637    .050855    -2.14   0.032    -.2085486   -.0091788
+     expdum5 |   -.016741   .0449712    -0.37   0.710    -.1048925    .0714105
+     expdum6 |  -.0201509   .0447318    -0.45   0.652    -.1078332    .0675314
+     expdum7 |   -.038835   .0446436    -0.87   0.384    -.1263445    .0486745
+     expdum8 |  -.0214065   .0416319    -0.51   0.607    -.1030124    .0601995
+      female |  -.2734246   .0263292   -10.38   0.000    -.3250345   -.2218146
+     married |    .090309   .0251944     3.58   0.000     .0409235    .1396946
+       educ1 |  -.1543633   .0164752    -9.37   0.000    -.1866577    -.122069
+       educ2 |  -.0899676     .01726    -5.21   0.000    -.1238004   -.0561349
+       educ4 |   .1344527   .0188422     7.14   0.000     .0975186    .1713868
+       educ5 |   .1190642   .0237712     5.01   0.000     .0724684      .16566
+      inform |   .1049343   .0212092     4.95   0.000     .0633604    .1465082
+     routine |  -.0252792    .027294    -0.93   0.354    -.0787804    .0282219
+        face |   .0693449   .0254081     2.73   0.006     .0195405    .1191493
+        site |   .0229178   .0191728     1.20   0.232    -.0146643    .0604998
+    decision |  -.0838587   .0216657    -3.87   0.000    -.1263274     -.04139
+       _cons |   15.10093   .0411293   367.16   0.000     15.02031    15.18155
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 8
+. generate rif_08 = 6.885653 + (6.885653 - (lwage < 6.885653))/0.793904
+
+. reg rif_08 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  153.20
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1891
+                                                       Root MSE      =  .56642
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_08 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.4399379   .0432925   -10.16   0.000    -.5247989   -.3550769
+     expdum2 |  -.1084098   .0513214    -2.11   0.035     -.209009   -.0078105
+     expdum3 |  -.0796107    .050543    -1.58   0.115     -.178684    .0194627
+     expdum5 |  -.0154309   .0450482    -0.34   0.732    -.1037334    .0728716
+     expdum6 |  -.0176691    .044934    -0.39   0.694    -.1057479    .0704096
+     expdum7 |   .0026997   .0444665     0.06   0.952    -.0844626    .0898621
+     expdum8 |  -.0303185   .0414761    -0.73   0.465     -.111619     .050982
+      female |  -.2744072    .025749   -10.66   0.000    -.3248798   -.2239345
+     married |   .0892394    .024656     3.62   0.000     .0409093    .1375696
+       educ1 |  -.1516319   .0166066    -9.13   0.000    -.1841837   -.1190801
+       educ2 |  -.0755113    .017318    -4.36   0.000    -.1094576   -.0415649
+       educ4 |    .172733   .0192444     8.98   0.000     .1350106    .2104554
+       educ5 |   .1585289   .0250536     6.33   0.000     .1094194    .2076385
+      inform |    .112832   .0209575     5.38   0.000     .0717515    .1539125
+     routine |  -.0335733    .027026    -1.24   0.214    -.0865491    .0194025
+        face |   .0878561   .0252931     3.47   0.001      .038277    .1374352
+        site |   .0156497   .0194138     0.81   0.420    -.0224048    .0537042
+    decision |  -.0959711   .0217034    -4.42   0.000    -.1385136   -.0534285
+       _cons |   15.16166   .0406071   373.37   0.000     15.08206    15.24126
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 9
+. generate rif_09 = 6.946187 + (6.946187 - (lwage < 6.946187))/0.787109
+
+. reg rif_09 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  168.15
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1905
+                                                       Root MSE      =  .56333
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_09 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.4013772   .0422529    -9.50   0.000    -.4842005    -.318554
+     expdum2 |  -.0825761   .0513967    -1.61   0.108    -.1833228    .0181706
+     expdum3 |  -.0803129   .0503857    -1.59   0.111    -.1790779    .0184521
+     expdum5 |  -.0144965   .0452414    -0.32   0.749    -.1031778    .0741848
+     expdum6 |  -.0067867   .0447137    -0.15   0.879    -.0944336    .0808602
+     expdum7 |   .0241194   .0444382     0.54   0.587    -.0629873    .1112262
+     expdum8 |  -.0291303   .0414985    -0.70   0.483    -.1104747    .0522142
+      female |  -.2805489   .0250372   -11.21   0.000    -.3296262   -.2314716
+     married |   .0929895   .0239626     3.88   0.000     .0460186    .1399604
+       educ1 |  -.1566971   .0167954    -9.33   0.000    -.1896192   -.1237751
+       educ2 |  -.0732581   .0174135    -4.21   0.000    -.1073917   -.0391244
+       educ4 |   .1842723   .0197558     9.33   0.000     .1455474    .2229971
+       educ5 |   .2024731   .0259712     7.80   0.000     .1515649    .2533813
+      inform |   .1057594   .0207844     5.09   0.000     .0650182    .1465006
+     routine |  -.0350562   .0266461    -1.32   0.188    -.0872873    .0171749
+        face |   .0770603   .0252686     3.05   0.002     .0275293    .1265913
+        site |   .0079873    .019738     0.40   0.686    -.0307027    .0466773
+    decision |   -.099834   .0219818    -4.54   0.000    -.1429224   -.0567457
+       _cons |   15.29387   .0401747   380.68   0.000     15.21512    15.37262
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 10
+. generate rif_10 = 7.006161 + (7.006161 - (lwage < 7.006161))/0.781563
+
+. reg rif_10 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  169.32
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1929
+                                                       Root MSE      =  .55401
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_10 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.3362193   .0412228    -8.16   0.000    -.4170233   -.2554153
+     expdum2 |  -.0935969   .0490615    -1.91   0.056    -.1897662    .0025724
+     expdum3 |  -.0430225   .0494279    -0.87   0.384      -.13991     .053865
+     expdum5 |   .0301724   .0444611     0.68   0.497    -.0569792     .117324
+     expdum6 |   .0290312   .0436745     0.66   0.506    -.0565786     .114641
+     expdum7 |   .0604135   .0434715     1.39   0.165    -.0247985    .1456254
+     expdum8 |  -.0062198   .0404771    -0.15   0.878    -.0855621    .0731224
+      female |  -.2691636   .0241607   -11.14   0.000    -.3165229   -.2218042
+     married |   .0913271    .023001     3.97   0.000      .046241    .1364133
+       educ1 |   -.151416    .016703    -9.07   0.000    -.1841568   -.1186752
+       educ2 |  -.0650889   .0172486    -3.77   0.000    -.0988992   -.0312786
+       educ4 |   .2063774   .0201048    10.27   0.000     .1669684    .2457865
+       educ5 |   .2395509   .0269222     8.90   0.000     .1867786    .2923232
+      inform |   .0900288   .0204756     4.40   0.000     .0498929    .1301646
+     routine |  -.0530146   .0260672    -2.03   0.042    -.1041109   -.0019184
+        face |   .0942955   .0249181     3.78   0.000     .0454516    .1431394
+        site |   .0006552   .0197437     0.03   0.974    -.0380461    .0393564
+    decision |  -.1178817   .0216669    -5.44   0.000    -.1603527   -.0754107
+       _cons |   15.38979    .038856   396.07   0.000     15.31362    15.46595
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 11
+. generate rif_11 = 7.078341 + (7.078341 - (lwage < 7.078341))/0.752327
+
+. reg rif_11 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  171.16
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1871
+                                                       Root MSE      =   .5585
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_11 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.3120825   .0413509    -7.55   0.000    -.3931377   -.2310274
+     expdum2 |  -.0918968   .0499843    -1.84   0.066    -.1898749    .0060813
+     expdum3 |  -.0658427   .0503511    -1.31   0.191    -.1645399    .0328546
+     expdum5 |    .017633    .045567     0.39   0.699    -.0716864    .1069524
+     expdum6 |  -.0044736   .0442557    -0.10   0.919    -.0912226    .0822754
+     expdum7 |    .032017   .0442257     0.72   0.469    -.0546732    .1187072
+     expdum8 |  -.0357143   .0412294    -0.87   0.386    -.1165314    .0451027
+      female |  -.2283135   .0239665    -9.53   0.000    -.2752921   -.1813349
+     married |   .1262761   .0221767     5.69   0.000     .0828057    .1697464
+       educ1 |  -.1465841   .0172088    -8.52   0.000    -.1803164   -.1128517
+       educ2 |  -.0704535    .017596    -4.00   0.000    -.1049449   -.0359622
+       educ4 |   .2190266   .0210864    10.39   0.000     .1776935    .2603596
+       educ5 |    .290994   .0283787    10.25   0.000     .2353666    .3466214
+      inform |   .0749271   .0204716     3.66   0.000     .0347991    .1150551
+     routine |  -.0744458   .0260985    -2.85   0.004    -.1256035   -.0232881
+        face |   .1102913    .024846     4.44   0.000     .0615886     .158994
+        site |  -.0085486   .0199721    -0.43   0.669    -.0476974    .0306002
+    decision |  -.1296951   .0218747    -5.93   0.000    -.1725736   -.0868167
+       _cons |   15.78563   .0392411   402.27   0.000     15.70871    15.86255
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 12
+. generate rif_12 = 7.136905 + (7.136905 - (lwage < 7.136905))/0.718137
+
+. reg rif_12 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  160.43
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1720
+                                                       Root MSE      =  .56271
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_12 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.2894705   .0416633    -6.95   0.000    -.3711379   -.2078031
+     expdum2 |  -.0957437   .0504218    -1.90   0.058    -.1945795    .0030922
+     expdum3 |  -.0659319   .0501297    -1.32   0.188     -.164195    .0323312
+     expdum5 |  -.0108477   .0457741    -0.24   0.813    -.1005732    .0788778
+     expdum6 |   .0016537    .044842     0.04   0.971    -.0862447    .0895521
+     expdum7 |   .0251838   .0446564     0.56   0.573    -.0623508    .1127184
+     expdum8 |  -.0456409   .0415572    -1.10   0.272    -.1271005    .0358186
+      female |  -.2092845   .0236433    -8.85   0.000    -.2556297   -.1629394
+     married |   .1093277   .0218743     5.00   0.000     .0664501    .1522052
+       educ1 |  -.1577226   .0175731    -8.98   0.000    -.1921691   -.1232761
+       educ2 |  -.0779139   .0179183    -4.35   0.000    -.1130371   -.0427908
+       educ4 |   .2300666   .0220655    10.43   0.000     .1868142     .273319
+       educ5 |   .3385036   .0305365    11.09   0.000     .2786465    .3983607
+      inform |   .0580762    .020624     2.82   0.005     .0176495     .098503
+     routine |  -.0803519   .0260964    -3.08   0.002    -.1315056   -.0291982
+        face |   .1312076   .0244963     5.36   0.000     .0831905    .1792247
+        site |   .0018442   .0199581     0.09   0.926    -.0372773    .0409657
+    decision |  -.1365685   .0221988    -6.15   0.000    -.1800821   -.0930548
+       _cons |   16.27614   .0393974   413.13   0.000     16.19892    16.35337
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 13
+. generate rif_13 = 7.211911 + (7.211911 - (lwage < 7.211911))/0.685978
+
+. reg rif_13 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  155.08
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1725
+                                                       Root MSE      =  .55652
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_13 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |   -.255224   .0396061    -6.44   0.000    -.3328591    -.177589
+     expdum2 |  -.0935894   .0484923    -1.93   0.054     -.188643    .0014642
+     expdum3 |  -.0503047    .048612    -1.03   0.301     -.145593    .0449836
+     expdum5 |   .0177348   .0449344     0.39   0.693    -.0703446    .1058142
+     expdum6 |   .0262489   .0440014     0.60   0.551    -.0600018    .1124996
+     expdum7 |    .045329   .0434891     1.04   0.297    -.0399173    .1305753
+     expdum8 |  -.0128034   .0405436    -0.32   0.752    -.0922761    .0666693
+      female |  -.1996908   .0229194    -8.71   0.000     -.244617   -.1547646
+     married |   .0944497   .0209485     4.51   0.000     .0533869    .1355126
+       educ1 |  -.1504576   .0175366    -8.58   0.000    -.1848324   -.1160827
+       educ2 |  -.0722982   .0178624    -4.05   0.000    -.1073118   -.0372846
+       educ4 |   .2368622   .0226824    10.44   0.000     .1924006    .2813238
+       educ5 |   .3591198   .0325982    11.02   0.000     .2952215    .4230182
+      inform |   .0375234   .0204058     1.84   0.066    -.0024756    .0775224
+     routine |  -.0508377   .0252497    -2.01   0.044    -.1003317   -.0013437
+        face |   .1239082   .0242255     5.11   0.000     .0764219    .1713946
+        site |   .0187106   .0196873     0.95   0.342    -.0198801    .0573012
+    decision |  -.1683951   .0221804    -7.59   0.000    -.2118726   -.1249175
+       _cons |   16.79362   .0379823   442.14   0.000     16.71916    16.86807
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 14
+. generate rif_14 = 7.296644 + (7.296644 - (lwage < 7.296644))/0.656732
+
+. reg rif_14 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  135.07
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1577
+                                                       Root MSE      =  .54879
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_14 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.2545605   .0390148    -6.52   0.000    -.3310365   -.1780844
+     expdum2 |   -.115068    .047568    -2.42   0.016    -.2083098   -.0218263
+     expdum3 |  -.0683863   .0480944    -1.42   0.155      -.16266    .0258873
+     expdum5 |   .0090755    .045255     0.20   0.841    -.0796323    .0977833
+     expdum6 |  -.0295366   .0428655    -0.69   0.491    -.1135606    .0544874
+     expdum7 |   .0078938   .0434389     0.18   0.856    -.0772541    .0930418
+     expdum8 |  -.0198828   .0405389    -0.49   0.624    -.0993463    .0595808
+      female |  -.1746565   .0219392    -7.96   0.000    -.2176613   -.1316518
+     married |   .0824613    .020454     4.03   0.000     .0423679    .1225547
+       educ1 |   -.134479   .0175527    -7.66   0.000    -.1688854   -.1000725
+       educ2 |  -.0606652   .0178779    -3.39   0.001    -.0957091   -.0256213
+       educ4 |   .2072933   .0232305     8.92   0.000     .1617574    .2528291
+       educ5 |   .3882813   .0345976    11.22   0.000     .3204637    .4560988
+      inform |   .0427722   .0201693     2.12   0.034     .0032367    .0823078
+     routine |  -.0420073   .0244912    -1.72   0.086    -.0900144    .0059998
+        face |   .1183923   .0236978     5.00   0.000     .0719405    .1648442
+        site |   .0127884   .0195943     0.65   0.514    -.0256198    .0511967
+    decision |  -.1627546   .0222134    -7.33   0.000    -.2062968   -.1192123
+       _cons |   17.36814    .037691   460.80   0.000     17.29426    17.44203
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 15
+. generate rif_15 = 7.362652 + (7.362652 - (lwage < 7.362652))/0.619972
+
+. reg rif_15 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =  108.30
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1450
+                                                       Root MSE      =    .542
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_15 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.2088285   .0386226    -5.41   0.000    -.2845358   -.1331212
+     expdum2 |  -.0986321   .0466952    -2.11   0.035    -.1901631   -.0071011
+     expdum3 |  -.0541031   .0477074    -1.13   0.257    -.1476181     .039412
+     expdum5 |   .0116745   .0448861     0.26   0.795    -.0763103    .0996593
+     expdum6 |  -.0449716   .0412493    -1.09   0.276    -.1258275    .0358843
+     expdum7 |   .0206848   .0431986     0.48   0.632    -.0639922    .1053619
+     expdum8 |    -.02553   .0397984    -0.64   0.521     -.103542     .052482
+      female |  -.1623952   .0214409    -7.57   0.000    -.2044231   -.1203673
+     married |   .0828312   .0195117     4.25   0.000     .0445848    .1210776
+       educ1 |  -.1196089   .0175122    -6.83   0.000    -.1539358   -.0852819
+       educ2 |  -.0560612   .0178184    -3.15   0.002    -.0909885   -.0211339
+       educ4 |   .1696978   .0236873     7.16   0.000     .1232663    .2161292
+       educ5 |   .3900589   .0368321    10.59   0.000     .3178615    .4622564
+      inform |   .0231496   .0193214     1.20   0.231    -.0147237    .0610229
+     routine |  -.0214209   .0238625    -0.90   0.369    -.0681956    .0253538
+        face |   .1237619   .0225744     5.48   0.000      .079512    .1680118
+        site |   .0418626    .018956     2.21   0.027     .0047054    .0790198
+    decision |  -.1801396   .0221225    -8.14   0.000    -.2235036   -.1367755
+       _cons |   18.04705   .0368079   490.30   0.000      17.9749     18.1192
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 16
+. generate rif_16 = 7.453545 + (7.453545 - (lwage < 7.453545))/0.515545
+
+. reg rif_16 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   91.51
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1338
+                                                       Root MSE      =  .59831
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_16 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.2033084    .043257    -4.70   0.000    -.2880997    -.118517
+     expdum2 |  -.1225753   .0504718    -2.43   0.015    -.2215089   -.0236416
+     expdum3 |  -.0444154   .0543591    -0.82   0.414    -.1509688    .0621381
+     expdum5 |   .0204385   .0503394     0.41   0.685    -.0782357    .1191128
+     expdum6 |  -.0495852   .0458283    -1.08   0.279    -.1394169    .0402465
+     expdum7 |   .0142658   .0482279     0.30   0.767    -.0802694    .1088011
+     expdum8 |  -.0367157   .0440186    -0.83   0.404    -.1230001    .0495687
+      female |  -.1931609    .022726    -8.50   0.000    -.2377079   -.1486139
+     married |   .0842979   .0207082     4.07   0.000     .0437061    .1248897
+       educ1 |  -.1041554   .0196805    -5.29   0.000    -.1427326   -.0655782
+       educ2 |  -.0546863   .0197192    -2.77   0.006    -.0933394   -.0160332
+       educ4 |   .1424415   .0269068     5.29   0.000     .0896994    .1951835
+       educ5 |   .4051328   .0438285     9.24   0.000     .3192212    .4910444
+      inform |   .0395747   .0212655     1.86   0.063    -.0021095     .081259
+     routine |  -.0202499   .0251088    -0.81   0.420    -.0694676    .0289678
+        face |   .1252533   .0243149     5.15   0.000     .0775918    .1729149
+        site |   .0430683   .0212383     2.03   0.043     .0014373    .0846992
+    decision |  -.1841515   .0250921    -7.34   0.000    -.2333365   -.1349664
+       _cons |   20.39002   .0407303   500.61   0.000     20.31018    20.46986
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 17
+. generate rif_17 = 7.563143 + (7.563143 - (lwage < 7.563143))/0.400368
+
+. reg rif_17 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   76.38
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.1122
+                                                       Root MSE      =  .66738
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_17 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.1805593   .0447872    -4.03   0.000    -.2683503   -.0927684
+     expdum2 |  -.1652309   .0477198    -3.46   0.001    -.2587702   -.0716915
+     expdum3 |  -.0389735   .0589667    -0.66   0.509    -.1545587    .0766118
+     expdum5 |   .0236662   .0543882     0.44   0.663    -.0829444    .1302769
+     expdum6 |  -.0128557   .0500018    -0.26   0.797    -.1108681    .0851567
+     expdum7 |   .0528382   .0531684     0.99   0.320    -.0513813    .1570576
+     expdum8 |  -.0053871   .0478855    -0.11   0.910    -.0992512     .088477
+      female |  -.1641464   .0236958    -6.93   0.000    -.2105943   -.1176984
+     married |   .0902655   .0211122     4.28   0.000     .0488819    .1316491
+       educ1 |  -.1311812   .0218547    -6.00   0.000    -.1740202   -.0883421
+       educ2 |  -.0737058   .0221235    -3.33   0.001    -.1170718   -.0303398
+       educ4 |   .1442353   .0315212     4.58   0.000      .082448    .2060225
+       educ5 |    .475706   .0544506     8.74   0.000     .3689731    .5824389
+      inform |   .0407573   .0233168     1.75   0.080    -.0049477    .0864623
+     routine |  -.0098414   .0274106    -0.36   0.720    -.0635711    .0438884
+        face |   .1416254   .0252227     5.62   0.000     .0921844    .1910663
+        site |   .0435951     .02327     1.87   0.061    -.0020183    .0892084
+    decision |  -.1928103   .0280783    -6.87   0.000    -.2478487   -.1377718
+       _cons |   24.33418   .0437002   556.84   0.000     24.24852    24.41984
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 18
+. generate rif_18 = 7.711822 + (7.711822 - (lwage < 7.711822))/0.288694
+
+. reg rif_18 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   54.29
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.0894
+                                                       Root MSE      =  .76424
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_18 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.1690215    .051392    -3.29   0.001    -.2697591   -.0682839
+     expdum2 |  -.1889154    .052497    -3.60   0.000     -.291819   -.0860118
+     expdum3 |  -.0523409   .0694466    -0.75   0.451    -.1884686    .0837868
+     expdum5 |  -.0221319    .061366    -0.36   0.718    -.1424203    .0981565
+     expdum6 |   -.032094   .0582517    -0.55   0.582    -.1462778    .0820898
+     expdum7 |   .0278026   .0615975     0.45   0.652    -.0929395    .1485447
+     expdum8 |  -.0138602   .0569374    -0.24   0.808    -.1254676    .0977473
+      female |  -.1706071   .0257829    -6.62   0.000    -.2211462    -.120068
+     married |   .1011897   .0219793     4.60   0.000     .0581063    .1442732
+       educ1 |  -.0984292   .0250167    -3.93   0.000    -.1474664    -.049392
+       educ2 |   -.050226   .0250549    -2.00   0.045    -.0993381   -.0011139
+       educ4 |   .2026622   .0376283     5.39   0.000      .128904    .2764205
+       educ5 |   .5497757    .069091     7.96   0.000      .414345    .6852063
+      inform |   .0221962   .0290969     0.76   0.446     -.034839    .0792313
+     routine |    .020446   .0292383     0.70   0.484    -.0368663    .0777583
+        face |   .1106272   .0274976     4.02   0.000     .0567271    .1645274
+        site |   .0564595   .0267592     2.11   0.035     .0040066    .1089123
+    decision |  -.2053156   .0346753    -5.92   0.000    -.2732854   -.1373457
+       _cons |   31.29245   .0503608   621.37   0.000     31.19373    31.39116
+------------------------------------------------------------------------------
+
+. 
+. 
+. * manual RIF regression 19
+. generate rif_19 = 7.962973 + (7.962973 - (lwage < 7.962973))/0.143471
+
+. reg rif_19 expdum1-expdum3 expdum5-expdum8 female married ///
+>       educ1 educ2 educ4 educ5 ///
+>       inform routine face site decision [aweight = SIHPSWT], robust
+(sum of wgt is   7.1730e+04)
+
+Linear regression                                      Number of obs =   11064
+                                                       F( 18, 11045) =   29.90
+                                                       Prob > F      =  0.0000
+                                                       R-squared     =  0.0514
+                                                       Root MSE      =   1.064
+
+------------------------------------------------------------------------------
+             |               Robust
+      rif_19 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     expdum1 |  -.1817251   .0762089    -2.38   0.017    -.3311081   -.0323421
+     expdum2 |  -.2478035   .0698409    -3.55   0.000    -.3847042   -.1109027
+     expdum3 |  -.1303439   .0954984    -1.36   0.172    -.3175378      .05685
+     expdum5 |   .0133878   .0926077     0.14   0.885    -.1681399    .1949156
+     expdum6 |  -.0380103   .0846306    -0.45   0.653    -.2039014    .1278808
+     expdum7 |  -.0587243   .0826007    -0.71   0.477    -.2206364    .1031878
+     expdum8 |  -.0747302   .0785484    -0.95   0.341     -.228699    .0792387
+      female |  -.1921053   .0331249    -5.80   0.000     -.257036   -.1271745
+     married |   .0801138   .0280142     2.86   0.004      .025201    .1350267
+       educ1 |  -.0976683   .0340987    -2.86   0.004    -.1645079   -.0308287
+       educ2 |  -.0332645   .0358717    -0.93   0.354    -.1035794    .0370504
+       educ4 |   .3496725   .0550395     6.35   0.000     .2417852    .4575597
+       educ5 |    .728126   .1112863     6.54   0.000     .5099851     .946267
+      inform |   .0119411   .0429608     0.28   0.781    -.0722698     .096152
+     routine |  -.0085315    .037387    -0.23   0.819    -.0818168    .0647537
+        face |   .1191103   .0361888     3.29   0.001     .0481738    .1900468
+        site |   .0672086   .0396592     1.69   0.090    -.0105305    .1449476
+    decision |  -.1723984   .0472555    -3.65   0.000    -.2650276   -.0797691
+       _cons |   56.85408   .0720011   789.63   0.000     56.71295    56.99522
+------------------------------------------------------------------------------
+
+. 
+. 
+. 
+. 
+. 
+. /* XX_ABS_STARTLOG (START OF ABS TERMINATION CODE) */
+. 
+. XABSTERM
+
+. /* XX_ABS_ENDLOG (END OF ABS TERMINATION CODE) */
+. 
+end of do-file
