@@ -16,12 +16,11 @@ The standard classification scheme for occupations used in Australia, ANZSCO, si
 \end{quote}
 Given the qualitative nature of this classification scheme, there is no obvious way to systematically formalise the similarity between economists and statisticians on the basis of the ANZSCO classification. However, alternative classification schemes do exist which include comparable task classifications.
 
-\subsection{Occupational tasks: O*NET}\label{sec:onet}
+\section{Occupational tasks: O*NET}\label{sec:onet}
 
 The U.S. equivalent to the ANZSCO classification, the O*NET database, includes hundreds of quantitative scales for the level of work activities, knowledge types and abilities for individuals in each of approximately five hundred occupations. The data were constructed using expert surveys, and provide a very rich source of information about the activities that workers in each occupation actually undertake. For example, for the work activity {\em analyze data}, the occupations {\em economist} and {\em surgeon} score highly (6.58/7 and 5.49/7, respectively.) But for the work activity {\em Handle moving objects}, surgeons score 3.62/7, and economists score only 0.54/7.
 
 We have mapped the ANZSCO (and its predecessors, various editions of ASCO and the CCLO) to the O*NET data, and sucessfully constructued a skill measure series for Australian occupational classification schemes. We then apply a transformation step, described by \citet{Firpo2011}, to build composite indexes for `automation,' `offshorability', and so on. These composite indexes provide a dependent variable which, along with levels of capital investment on an industry-by-industry basis, provide a basis by which changes in the occupational wage structure can be analyzed. The following five composite indexes are constructed for each occupation code:
-
 
 \begin{enumerate}[A.]
 \item Characteristics linked to Technological Change/Offshorability
@@ -83,6 +82,31 @@ We have mapped the ANZSCO (and its predecessors, various editions of ASCO and th
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../figure/correl.pdf}
-  \caption{Correlation plots: occupational task indexes for jobs at the ANZSIC 3-digit level. Notice that the job indexes are not perfectly mutually independent. As might be expected, `information content' is positively correlated with `face-to-face' roles ($\rho=0.497$) and decision-making ($\rho=0.651$), but negatively correlated with the job requiring on-site presence ($\rho=-0.358$). `Routinization' is negatively correlated with both face-to-face contact ($\rho=-0.33$) and decision-making ($\rho=-0.276$).}
+  \caption{Correlation plots: occupational task indexes for jobs at the ANZSIC occupational group level. Notice that the job indexes are not perfectly mutually independent. As might be expected, `information content' is positively correlated with `face-to-face' roles ($\rho=0.497$) and decision-making ($\rho=0.651$), but negatively correlated with the job requiring on-site presence ($\rho=-0.358$). `Routinization' is negatively correlated with both face-to-face contact ($\rho=-0.33$) and decision-making ($\rho=-0.276$).}
   \label{fig:correl}
 \end{figure}
+
+\begin{sidewaystable}[ht]
+\centering
+\begin{tabular}{|l|cc|ccc|}
+  \hline
+ & \multicolumn{2}{|c|}{Technology} & \multicolumn{3}{|c|}{Offshorability} \\
+  \hline
+ ANZSCO Major Occupation Group & Information & Automation & No Face-to-Face & No On-Site & No Decisions \\ 
+  \hline
+  1. Managers & 0.427 & -0.465 & -0.919 & 0.401 & -1.223 \\ 
+  2. Professionals & 0.913 & -0.545 & -0.475 & 0.577 & -0.712 \\ 
+  3. Technicians And Trades Workers & -0.424 & 0.258 & 0.598 & -0.864 & 0.215 \\ 
+  4. Community And Personal Service Workers & -0.511 & -0.298 & -0.565 & 0.291 & 0.453 \\ 
+  5. Clerical And Administrative Workers & 0.447 & 0.541 & 0.249 & 0.883 & 0.788 \\ 
+  6. Sales Workers & -0.140 & -0.087 & -0.167 & 0.710 & 0.451 \\ 
+  7. Machinery Operators And Drivers & -0.791 & 0.937 & 0.930 & -1.096 & 0.868 \\ 
+  8. Labourers & -0.955 & 0.730 & 0.811 & -0.951 & 0.674 \\ 
+\hline
+  Std. Dev. & 0.663 & 0.565 & 0.690 & 0.821 & 0.756 \\ 
+  Mean & -0.129 & 0.134 & 0.058 & -0.006 & 0.189 \\ 
+   \hline
+\end{tabular}
+\caption{Summary of task indexes, at the major group level, computed for occupation populations 2011 census. Sources: ABS cat 2072.0, O*NET, US Dept of Labor.}
+\label{tbl:indexes}
+\end{sidewaystable}

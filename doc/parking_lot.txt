@@ -18,6 +18,27 @@
 % Further, orthogonal category: "offshorability."
 
 
+%The college premium is linked to the supply of labor by \cite{Card2001}. They note that the rising college premium measured in the data is attributable almost entirely to younger cohorts of workers, and especially for men in their early thirties. They argue that the driving force behind the rising college premium is a slowdown in the pace of educational attainment, relative to the demand for labor.
+
+Empirically, we take as our point of departure the analysis of the US occupational wage structure performed by \citet{Fortin2011}, who build on the work of \citet{Oaxaca1973} and \citet{Juhn1993} to decompose the impact of demographic variables and occupational tasks on the wage structure. Following \citet{Autor2012} and \citet{Fortin2011}, we assume that workers self-select into occupations based on comparative advantage, in a model reminiscent of Roy's (\citeyear{Roy1951}) model of occupational choice.
+
+
+%We will take as a point of departure the standard model for analyzing skill-based technical change (SBTC). This model, dubbed the `canonical' model by \citet{Acemoglu2011} and which has sparked a voluminous literature, has enjoyed considerable empirical success explaining rising wages for high-skill managerial and professional jobs in the United States and Europe \citep{Katz1992}. Since the canonical model includes \emph{factor-augmenting} capital, it predicts a uniform skill upgrading of the work force at all education levels \citep{Levy2003}. Skill upgrading has been confirmed by a number of authors, both in Australia \citep{Esposto2012, Wooden2000, Cully1999} and overseas \citep{Autor2008}. 
+
+
+% \citet{Autor2009} analyze an economy where rising demand for service occupations 
+
+
+Both the `canonical' model and the Ricardian models of occupational choice discussed in Chapter~\ref{ch:2} make predictions about the proportion of skilled and unskilled labor employed, in the presence of SBTC. 
+
+
+
+
+\subsection{Test of Changing Wage Shares}
+
+
+
+
 
 % ***********************
 

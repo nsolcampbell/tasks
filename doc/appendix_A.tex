@@ -2,8 +2,7 @@
 
 Measures of income are drawn from two principal data sources, both provided by the ABS. The first is the Survey of Income and Housing, a detailed sample survey of household income dynamics, and the second is the Census of Population and Housing, a five-yearly survey of the full Australian population. 
 
-\subsection{Survey of Income and Housing, 1981-2012}
-\label{sec:SIH}
+\section{Survey of Income and Housing, 1981-2012}\label{sec:SIH}
 
 % \cite{ATKINSON2007} - under-estimate top income earners
 
@@ -11,13 +10,11 @@ The Survey of Income and Housing (SIH) is a hierarchical, clustered sample surve
 
 Unlike the Census of Population and Housing, a population survey, the SIH is conducted on just a sample of the population, and unit records are weighted by demographic variables in order to create a representative sample. Weights are produced at three levels of the survey hierarchy: household, income unit and person. (In addition, the SIH is occasionally produced simultaneously with the Housing Expenditure Survey, or HES, in which case further expenditure levels are recorded.) For the purposes of this project, only individual-level records are of interest, and so all estimators are weighted by person weight.
 
-\subsubsection{Survey Weights}
+\section{Survey Weights \& Replication Weights}
 
 In all versions of the SIH, the $PERS\_WT$ variable for the $i$th record is computed as the reciprocal of that individual's probability of selection $\pi_i$, where $PERS\_WT_i = 1/\pi_i.$ $PERS\_WT_i$ can be interpreted as the number of individuals in the whole population `represented' by record $i$. The sum of the inverse selection probabilities is therefore identically equal to the size of the population. Note that, since the $\pi_i$ refers to the probability of individual $i$ being drawn from the overall population (and not from the sample), the selection probabilities $\pi_i$, $i=1,\cdots,n$, will not sum to 1.
 
-
-
-\subsubsection{Occupational Coding Schemes}
+\section{Occupational Coding Schemes}
 \label{sec:occcoding}
 
 In major surveys such as the SIH and Census, respondents' occupations are coded according to standard occupational classification schemes. One major drawback of the SIH is that, over its 30 year history, several distinct and incompatible occupational coding schemes have been used. In particular, the classification schemes for the available editions of the survey are:
@@ -115,16 +112,44 @@ The schemes were manually compiled using an iterative procedure. First, fine-gra
 \label{tab:combined2}
 \end{sidewaystable}
 
-\subsubsection{Educational Attainment}
+\begin{sidewaystable}[ht]
+\centering
+{\scriptsize
+\begin{tabular}{|r|p{3cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+  \hline
+ & ASCO II Major Groups / ANZSCO Major Groups & Managers & Professionals & Technicians, Trades & Community, Personal Service & Clerical and Admin & Sales & Operators and Drivers & Labourers \\
+  \hline
+1 & Managers and Administrators & 97.65 & 2.34 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+  2 & Professionals & 0.82 & 97.61 & 0.15 & 1.31 & 0.06 & 0.05 & 0.01 & 0.00 \\
+  3 & Associate Professionals & 35.45 & 7.39 & 20.43 & 12.78 & 17.77 & 6.18 & 0.00 & 0.00 \\
+  4 & Tradespersons and Related Workers & 0.18 & 0.01 & 96.76 & 1.72 & 0.09 & 0.00 & 0.65 & 0.60 \\
+  5 & Advanced Clerical and Service Workers & 0.00 & 0.00 & 0.53 & 2.72 & 92.32 & 4.43 & 0.00 & 0.00 \\
+  6 & Intermediate Clerical, Sales and Service Workers & 0.02 & 0.01 & 0.82 & 35.75 & 52.67 & 10.34 & 0.00 & 0.38 \\
+  7 & Intermediate Production and Transport Workers & 0.00 & 0.00 & 0.18 & 0.02 & 3.07 & 0.09 & 80.71 & 15.93 \\
+  8 & Elementary Clerical, Sales and Service Workers & 0.00 & 0.00 & 0.16 & 7.33 & 8.28 & 76.34 & 0.33 & 7.56 \\
+  9 & Labourers and Related Workers & 0.00 & 0.00 & 0.00 & 0.03 & 0.00 & 0.00 & 0.02 & 99.95 \\
+   \hline
+\end{tabular}
+}
+\caption{Link table between ASCO II and ANZSCO encoding schemes, at the major group level. Weightings reflect population surveyed in 2006 Census of Population and Housing. Source: ABS cat. 1232.0.}
+\label{tbl:link}
+\end{sidewaystable}
 
 
-\subsubsection{Sources of Income}
+\subsection{Educational Attainment}
+
+
+\subsection{Sources of Income}
 
 As described in the data appendix, to ensure comparability for skills, only individuals who report a full-time wage as their primary source of income are included. (** NB: later we might attempt \$ per hour)
 
 
 
-\subsection{Census}
+\section{Census of Population and Housing}
+
+
+\section{Alternative Datasets}
+
 
 
 %%% Local Variables: 

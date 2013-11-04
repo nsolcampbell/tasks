@@ -6,12 +6,13 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{dcolumn}
-%\usepackage{fullpage}
 \usepackage{fancyhdr}
 \usepackage{enumerate}
 \usepackage{rotating}
 \usepackage{setspace}
 \usepackage{bm}
+\usepackage{multirow}
+
 \doublespacing
 
 \newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
@@ -20,6 +21,11 @@
 \newcommand{\sH}{\mathcal{H}}% 's' means 'set'
 \newcommand{\sM}{\mathcal{M}}
 \newcommand{\sL}{\mathcal{L}}
+
+
+\newcommand{\ELL}{\mathcal{L}}
+\newcommand{\EH}{\mathcal{H}}
+\newcommand{\M}{\mathcal{M}}
 
 \usepackage[american]{babel}
 \usepackage{csquotes}
@@ -50,7 +56,8 @@
 \numberwithin{equation}{chapter}
 \usepackage[font={small,it}]{caption}
 
-\renewcommand{\bibfont}{\normalfont\footnotesize}
+% uncomment below to make the bibliography smaller
+%\renewcommand{\bibfont}{\normalfont\footnotesize}
 
 \begin{document}
 \include{title}
@@ -69,7 +76,7 @@
 \appendix
 \include{appendix_A}
 \include{appendix_A2}
-\include{appendix_B}
+%\include{appendix_B}
 \end{document}
 
 %%% Local Variables: 
