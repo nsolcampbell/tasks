@@ -4,10 +4,10 @@ quantile_regressions <- function(A.tasks, B.tasks, notes,
     A.lm <- lm(A ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                 data=A.tasks, weights = Population)
     
-    A.lm.nooutsrc <- lm(A ~ Automation.Routinization + No.Decision.Making,
+    A.lm.nooutsrc <- lm(A ~ Information.Content + Automation.Routinization,
                data=A.tasks, weights = Population)
     
-    A.lm.noroutine <- lm(A ~ Information.Content + No.Face.to.Face + No.On.Site.Work,
+    A.lm.noroutine <- lm(A ~ No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                           data=A.tasks, weights = Population)
     
     B.lm.unweighted <- lm(B ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
@@ -16,10 +16,10 @@ quantile_regressions <- function(A.tasks, B.tasks, notes,
     B.lm <- lm(B ~ Information.Content + Automation.Routinization + No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                           data=B.tasks, weights = Population)
     
-    B.lm.noroutine <- lm(B ~ Information.Content + No.Face.to.Face + No.On.Site.Work,
+    B.lm.noroutine <- lm(B ~ No.Face.to.Face + No.On.Site.Work + No.Decision.Making,
                           data=B.tasks, weights = Population)
     
-    B.lm.nooutsrc <- lm(B ~ Automation.Routinization + No.Decision.Making,
+    B.lm.nooutsrc <- lm(B ~ Automation.Routinization + Information.Content,
                         data=B.tasks, weights = Population)
     
     library(stargazer)
@@ -30,7 +30,7 @@ quantile_regressions <- function(A.tasks, B.tasks, notes,
               float.env="sidewaystable",
               column.sep.width='0pt',
               type="text", title=title,
-              omit='Constant',
+              omit='(Intercept)',
               out=paste0(outfile, c(".txt", ".tex")),
               label=label,
               covariate.labels=c("Information content",
