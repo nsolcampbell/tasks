@@ -25,6 +25,10 @@ quantreg:
 
 	# top and tail the latex tables,
 	# remove some junk
-	egrep -v '\\(begin|end)\{document\}|documentclass|rotating' analysis/quant_reg_i.tex | sed -e 's/df = //g' > doc/quant_reg_i.tex
-	egrep -v '\\(begin|end)\{document\}|documentclass|rotating' analysis/quant_reg_ii.tex | sed -e 's/df = //g' > doc/quant_reg_ii.tex
+	egrep -v '\\(begin|end)\{document\}|usepackage|documentclass|rotating' analysis/quant_reg_i.tex | sed -e 's/df = //g' > doc/quant_reg_i.tex
+	egrep -v '\\(begin|end)\{document\}|usepackage|documentclass|rotating' analysis/quant_reg_ii.tex | sed -e 's/df = //g' > doc/quant_reg_ii.tex
+
+share:
+	R -q -f analysis/wage_share.R
+	egrep -v '\\(begin|end)\{document\}|usepackage|documentclass|rotating' analysis/share_table.tex | sed -e 's/df = //g' > doc/share_table.tex
 

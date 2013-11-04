@@ -1,42 +1,37 @@
-\begin{sidewaystable} \begin{center}
-  \caption{Wage Share Change Estimation Results: 1996-2010} 
-  \label{tbl:reg} 
-{\scriptsize
-\begin{tabular}{lcccccc} 
+
+
+% Table created by stargazer v.4.0 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Mon, Nov 04, 2013 - 13:11:20
+\begin{tabular}{@{\extracolsep{0.5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{6}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-7} 
-\\[-1.8ex] & \multicolumn{2}{c}{$\Delta SHARE^H$} & \multicolumn{2}{c}{$\Delta SHARE^M$} & \multicolumn{2}{c}{$\Delta SHARE^L$} \\ 
-\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6)\\ 
+ & \multicolumn{9}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-10} 
+\\[-1.8ex] & \multicolumn{3}{c}{$\Delta SHARE^H$} & \multicolumn{3}{c}{$\Delta SHARE^M$} & \multicolumn{3}{c}{$\Delta SHARE^L$} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)} & \multicolumn{1}{c}{(9)}\\ 
 \hline \\[-1.8ex] 
- $\Delta$log {\em equipment} & 0.037 & 0.081 & $-$0.144 & $-$0.249$^{**}$ & 0.107 & 0.169$^{*}$ \\ 
-  & (0.100) & (0.080) & (0.108) & (0.094) & (0.099) & (0.084) \\ 
-  & & & & & & \\ 
- $\Delta$log {\em software} & $-$0.018 &  & 0.109$^{*}$ &  & $-$0.091$^{*}$ &  \\ 
-  & (0.052) &  & (0.056) &  & (0.052) &  \\ 
-  & & & & & & \\ 
- $\Delta$log {\em other capital} & 0.118 &  & $-$0.173 &  & 0.055 &  \\ 
-  & (0.176) &  & (0.191) &  & (0.176) &  \\ 
-  & & & & & & \\ 
- $\Delta$log {\em value added} & 0.113 & 0.071 & 0.035 & 0.030 & $-$0.148 & $-$0.102 \\ 
-  & (0.163) & (0.127) & (0.176) & (0.149) & (0.163) & (0.133) \\ 
-  & & & & & & \\ 
- Constant & 0.040 & 0.055 & $-$0.102 & $-$0.095 & 0.062 & 0.040 \\ 
-  & (0.073) & (0.060) & (0.079) & (0.070) & (0.073) & (0.063) \\ 
-  & & & & & & \\ 
+ $\Delta$ {\em ICT capital} & 0.045 &  &  & 0.102 &  &  & -0.147 &  &  \\ 
+  & (0.147) &  &  & (0.198) &  &  & (0.127) &  &  \\ 
+  & & & & & & & & & \\ 
+ $\Delta$ {\em Non-ICT capital} & 0.236 &  &  & -0.546^{*} &  &  & 0.310 &  &  \\ 
+  & (0.190) &  &  & (0.256) &  &  & (0.163) &  &  \\ 
+  & & & & & & & & & \\ 
+ $\Delta$ {\em equipment} &  & 0.143 &  &  & -0.335^{*} &  &  & 0.191^{*} &  \\ 
+  &  & (0.103) &  &  & (0.136) &  &  & (0.089) &  \\ 
+  & & & & & & & & & \\ 
+ $\Delta$ {\em software} &  &  & -0.049 &  &  & 0.174^{*} &  &  & -0.125^{*} \\ 
+  &  &  & (0.059) &  &  & (0.078) &  &  & (0.048) \\ 
+  & & & & & & & & & \\ 
+ $\Delta$ {\em value added} & 0.178 & 0.064 & 0.030 & -0.131 & 0.081 & 0.190 & -0.047 & -0.145 & -0.220 \\ 
+  & (0.172) & (0.142) & (0.147) & (0.232) & (0.187) & (0.193) & (0.148) & (0.122) & (0.120) \\ 
+  & & & & & & & & & \\ 
 \hline \\[-1.8ex] 
-Observations & 30 & 30 & 30 & 30 & 30 & 30 \\ 
-R$^{2}$ & 0.068 & 0.044 & 0.343 & 0.210 & 0.251 & 0.151 \\ 
-Adjusted R$^{2}$ & $-$0.081 & $-$0.026 & 0.238 & 0.152 & 0.132 & 0.089 \\ 
-Residual Std. Error & 0.101 (df = 25) & 0.098 (df = 27) & 0.109 (df = 25) & 0.115 (df = 27) & 0.101 (df = 25) & 0.103 (df = 27) \\ 
-F Statistic & 0.455 (df = 4; 25) & 0.627 (df = 2; 27) & 3.268$^{**}$ (df = 4; 25) & 3.593$^{**}$ (df = 2; 27) & 2.100 (df = 4; 25) & 2.409 (df = 2; 27) \\ 
+Observations & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} & \multicolumn{1}{c}{32} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.063} & \multicolumn{1}{c}{0.067} & \multicolumn{1}{c}{0.028} & \multicolumn{1}{c}{0.149} & \multicolumn{1}{c}{0.179} & \multicolumn{1}{c}{0.155} & \multicolumn{1}{c}{0.179} & \multicolumn{1}{c}{0.179} & \multicolumn{1}{c}{0.227} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{-0.037} & \multicolumn{1}{c}{0.002} & \multicolumn{1}{c}{-0.039} & \multicolumn{1}{c}{0.058} & \multicolumn{1}{c}{0.122} & \multicolumn{1}{c}{0.097} & \multicolumn{1}{c}{0.091} & \multicolumn{1}{c}{0.123} & \multicolumn{1}{c}{0.174} \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{6}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\textit{Note:}  & \multicolumn{9}{r}{*p < 0.05; **p < 0.01} \\ 
 \normalsize 
 \end{tabular} 
-}
-\end{center}
-{\em Wage shares computed for full-time workers, whose primary sources of income are wages and salaries, estimated for 16 industry groups. `High skill' workers include professionals and managers, `middle skill' workers include sales persons, clerical workers and para-professionals, and `low skill' workers include jobs with a high degree of manual activity, including laborers, transport workers and trades persons. To smooth out noise, all variables are estimated in seven-year differences. Survey data are composition adjusted by age bracket, sex and education level to be consistent with 2010 demographics. The variables {\em equipment} and {\em software} respectively refer to the capital stock of electronic and electrical equipment and computer software, at the end of each period. {\em other capital} refers to non-ICT capital, and {\em `value added'} is the value added for that industry group. Source: ABS (Survey of Income and Housing and National Accounts).}
-\end{sidewaystable} 
+

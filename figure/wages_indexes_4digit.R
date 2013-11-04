@@ -75,3 +75,20 @@ ggplot(tasks.long, aes(x=mean, y=value, group=index, weight=weight)) +
     theme(legend.position='none')
 makeFootnote('Full-time workers. Source: ABS cat no 2072.0')
 dev.off()
+
+# now average at 1-digit level
+major.map <- unique(anzsco_onet[,c("ANZSCO1","Title1")])
+tasks$ANZSCO1 <- substr(as.character(tasks$ANZSCO), 1, 1)
+tasks.major <- ddply(tasks, .(ANZSCO1), summarise, 
+                       Information.Content = weighted.mean(Information.Content, w=pop),
+                       Automation.Routinization = mean(Automation.Routinization),
+                       No.Face.to.Face = mean(No.Face.to.Face),
+                       No.On.Site.Work = mean(No.On.Site.Work),
+                       No.Decision.Making = mean(No.Decision.Making)
+)
+table <- merge(tasks.major, major.map)[,c(1,7,2:6)]
+
+sds <- apply(tasks[,2:6], MARGIN=2, FUN=sd)
+mns <- apply(tasks[,2:6], MARGIN=2, FUN=mean)
+
+task.summary <- rbind(sds, mns, tasks.major[,2:6])
