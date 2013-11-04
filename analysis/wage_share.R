@@ -22,10 +22,10 @@ mysubset$Group <- recodeVar(as.character(mysubset$COccupA),
                            c("Nonroutine Manual","Routine","Nonroutine Nonmanual"),
                            c("L","M","H"))
 
-#mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2010"))
+mysubset <- subset(mysubset, Year %in% c("1996", "2003", "2012"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998", "2003", "2008"))
 #mysubset <- subset(mysubset, !Year %in% c("1982", "1986", "1995", "1996", "1997", "1998")) #, "2003", "2008"))
-mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
+#mysubset <- subset(mysubset, !Year %in% c("1982", "1986")) #, "1995", "1996", "1997", "1998", "2003", "2008"))
 
 # this list is useful for trimming national accounts data
 year_list <- as.numeric(as.character(with(mysubset, unique(Year))))
@@ -156,22 +156,25 @@ save_or_print <- function(plot, filename) {
     if (interactive()) {
         print(plot)
     } else {
-        pdf(filename, width=12, height=8)
+        pdf(filename, width=10, height=4)
         print(plot)
         dev.off()
     }
 }
 
 p <- qplot(exp(l_ict), dshare2, color=group, fill=group, data=rd_long) + 
-    geom_hline(y=0) + #scale_y_continuous(limits=c(-1,1)) +
+    geom_hline(y=0) + scale_x_continuous(limits=c(0.921, 1.059)) +
     geom_smooth(method="lm", alpha=0.25) + facet_grid(.~group) + 
-    ggtitle("Change in Wage Share and ICT Equipment Investment 1996-2010") +
+    ggtitle("Change in Wage Share and ICT Capital Investment 1996-2010") +
     xlab("Change in log equipment capital-value added ratio") +
     ylab("Change in wage share") +
     theme(legend.position="none")
 
+save_or_print(p, 'figure/wage_share_ict.pdf')
+save_or_print(p + facet_grid(year~group), 'figure/wage_share_ict_split.pdf')
+
 p <- qplot(exp(l_equip), dshare2, color=group, fill=group, data=rd_long) + 
-    geom_hline(y=0) + #scale_y_continuous(limits=c(-1,1)) +
+    geom_hline(y=0) + scale_x_continuous(limits=c(0.921, 1.059)) +
     geom_smooth(method="lm", alpha=0.25) + facet_grid(.~group) + 
     ggtitle("Change in Wage Share and ICT Equipment Investment 1996-2010") +
     xlab("Change in log equipment capital-value added ratio") +
@@ -179,10 +182,10 @@ p <- qplot(exp(l_equip), dshare2, color=group, fill=group, data=rd_long) +
     theme(legend.position="none")
 
 save_or_print(p, 'figure/wage_share_equipment_skill.pdf')
-save_or_print(p + facet_grid(Year~group), 'figure/wage_share_equipment_skill_split.pdf')
+save_or_print(p + facet_grid(year~group), 'figure/wage_share_equipment_skill_split.pdf')
 
 p <- qplot(exp(l_soft), dshare2, color=group, fill=group, data=rd_long) +
-        geom_hline(y=0) +
+        geom_hline(y=0) + scale_x_continuous(limits=c(0.921, 1.059)) +
         geom_smooth(method="lm", alpha=0.25) + facet_grid(.~group) +
         ggtitle("Change in Wage Share and ICT Software Investment 1996-2010") +
         xlab("Change in log software capital-value added ratio") +
@@ -190,10 +193,10 @@ p <- qplot(exp(l_soft), dshare2, color=group, fill=group, data=rd_long) +
         theme(legend.position="none")
 
 save_or_print(p, 'figure/wage_share_software_skill.pdf')
-save_or_print(p + facet_grid(Year~group), 'figure/wage_share_software_skill_split.pdf')
+save_or_print(p + facet_grid(year~group), 'figure/wage_share_software_skill_split.pdf')
 
 p <- qplot(exp(l_periph), dshare2, color=group, fill=group, data=rd_long) +
-        geom_hline(y=0) + scale_y_continuous(limits=c(-1,1)) +
+        geom_hline(y=0) + scale_x_continuous(limits=c(0.921, 1.059)) +
         geom_smooth(method="lm", alpha=0.25) + facet_grid(.~group) +
         ggtitle("Change in Wage Share and ICT Computers and Peripherals Investment 1996-2010") +
         xlab("Change in log computers and peripherals capital-value added ratio") +
@@ -201,7 +204,7 @@ p <- qplot(exp(l_periph), dshare2, color=group, fill=group, data=rd_long) +
         theme(legend.position="none")
 
 save_or_print(p, 'figure/wage_share_peripherals_skill.pdf')
-save_or_print(p + facet_grid(Year~group), 'figure/wage_share_peripherals_skill_split.pdf')
+save_or_print(p + facet_grid(year~group), 'figure/wage_share_peripherals_skill_split.pdf')
 
 require(stargazer)
 gdata <- subset(rd_long, group == "High Skill")
