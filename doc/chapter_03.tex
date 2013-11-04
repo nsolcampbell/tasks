@@ -89,11 +89,11 @@ For Australian data, \citet{Esposto2011} performs a mapping between the O*NET cl
 
 The evidence considered above shows that, over time, the skill distribution of both the US and Australian populations has been shifting. A greater proportion of the population has attained tertiary degrees, for example, and women's work force participation patterns have changed. This presents a problem for comparing wage profiles over time. A direct analysis of the wage profile, without knowledge of changing composition of the work force, cannot determine whether any observed changes occurred as a result of changing human capital variables, such as experience and educational attainment, or as a result of structural factors, such as technological change \citep[][see, e.g.]{Mincer1974}. 
 
-\subsection{A Reweighting Approach}
+\subsection{A Reweighting Approach}\label{sec:reweight}
 
 Reweighting techniques overcome the problem of composition effects by computing a `counterfactual' distribution, that has the same distribution of covariates as the comparison distribution. First, suppose we have a set of observations, in which individuals can either be observed in period $0$ or $1$.
 
-The goal of DiNardo's approach is to re-weight the observations in period $0$ so that the covariates in period $0$ match those in period $1$. Adopting the re-weighting procedure suggested by \citet{DiNardo1996}, they aim to create a counterfactual wage distribution $F_{Y_0}^C$ that exhibits the characteristics of period $0$, but with the wage structure of period $1$:
+The goal of DiNardo {\em et al.}'s approach is to re-weight the observations in period $0$ so that the covariates in period $0$ match those in period $1$. Adopting the re-weighting procedure suggested by \citet{DiNardo1996}, they aim to create a counterfactual wage distribution $F_{Y_0}^C$ that exhibits the characteristics of period $0$, but with the wage structure of period $1$:
 \begin{align*}
   F_{Y_0}^C &= \int F_{Y_0|X_0}(y|X) dF_{X_1}(X)
 \intertext{We now re-write this equation as an integral over $F_{X_0}(X)$, by adding a reweighting factor $\Psi(X) = dF_{X_1}(X)/dF_{X_0}(X)$:}
@@ -106,9 +106,7 @@ The goal of DiNardo's approach is to re-weight the observations in period $0$ so
 \end{align*}
 that re-weights the data in period $0$ to match the distribution of covariates observed in period~$1$. To implement this re-weighting function, the probability of $T$ being 1 or 0 can be modeled using a probit model, fit to the combined data sets, with $T$ as the response variable. % Probit model: help! How do I weight this?
 
-\cite{Borland1999}
-
-\cite{Baron2010}
+{\bf \color{red} *** TODO: describe results from \cite{Borland1999} \cite{Baron2010} }
 
 \subsection{The Oaxaca-Blinder Decomposition}
 

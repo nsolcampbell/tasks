@@ -53,7 +53,7 @@ With the data we have available, we are unable to directly observe skill or indi
 
 The evidence discussed in this section is only partially in agreement with the canonical model of SBTC laid out in Chapter~\ref{ch:2}. The model predicts an increase in inequality, as agents invest in education and increase the gap between `skilled' and `unskilled' workers. This trend is indeed observed (Figure~\ref{fig:ineq}). However, in the model, the channel through which income inequality increases is the college premium. It is not (Figure~\ref{fig:wagepremium}). Further regularities in the data speak against the model: non-monotonicity in wage quantiles and wages over time suggest that the SBTC story may not be the most helpful explanation.
 
-That the income distribution is widening, but the skill premium is {\em not} driving the change, suggests at least two interpretations. We have already discussed the fact that educational attainment may be a poor indicator of skill for the Australian labor market. A second, more nuanced explanation was suggested by \citet{Levy2003}. Technological change may not be complementary to all types of labor; it may replace many types of labor entirely.
+That the income distribution is widening, but the skill premium is {\em not} driving the change, suggests at least two interpretations. We have already discussed the fact that educational attainment may be a poor indicator of skill for the Australian labor market. A second, more nuanced explanation was suggested by \citet{Levy2003}. Technological change may not be complementary to all types of labor; it may in fact be a {\em substitute} for certain jobs.
 
 \section{The `Disappearing Middle'}\label{sec:disappearing}
 
@@ -224,13 +224,17 @@ One major difference with US labour market, that could explain the unexpected in
 
 \section{Decomposing Wage Changes}
 
+In this final stage of the analysis, we attempt to examine the evidence for a causal link between changes in technology and changes in the wage distribution. First, we use the approach suggested by \citet{DiNardo1996} to perform an aggregate decomposition of wages, separating changes in the wage distribution into a composition effect and a wage structure effect. We then proceed one step further, and attempt to explain the wage structure effect by our technology indexes.
 
+\subsection{Aggregate Decomposition} \label{sec:id}
 
-% ** todo: summarize reweighting and RIF regression methods here
+The theoretical approach we follow here is sketched in the previous chapter (\S\ref{sec:reweight}), and described in detail in \citet{DiNardo1996}. Recall that, the goal of decomposition approaches is to separate changes in the wage distribution into two parts:
+$$
+\Delta_O = \Delta_S + \Delta_X,
+$$
+where $\Delta_X$, is the composition effect, and $\Delta_S$ is the wage structure effect. The composition effect is that part of the wage distribution explained by changes in human capital and demographic variables such as potential experience and educational attainment. The wage structure effect is that part which remains unexplained, and which we assume can be explained by our derived task indexes.
 
-\subsection{Model} \label{sec:id}
-
-One condition required for RIF-regression is that the support of covariates $X$ is the same for both time periods. In other words, it should not be possible to unambiguously predict which time period an observation belongs to, simply by observing the value of its covariates. 
+However, before we can proceed with estimation, we must impose further assumptions on our data. First, we require that the support of covariates $X$ is the same for both time periods. In other words, it should not be possible to unambiguously predict which time period an observation belongs to, simply by observing the value of its covariates. 
 \begin{assumption}[Overlapping support] \label{ass:overlap}
   Let the support of wage setting factors in both periods $[X',\epsilon']'$ be $\mathcal{X}\times\mathcal{E}$. For all $[x',e']' \in \mathcal{X}\times\mathcal{E}$,  $0 < \Pr[T=0 | X=x, \epsilon=e] < 1$.
 \end{assumption}
@@ -241,24 +245,11 @@ Further, in order to identify the explained and unexplained effects of the covar
   For $T\in\{0,1\}$, let $(T, X, \epsilon)$ have a joint distribution. Then, for all $x\in \mathcal{X}$, $\epsilon$ is independent of $T$ given $X=x$.
 \end{assumption}
 
-The assumptions stated so far are both plausible, and sufficient for identifying the wage structure component ($\hat{\Delta}_S$) and endowment effect component ($\hat{\Delta}_X$) of the aggregate decomposition. While this aggregate decomposition is useful, even more useful would be the ability to separate out the components of $\Delta_X$ or $\Delta_S$ into the contributions of each independent variable, the so-called `detailed decomposition'. 
+The above assumptions imply at least one fact that is clearly false: that occupational titles in the first period have the same meaning as occupations in the last period. Although it can be argued that, say, the occupation of 'Lawyer' is largely unchanged between the 1980s and the 2000s, the same cannot be said for certain technical professions. The activities of an `Surveyor,' for example, has been greatly altered by the introduction of GPS technology and portable computers. However, this problem is mitigated somewhat by aggregating occupations into larger groups; see \citet{Firpo2011} for a discussion.
 
-\citep[p.27]{Fortin2011} show that non-parametric estimates of the detailed decomposition require assumptions that cannot be maintained in this context. For example,the following independence condition, found in \citet{Matzkin2003}, must hold:
-\begin{assumption}[Independence]\label{ass:indep}
-  For $T\in\{0,1\}$, $X$ is uncorrelated with $\epsilon$ in time $T$.
-\end{assumption}
-Most decompositions of the determinants of wages, including this one, follow the Mincerean `human capital' approach, which suggests that the primary determinants of wages are investments in education and experience, which enhance productivity \citep{Mincer1962}. For that reason, these covariates are included in $X$ in this study. However, as is well-known, OLS regression estimates of Mincer-style wage equations tend to exhibit endogeneity bias, since observable characteristics (such as years of schooling) tend to be correlated with unobserved characteristics such as general ability or talent \citep{Card1999}. Consequently, any regression specification that omits an accurate measure of `ability' will exhibit endogeneity bias, since the omitted variable will cause explanatory variables such as schooling to be correlated with the error term. That is to say, that the independence property is violated.
+\subsubsection{Results}
 
-However, the impracticality of Assumption~\ref{ass:indep} is avoided by the linear functional form imposed by Assumption~\ref{ass:linear} \citep[p.28]{Fortin2011}. Furthermore, the linear functional form assumption allows for heteroskedasticity. This this application, this is a useful property, since income variance increases with educational attainment.
-
-\subsection{Results}
-
-% \begin{figure}
-%   \centering
-%   \includegraphics[width=\textwidth]{../figure/rif2.pdf}
-%   \caption{Marginal log wage effect of task measures on log wage quantiles, 1981/82--2011/12 and 2000/01--20011/12, with shaded 95\% confidence intervals. At any given quantile, overlap between the confidence band and the x-axis indicates a lack of statistical significance. The top row shows unconditional quantile regressions against task measures for 1981/82 and 2011/12, and the bottom row, 2000/01 and 2011/12. The vertical axis measures $\partial\ln(w^q)/\partial T_i$, the marginal impact on the log wage of a unit change of the task measure. Notice the similarity between the 2011/12 curves under both coding schemes. This similarity suggests that occupational coding schemes map consistently to the underlying O*NET task measures. Sources: ABS SIH 1981/82, 2000/01, 2011/12; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; U.S. Dept of Labor.}
-%   \label{fig:rif}
-% \end{figure}
+Figure~\ref{fig:aggregate} plots results for the aggregate wage decomposition across the wage distribution for the same two comparison periods as before, 1981/82--2009/10 and 2000/01--2009/10. The blue lines indicate overall changes in the log wage distribution over the time period, and bear the familiar `banana' shape seen in Figure~\ref{fig:banana} (although these charts are not disaggregated by sex.)\footnote{Figure~\ref{fig:aggregate} is weighted to match the 1981/82 covariate distribution, whereas Figure~\ref{fig:banana} is weighted to match  2009/10. Consequently, the charts will not have exactly the same profile.} The green line plots the composition effect, which arises from changes explainable by the work force's observable human capital attributes. And finally, the red line plots the difference between these lines, the wage structure effect, which we attribute to changes in the technological environment over the period.
 
 \begin{figure}
   \centering
@@ -267,6 +258,32 @@ However, the impracticality of Assumption~\ref{ass:indep} is avoided by the line
   \label{fig:aggregate}
 \end{figure}
 
+The left-hand panel spans a period of about 30 years, while the right-hand panel spans just one decade. As expected, wage changes are larger for the 30-year timespan than they are for the shorter period. However, for the longer period, notice that it is the wage structure effect that dominates, whereas between 2000/01 and 2009/10, the composition effect dominates. This suggests that, consistent with findings from studies in the United States and Europe, the that technological impact on the wage distribution occured mainly in the 1980s and 1990s.
+
+Notice also that, for the most part, the curves are upward-sloping, especially in the upper three quarters of the wage distribution. This is consistent with the theories of technical change we have discussed so far, which posit that more `skilled' workers (here proxied by their position in the wage distribution), benefit more technical change. However, notice the U-shaped wage structure curve in the left-hand panel: there were significantly greater gains in the lower quartile of the wage distribution than there was in the middle two quartiles. This is a puzzle: perhaps there are other factors that are systematically influencing low-income jobs.\footnote{There are many possible explanations for this effect. Since 1981/82, the national minimum wage was introduced. Further, in this study we do not have data on union membership, which has been shown to explain a great deal of changes in the wage distribution \citep{Leigh2013,Borland1996}.}
+
+\subsection{Detailed Wage Structure Decomposition}
+
+In order to test the routinization and outsourcing hypothesis, we wish to decompose the wage structure component into contributions from our occupational task indexes. The assumptions stated so far, although sufficient for identifying the wage structure component ($\hat{\Delta}_S$) and endowment effect component ($\hat{\Delta}_X$) of the aggregate decomposition, are insufficient to identify the components of the wage structure.
+
+\citep[p.27]{Fortin2011} show that non-parametric estimates of the detailed decomposition require assumptions that cannot be maintained in this context. For example, the following independence condition, found in \citet{Matzkin2003}, must hold:
+\begin{assumption}[Independence]\label{ass:indep}
+  For $T\in\{0,1\}$, $X$ is uncorrelated with $\epsilon$ in time $T$.
+\end{assumption}
+Most decompositions of the determinants of wages, including this one, follow the Mincerean `human capital' approach, which suggests that the primary determinants of wages are investments in education and experience, which enhance productivity \citep{Mincer1962}. For that reason, these covariates are included in $X$ in this study. However, as is well-known, OLS regression estimates of Mincer-style wage equations tend to exhibit endogeneity bias, since observable characteristics (such as years of schooling) tend to be correlated with unobserved characteristics such as general ability or talent \citep{Card1999}. Consequently, any regression specification that omits an accurate measure of `ability' will exhibit endogeneity bias, since the omitted variable will cause explanatory variables such as schooling to be correlated with the error term. That is to say, the independence property is violated.
+
+However, the impracticality of Assumption~\ref{ass:indep} can be avoided by imposing the linear functional form in Assumption~\ref{ass:linear} \citep[p.28]{Fortin2011}. Furthermore, the linear functional form assumption allows for heteroskedasticity. This this application, this is a useful property, since income variance increases with educational attainment.
+
+The choice of base case for the detailed decomposition is non-trivial. After experimenting with a number of options, male high school graduates with 15-20 years of potential experience were found to be the base case that yielded the most stable results.
+
+\subsubsection{Results}
+
+Detailed decomposition results for the wage structure effect, according to our task measure indexes, are shown in Figure~\ref{fig:structre}.\footnote{Our detailed decomposition also accounts for potential experience (8 dummies), educational attainment (five dummies), marital status and sex. These variables are not reported.} The chart shows the change over time of the impact of each variable on the log wage, at quantiles across the wage distribution. A plotted value of zero indicates `no change' in the relationship between the relevant task index and the log wage. Points above the x-axis indicate an increasingly positive relationship, and vice-versa. Note that, as before, since task indexes are unit free, direct comparisons between magnitudes of index coefficients is meaningless.
+
+One clear trend visible in the data is the growing importance of managerial tasks.
+
+{\bf \color{red} *** TODO: describe and interpret these results. Note we have to get confidence intervals on here, first... and that's taking a while.}
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../figure/structure_decomp.pdf}
@@ -274,23 +291,9 @@ However, the impracticality of Assumption~\ref{ass:indep} is avoided by the line
   \label{fig:structure}
 \end{figure}
 
-
-Figure~\ref{fig:rif} presents the results of unconditional quantile regressions of task measures against the occuptional wage profile, afer accounting for demographic and human capital variables.\footnote{Eight dummies for potential experience, education, sex and martial status are included.} On the left-hand side, the first classification scheme is illustrated, and on the right, the second. The top row shows the base period (1981/82 and 2000/01, respectively), and the bottom row shows 2011/12 for both classification schemes. The horizontal axis shows the quantiles of the (real) wage distribution, and the vertical axis is measured in log points per scale unit. 95\% confidence intervals are shaded, so that at each quantile, statistical signficiance is indicated by the shaded area not overlapping the horizontal axis.\footnote{Note that, since task measure scale units are essentially arbitrary, it is not meaningful to compare different task measures vertically.}
-
-Figure~\ref{fig:rif} illustrates two important facts. First, notice that the marginal task impact curves differ between periods. Consequently, a unit change in occupational task measures is associated with a different impact on wage quantiles at the start and end of both periods. We will focus on these differences, below. Second, notice that marginal effects for each period and task measure appear to be related to quantiles (the x-axis) in a complex way. At this stage, we can conclude that the association between the wage distribution and task measures is highly nonlinear, and that the simple model estimated in \eqref{eq:translog} is not rich enough to capture the changes over time in the wage distribution.
-
-% *** describe the cross-sectional patterns in broad brushstrokes here ***
-
-Although their shapes are indicative, the difference between the marginal task effects between periods,
-$$\partial\ln(w^q_{T=1})/\partial TC_i-\partial\ln(w^q_{T=0})/\partial TC_i,$$
-need to be interpreted with care. Recall from the previous dicusssion that observed changes in the marginal income distribution can occur over time for two reasons. First, a change in the composition of the population of individuals self-selecting into occupations. If, for instance, individuals with a higher degree of human capital were to self-select into occupations with a higher level of a particular task measure, then the observed marginal effect of that task measure would increase. This change corresponds to the $\Delta_X$ term of \eqref{eq:odecomp}. The second component of changes in the marginal effect of task measures is associated with structural changes in the occupational wage structure, denoted $\Delta_S$. In the following section, we now formally de-compose the changes in the occupational wage structure into these two components.
-
-
-\subsection{Discussion}
-
-
-
 \section{Conclusions}
+
+{\bf \color{red} *** TODO: deferred until we have the discussion from the previous section written.}
 
 %%% Local Variables: 
 %%% mode: latex

@@ -52,3 +52,22 @@ SBTC empirical studies, Australia
    - tested SBTC against alternative of trade with low-income countries
 
  * 
+
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{../figure/rif2.pdf}
+%   \caption{Marginal log wage effect of task measures on log wage quantiles, 1981/82--2011/12 and 2000/01--20011/12, with shaded 95\% confidence intervals. At any given quantile, overlap between the confidence band and the x-axis indicates a lack of statistical significance. The top row shows unconditional quantile regressions against task measures for 1981/82 and 2011/12, and the bottom row, 2000/01 and 2011/12. The vertical axis measures $\partial\ln(w^q)/\partial T_i$, the marginal impact on the log wage of a unit change of the task measure. Notice the similarity between the 2011/12 curves under both coding schemes. This similarity suggests that occupational coding schemes map consistently to the underlying O*NET task measures. Sources: ABS SIH 1981/82, 2000/01, 2011/12; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; U.S. Dept of Labor.}
+%   \label{fig:rif}
+% \end{figure}
+
+
+Figure~\ref{fig:rif} presents the results of unconditional quantile regressions of task measures against the occuptional wage profile, afer accounting for demographic and human capital variables.\footnote{Eight dummies for potential experience, education, sex and martial status are included.} On the left-hand side, the first classification scheme is illustrated, and on the right, the second. The top row shows the base period (1981/82 and 2000/01, respectively), and the bottom row shows 2011/12 for both classification schemes. The horizontal axis shows the quantiles of the (real) wage distribution, and the vertical axis is measured in log points per scale unit. 95\% confidence intervals are shaded, so that at each quantile, statistical signficiance is indicated by the shaded area not overlapping the horizontal axis.\footnote{Note that, since task measure scale units are essentially arbitrary, it is not meaningful to compare different task measures vertically.}
+
+Figure~\ref{fig:rif} illustrates two important facts. First, notice that the marginal task impact curves differ between periods. Consequently, a unit change in occupational task measures is associated with a different impact on wage quantiles at the start and end of both periods. We will focus on these differences, below. Second, notice that marginal effects for each period and task measure appear to be related to quantiles (the x-axis) in a complex way. At this stage, we can conclude that the association between the wage distribution and task measures is highly nonlinear, and that the simple model estimated in \eqref{eq:translog} is not rich enough to capture the changes over time in the wage distribution.
+
+% *** describe the cross-sectional patterns in broad brushstrokes here ***
+
+Although their shapes are indicative, the difference between the marginal task effects between periods,
+$$\partial\ln(w^q_{T=1})/\partial TC_i-\partial\ln(w^q_{T=0})/\partial TC_i,$$
+need to be interpreted with care. Recall from the previous dicusssion that observed changes in the marginal income distribution can occur over time for two reasons. First, a change in the composition of the population of individuals self-selecting into occupations. If, for instance, individuals with a higher degree of human capital were to self-select into occupations with a higher level of a particular task measure, then the observed marginal effect of that task measure would increase. This change corresponds to the $\Delta_X$ term of \eqref{eq:odecomp}. The second component of changes in the marginal effect of task measures is associated with structural changes in the occupational wage structure, denoted $\Delta_S$. In the following section, we now formally de-compose the changes in the occupational wage structure into these two components.
