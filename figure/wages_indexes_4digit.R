@@ -86,9 +86,14 @@ tasks.major <- ddply(tasks, .(ANZSCO1), summarise,
                        No.On.Site.Work = mean(No.On.Site.Work),
                        No.Decision.Making = mean(No.Decision.Making)
 )
-table <- merge(tasks.major, major.map)[,c(1,7,2:6)]
+table.tmp <- merge(tasks.major, major.map)
 
-sds <- apply(tasks[,2:6], MARGIN=2, FUN=sd)
-mns <- apply(tasks[,2:6], MARGIN=2, FUN=mean)
+sds <- apply(table.tmp[,2:6], MARGIN=2, FUN=sd)
+mns <- apply(table.tmp[,2:6], MARGIN=2, FUN=mean)
 
-task.summary <- rbind(sds, mns, tasks.major[,2:6])
+table <- rbind(table.tmp[,c(2:6)], sds, mns)
+
+rownames(table) <- c(table.tmp[,7], "Std. Dev.", "Mean")
+
+library(xtable)
+xtable(table)

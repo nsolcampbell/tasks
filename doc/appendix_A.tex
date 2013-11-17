@@ -4,15 +4,17 @@ Measures of income are drawn from two principal data sources, both provided by t
 
 \section{Survey of Income and Housing, 1981-2012}\label{sec:SIH}
 
-% \cite{ATKINSON2007} - under-estimate top income earners
-
-The Survey of Income and Housing (SIH) is a hierarchical, clustered sample survey of income and expenditure patterns of the the Australian population, periodically conducted by the Australian Bureau of Statistics. It was first conducted in the 1981-2 fiscal year, followed by 1985-6, and then every two or three years from 1994-5. Microdata files were obtained as confidentialized unit record files (CURFs) for the surveys performed in 1981-2, 1985-6, 1994-5, 1995-6, 1996-7, 1997-8, 2000-1, 2002-3, 2005-6, 2007-8 and 2009-10.
+The Survey of Income and Housing (SIH) is a hierarchical, clustered sample survey of income and expenditure patterns of the Australian population, periodically conducted by the Australian Bureau of Statistics. It was first conducted in the 1981-2 fiscal year, followed by 1985-6, and then every two or three years from 1994-5. Microdata files were obtained as confidentialized unit record files (CURFs) for the surveys performed in 1981-2, 1985-6, 1994-5, 1995-6, 1996-7, 1997-8, 2000-1, 2002-3, 2005-6, 2007-8 and 2009-10.
 
 Unlike the Census of Population and Housing, a population survey, the SIH is conducted on just a sample of the population, and unit records are weighted by demographic variables in order to create a representative sample. Weights are produced at three levels of the survey hierarchy: household, income unit and person. (In addition, the SIH is occasionally produced simultaneously with the Housing Expenditure Survey, or HES, in which case further expenditure levels are recorded.) For the purposes of this project, only individual-level records are of interest, and so all estimators are weighted by person weight.
+
+Surveys were accessed using the ABS Remote Access Data Laboratory (RADL), a service that provides access to sensitive data by allowing users to run statistical queries remotely. The RADL allows scripts to contain an extremely limited subset of STATA commands. For privacy reasons, the RADL does not permit the use of boostrapping techniques. Furthermore, all looping features of the STATA language have been removed, so bootstrap estimators cannot be computed manually.  For this reason, limited on-premises access was arranged to query the data without limitations.
 
 \section{Survey Weights \& Replication Weights}
 
 In all versions of the SIH, the $PERS\_WT$ variable for the $i$th record is computed as the reciprocal of that individual's probability of selection $\pi_i$, where $PERS\_WT_i = 1/\pi_i.$ $PERS\_WT_i$ can be interpreted as the number of individuals in the whole population `represented' by record $i$. The sum of the inverse selection probabilities is therefore identically equal to the size of the population. Note that, since the $\pi_i$ refers to the probability of individual $i$ being drawn from the overall population (and not from the sample), the selection probabilities $\pi_i$, $i=1,\cdots,n$, will not sum to 1.
+
+Since bootstrapping techniques are not available, delete-a-group jackknife replication weights are made available for the surveys conducted since 1986, and the 1981/82 survey does not have replication weights. The RADL makes available basic procedures for computing standard errors using these weights.
 
 \section{Occupational Coding Schemes}
 \label{sec:occcoding}
@@ -135,22 +137,13 @@ The schemes were manually compiled using an iterative procedure. First, fine-gra
 \label{tbl:link}
 \end{sidewaystable}
 
-
 \subsection{Educational Attainment}
 
+Each cross-section includes slightly different educational attainment classifications: some surveys separate graduate from bachelor degrees, some surveys do not record whether respondents graduated from high school. We therefore create two, separate groups: those with bachelor degrees and above, and everyone else. Experiments with other classifications (including excluding trade qualifications) changed estimates somewhat, but did not alter overall trends.
 
 \subsection{Sources of Income}
 
-As described in the data appendix, to ensure comparability for skills, only individuals who report a full-time wage as their primary source of income are included. (** NB: later we might attempt \$ per hour)
-
-
-
-\section{Census of Population and Housing}
-
-
-\section{Alternative Datasets}
-
-
+A number of different coding schemes are given for respondents' principal source of income. We include two groups of workers: employees whose principal source of income comes from their employer, and workers of own account, who may derive income from an unincorporated business. All employee income was included, including tips, overtime, superannuation and bonuses; likewise, all unincorporated business income was included. Other types of income, such as government transfers, revenue from investment, and cash transfers were excluded.
 
 %%% Local Variables: 
 %%% mode: latex

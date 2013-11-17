@@ -20,7 +20,7 @@ We treat the multiple surveys as repeated cross-sectional measures of the workin
 
 If SBTC explained the widening of the income distribution, then we would expect to observe the premium accruing to `skilled' labor increasing with time. In the United States, such an increase was indeed observed. There, the wage premium earned by tertiary-educated labor fell in the 1970s, but has risen each decade since then \citep{Acemoglu2011}. \citet{Katz1992} employ a similar empirical model which explains the rise of the skill premium in the United States in the post-war era. In Australia, however, a corresponding growth in the premium for tertiary qualifications has not been observed. Figure~\ref{fig:wagepremium} shows the log skill premium for Australia and the United States between 1981/82 and 2008.
 
-\begin{figure}
+\begin{figure}[th]
   \centering
   \includegraphics[width=\textwidth]{../figure/ed_premium_time_two.pdf}
   \caption{University/non-university log wage premium, Australia and the United States. The figure shows the difference between the mean log weekly income for workers who have attained a bachelor degree or higher, and the mean log weekly income of other workers. Only full-time workers whose main sources of income are wages and salaries are included, and survey data have been composition adjusted for sex, age group, (and for the United States, race). Source: for Australia, ABS Survey of Income and Housing, and for the United States, \citet{Acemoglu2011}.}
@@ -159,6 +159,13 @@ Before analyzing changes in occupations over time, we first describe the relatio
   \label{fig:meanocc4dig}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../figure/rif2.pdf}
+  \caption{Marginal log wage effect of task measures on log wage quantiles, computed with RIF-regressions, 1981/82--2011/12 and 2000/01--2011/12. Shaded areas are 95\% analytic confidence intervals. At any given quantile, overlap between the confidence band and the x-axis indicates a lack of statistical significance. The top row shows unconditional quantile regressions against task measures for 1981/82 and 2011/12, and the bottom row, 2000/01 and 2011/12. The vertical axis measures $\partial\ln(w^q)/\partial T_i$, the marginal impact on the log wage of a unit change of the task measure. Notice the similarity between the 2011/12 curves under both coding schemes. This similarity suggests that occupational coding schemes map consistently to the underlying O*NET task measures. Sources: ABS SIH 1981/82, 2000/01, 2011/12; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; U.S. Dept of Labor.}
+  \label{fig:rif}
+\end{figure}
+
 Two obvious patterns emerge in Figure~\ref{fig:meanocc4dig}: the information content and decision-making indexes are strongly positively related to conditional mean wages. These relationships are hardly surprising: professional and managerial work, which tends to be relatively highly remunerated, typically involves information processing and a greater degree of decision-making. Similarly, a negative relationship between automation/routinization and conditional mean wages is also evident. As \citet{Goos2009} argue, so-called `lovely' jobs, which are usually relatively well-paid, tend to involve primarily nonroutine activities, whereas lower-paid `middling' jobs tend to involve a greater proportion of repetitive activity. Finally, there does not appear to be a simple relationship between the face-to-face or on-site task indexes.
 
 In order to test the routinization and outsourcing theories of occupational wage change, it is not enough to examine cross sections of the wage distribution at a given point in time. Rather, since our theory posits an increase in wage dispersion as a consequence of technical change, then these changes should be evident over a period of time. That there is a downward-sloping relationship between automation/routinization and conditional wages is insufficient: it must be demonstrated that this relationship is changing over time.
@@ -251,10 +258,10 @@ The above assumptions imply at least one fact that is clearly false: that occupa
 
 Figure~\ref{fig:aggregate} plots results for the aggregate wage decomposition across the wage distribution for the same two comparison periods as before, 1981/82--2009/10 and 2000/01--2009/10. The blue lines indicate overall changes in the log wage distribution over the time period, and bear the familiar `banana' shape seen in Figure~\ref{fig:banana} (although these charts are not disaggregated by sex.)\footnote{Figure~\ref{fig:aggregate} is weighted to match the 1981/82 covariate distribution, whereas Figure~\ref{fig:banana} is weighted to match  2009/10. Consequently, the charts will not have exactly the same profile.} The green line plots the composition effect, which arises from changes explainable by the work force's observable human capital attributes. And finally, the red line plots the difference between these lines, the wage structure effect, which we attribute to changes in the technological environment over the period.
 
-\begin{figure}
+\begin{figure}[th]
   \centering
   \includegraphics[width=\textwidth]{../figure/aggregate_decomp.pdf}
-  \caption{Aggregate decomposition of wage changes, 1981/82--2011/12 and 2000/01--2001/12. Sources: ABS SIH 1981/82, 2000/01, 2011/12; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; US Dept of Labor.}
+  \caption{Aggregate decomposition of wage changes, 1981/82--2009/10 and 2000/01--2009/10. Due to restrictions in the ABS RADL, confidence intervals could not be computed for this decomposition. Sources: ABS SIH 1981/82, 2000/01, 2009/10; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; US Dept of Labor.}
   \label{fig:aggregate}
 \end{figure}
 
@@ -278,12 +285,12 @@ The choice of base case for the detailed decomposition is non-trivial. After exp
 
 \subsubsection{Results}
 
-Detailed decomposition results for the wage structure effect, according to our task measure indexes, are shown in Figure~\ref{fig:structure}.\footnote{Our detailed decomposition also accounts for potential experience (8 dummies), educational attainment (five dummies), marital status and sex. These variables are not reported.} The chart shows impact a unit change in each variable would have on the log wage, {\em ceteris paribus}, at quantiles across the wage distribution. A plotted value of zero indicates `no change'. Points above the x-axis indicate that task measure explains an increase in wage at that quantile, and vice-versa for points below the x-axis.
+Detailed decomposition results for the wage structure effect, according to our task measure indexes, are shown in Figure~\ref{fig:structure}.\footnote{Our detailed decomposition also accounts for potential experience (8 dummies), educational attainment (five dummies), marital status and sex. These variables are not reported.} The chart shows impact a unit change in each variable would have on the log wage, {\em ceteris paribus}, at quantiles across the wage distribution. A plotted value of zero indicates `no change'.\footnote{Due to a restriction in the ABS RADL environment that prohibits looping and the use of the STATA bootstrap facilities, confidence intervals could not be computed for this decomposition. This makes interpreting the results difficult, since statistical significance can't be determined.} Points above the x-axis indicate that task measure explains an increase in wage at that quantile, and vice-versa for points below the x-axis.
 
 \begin{figure}[th]
   \centering
   \includegraphics[width=\textwidth]{../figure/structure_decomp.pdf}
-  \caption{Detailed structural decomposition of wage changes, 1981/82--2011/12 and 2000/01--20011/12. Note that, as before, since task indexes are unit-free, direct comparisons between magnitudes of index coefficients is not meaningful. Following \citet{Firpo2011}, decomposition charts are presented without confidence intervals. Sources: ABS SIH 1981/82, 2000/01, 2011/12; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; US Dept of Labor.}
+  \caption{Detailed structural decomposition of wage changes, 1981/82--2009/10 and 2000/01--2009/11. Note that, as before, since task indexes are unit-free, direct comparisons between magnitudes of index coefficients is not meaningful. Confidence intervals could not be computed due to restrictions in the ABS RADL. Sources: ABS SIH 1981/82, 2000/01, 2009/10; ABS cat. no. 6401.0, 1220.0, 1223.0, 1288.0.; US Dept of Labor.}
   \label{fig:structure}
 \end{figure}
 

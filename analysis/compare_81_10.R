@@ -1,5 +1,6 @@
 rm(list=ls())
 source('lib/centered_cpi.R')
+source('lib/plot_theme.R')
 library(reshape2)
 
 cpi_82_10 <- log(centered_cpi(2010)) - log(centered_cpi(1982))
@@ -54,13 +55,13 @@ cmp8210.long$grouping <- "1981/82 -- 2009/10"
 cmp0110.long$grouping <- "2000/01 -- 2009/10"
 cmp.long <- rbind(cmp8210.long, cmp0110.long)
 
-p.all <- ggplot(cmp.long, aes(x=q, y=lwage, colour=variable, fill=variable)) + 
+p.all <- ggplot(cmp.long, aes(x=q, y=lwage, colour=variable, shape=variable, fill=variable)) + 
     geom_line(alpha=0.5, aes(group=variable)) + geom_point() +
     ggtitle("Aggregate Decomposition of Wage Changes") +
     facet_grid(~grouping) +
     ylab("Wage difference (log points)") +
     xlab("Wage quantile") +
     geom_hline(y=0, color="black", alpha="0.5")
-pdf("figure/aggregate_decomp.pdf", width=12, height=6)
+pdf("figure/aggregate_decomp.pdf", width=6, height=4)
 print(p.all)
 dev.off()

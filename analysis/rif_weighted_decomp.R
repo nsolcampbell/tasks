@@ -2,6 +2,7 @@
 # for wage quantiles between periods
 library(ggplot2)
 library(doBy)
+library(reshape2)
 source("lib/plot_theme.R")
 
 # quantiles by year
@@ -134,7 +135,7 @@ summarize.decomp <- function(Delta) {
     return(as.data.frame(summ))
 }
 
-decomp <- ggplot(cframe, aes(y=value, x=q, group=covariate, color=covariate)) + 
+decomp <- ggplot(cframe, aes(y=value, x=q, group=covariate, shape=covariate, color=covariate)) + 
     geom_line() + facet_wrap(~ period) +
     ggtitle("Decomposition of effect of covariates on log wage quantiles, 1982-2010") +
     geom_point() +
@@ -146,9 +147,9 @@ decomp <- ggplot(cframe, aes(y=value, x=q, group=covariate, color=covariate)) +
 extract.covariates <- function(Delta) {
     summ <- cbind(q=1:19*0.05, Delta[,15:19])
     colnames(summ) <- c("q",
-                        "Information.Content","Routinization",
-                        "No.Face.to.Face", "No.On.Site.Work",
-                        "No.Decision.Making")
+                        "Information","Routinization",
+                        "No.Face.to.Face", "No.On.Site",
+                        "No.Decision")
     return(as.data.frame(summ))
 }
 cov.decomp_i <- melt(extract.covariates(Delta_S_i_d), id='q',
@@ -159,7 +160,7 @@ cov.decomp_ii <- melt(extract.covariates(Delta_S_ii_d), id='q',
                      variable.name='covariate')
 cov.decomp_ii$period <- "2000/01 -- 2009/10"
 
-pdf("figure/structure_decomp.pdf", width=12, height=6)
+pdf("figure/structure_decomp.pdf", width=8, height=5.5)
 decomp %+% rbind(cov.decomp_i, cov.decomp_ii) +
     ggtitle("Wage Structure Effect: Detailed Decomposition")
 dev.off()

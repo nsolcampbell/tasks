@@ -1,7 +1,7 @@
 \chapter{Task Measure Construction}
 \label{sec:occclassify}
 
-One step which was skipped over in the informal analysis in the previous chapter was the assignment of occupations into task groups, on the basis of the occupational classification scheme. If task content is to be analyzed rigorously, and in greater detail than a simple three-occupation breakdown, a quantitative view of occupational task content is required. 
+One step which was skipped over in the first informal analyses (\S\ref{sec:disappearing}) was the assignment of occupations into task groups, on the basis of the occupational classification scheme. If task content is to be analyzed rigorously, and in greater detail than a simple three-occupation breakdown, a quantitative view of occupational task content is required. 
 
 \section{Australia \& New Zealand Standard Classification for Occupations (ANZSCO)}
 
@@ -14,11 +14,11 @@ The standard classification scheme for occupations used in Australia, ANZSCO, si
 \begin{quote}
 {\em Defining, analysing and solving complex financial and business problems relating to areas such as insurance premiums, annuities, superannuation funds, pensions and dividends \citep[p.181]{Trewin2006}}
 \end{quote}
-Given the qualitative nature of this classification scheme, there is no obvious way to systematically formalise the similarity between economists and statisticians on the basis of the ANZSCO classification. However, alternative classification schemes do exist which include comparable task classifications.
+Given the qualitative nature of this classification scheme, there is no obvious way to systematically formalize the similarity between economists and statisticians on the basis of the ANZSCO classification. However, alternative classification schemes do exist which include comparable task classifications.
 
 \section{Occupational tasks: O*NET}\label{sec:onet}
 
-The U.S. equivalent to the ANZSCO classification, the O*NET database, includes hundreds of quantitative scales for the level of work activities, knowledge types and abilities for individuals in each of approximately five hundred occupations. The data were constructed using expert surveys, and provide a very rich source of information about the activities that workers in each occupation actually undertake. For example, for the work activity {\em analyze data}, the occupations {\em economist} and {\em surgeon} score highly (6.58/7 and 5.49/7, respectively.) But for the work activity {\em Handle moving objects}, surgeons score 3.62/7, and economists score only 0.54/7.
+The US equivalent to the ANZSCO classification, the O*NET database, includes hundreds of quantitative scales for the level of work activities, knowledge types and abilities for individuals in each of approximately five hundred occupations. The data were constructed using expert surveys, and provide a very rich source of information about the activities that workers in each occupation actually undertake. For example, for the work activity {\em analyze data}, the occupations {\em economist} and {\em surgeon} score highly (6.58/7 and 5.49/7, respectively.) But for the work activity {\em Handle moving objects}, surgeons score 3.62/7, and economists score only 0.54/7.
 
 We have mapped the ANZSCO (and its predecessors, various editions of ASCO and the CCLO) to the O*NET data, and sucessfully constructued a skill measure series for Australian occupational classification schemes. We then apply a transformation step, described by \citet{Firpo2011}, to build composite indexes for `automation,' `offshorability', and so on. These composite indexes provide a dependent variable which, along with levels of capital investment on an industry-by-industry basis, provide a basis by which changes in the occupational wage structure can be analyzed. The following five composite indexes are constructed for each occupation code:
 
@@ -72,14 +72,16 @@ We have mapped the ANZSCO (and its predecessors, various editions of ASCO and th
 \end{enumerate}
 \end{enumerate}
 
-\begin{figure}
+Note that these task measures are not completely independent: correlations are illustrated in Figure~\ref{fig:correl}. A independent components analysis of the entire O*NET database was able to explain over 95\% of the dataset's variation with just 6 factors. Nonetheless, these factors seem to give appropriate results for the groups of occupations they describe (see Table~\ref{tbl:indexes}).
+
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{../figure/wages_indexes.pdf}
   \caption{Mean occupational wage and task measure index values, using second combined grouping. Note the similarity of the observed trend to Figure~\ref{fig:meanocc4dig}, in which occupations have not been grouped. Census respondents reporting full-time work are shown. The loess regression line is weighted by population; circle areas are proportional to population for each occupation. Sources: ABS cat 2072.0, O*NET, US Dept of Labor.}
   \label{fig:meanocc2}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{../figure/correl.pdf}
   \caption{Correlation plots: occupational task indexes for jobs at the ANZSIC occupational group level. Notice that the job indexes are not perfectly mutually independent. As might be expected, `information content' is positively correlated with `face-to-face' roles ($\rho=0.497$) and decision-making ($\rho=0.651$), but negatively correlated with the job requiring on-site presence ($\rho=-0.358$). `Routinization' is negatively correlated with both face-to-face contact ($\rho=-0.33$) and decision-making ($\rho=-0.276$).}
